@@ -5,7 +5,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-
+    public string currentElementName;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -16,6 +16,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
         canvasGroup.blocksRaycasts = false;
+        currentElementName = this.gameObject.name;
+
     }
 
     public void OnDrag(PointerEventData eventData)

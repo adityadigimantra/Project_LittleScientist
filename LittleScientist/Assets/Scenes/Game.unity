@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &56333751
 Rigidbody2D:
   serializedVersion: 4
@@ -664,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &265171255
 Rigidbody2D:
   serializedVersion: 4
@@ -924,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!225 &289917946
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -981,7 +984,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 7}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!1 &459663929
 GameObject:
@@ -1310,6 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &635132958
 Rigidbody2D:
   serializedVersion: 4
@@ -1447,6 +1451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &643147802
 Rigidbody2D:
   serializedVersion: 4
@@ -2143,6 +2148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1028340927
 Rigidbody2D:
   serializedVersion: 4
@@ -2522,6 +2528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1312952411
 Rigidbody2D:
   serializedVersion: 4
@@ -2661,6 +2668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!225 &1420043069
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2718,7 +2726,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 7}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!1 &1463734416
 GameObject:
@@ -2823,6 +2831,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1469223833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1469223835}
+  - component: {fileID: 1469223834}
+  m_Layer: 0
+  m_Name: CombinationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1469223834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469223833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9540c4e2e20db96408194cbd3c9489f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element1: 
+  element2: 
+  initialElements: []
+--- !u!4 &1469223835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469223833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.26037, y: 27.581968, z: 119.0385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590346037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,6 +3095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1653099758
 Rigidbody2D:
   serializedVersion: 4
@@ -3178,6 +3233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1666111016
 Rigidbody2D:
   serializedVersion: 4
@@ -3315,6 +3371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1694996135
 Rigidbody2D:
   serializedVersion: 4
@@ -3452,6 +3509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1767068045
 Rigidbody2D:
   serializedVersion: 4
@@ -3589,6 +3647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &1775649324
 Rigidbody2D:
   serializedVersion: 4
@@ -3728,6 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!225 &1792392663
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3785,7 +3845,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 7}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!1 &1826402356
 GameObject:
@@ -3971,15 +4031,15 @@ RectTransform:
   m_GameObject: {fileID: 2033142677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 12, z: 12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1590346038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -348.99997, y: 340}
-  m_SizeDelta: {x: 9.508, y: 7.568}
+  m_AnchoredPosition: {x: -370, y: 338}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033142679
 MonoBehaviour:
@@ -4032,6 +4092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!61 &2033142682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4056,7 +4117,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 7}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!50 &2033142683
 Rigidbody2D:
@@ -4322,6 +4383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElementName: 
 --- !u!50 &2128102480
 Rigidbody2D:
   serializedVersion: 4
