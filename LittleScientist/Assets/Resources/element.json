@@ -26,6 +26,12 @@
             "result": "dust"
         },
         {
+            "Name": "Dust",
+            "element1": "earth",
+            "element2": "air",
+            "result": "dust"
+        },
+        {
             "Name": "Gunpowder",
             "element1": "fire",
             "element2": "dust",
