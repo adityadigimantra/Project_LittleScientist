@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class combinationManager : MonoBehaviour
 {
-    public string element1;
-    public string element2;
-    private List<string> discoveredElements;
-    private List<string> createdElements;
-    public List<string> initialElements;
+    public ElementLoader elementLoaderObj;
+    public Element elementObj;
+    public Combination combObj;
 
-   
     private void Start()
     {
         
+
+        
+    }
+    public void CheckElementPresent(string el1, string el2)
+    {
+
     }
 
 }

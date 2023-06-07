@@ -6,4 +6,6 @@ using UnityEngine;
 public class CombinationData
 {
     public List<Combination> combinations;
+
+    
 }
