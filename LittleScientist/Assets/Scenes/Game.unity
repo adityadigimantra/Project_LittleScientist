@@ -3064,19 +3064,7 @@ MonoBehaviour:
   prefab: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3, type: 3}
   CreatedElements: []
   loadCreatedElements: []
-  elementsPanelObj:
-  - {fileID: 1312952406}
-  - {fileID: 1694996130}
-  - {fileID: 2128102475}
-  - {fileID: 265171250}
-  - {fileID: 643147797}
-  - {fileID: 1666111011}
-  - {fileID: 1028340922}
-  - {fileID: 1775649319}
-  - {fileID: 1653099753}
-  - {fileID: 56333746}
-  - {fileID: 635132953}
-  - {fileID: 1767068040}
+  elementsPanelObj: []
 --- !u!4 &1469223835
 Transform:
   m_ObjectHideFlags: 0

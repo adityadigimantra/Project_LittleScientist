@@ -62,8 +62,9 @@ public class combinationManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
         }
-        creatingNewElement = false;
         LoadCreatedElementList();
+        creatingNewElement = false;
+
     }
 
     public void LoadCreatedElementList()
@@ -75,27 +76,10 @@ public class combinationManager : MonoBehaviour
             if(!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
-            }
-            
-        }
-        foreach(string str in loadCreatedElements)
-        {
-            PlayerPrefs.SetString(str, str);
-            string savedName = PlayerPrefs.GetString(str);
-            if(!string.IsNullOrEmpty(savedName))
-            {
-                //GameObject savedObj = new GameObject(savedName);
-                GameObject newObj=Instantiate(prefab);
+                GameObject newObj = Instantiate(prefab);
+                newObj.name = loadedString;
                 GameObject panel = GameObject.Find("ElementsPanel");
-                newObj.name = savedName;
                 newObj.transform.parent = panel.transform;
-                for(int i=0;i<elementsPanelObj.Length;i++)
-                {
-                    newObj.transform.position=elementsPanelObj[i].transform.position;
-                    newObj.transform.rotation=elementsPanelObj[i].transform.rotation;
-                    i++;
-                }
-
             }
         }
         creatingNewElement = false;
