@@ -5,6 +5,7 @@ using UnityEngine;
 public class combinationManager : MonoBehaviour
 {
     Combination resultCombination;
+    Combination resultCombination2;
     public ElementLoader elementLoaderObj;
     public Element elementObj;
     public string COM_Element1;
@@ -23,18 +24,20 @@ public class combinationManager : MonoBehaviour
         COM_Element1=elementObj.ELE_Element1;
         COM_Element2=elementObj.ELE_Element2;
 
-        resultCombination=FindCombination(COM_Element1,COM_Element2);
+        resultCombination=FindCombination1(COM_Element1,COM_Element2);
         if(resultCombination!=null)
         {
             Debug.Log("Result:" + resultCombination.result);
         }
         else
         {
-            Debug.Log("No Combinations Found");
+            Debug.Log("Result:No Combinations Found");
         }
+
+            
     }
 
-    private Combination FindCombination(string el1,string el2)
+    private Combination FindCombination1(string el1,string el2)
     {
         foreach(Combination comb in elementLoaderObj.elementsList)
         {
@@ -46,4 +49,32 @@ public class combinationManager : MonoBehaviour
         return null;
     }
 
+//***************************************************************************************************************
+    //Goes in Update
+    /*
+resultCombination2 = FindCombination2(COM_Element2, COM_Element1);
+if(resultCombination2!=null)
+{
+    Debug.Log("Result 2:" + resultCombination2.result);
+}
+else
+{
+    Debug.Log("Result:No Combination Found");
+}
+  */
+
+    //New Method
+    /*
+private Combination FindCombination2(string el2, string el1)
+{
+    foreach (Combination comb in elementLoaderObj.elementsList)
+    {
+        if (comb.element2 == el2 && comb.element1 == el1)
+        {
+            return comb;
+        }
+    }
+    return null;
+}
+*/
 }

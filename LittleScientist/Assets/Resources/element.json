@@ -8,6 +8,12 @@
             "result": "steam"
         },
         {
+            "Name": "Steam",
+            "element1": "fire",
+            "element2": "water",
+            "result": "steam"
+        },
+        {
             "Name": "Mist",
             "element1": "water",
             "element2": "air",
@@ -47,6 +53,12 @@
             "Name": "Mud",
             "element1": "earth",
             "element2": "water",
+            "result": "mud"
+        },
+        {
+            "Name": "Mud",
+            "element1": "water",
+            "element2": "earth",
             "result": "mud"
         },
         {
