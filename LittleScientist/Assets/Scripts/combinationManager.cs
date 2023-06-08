@@ -11,10 +11,13 @@ public class combinationManager : MonoBehaviour
     public string COM_Element1;
     public string COM_Element2;
     public bool creatingNewElement=true;
-
+    public GameObject prefab;
     [Header("Lists")]
     public List<string> CreatedElements = new List<string>();
     public List<string> loadCreatedElements = new List<string>();
+
+    [Header("Arrays")]
+    public GameObject[] elementsPanelObj;
 
     private void Start()
     {
@@ -37,15 +40,14 @@ public class combinationManager : MonoBehaviour
             if(creatingNewElement)
             {
                 createNewElement();
+               
             }
-            
         }
         else
         {
             Debug.Log("Result:No Combinations Found");
         }
 
-            
     }
 
     public void createNewElement()
@@ -61,6 +63,7 @@ public class combinationManager : MonoBehaviour
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
         }
         creatingNewElement = false;
+        LoadCreatedElementList();
     }
 
     public void LoadCreatedElementList()
@@ -69,8 +72,33 @@ public class combinationManager : MonoBehaviour
         for(int i=0;i<count;i++)
         {
             string loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
-            loadCreatedElements.Add(loadedString);
+            if(!loadCreatedElements.Contains(loadedString))
+            {
+                loadCreatedElements.Add(loadedString);
+            }
+            
         }
+        foreach(string str in loadCreatedElements)
+        {
+            PlayerPrefs.SetString(str, str);
+            string savedName = PlayerPrefs.GetString(str);
+            if(!string.IsNullOrEmpty(savedName))
+            {
+                //GameObject savedObj = new GameObject(savedName);
+                GameObject newObj=Instantiate(prefab);
+                GameObject panel = GameObject.Find("ElementsPanel");
+                newObj.name = savedName;
+                newObj.transform.parent = panel.transform;
+                for(int i=0;i<elementsPanelObj.Length;i++)
+                {
+                    newObj.transform.position=elementsPanelObj[i].transform.position;
+                    newObj.transform.rotation=elementsPanelObj[i].transform.rotation;
+                    i++;
+                }
+
+            }
+        }
+        creatingNewElement = false;
     }
 
     private Combination FindCombination1(string el1,string el2)
