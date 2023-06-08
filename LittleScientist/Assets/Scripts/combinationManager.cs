@@ -12,12 +12,15 @@ public class combinationManager : MonoBehaviour
     public string COM_Element2;
     public bool creatingNewElement=true;
 
+    [Header("Lists")]
     public List<string> CreatedElements = new List<string>();
+    public List<string> loadCreatedElements = new List<string>();
 
     private void Start()
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
         elementObj = FindObjectOfType<Element>();
+        LoadCreatedElementList();
 
     }
 
@@ -51,8 +54,23 @@ public class combinationManager : MonoBehaviour
         if(!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
+            for(int i=0;i<CreatedElements.Count;i++)
+            {
+                PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
+            }
+            PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
         }
         creatingNewElement = false;
+    }
+
+    public void LoadCreatedElementList()
+    {
+        int count = PlayerPrefs.GetInt("StringCount", 0);
+        for(int i=0;i<count;i++)
+        {
+            string loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
+            loadCreatedElements.Add(loadedString);
+        }
     }
 
     private Combination FindCombination1(string el1,string el2)
