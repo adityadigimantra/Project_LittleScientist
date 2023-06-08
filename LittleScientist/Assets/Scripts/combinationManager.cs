@@ -10,6 +10,9 @@ public class combinationManager : MonoBehaviour
     public Element elementObj;
     public string COM_Element1;
     public string COM_Element2;
+    public bool creatingNewElement=true;
+
+    public List<string> CreatedElements = new List<string>();
 
     private void Start()
     {
@@ -25,9 +28,14 @@ public class combinationManager : MonoBehaviour
         COM_Element2=elementObj.ELE_Element2;
 
         resultCombination=FindCombination1(COM_Element1,COM_Element2);
-        if(resultCombination!=null)
+        if (resultCombination != null)
         {
             Debug.Log("Result:" + resultCombination.result);
+            if(creatingNewElement)
+            {
+                createNewElement();
+            }
+            
         }
         else
         {
@@ -35,6 +43,16 @@ public class combinationManager : MonoBehaviour
         }
 
             
+    }
+
+    public void createNewElement()
+    {
+        
+        if(!CreatedElements.Contains(resultCombination.result))
+        {
+            CreatedElements.Add(resultCombination.result);
+        }
+        creatingNewElement = false;
     }
 
     private Combination FindCombination1(string el1,string el2)

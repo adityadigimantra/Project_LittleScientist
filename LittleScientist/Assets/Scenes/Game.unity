@@ -1002,9 +1002,6 @@ MonoBehaviour:
   elementName: 
   ELE_Element1: 
   ELE_Element2: 
-  two_Elements:
-  - 
-  - 
 --- !u!1 &459663929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,9 +2833,6 @@ MonoBehaviour:
   elementName: 
   ELE_Element1: 
   ELE_Element2: 
-  two_Elements:
-  - 
-  - 
 --- !u!1 &1463734416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,6 +2970,8 @@ MonoBehaviour:
   elementObj: {fileID: 0}
   COM_Element1: 
   COM_Element2: 
+  creatingNewElement: 0
+  CreatedElements: []
 --- !u!4 &1469223835
 Transform:
   m_ObjectHideFlags: 0
@@ -3178,9 +3174,6 @@ MonoBehaviour:
   elementName: 
   ELE_Element1: 
   ELE_Element2: 
-  two_Elements:
-  - 
-  - 
 --- !u!1 &1627973203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,9 +4109,6 @@ MonoBehaviour:
   elementName: 
   ELE_Element1: 
   ELE_Element2: 
-  two_Elements:
-  - 
-  - 
 --- !u!1 &1826402356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,9 +4429,6 @@ MonoBehaviour:
   elementName: 
   ELE_Element1: 
   ELE_Element2: 
-  two_Elements:
-  - 
-  - 
 --- !u!1 &2096472886
 GameObject:
   m_ObjectHideFlags: 0
