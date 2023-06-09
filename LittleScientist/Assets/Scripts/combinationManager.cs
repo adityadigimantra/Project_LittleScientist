@@ -82,7 +82,7 @@ public class combinationManager : MonoBehaviour
                 GameObject panel = GameObject.Find("ElementsPanel");
                 if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
                 {
-                    newObj.transform.position = elementsPanelObj[i].transform.position;
+                  newObj.transform.position = elementsPanelObj[i].transform.position;
                 }
                 newObj.transform.parent = panel.transform;
             }

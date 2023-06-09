@@ -32,6 +32,12 @@
             "result": "smoke"
         },
         {
+            "Name": "Smoke",
+            "element1": "fire",
+            "element2": "air",
+            "result": "smoke"
+        },
+        {
             "Name": "Dust",
             "element1": "air",
             "element2": "earth",
