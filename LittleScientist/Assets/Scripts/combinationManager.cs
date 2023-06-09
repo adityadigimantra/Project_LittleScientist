@@ -10,6 +10,7 @@ public class combinationManager : MonoBehaviour
     public Element elementObj;
     public string COM_Element1;
     public string COM_Element2;
+    public string newElementCreated;
     public bool creatingNewElement=true;
     public GameObject prefab;
     [Header("Lists")]
@@ -17,7 +18,7 @@ public class combinationManager : MonoBehaviour
     public List<string> loadCreatedElements = new List<string>();
 
     [Header("Arrays")]
-    public GameObject[] elementsPanelObj;
+    public GameObject[] elementsPanelObj=new GameObject[5];
 
     private void Start()
     {
@@ -59,6 +60,7 @@ public class combinationManager : MonoBehaviour
             for(int i=0;i<CreatedElements.Count;i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
+                
             }
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
         }
@@ -79,6 +81,10 @@ public class combinationManager : MonoBehaviour
                 GameObject newObj = Instantiate(prefab);
                 newObj.name = loadedString;
                 GameObject panel = GameObject.Find("ElementsPanel");
+                if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
+                {
+                    newObj.transform.position = elementsPanelObj[i].transform.position;
+                }
                 newObj.transform.parent = panel.transform;
             }
         }
