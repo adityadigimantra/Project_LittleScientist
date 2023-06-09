@@ -20,6 +20,12 @@
             "result": "mist"
         },
         {
+            "Name": "Mist",
+            "element1": "air",
+            "element2": "water",
+            "result": "mist"
+        },
+        {
             "Name": "Smoke",
             "element1": "air",
             "element2": "fire",
@@ -101,6 +107,12 @@
             "Name": "Lava",
             "element1": "earth",
             "element2": "fire",
+            "result": "lava"
+        },
+        {
+            "Name": "Lava",
+            "element1": "fire",
+            "element2": "earth",
             "result": "lava"
         },
         {

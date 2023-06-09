@@ -27,7 +27,9 @@ public class Element : MonoBehaviour
         string otherObjectName = otherObj.name;
         comManager.creatingNewElement = true;
         ELE_Element1 = gameObject.name;
+        PlayerPrefs.SetString("element1", ELE_Element1);
         ELE_Element2 = otherObjectName;
+        PlayerPrefs.SetString("element2", ELE_Element2);
         Debug.Log("element 1" + thisObjectName + "Collided with Element 2" + otherObjectName);
     }
 

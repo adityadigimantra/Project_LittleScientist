@@ -23,7 +23,6 @@ public class combinationManager : MonoBehaviour
     private void Start()
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
-        elementObj = FindObjectOfType<Element>();
         LoadCreatedElementList();
 
     }
@@ -31,10 +30,10 @@ public class combinationManager : MonoBehaviour
     private void Update()
     {
         //Elements Name coming from collision
-        COM_Element1=elementObj.ELE_Element1;
-        COM_Element2=elementObj.ELE_Element2;
+        COM_Element1=PlayerPrefs.GetString("element1");
+        COM_Element2= PlayerPrefs.GetString("element2");
 
-        resultCombination=FindCombination1(COM_Element1,COM_Element2);
+        resultCombination =FindCombination1(COM_Element1,COM_Element2);
         if (resultCombination != null)
         {
             Debug.Log("Result:" + resultCombination.result);
