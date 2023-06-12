@@ -13,6 +13,10 @@ public class combinationManager : MonoBehaviour
     public string newElementCreated;
     public bool creatingNewElement=true;
     public GameObject prefab;
+
+    [Header("New Created Element")]
+    public GameObject newObj;
+    public GameObject finalObj;
     [Header("Lists")]
     public List<string> CreatedElements = new List<string>();
     public List<string> loadCreatedElements = new List<string>();
@@ -77,8 +81,9 @@ public class combinationManager : MonoBehaviour
             if(!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
-                GameObject newObj = Instantiate(prefab);
+                newObj = Instantiate(prefab);
                 newObj.name = loadedString;
+                finalObj = newObj;
                 GameObject panel = GameObject.Find("ElementsPanel");
                 if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
                 {
