@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class combinationManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class combinationManager : MonoBehaviour
     [Header("New Created Element")]
     public GameObject newObj;
     public GameObject finalObj;
+    public Sprite[] elementImages;
+
     [Header("Lists")]
     public List<string> CreatedElements = new List<string>();
     public List<string> loadCreatedElements = new List<string>();
@@ -75,6 +78,7 @@ public class combinationManager : MonoBehaviour
     public void LoadCreatedElementList()
     {
         int count = PlayerPrefs.GetInt("StringCount", 0);
+        Debug.Log("Count" + count);
         for(int i=0;i<count;i++)
         {
             string loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
@@ -83,16 +87,29 @@ public class combinationManager : MonoBehaviour
                 loadCreatedElements.Add(loadedString);
                 newObj = Instantiate(prefab);
                 newObj.name = loadedString;
-                finalObj = newObj;
+                
                 GameObject panel = GameObject.Find("ElementsPanel");
                 if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
                 {
                   newObj.transform.position = elementsPanelObj[i].transform.position;
                 }
                 newObj.transform.parent = panel.transform;
+
+                Sprite elementImage = LoadElementImage(loadedString);
+                if(elementImage!=null)
+                {
+                    newObj.GetComponent<Image>().sprite = elementImage;
+                }
             }
         }
         creatingNewElement = false;
+    }
+
+    public Sprite LoadElementImage(string elemenName)
+    {
+        string imagePath = "Elements/" + elemenName;
+        return Resources.Load<Sprite>(imagePath);
+        Debug.Log("Image Loaded");
     }
 
     private Combination FindCombination1(string el1,string el2)
