@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3612745300036228327}
   - component: {fileID: 4014298201402310464}
   - component: {fileID: 2881772645050621127}
+  - component: {fileID: 2190883537162543896}
   m_Layer: 5
   m_Name: New
   m_TagString: Untagged
@@ -138,3 +139,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!225 &2190883537162543896
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205407628571246900}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

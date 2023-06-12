@@ -95,7 +95,22 @@ public class combinationManager : MonoBehaviour
                     {
                         newObj.transform.position = elementsPanelObj[i].transform.position;
                         newObj.transform.parent = elementsPanelObj[i].transform;
-                    } 
+                    }
+                  else
+                    {
+                        //finding the next elementPanelObj without a Child
+                        int nextIndex = findNextAvailableChildIndex(i);
+                        if(nextIndex!=-1)
+                        {
+                            newObj.transform.position = elementsPanelObj[nextIndex].transform.position;
+                            newObj.transform.parent = elementsPanelObj[nextIndex].transform;
+                        }
+                        else
+                        {
+                            Debug.LogWarning("No ElementPanelObj without a Child Available");
+                            continue;
+                        }
+                    }
                 }
                 //newObj.transform.parent = panel.transform;
 
@@ -108,6 +123,17 @@ public class combinationManager : MonoBehaviour
             }
         }
         creatingNewElement = false;
+    }
+    public int findNextAvailableChildIndex(int startIndex)
+    {
+        for(int i=startIndex;i<elementsPanelObj.Length;i++)
+        {
+            if(elementsPanelObj[i].transform.childCount==0)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public Sprite LoadElementImage(string elemenName)
