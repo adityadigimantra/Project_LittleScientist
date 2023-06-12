@@ -3271,7 +3271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1431888835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3553,6 +3553,9 @@ MonoBehaviour:
   newObj: {fileID: 0}
   finalObj: {fileID: 0}
   elementImages: []
+  newElementCreatedPanel: {fileID: 1431888834}
+  elementNameText: {fileID: 12850275}
+  NewelementImage: {fileID: 715885258}
   CreatedElements: []
   loadCreatedElements: []
   elementsPanelObj:

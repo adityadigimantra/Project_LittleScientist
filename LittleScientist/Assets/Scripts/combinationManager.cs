@@ -19,6 +19,9 @@ public class combinationManager : MonoBehaviour
     public GameObject newObj;
     public GameObject finalObj;
     public Sprite[] elementImages;
+    public GameObject newElementCreatedPanel;
+    public Text elementNameText;
+    public Image NewelementImage;
 
     [Header("Lists")]
     public List<string> CreatedElements = new List<string>();
@@ -65,7 +68,8 @@ public class combinationManager : MonoBehaviour
         if(!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            StartCoroutine(playnewelementSound());
+            elementNameText.text = resultCombination.result;
+            StartCoroutine(OpenNewElementPanel());
             for (int i=0;i<CreatedElements.Count;i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
@@ -76,6 +80,13 @@ public class combinationManager : MonoBehaviour
         LoadCreatedElementList();
         creatingNewElement = false;
 
+    }
+    IEnumerator OpenNewElementPanel()
+    {        
+        newElementCreatedPanel.SetActive(true);
+        SoundManager._instance.newElementCreatedSound();
+        yield return new WaitForSeconds(2f);
+        newElementCreatedPanel.SetActive(false);
     }
     IEnumerator playnewelementSound()
     {
@@ -126,6 +137,7 @@ public class combinationManager : MonoBehaviour
                 if(elementImage!=null)
                 {
                     newObj.GetComponent<Image>().sprite = elementImage;
+                    NewelementImage.sprite = elementImage;
                 }
 
             }
