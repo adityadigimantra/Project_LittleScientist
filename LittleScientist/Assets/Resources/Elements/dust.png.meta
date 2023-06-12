@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c9dcbbd00e6dfe847ae51eacc8cc34df
+guid: 09a18b7b906884643b91c42e23909559
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1572391234087474867
-    second: brick_0
+      213: -1595736872862477925
+    second: dust_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -81,7 +81,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -93,7 +93,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,7 +117,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -131,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: brick_0
+      name: dust_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 190
-        height: 84
+        width: 211
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d492744e08ebd2ae0800000000000000
-      internalID: -1572391234087474867
+      spriteID: b911a0ac4cdcad9e0800000000000000
+      internalID: -1595736872862477925
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 54b840e19285f2442aadf9f49baaaefa
+    spriteID: 5e772c3b8f0119d499e0f6bca3ae17c8
     internalID: 0
     vertices: []
     indices: 

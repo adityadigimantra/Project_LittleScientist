@@ -128,6 +128,12 @@
             "result": "stone"
         },
         {
+            "Name": "Stone",
+            "element1": "lava",
+            "element2": "air",
+            "result": "stone"
+        },
+        {
             "Name": "Clay",
             "element1": "stone",
             "element2": "mud",

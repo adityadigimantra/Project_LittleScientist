@@ -91,15 +91,20 @@ public class combinationManager : MonoBehaviour
                 GameObject panel = GameObject.Find("ElementsPanel");
                 if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
                 {
-                  newObj.transform.position = elementsPanelObj[i].transform.position;
+                  if(elementsPanelObj[i].transform.childCount==0)
+                    {
+                        newObj.transform.position = elementsPanelObj[i].transform.position;
+                        newObj.transform.parent = elementsPanelObj[i].transform;
+                    } 
                 }
-                newObj.transform.parent = panel.transform;
+                //newObj.transform.parent = panel.transform;
 
                 Sprite elementImage = LoadElementImage(loadedString);
                 if(elementImage!=null)
                 {
                     newObj.GetComponent<Image>().sprite = elementImage;
                 }
+
             }
         }
         creatingNewElement = false;
