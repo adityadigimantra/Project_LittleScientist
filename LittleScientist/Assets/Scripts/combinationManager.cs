@@ -56,6 +56,8 @@ public class combinationManager : MonoBehaviour
         }
 
     }
+    
+
 
     public void createNewElement()
     {
@@ -63,7 +65,8 @@ public class combinationManager : MonoBehaviour
         if(!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            for(int i=0;i<CreatedElements.Count;i++)
+            StartCoroutine(playnewelementSound());
+            for (int i=0;i<CreatedElements.Count;i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
                 
@@ -73,6 +76,11 @@ public class combinationManager : MonoBehaviour
         LoadCreatedElementList();
         creatingNewElement = false;
 
+    }
+    IEnumerator playnewelementSound()
+    {
+        yield return new WaitForSeconds(SoundManager._instance.ElementsCollideSound.clip.length);
+        SoundManager._instance.newElementCreatedSound();
     }
 
     public void LoadCreatedElementList()

@@ -22,6 +22,7 @@ public class Element : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        SoundManager._instance.elementCollideSound();
         GameObject otherObj = other.gameObject;
         string thisObjectName = gameObject.name;
         string otherObjectName = otherObj.name;
