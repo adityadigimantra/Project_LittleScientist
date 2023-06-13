@@ -17,6 +17,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
         canvasGroup.blocksRaycasts = false;
         currentElementName = this.gameObject.name;
+        Debug.Log("Current Element Name" + currentElementName);
 
     }
 
