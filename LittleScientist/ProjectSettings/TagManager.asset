@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - elementPanelObj
+  - Original
+  - Copied
   layers:
   - Default
   - TransparentFX
