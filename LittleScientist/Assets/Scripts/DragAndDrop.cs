@@ -20,7 +20,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     }
     private void Update()
     {
-
+        if (copiedGameObject==null &&this.gameObject.tag == "Copied")
+        {
+            copiedGameObject = this.gameObject;
+        }
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -37,26 +40,26 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         copiedGameObject = Instantiate(gameObject, transform.position, transform.rotation);
         copiedGameObject.transform.parent = ElementsPanel.transform;
-        copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
+        copiedGameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
         copiedGameObject.name = gameObject.GetComponent<Element>().elementName;
+        copiedGameObject.tag = "Copied";
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
-        if(copiedGameObject!=null)
-        {
-            copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
-        }
-        //CopyObjRectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
+        copiedGameObject.transform.position = eventData.position;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         canvasGroup.alpha = 1f; // Reset the transparency of the image when dragging ends
         canvasGroup.blocksRaycasts = true;
+        copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
+        copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
     private float GetCanvasScale()
