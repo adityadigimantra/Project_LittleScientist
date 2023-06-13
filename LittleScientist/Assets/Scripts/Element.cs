@@ -16,7 +16,6 @@ public class Element : MonoBehaviour
     {
         comManager = FindObjectOfType<combinationManager>();
         obj = this.gameObject;
-        elementName = obj.name;
         //obj.GetComponent<Image>().sprite = newSprite;
     }
 

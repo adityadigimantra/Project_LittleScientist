@@ -28,10 +28,19 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         {
             canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
             canvasGroup.blocksRaycasts = false;
+            copiedElementData();
 
-            copiedGameObject = Instantiate(gameObject, transform.position, transform.rotation);
-            copiedGameObject.transform.parent = ElementsPanel.transform;
         }
+    }
+
+    public void copiedElementData()
+    {
+        copiedGameObject = Instantiate(gameObject, transform.position, transform.rotation);
+        copiedGameObject.transform.parent = ElementsPanel.transform;
+        copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
+        copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+        copiedGameObject.name = gameObject.GetComponent<Element>().elementName;
     }
 
     public void OnDrag(PointerEventData eventData)
