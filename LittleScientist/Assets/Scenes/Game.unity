@@ -883,6 +883,8 @@ MonoBehaviour:
   currentElementName: 
   ElementsPanel: {fileID: 0}
   copiedGameObject: {fileID: 0}
+  parentGameObject: {fileID: 0}
+  newGameObject: {fileID: 0}
 --- !u!225 &289917946
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2716,6 +2718,8 @@ MonoBehaviour:
   currentElementName: 
   ElementsPanel: {fileID: 0}
   copiedGameObject: {fileID: 0}
+  parentGameObject: {fileID: 0}
+  newGameObject: {fileID: 0}
 --- !u!225 &1420043069
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3086,6 +3090,7 @@ MonoBehaviour:
   newElementCreated: 
   creatingNewElement: 0
   prefab: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3, type: 3}
+  Copied: {fileID: 1018282689255727619, guid: 03fa29116b0929146afa188557b2004c, type: 3}
   newObj: {fileID: 0}
   finalObj: {fileID: 0}
   elementImages: []
@@ -3968,6 +3973,8 @@ MonoBehaviour:
   currentElementName: 
   ElementsPanel: {fileID: 0}
   copiedGameObject: {fileID: 0}
+  parentGameObject: {fileID: 0}
+  newGameObject: {fileID: 0}
 --- !u!225 &1792392663
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4369,6 +4376,8 @@ MonoBehaviour:
   currentElementName: 
   ElementsPanel: {fileID: 0}
   copiedGameObject: {fileID: 0}
+  parentGameObject: {fileID: 0}
+  newGameObject: {fileID: 0}
 --- !u!61 &2033142682
 BoxCollider2D:
   m_ObjectHideFlags: 0

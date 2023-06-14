@@ -14,6 +14,7 @@ public class combinationManager : MonoBehaviour
     public string newElementCreated;
     public bool creatingNewElement=true;
     public GameObject prefab;
+    public GameObject Copied;
 
     [Header("New Created Element")]
     public GameObject newObj;
