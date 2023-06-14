@@ -9,7 +9,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private CanvasGroup canvasGroup;
     public string currentElementName;
     public GameObject ElementsPanel;
-    public GameObject parentGameObject;
+    //public GameObject parentGameObject;
     public GameObject copiedGameObject;
     private void Awake()
     {
@@ -22,17 +22,24 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         if (copiedGameObject==null &&this.gameObject.tag == "Copied")
         {
-            copiedGameObject = this.gameObject;
+            //copiedGameObject = ;
         }
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+
         if (gameObject.tag == "Original")
         {
+
             canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
             canvasGroup.blocksRaycasts = false;
             copiedElementData();
 
+        }
+        else if(copiedGameObject!=null && copiedGameObject.tag=="Copied")
+        {
+            copiedGameObject.gameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
+            copiedGameObject.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
     }
 
@@ -40,18 +47,22 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     {
         copiedGameObject = Instantiate(gameObject, transform.position, transform.rotation);
         copiedGameObject.transform.parent = ElementsPanel.transform;
-        copiedGameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
-        copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
-        copiedGameObject.name = gameObject.GetComponent<Element>().elementName;
-        copiedGameObject.tag = "Copied";
-
+        copiedGameObject.gameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
+        copiedGameObject.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        copiedGameObject.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        copiedGameObject.gameObject.name = gameObject.GetComponent<Element>().elementName;
+        copiedGameObject.gameObject.tag = "Copied";
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
-        copiedGameObject.transform.position = eventData.position;
+        if(copiedGameObject!=null)
+        {
+            copiedGameObject.gameObject.transform.position = eventData.position;//eventData.position;
+        }
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)

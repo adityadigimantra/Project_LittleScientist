@@ -882,7 +882,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentElementName: 
   ElementsPanel: {fileID: 0}
-  parentGameObject: {fileID: 0}
   copiedGameObject: {fileID: 0}
 --- !u!225 &289917946
 CanvasGroup:
@@ -2716,7 +2715,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentElementName: 
   ElementsPanel: {fileID: 0}
-  parentGameObject: {fileID: 0}
   copiedGameObject: {fileID: 0}
 --- !u!225 &1420043069
 CanvasGroup:
@@ -3969,7 +3967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentElementName: 
   ElementsPanel: {fileID: 0}
-  parentGameObject: {fileID: 0}
   copiedGameObject: {fileID: 0}
 --- !u!225 &1792392663
 CanvasGroup:
@@ -4371,7 +4368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentElementName: 
   ElementsPanel: {fileID: 0}
-  parentGameObject: {fileID: 2033142677}
   copiedGameObject: {fileID: 0}
 --- !u!61 &2033142682
 BoxCollider2D:
