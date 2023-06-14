@@ -107,7 +107,7 @@ public class combinationManager : MonoBehaviour
                 loadCreatedElements.Add(loadedString);
                 newObj = Instantiate(prefab);
                 newObj.name = loadedString;
-                
+                newObj.GetComponent<BoxCollider2D>().enabled = false; 
                 GameObject panel = GameObject.Find("ElementsPanel");
                 if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
                 {
@@ -138,6 +138,7 @@ public class combinationManager : MonoBehaviour
                 if(elementImage!=null)
                 {
                     newObj.GetComponent<Image>().sprite = elementImage;
+                    newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
                 }
 

@@ -21,6 +21,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         string imagePath = "Elements/" + elementname;
         Sprite image=Resources.Load<Sprite>(imagePath);
         gameObject.GetComponent<Image>().sprite = image;
+        gameObject.GetComponent<Image>().preserveAspect = true;
     }
     private void Update()
     {
