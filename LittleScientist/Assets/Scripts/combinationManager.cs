@@ -18,11 +18,13 @@ public class combinationManager : MonoBehaviour
 
     [Header("New Created Element")]
     public GameObject newObj;
+    public GameObject newObjOutsideRing;
     public GameObject finalObj;
     public Sprite[] elementImages;
     public GameObject newElementCreatedPanel;
     public Text elementNameText;
     public Image NewelementImage;
+    public bool combinationFound = false;
 
     [Header("Lists")]
     public List<string> CreatedElements = new List<string>();
@@ -50,13 +52,15 @@ public class combinationManager : MonoBehaviour
             Debug.Log("Result:" + resultCombination.result);
             if(creatingNewElement)
             {
+                
                 createNewElement();
-               
+                combinationFound = true;
             }
         }
         else
         {
             Debug.Log("Result:No Combinations Found");
+            combinationFound = false;
         }
 
     }
@@ -106,10 +110,15 @@ public class combinationManager : MonoBehaviour
             {
                 loadCreatedElements.Add(loadedString);
                 newObj = Instantiate(prefab);
+                Vector3 posOffset = FindObjectOfType<Element>().averagePos;
+                newObjOutsideRing = Instantiate(Copied,posOffset,Quaternion.identity);
                 newObj.name = loadedString;
-                newObj.GetComponent<BoxCollider2D>().enabled = false; 
+                newObjOutsideRing.name = loadedString;
+                newObj.GetComponent<BoxCollider2D>().enabled = false;
+                newObjOutsideRing.GetComponent<BoxCollider2D>().enabled = true;
                 GameObject panel = GameObject.Find("ElementsPanel");
-                if(i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
+                newObjOutsideRing.transform.parent = panel.transform;
+                if (i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
                 {
                   if(elementsPanelObj[i].transform.childCount==0)
                     {
@@ -140,6 +149,9 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
+                    newObjOutsideRing.GetComponent<Image>().sprite = elementImage;
+                    newObj.GetComponent<Image>().preserveAspect = true;
+
                 }
 
             }
