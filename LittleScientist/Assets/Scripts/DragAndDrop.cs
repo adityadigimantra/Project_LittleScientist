@@ -62,7 +62,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public void OnDrag(PointerEventData eventData)
     {
         //rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
-        copiedGameObject.transform.position = eventData.position;
+        copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta/GetCanvasScale();
     }
 
     public void OnPointerUp(PointerEventData eventData)

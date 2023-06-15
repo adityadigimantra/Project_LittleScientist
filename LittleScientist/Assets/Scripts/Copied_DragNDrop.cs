@@ -48,8 +48,15 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = eventData.position;
+        rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
     }
-
+    private float GetCanvasScale()
+    {
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas != null)
+            return canvas.scaleFactor;
+        else
+            return 1f;
+    }
 }
 
