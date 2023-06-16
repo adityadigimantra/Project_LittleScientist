@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 289917949}
   m_Layer: 5
   m_Name: water
-  m_TagString: Original
+  m_TagString: InsideRingElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1074,11 +1074,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e143676f6225458c5a2bf472e0330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: water
-  ELE_Element1: 
-  ELE_Element2: 
-  Element1Pos: {x: 0, y: 0, z: 0}
-  Element2Pos: {x: 0, y: 0, z: 0}
+  elementName: 
+  ELE_Element1Name: 
+  ELE_Element2Name: 
+  ELE_Element1Obj: {fileID: 0}
+  ELE_Element2Obj: {fileID: 0}
+  ELE_Element1Pos: {x: 0, y: 0, z: 0}
+  ELE_Element2Pos: {x: 0, y: 0, z: 0}
   averagePos: {x: 0, y: 0, z: 0}
 --- !u!1 &459663929
 GameObject:
@@ -2071,7 +2073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &823137294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2970,7 +2972,7 @@ GameObject:
   - component: {fileID: 1420043072}
   m_Layer: 5
   m_Name: air
-  m_TagString: Original
+  m_TagString: InsideRingElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3121,11 +3123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e143676f6225458c5a2bf472e0330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: air
-  ELE_Element1: 
-  ELE_Element2: 
-  Element1Pos: {x: 0, y: 0, z: 0}
-  Element2Pos: {x: 0, y: 0, z: 0}
+  elementName: 
+  ELE_Element1Name: 
+  ELE_Element2Name: 
+  ELE_Element1Obj: {fileID: 0}
+  ELE_Element2Obj: {fileID: 0}
+  ELE_Element1Pos: {x: 0, y: 0, z: 0}
+  ELE_Element2Pos: {x: 0, y: 0, z: 0}
   averagePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1431888834
 GameObject:
@@ -4358,7 +4362,7 @@ GameObject:
   - component: {fileID: 1792392666}
   m_Layer: 5
   m_Name: fire
-  m_TagString: Original
+  m_TagString: InsideRingElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4509,11 +4513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e143676f6225458c5a2bf472e0330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: fire
-  ELE_Element1: 
-  ELE_Element2: 
-  Element1Pos: {x: 0, y: 0, z: 0}
-  Element2Pos: {x: 0, y: 0, z: 0}
+  elementName: 
+  ELE_Element1Name: 
+  ELE_Element2Name: 
+  ELE_Element1Obj: {fileID: 0}
+  ELE_Element2Obj: {fileID: 0}
+  ELE_Element1Pos: {x: 0, y: 0, z: 0}
+  ELE_Element2Pos: {x: 0, y: 0, z: 0}
   averagePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1826402356
 GameObject:
@@ -4764,7 +4770,7 @@ GameObject:
   - component: {fileID: 2033142685}
   m_Layer: 5
   m_Name: earth
-  m_TagString: Original
+  m_TagString: InsideRingElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4915,11 +4921,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e143676f6225458c5a2bf472e0330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: earth
-  ELE_Element1: 
-  ELE_Element2: 
-  Element1Pos: {x: 0, y: 0, z: 0}
-  Element2Pos: {x: 0, y: 0, z: 0}
+  elementName: 
+  ELE_Element1Name: 
+  ELE_Element2Name: 
+  ELE_Element1Obj: {fileID: 0}
+  ELE_Element2Obj: {fileID: 0}
+  ELE_Element1Pos: {x: 0, y: 0, z: 0}
+  ELE_Element2Pos: {x: 0, y: 0, z: 0}
   averagePos: {x: 0, y: 0, z: 0}
 --- !u!1 &2050980837
 GameObject:

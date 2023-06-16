@@ -163,9 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e143676f6225458c5a2bf472e0330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: earth
-  ELE_Element1: 
-  ELE_Element2: 
-  Element1Pos: {x: 0, y: 0, z: 0}
-  Element2Pos: {x: 0, y: 0, z: 0}
+  elementName: 
+  ELE_Element1Name: 
+  ELE_Element2Name: 
+  ELE_Element1Obj: {fileID: 0}
+  ELE_Element2Obj: {fileID: 0}
+  ELE_Element1Pos: {x: 0, y: 0, z: 0}
+  ELE_Element2Pos: {x: 0, y: 0, z: 0}
   averagePos: {x: 0, y: 0, z: 0}

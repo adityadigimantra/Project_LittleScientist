@@ -5,39 +5,53 @@ using UnityEngine.UI;
 
 public class Element : MonoBehaviour
 {
+    [Header("Element Data")]
     public string elementName;
-     GameObject obj;
+
     combinationManager comManager;
+
     [Header("Element Colliding Data")]
-    public string ELE_Element1;
-    public string ELE_Element2;
-    public Vector3 Element1Pos;
-    public Vector3 Element2Pos;
+    public string ELE_Element1Name;
+    public string ELE_Element2Name;
+    public GameObject ELE_Element1Obj;
+    public GameObject ELE_Element2Obj;
+    public Vector3 ELE_Element1Pos;
+    public Vector3 ELE_Element2Pos;
     public Vector3 averagePos;
 
     private void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
-        obj = this.gameObject;
-        //obj.GetComponent<Image>().sprite = newSprite;
+        elementName = this.gameObject.name;
+        ELE_Element1Obj = this.gameObject;
+    }
+
+    private void Update()
+    {
+        //Getting live Position of Both Element
+        getPositionOfElements();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         SoundManager._instance.elementCollideSound();
-        GameObject otherObj = other.gameObject;
-        string thisObjectName = gameObject.name;
-        Element1Pos = gameObject.transform.position;
-        Element2Pos = other.transform.position;
-        string otherObjectName = otherObj.name;
-        comManager.creatingNewElement = true;
-        ELE_Element1 = gameObject.name;
-        PlayerPrefs.SetString("element1", ELE_Element1);
-        ELE_Element2 = otherObjectName;
-        PlayerPrefs.SetString("element2", ELE_Element2);
-        Debug.Log("element 1" + thisObjectName + "Collided with Element 2" + otherObjectName);
-        averagePos=(Element1Pos + Element2Pos) / 2f;
-        //StartCoroutine(destroyingObj(this.gameObject,otherObj));
+        ELE_Element1Obj = this.gameObject;
+        ELE_Element2Obj = other.gameObject;
+        ELE_Element1Name = ELE_Element1Obj.name;
+        PlayerPrefs.SetString("element1", ELE_Element1Name);
+        ELE_Element2Name = ELE_Element2Obj.name;
+        PlayerPrefs.SetString("element2", ELE_Element2Name);
+        Debug.Log("Element 1=" + ELE_Element1Obj + "Collided with Element 2=" + ELE_Element2Obj);
+        averagePos=(ELE_Element1Pos + ELE_Element2Pos) / 2f;
+    }
+
+    public void getPositionOfElements()
+    {
+        if(ELE_Element1Obj!=null && ELE_Element2Obj!=null)
+        {
+            ELE_Element1Pos = ELE_Element1Obj.transform.position;
+            ELE_Element2Pos = ELE_Element2Obj.transform.position;
+        }
     }
     IEnumerator destroyingObj(GameObject obj1,GameObject obj2)
     {

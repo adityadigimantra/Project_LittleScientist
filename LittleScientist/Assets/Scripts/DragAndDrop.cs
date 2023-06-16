@@ -26,12 +26,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     }
     private void Update()
     {
+        /*
         if(gameObject.tag=="Original"&&copiedGameObject!=null)
         {
             newGameObject = copiedGameObject;
             parentGameObject = GameObject.FindGameObjectWithTag("Original");
             copiedGameObject.name = this.gameObject.name;
         }
+        */
     }
     public void OnPointerDown(PointerEventData eventData)
     {
