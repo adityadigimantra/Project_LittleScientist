@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1018282689255727616}
   m_Layer: 5
   m_Name: Copied
-  m_TagString: Original
+  m_TagString: Copied
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,3 +166,6 @@ MonoBehaviour:
   elementName: earth
   ELE_Element1: 
   ELE_Element2: 
+  Element1Pos: {x: 0, y: 0, z: 0}
+  Element2Pos: {x: 0, y: 0, z: 0}
+  averagePos: {x: 0, y: 0, z: 0}

@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 2953296994
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e6fcc85ac1ea7857d94948c543b245ce
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c12678a98877549a3fe7bb52917258ad
+HashAppended: 0
+ClassTypes:
+- Class: 329
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetsBundlesWanted/bgVideo.mp4
+Dependencies: []

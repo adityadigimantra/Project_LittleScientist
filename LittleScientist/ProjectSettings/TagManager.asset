@@ -7,6 +7,8 @@ TagManager:
   - elementPanelObj
   - Original
   - Copied
+  - NewCreatedElement
+  - InsideRingElement
   layers:
   - Default
   - TransparentFX

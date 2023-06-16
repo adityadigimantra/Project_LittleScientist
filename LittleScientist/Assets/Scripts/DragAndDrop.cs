@@ -36,7 +36,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public void OnPointerDown(PointerEventData eventData)
     {
 
-        if (gameObject.tag == "Original")
+        if (gameObject.tag == "InsideRingElement")
         {
 
             canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
@@ -54,7 +54,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject.transform.parent = ElementsPanel.transform;
         copiedGameObject.gameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
         copiedGameObject.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        copiedGameObject.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        copiedGameObject.gameObject.GetComponent<BoxCollider2D>().enabled =false;
         copiedGameObject.gameObject.name = gameObject.GetComponent<Element>().elementName;
         copiedGameObject.gameObject.tag = "Copied";
     }
@@ -71,6 +71,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         canvasGroup.blocksRaycasts = true;
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        copiedGameObject.gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private float GetCanvasScale()

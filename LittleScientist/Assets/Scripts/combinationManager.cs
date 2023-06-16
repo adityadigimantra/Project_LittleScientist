@@ -12,10 +12,12 @@ public class combinationManager : MonoBehaviour
     public string COM_Element1;
     public string COM_Element2;
     public string newElementCreated;
+    public string CollidedObjName;
     public bool creatingNewElement=true;
     public GameObject prefab;
+    public GameObject newCreatedElement;
     public GameObject Copied;
-
+    
     [Header("New Created Element")]
     public GameObject newObj;
     public GameObject newObjOutsideRing;
@@ -27,6 +29,7 @@ public class combinationManager : MonoBehaviour
     public bool combinationFound = false;
 
     [Header("Lists")]
+    public List<string> intialElements = new List<string>();
     public List<string> CreatedElements = new List<string>();
     public List<string> loadCreatedElements = new List<string>();
 
@@ -62,7 +65,15 @@ public class combinationManager : MonoBehaviour
             Debug.Log("Result:No Combinations Found");
             combinationFound = false;
         }
-
+        if(PlayerPrefs.GetInt("DestroyAll") ==1)
+        {
+            GameObject[] destroyObj = GameObject.FindGameObjectsWithTag("Copied");
+            foreach(GameObject g in destroyObj)
+            {
+                Destroy(g);
+                PlayerPrefs.SetInt("DestroyAll", 0);
+            }
+        }
     }
     
 
@@ -109,13 +120,16 @@ public class combinationManager : MonoBehaviour
             if(!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
-                newObj = Instantiate(prefab);
+                //Element which to be instantiated inside the Ring.
+                newObj = Instantiate(newCreatedElement);
+                //Position to be Given
                 Vector3 posOffset = FindObjectOfType<Element>().averagePos;
                 newObjOutsideRing = Instantiate(Copied,posOffset,Quaternion.identity);
                 newObj.name = loadedString;
                 newObjOutsideRing.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 newObjOutsideRing.GetComponent<BoxCollider2D>().enabled = true;
+                newObjOutsideRing.tag = "Copied";
                 GameObject panel = GameObject.Find("ElementsPanel");
                 newObjOutsideRing.transform.parent = panel.transform;
                 if (i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
@@ -188,8 +202,7 @@ public class combinationManager : MonoBehaviour
         }
         return null;
     }
-
-//***************************************************************************************************************
+    //***************************************************************************************************************
     //Goes in Update
     /*
 resultCombination2 = FindCombination2(COM_Element2, COM_Element1);
