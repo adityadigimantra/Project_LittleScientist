@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class combinationManager : MonoBehaviour
 {
-    Combination resultCombination;
-    Combination resultCombination2;
+    [Header("Instances")]
+    public Combination resultCombination;
     public ElementLoader elementLoaderObj;
-    public Element elementObj;
+
+    [Header("Colliding Elements Name")]
     public string COM_Element1;
     public string COM_Element2;
-    public string newElementCreated;
-    public string CollidedObjName;
-    public bool creatingNewElement=true;
+
+    [Header("Prefabs")]
     public GameObject prefab;
     public GameObject newCreatedElement;
     public GameObject Copied;
     
-    [Header("New Created Element")]
+    [Header("Element Created Through Result")]
     public GameObject newObj;
-    public GameObject newObjOutsideRing;
-    public GameObject finalObj;
+
+    [Header("Ring Element Images for Transforms/Data")]
     public Sprite[] elementImages;
     public GameObject newElementCreatedPanel;
-    public Text elementNameText;
+    //public Text CollidingResult;
     public Image NewelementImage;
     public bool combinationFound = false;
 
@@ -48,23 +48,19 @@ public class combinationManager : MonoBehaviour
         //Elements Name coming from collision
         COM_Element1=PlayerPrefs.GetString("element1");
         COM_Element2= PlayerPrefs.GetString("element2");
-
+        //If Elements Combine and Give out Results
         resultCombination =FindCombination1(COM_Element1,COM_Element2);
         if (resultCombination != null)
         {
             Debug.Log("Result:" + resultCombination.result);
-            if(creatingNewElement)
-            {
-                
                 createNewElement();
-                combinationFound = true;
-            }
         }
         else
         {
             Debug.Log("Result:No Combinations Found");
-            combinationFound = false;
         }
+
+        //For Clean Up [Needs to be Implemented Properly]
         if(PlayerPrefs.GetInt("DestroyAll") ==1)
         {
             GameObject[] destroyObj = GameObject.FindGameObjectsWithTag("Copied");
@@ -84,7 +80,7 @@ public class combinationManager : MonoBehaviour
         if(!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            elementNameText.text = resultCombination.result;
+            //CollidingResult.text = resultCombination.result;
             StartCoroutine(OpenNewElementPanel());
             for (int i=0;i<CreatedElements.Count;i++)
             {
@@ -94,7 +90,6 @@ public class combinationManager : MonoBehaviour
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
         }
         LoadCreatedElementList();
-        creatingNewElement = false;
 
     }
     IEnumerator OpenNewElementPanel()
@@ -120,30 +115,21 @@ public class combinationManager : MonoBehaviour
             if(!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
-                //Element which to be instantiated inside the Ring.
                 newObj = Instantiate(newCreatedElement);
-                //Position to be Given
-                Vector3 posOffset = FindObjectOfType<Element>().averagePos;
-                newObjOutsideRing = Instantiate(Copied,posOffset,Quaternion.identity);
                 newObj.name = loadedString;
-                newObjOutsideRing.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-                newObjOutsideRing.GetComponent<BoxCollider2D>().enabled = true;
-                newObjOutsideRing.tag = "Copied";
-                GameObject panel = GameObject.Find("ElementsPanel");
-                newObjOutsideRing.transform.parent = panel.transform;
-                if (i<elementsPanelObj.Length && elementsPanelObj[i]!=null)
+                if (i < elementsPanelObj.Length && elementsPanelObj[i] != null)
                 {
-                  if(elementsPanelObj[i].transform.childCount==0)
+                    if (elementsPanelObj[i].transform.childCount == 0)
                     {
                         newObj.transform.position = elementsPanelObj[i].transform.position;
                         newObj.transform.parent = elementsPanelObj[i].transform;
                     }
-                  else
+                    else
                     {
                         //finding the next elementPanelObj without a Child
                         int nextIndex = findNextAvailableChildIndex(i);
-                        if(nextIndex!=-1)
+                        if (nextIndex != -1)
                         {
                             newObj.transform.position = elementsPanelObj[nextIndex].transform.position;
                             newObj.transform.parent = elementsPanelObj[nextIndex].transform;
@@ -155,22 +141,33 @@ public class combinationManager : MonoBehaviour
                         }
                     }
                 }
-                //newObj.transform.parent = panel.transform;
-
                 Sprite elementImage = LoadElementImage(loadedString);
-                if(elementImage!=null)
+                if (elementImage != null)
                 {
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
-                    newObjOutsideRing.GetComponent<Image>().sprite = elementImage;
+                    //newObjOutsideRing.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
 
                 }
+                //Element which to be instantiated inside the Ring.
+
+                //Position to be Given
+                //Vector3 posOffset = FindObjectOfType<Element>().averagePos;
+                //newObjOutsideRing = Instantiate(Copied,posOffset,Quaternion.identity);
+               // newObjOutsideRing.name = loadedString;
+
+               // newObjOutsideRing.GetComponent<BoxCollider2D>().enabled = true;
+                //newObjOutsideRing.tag = "Copied";
+
+                //newObjOutsideRing.transform.parent = panel.transform;
+
+                //newObj.transform.parent = panel.transform;
+
 
             }
         }
-        creatingNewElement = false;
     }
     public int findNextAvailableChildIndex(int startIndex)
     {

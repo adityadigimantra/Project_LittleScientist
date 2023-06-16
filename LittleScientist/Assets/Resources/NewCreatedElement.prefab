@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2656673499259034594}
   - component: {fileID: 5000198177083269254}
   - component: {fileID: 2351149123850068502}
-  - component: {fileID: 3612745300036228327}
   - component: {fileID: 2881772645050621127}
   - component: {fileID: 2190883537162543896}
+  - component: {fileID: 1760640592793004783}
   m_Layer: 5
   m_Name: NewCreatedElement
   m_TagString: InsideRingElement
@@ -78,23 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3612745300036228327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8205407628571246900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentElementName: 
-  ElementsPanel: {fileID: 0}
-  copiedGameObject: {fileID: 0}
-  parentGameObject: {fileID: 0}
-  newGameObject: {fileID: 0}
 --- !u!50 &2881772645050621127
 Rigidbody2D:
   serializedVersion: 4
@@ -128,3 +111,29 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!61 &1760640592793004783
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205407628571246900}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
