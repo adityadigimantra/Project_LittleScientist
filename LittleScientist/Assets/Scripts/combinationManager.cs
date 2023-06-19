@@ -8,6 +8,7 @@ public class combinationManager : MonoBehaviour
     [Header("Instances")]
     public Combination resultCombination;
     public ElementLoader elementLoaderObj;
+    public Element Instance_Element;
 
     [Header("Colliding Elements Name")]
     public string COM_Element1;
@@ -29,6 +30,8 @@ public class combinationManager : MonoBehaviour
     public Image NewelementImage;
     public GameObject ContentPanel;
 
+    public GameObject elementsPanel;
+
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
     public List<string> CreatedElements = new List<string>();
@@ -40,7 +43,7 @@ public class combinationManager : MonoBehaviour
     private void Start()
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
-        LoadCreatedElementList();
+        elementsPanel = GameObject.Find("ElementsPanel");
 
     }
 
@@ -49,6 +52,7 @@ public class combinationManager : MonoBehaviour
         //Elements Name coming from collision
         COM_Element1=PlayerPrefs.GetString("element1");
         COM_Element2= PlayerPrefs.GetString("element2");
+        Instance_Element = FindObjectOfType<Element>();
         //If Elements Combine and Give out Results
         resultCombination =FindCombination(COM_Element1,COM_Element2);
         if (resultCombination != null)
@@ -61,6 +65,7 @@ public class combinationManager : MonoBehaviour
             else
             {
                 Debug.Log("Combination Already Made");
+                LoadCreatedElementList();
             }
         }
         else
@@ -114,11 +119,22 @@ public class combinationManager : MonoBehaviour
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
 
-                //Creating Instance of NewObj
+                /*
+                //Creating Instance of NewObj for Inside Ring
+                GameObject Instance_NewObjIR = Instantiate(newObj,Instance_Element.ELE_Element1Pos, Quaternion.identity);
+                Instance_NewObjIR.transform.parent = elementsPanel.transform;
+                Instance_NewObjIR.name = loadedString;
+                Instance_NewObjIR.GetComponent<BoxCollider2D>().enabled = false;
+                */
+
+                /*
+                //Creating Instance of NewObj for DownPanel
                 GameObject Instance_NewObj = Instantiate(newObj, ContentPanel.transform.position, Quaternion.identity);
                 Instance_NewObj.transform.parent = ContentPanel.transform;
                 Instance_NewObj.name = loadedString;
                 Instance_NewObj.GetComponent<BoxCollider2D>().enabled = false;
+                */
+
 
                 if (i < elementsPanelObj.Length && elementsPanelObj[i] != null)
                 {
@@ -155,10 +171,15 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
-                    //Giving Image to Instance of New Obj
+                    /*
+                    //Giving Image to Instance of New Obj Down
                     Instance_NewObj.GetComponent<Image>().sprite = elementImage;
                     Instance_NewObj.GetComponent<Image>().preserveAspect = true;
 
+                    //Giving Image to Instance of New Obj Inside Ring
+                    Instance_NewObjIR.GetComponent<Image>().sprite = elementImage;
+                    Instance_NewObjIR.GetComponent<Image>().preserveAspect = true;
+                    */
                 }
             }
         }

@@ -71,7 +71,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
            localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y, ClampPanelRectTransform.rect.max.y - copiedGameObject.GetComponent<RectTransform>().rect.height);
            copiedGameObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
-     // copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
+        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
     }
 
     public void OnPointerUp(PointerEventData eventData)

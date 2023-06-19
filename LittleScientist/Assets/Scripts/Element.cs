@@ -29,7 +29,7 @@ public class Element : MonoBehaviour
     private void Update()
     {
         //Getting live Position of Both Element
-        getPositionOfElements();
+        //getPositionOfElements();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,8 +40,7 @@ public class Element : MonoBehaviour
         PlayerPrefs.SetString("element1", ELE_Element1Name);
         ELE_Element2Name = ELE_Element2Obj.name;
         PlayerPrefs.SetString("element2", ELE_Element2Name);
-        Debug.Log("Element 1=" + ELE_Element1Obj + "Collided with Element 2=" + ELE_Element2Obj);
-        averagePos=(ELE_Element1Pos + ELE_Element2Pos) / 2f;
+        Debug.Log("Element 1=" + ELE_Element1Obj + "Collided with Element 2=" + ELE_Element2Obj);  
     }
 
     public void getPositionOfElements()
@@ -50,6 +49,7 @@ public class Element : MonoBehaviour
         {
             ELE_Element1Pos = ELE_Element1Obj.transform.position;
             ELE_Element2Pos = ELE_Element2Obj.transform.position;
+            averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2f;
         }
     }
 
