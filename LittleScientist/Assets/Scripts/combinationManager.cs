@@ -12,6 +12,7 @@ public class combinationManager : MonoBehaviour
     [Header("Colliding Elements Name")]
     public string COM_Element1;
     public string COM_Element2;
+    public bool isCreatingElement = true;
 
     [Header("Prefabs")]
     public GameObject prefab;
@@ -26,7 +27,6 @@ public class combinationManager : MonoBehaviour
     public GameObject newElementCreatedPanel;
     //public Text CollidingResult;
     public Image NewelementImage;
-    public bool combinationFound = false;
 
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
@@ -49,26 +49,22 @@ public class combinationManager : MonoBehaviour
         COM_Element1=PlayerPrefs.GetString("element1");
         COM_Element2= PlayerPrefs.GetString("element2");
         //If Elements Combine and Give out Results
-        resultCombination =FindCombination1(COM_Element1,COM_Element2);
+        resultCombination =FindCombination(COM_Element1,COM_Element2);
         if (resultCombination != null)
         {
             Debug.Log("Result:" + resultCombination.result);
+            if(!loadCreatedElements.Contains(resultCombination.result))
+            {
                 createNewElement();
+            }
+            else
+            {
+                Debug.Log("Combination Already Made");
+            }
         }
         else
         {
-            Debug.Log("Result:No Combinations Found");
-        }
-
-        //For Clean Up [Needs to be Implemented Properly]
-        if(PlayerPrefs.GetInt("DestroyAll") ==1)
-        {
-            GameObject[] destroyObj = GameObject.FindGameObjectsWithTag("Copied");
-            foreach(GameObject g in destroyObj)
-            {
-                Destroy(g);
-                PlayerPrefs.SetInt("DestroyAll", 0);
-            }
+            Debug.Log("Result:No Combinations Found ");
         }
     }
     
@@ -80,16 +76,15 @@ public class combinationManager : MonoBehaviour
         if(!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            StartCoroutine(OpenNewElementPanel());
             for (int i=0;i<CreatedElements.Count;i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
                 
             }
+            StartCoroutine(OpenNewElementPanel());
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
         }
         LoadCreatedElementList();
-
     }
     IEnumerator OpenNewElementPanel()
     {        
@@ -150,21 +145,6 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().preserveAspect = true;
 
                 }
-                //Element which to be instantiated inside the Ring.
-
-                //Position to be Given
-                //Vector3 posOffset = FindObjectOfType<Element>().averagePos;
-                //newObjOutsideRing = Instantiate(Copied,posOffset,Quaternion.identity);
-               // newObjOutsideRing.name = loadedString;
-
-               // newObjOutsideRing.GetComponent<BoxCollider2D>().enabled = true;
-                //newObjOutsideRing.tag = "Copied";
-
-                //newObjOutsideRing.transform.parent = panel.transform;
-
-                //newObj.transform.parent = panel.transform;
-
-
             }
         }
     }
@@ -187,7 +167,7 @@ public class combinationManager : MonoBehaviour
         Debug.Log("Image Loaded");
     }
 
-    private Combination FindCombination1(string el1,string el2)
+    private Combination FindCombination(string el1,string el2)
     {
         foreach(Combination comb in elementLoaderObj.elementsList)
         {
@@ -198,32 +178,4 @@ public class combinationManager : MonoBehaviour
         }
         return null;
     }
-    //***************************************************************************************************************
-    //Goes in Update
-    /*
-resultCombination2 = FindCombination2(COM_Element2, COM_Element1);
-if(resultCombination2!=null)
-{
-    Debug.Log("Result 2:" + resultCombination2.result);
-}
-else
-{
-    Debug.Log("Result:No Combination Found");
-}
-  */
-
-    //New Method
-    /*
-private Combination FindCombination2(string el2, string el1)
-{
-    foreach (Combination comb in elementLoaderObj.elementsList)
-    {
-        if (comb.element2 == el2 && comb.element1 == el1)
-        {
-            return comb;
-        }
-    }
-    return null;
-}
-*/
 }
