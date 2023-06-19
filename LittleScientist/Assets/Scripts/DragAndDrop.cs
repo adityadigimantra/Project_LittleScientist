@@ -25,14 +25,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         ElementsPanel = GameObject.Find("ElementsPanel");
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        thisObject = this.gameObject;
+        if(this.gameObject.tag=="InsideRingElement")
+        {
+            thisObject = this.gameObject;
+        }
+        
     }
     private void Update()
     {
-        if(copiedGameObject!=null)
-        {
-            thisObject = copiedGameObject;
-        }
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -60,7 +60,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     public void OnDrag(PointerEventData eventData)
     {
-        copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta/GetCanvasScale();
+      copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();        
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -72,7 +72,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         //For Copied Object
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
-        copiedGameObject.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private float GetCanvasScale()

@@ -18,7 +18,7 @@ public class combinationManager : MonoBehaviour
     public GameObject prefab;
     public GameObject newCreatedElement;
     public GameObject Copied;
-    
+
     [Header("Element Created Through Result")]
     public GameObject newObj;
 
@@ -27,6 +27,7 @@ public class combinationManager : MonoBehaviour
     public GameObject newElementCreatedPanel;
     //public Text CollidingResult;
     public Image NewelementImage;
+    public GameObject ContentPanel;
 
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
@@ -112,12 +113,20 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(newCreatedElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
+
+                //Creating Instance of NewObj
+                GameObject Instance_NewObj = Instantiate(newObj, ContentPanel.transform.position, Quaternion.identity);
+                Instance_NewObj.transform.parent = ContentPanel.transform;
+                Instance_NewObj.name = loadedString;
+                Instance_NewObj.GetComponent<BoxCollider2D>().enabled = false;
+
                 if (i < elementsPanelObj.Length && elementsPanelObj[i] != null)
                 {
                     if (elementsPanelObj[i].transform.childCount == 0)
                     {
                         newObj.transform.position = elementsPanelObj[i].transform.position;
                         newObj.transform.parent = elementsPanelObj[i].transform;
+
                     }
                     else
                     {
@@ -135,14 +144,20 @@ public class combinationManager : MonoBehaviour
                         }
                     }
                 }
+
+
+                //Giving Image to Loaded Element
+
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
                 {
+                    //Inside Ring Element
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
-                    //newObjOutsideRing.GetComponent<Image>().sprite = elementImage;
-                    newObj.GetComponent<Image>().preserveAspect = true;
+                    //Giving Image to Instance of New Obj
+                    Instance_NewObj.GetComponent<Image>().sprite = elementImage;
+                    Instance_NewObj.GetComponent<Image>().preserveAspect = true;
 
                 }
             }
