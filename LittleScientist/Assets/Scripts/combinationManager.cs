@@ -80,7 +80,6 @@ public class combinationManager : MonoBehaviour
         if(!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            //CollidingResult.text = resultCombination.result;
             StartCoroutine(OpenNewElementPanel());
             for (int i=0;i<CreatedElements.Count;i++)
             {

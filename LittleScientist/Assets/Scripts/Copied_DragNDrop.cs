@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHandler
 {
+    //This Object Handles the Tap and Drag of Copied Elements 
+
     [Header("Element Data")]
     public string currentElementName;
     public GameObject thisObject;
@@ -15,16 +17,11 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     {
         currentElementName = gameObject.name;
         thisObject = this.gameObject;
-        Debug.Log("ElementName=" + currentElementName);
         rectTransform = thisObject.GetComponent<RectTransform>();
         canvasGroup = thisObject.GetComponent<CanvasGroup>();
         LoadSetImageforthisElement();
-    }
-    private void Update()
-    {
-        
-    }
 
+    }
     public void LoadSetImageforthisElement()
     {
         string imagePath = "Elements/" + currentElementName;
@@ -37,14 +34,12 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     {
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
-        thisObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        thisObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void OnDrag(PointerEventData eventData)

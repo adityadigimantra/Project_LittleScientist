@@ -999,10 +999,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentElementName: 
-  ElementsPanel: {fileID: 0}
+  thisObject: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  rectTransform: {fileID: 0}
   copiedGameObject: {fileID: 0}
-  parentGameObject: {fileID: 0}
   newGameObject: {fileID: 0}
+  ElementsPanel: {fileID: 0}
 --- !u!225 &289917946
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3048,10 +3050,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentElementName: 
-  ElementsPanel: {fileID: 0}
+  thisObject: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  rectTransform: {fileID: 0}
   copiedGameObject: {fileID: 0}
-  parentGameObject: {fileID: 0}
   newGameObject: {fileID: 0}
+  ElementsPanel: {fileID: 0}
 --- !u!225 &1420043069
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3420,23 +3424,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9540c4e2e20db96408194cbd3c9489f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resultCombination:
+    Name: 
+    element1: 
+    element2: 
+    result: 
   elementLoaderObj: {fileID: 0}
-  elementObj: {fileID: 0}
   COM_Element1: 
   COM_Element2: 
-  newElementCreated: 
-  CollidedObjName: 
-  creatingNewElement: 0
   prefab: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3, type: 3}
   newCreatedElement: {fileID: 8205407628571246900, guid: 14b3bf93227c97443ad328498317a696,
     type: 3}
   Copied: {fileID: 1018282689255727619, guid: 03fa29116b0929146afa188557b2004c, type: 3}
   newObj: {fileID: 0}
-  newObjOutsideRing: {fileID: 0}
-  finalObj: {fileID: 0}
   elementImages: []
   newElementCreatedPanel: {fileID: 1431888834}
-  elementNameText: {fileID: 12850275}
   NewelementImage: {fileID: 715885258}
   combinationFound: 0
   intialElements:
@@ -4438,10 +4440,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentElementName: 
-  ElementsPanel: {fileID: 0}
+  thisObject: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  rectTransform: {fileID: 0}
   copiedGameObject: {fileID: 0}
-  parentGameObject: {fileID: 0}
   newGameObject: {fileID: 0}
+  ElementsPanel: {fileID: 0}
 --- !u!225 &1792392663
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4846,10 +4850,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentElementName: 
-  ElementsPanel: {fileID: 0}
+  thisObject: {fileID: 0}
+  canvasGroup: {fileID: 0}
+  rectTransform: {fileID: 0}
   copiedGameObject: {fileID: 0}
-  parentGameObject: {fileID: 0}
   newGameObject: {fileID: 0}
+  ElementsPanel: {fileID: 0}
 --- !u!61 &2033142682
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -34,8 +34,7 @@ public class Element : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        SoundManager._instance.elementCollideSound();
-        ELE_Element1Obj = this.gameObject;
+        //SoundManager._instance.elementCollideSound();
         ELE_Element2Obj = other.gameObject;
         ELE_Element1Name = ELE_Element1Obj.name;
         PlayerPrefs.SetString("element1", ELE_Element1Name);
@@ -51,17 +50,6 @@ public class Element : MonoBehaviour
         {
             ELE_Element1Pos = ELE_Element1Obj.transform.position;
             ELE_Element2Pos = ELE_Element2Obj.transform.position;
-        }
-    }
-    IEnumerator destroyingObj(GameObject obj1,GameObject obj2)
-    {
-        if(comManager.combinationFound)
-        {
-            GameObject ele1 = obj1;
-            GameObject ele2 = obj2;
-            yield return new WaitForSeconds(1f);
-            Destroy(ele1);
-            Destroy(ele2);
         }
     }
 
