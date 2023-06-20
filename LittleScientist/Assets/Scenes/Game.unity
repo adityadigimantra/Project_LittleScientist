@@ -5250,7 +5250,6 @@ MonoBehaviour:
   Instance_Element: {fileID: 0}
   COM_Element1: 
   COM_Element2: 
-  isCreatingElement: 1
   newCreatedElement: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3,
     type: 3}
   InsideRingElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
@@ -5266,6 +5265,8 @@ MonoBehaviour:
   topScrollView: {fileID: 0}
   BottomScrollView: {fileID: 0}
   elementCreated: 0
+  posString: 
+  loadedString: 
   intialElements:
   - earth
   - water

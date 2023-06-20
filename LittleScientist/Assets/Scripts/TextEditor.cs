@@ -51,3 +51,52 @@ if (i < elementsPanelObj.Length && elementsPanelObj[i] != null)
                     Instance_NewObjIR.GetComponent<Image>().sprite = elementImage;
                     Instance_NewObjIR.GetComponent<Image>().preserveAspect = true;
                     */
+
+
+
+
+/*
+// Save the position of an object
+public void SaveObjectPosition(Vector3 position, string key)
+{
+    // Convert the position to a string
+    string positionString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
+
+    // Save the position string in PlayerPrefs
+    PlayerPrefs.SetString(key, positionString);
+}
+
+// Load the position of an object
+public Vector3 LoadObjectPosition(string key)
+{
+    // Check if the position string exists in PlayerPrefs
+    if (PlayerPrefs.HasKey(key))
+    {
+        // Retrieve the position string from PlayerPrefs
+        string positionString = PlayerPrefs.GetString(key);
+
+        // Split the position string into individual coordinates
+        string[] positionCoordinates = positionString.Split(',');
+
+        // Convert the coordinates back to floats and create a Vector3
+        float x = float.Parse(positionCoordinates[0]);
+        float y = float.Parse(positionCoordinates[1]);
+        float z = float.Parse(positionCoordinates[2]);
+        Vector3 position = new Vector3(x, y, z);
+
+        // Return the loaded position
+        return position;
+    }
+
+    // Return a default position if the key does not exist
+    return Vector3.zero;
+}
+
+
+Vector3 objectPosition = myObject.transform.position;
+SaveObjectPosition(objectPosition, "ObjectPositionKey");
+
+Vector3 loadedPosition = LoadObjectPosition("ObjectPositionKey");
+myObject.transform.position = loadedPosition;
+
+*/

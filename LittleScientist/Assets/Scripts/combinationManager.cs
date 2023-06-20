@@ -13,7 +13,6 @@ public class combinationManager : MonoBehaviour
     [Header("Colliding Elements Name")]
     public string COM_Element1;
     public string COM_Element2;
-    public bool isCreatingElement = true;
 
     [Header("Prefabs")]
     public GameObject newCreatedElement;
@@ -35,6 +34,8 @@ public class combinationManager : MonoBehaviour
     public GameObject topScrollView;
     public GameObject BottomScrollView;
     public bool elementCreated=false;
+    public string posString;
+    public string loadedString;
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
     public List<string> CreatedElements = new List<string>();
@@ -120,7 +121,7 @@ public class combinationManager : MonoBehaviour
         Debug.Log("Count" + count);
         for (int i=0;i<count;i++)
         {
-            string loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
+            loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
             //Debug.Log("Created Element Data String "+loadedString);
 
             if (!loadCreatedElements.Contains(loadedString))
@@ -140,6 +141,15 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
                 }
+
+                InsideBox_newObj = Instantiate(newCreatedElement);
+                InsideBox_newObj.name = newObj.name;
+                InsideBox_newObj.transform.parent = elementsPanel.transform;
+                Vector3 loadedPosition = loadPositionOfElement(newObj.name);
+                InsideBox_newObj.transform.position = loadedPosition;
+                InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
@@ -147,21 +157,38 @@ public class combinationManager : MonoBehaviour
                     //Inside Ring Element
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
+                   
                     NewelementImage.sprite = elementImage;
                 }
-                Instance_Element.isColliding = false;
+
+                //Instance_Element.isColliding = false;
                 int childInTopScrolllocal = topScrollView.transform.childCount;
                 if (childInTopScrolllocal >= 8)
                 {
                     break;
                 }
             }
-            
+
         }
         
     }
 
+    public Vector3 loadPositionOfElement(string key)
+    {
+        if(PlayerPrefs.HasKey(key))
+        {
+            posString = PlayerPrefs.GetString(key);
+            string[] posCordinates = posString.Split(',');
+            float x = float.Parse(posCordinates[0]);
+            float y = float.Parse(posCordinates[1]);
+            float z = float.Parse(posCordinates[2]);
 
+            Vector3 localPos = new Vector3(x, y, z);
+            return localPos;
+        }
+        return Vector3.zero;
+
+    }
 
     public int findNextAvailableChildIndex(int startIndex)
     {

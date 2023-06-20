@@ -42,7 +42,6 @@ public class Element : MonoBehaviour
         ELE_Element2Name = ELE_Element2Obj.name;
         PlayerPrefs.SetString("element2", ELE_Element2Name);
         Debug.Log("Element 1=" + ELE_Element1Obj + "Collided with Element 2=" + ELE_Element2Obj);
-        isColliding = true;
     }
 
     public void getPositionOfElements()
@@ -52,9 +51,17 @@ public class Element : MonoBehaviour
         {
             ELE_Element2Pos = ELE_Element2Obj.GetComponent<RectTransform>().transform.position;
             averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2;
+            //savePositionofElements(averagePos,elementName);
         }
         
         
     }
+    /*
+    public void savePositionofElements(Vector3 position,string key)
+    {
+        string posString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
+        PlayerPrefs.SetString(key, posString);
+    }
+    */
 
 }
