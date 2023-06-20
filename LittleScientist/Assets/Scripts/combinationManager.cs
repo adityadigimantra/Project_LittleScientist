@@ -35,7 +35,13 @@ public class combinationManager : MonoBehaviour
     public GameObject BottomScrollView;
     public bool elementCreated=false;
     public string posString;
+    public string FinalposString;
     public string loadedString;
+    public Vector3 newCreatedElementPos;
+    public Vector3 loadedPosition;
+    public Vector3 finalPosition;
+
+
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
     public List<string> CreatedElements = new List<string>();
@@ -55,6 +61,7 @@ public class combinationManager : MonoBehaviour
 
     private void Update()
     {
+        getPosition();
         LoadCreatedElementList();
         //Elements Name coming from collision
         COM_Element1 =PlayerPrefs.GetString("element1");
@@ -142,13 +149,16 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.parent = BottomScrollView.transform;
                 }
 
+
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
-                Vector3 loadedPosition = loadPositionOfElement(newObj.name);
-                InsideBox_newObj.transform.position = loadedPosition;
+                InsideBox_newObj.transform.position = finalPosition;
+                
                 InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                 InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                
+
 
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
@@ -172,6 +182,13 @@ public class combinationManager : MonoBehaviour
         }
         
     }
+    public void getPosition()
+    {
+       loadedPosition = loadPositionOfElement("averagePos");
+       savefinalPosNewCreatedElement(loadedPosition, loadedString);
+       finalPosition=loadfinalPosNewCreatedElement(loadedString);
+       loadedPosition = finalPosition;
+    }
 
     public Vector3 loadPositionOfElement(string key)
     {
@@ -188,6 +205,28 @@ public class combinationManager : MonoBehaviour
         }
         return Vector3.zero;
 
+    }
+
+    public void savefinalPosNewCreatedElement(Vector3 position,string key)
+    {
+        FinalposString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
+        PlayerPrefs.SetString(key, FinalposString);
+        Debug.Log("PlayerPref Value" + PlayerPrefs.GetString(key));
+    }
+
+    public Vector3 loadfinalPosNewCreatedElement(string key)
+    {
+        if(PlayerPrefs.HasKey(key))
+        {
+            FinalposString = PlayerPrefs.GetString(key);
+            string[] positionCordinates = FinalposString.Split(',');
+            float x = float.Parse(positionCordinates[0]);
+            float y = float.Parse(positionCordinates[1]);
+            float z = float.Parse(positionCordinates[2]);
+            Vector3 localPosition = new Vector3(x, y, z);
+            return localPosition;
+        }
+        return Vector3.zero;
     }
 
     public int findNextAvailableChildIndex(int startIndex)

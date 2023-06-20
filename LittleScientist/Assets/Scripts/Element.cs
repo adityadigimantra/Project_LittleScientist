@@ -51,17 +51,17 @@ public class Element : MonoBehaviour
         {
             ELE_Element2Pos = ELE_Element2Obj.GetComponent<RectTransform>().transform.position;
             averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2;
-            //savePositionofElements(averagePos,elementName);
+            savePositionofElements(averagePos,"averagePos");
         }
         
         
     }
-    /*
+    
     public void savePositionofElements(Vector3 position,string key)
     {
         string posString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
         PlayerPrefs.SetString(key, posString);
     }
-    */
+    
 
 }

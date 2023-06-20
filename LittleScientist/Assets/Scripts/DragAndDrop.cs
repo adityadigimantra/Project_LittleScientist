@@ -20,12 +20,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public GameObject ElementsPanel;
     public RectTransform ClampPanelRectTransform;
 
+    [Header("Clamping Movement Data")]
+    private Vector2 initialPosition;
+    private RectTransform outerPanelTransform;
 
     private void Start()
     {
         ElementsPanel = GameObject.Find("ElementsPanel");
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
+        ClampPanelRectTransform = GameObject.Find("InnerPanel").GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         if(this.gameObject.tag=="InsideRingElement")
         {
@@ -60,22 +64,39 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject.gameObject.tag = "Copied";
     }
 
+
     public void OnDrag(PointerEventData eventData)
     {
-       //Vector2 mousePosition = eventData.position;
-       // Vector2 localPosition;
-        /*
+       Vector2 mousePosition = eventData.position;
+       Vector2 localPosition;
+        
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(ClampPanelRectTransform,mousePosition,eventData.pressEventCamera,out localPosition))
         {
            localPosition.x=Mathf.Clamp(localPosition.x, ClampPanelRectTransform.rect.min.x, ClampPanelRectTransform.rect.max.x - copiedGameObject.GetComponent<RectTransform>().rect.width);
            localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y, ClampPanelRectTransform.rect.max.y - copiedGameObject.GetComponent<RectTransform>().rect.height);
            copiedGameObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
-        */
+        
         copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //Uncomment Below Line if Neccessary
         copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
     }
 
+    private Vector2 clampPosition(Vector2 position)
+    {
+        Vector3[] corners = new Vector3[4];
+        outerPanelTransform.GetWorldCorners(corners);
+
+        float minX = corners[0].x;
+        float maxX = corners[2].x - thisObject.GetComponent<RectTransform>().rect.width;
+        float minY = corners[0].y;
+        float maxY = corners[1].y - thisObject.GetComponent<RectTransform>().rect.height;
+
+        float clampedX = Mathf.Clamp(position.x, minX, maxX);
+        float clampedY = Mathf.Clamp(position.y, minY, maxY);
+
+        return new Vector2(clampedX, clampedY);
+    }
     public void OnPointerUp(PointerEventData eventData)
     {
         //For This Object
