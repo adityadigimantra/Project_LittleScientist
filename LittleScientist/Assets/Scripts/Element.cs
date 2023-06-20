@@ -15,9 +15,10 @@ public class Element : MonoBehaviour
     public string ELE_Element2Name;
     public GameObject ELE_Element1Obj;
     public GameObject ELE_Element2Obj;
-    public Vector3 ELE_Element1Pos;
-    public Vector3 ELE_Element2Pos;
-    public Vector3 averagePos;
+    public Vector2 ELE_Element1Pos;
+    public Vector2 ELE_Element2Pos;
+    public Vector2 averagePos;
+    
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class Element : MonoBehaviour
     private void Update()
     {
         //Getting live Position of Both Element
-        //getPositionOfElements();
+        getPositionOfElements();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,12 +46,13 @@ public class Element : MonoBehaviour
 
     public void getPositionOfElements()
     {
-        if(ELE_Element1Obj!=null && ELE_Element2Obj!=null)
+        ELE_Element1Pos = ELE_Element1Obj.GetComponent<RectTransform>().transform.position;
+        if(ELE_Element2Obj!=null)
         {
-            ELE_Element1Pos = ELE_Element1Obj.transform.position;
-            ELE_Element2Pos = ELE_Element2Obj.transform.position;
-            averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2f;
+            ELE_Element2Pos = ELE_Element2Obj.GetComponent<RectTransform>().transform.position;
+            averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2;
         }
+        
     }
 
 }

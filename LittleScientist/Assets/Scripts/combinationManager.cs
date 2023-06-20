@@ -22,6 +22,7 @@ public class combinationManager : MonoBehaviour
 
     [Header("Element Created Through Result")]
     public GameObject newObj;
+    public GameObject InsideBox_newObj;
 
     [Header("Ring Element Images for Transforms/Data")]
     public Sprite[] elementImages;
@@ -126,7 +127,7 @@ public class combinationManager : MonoBehaviour
             if (!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
-                newObj = Instantiate(newCreatedElement);
+                newObj = Instantiate(newCreatedElement);                
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 if (topScrollView.transform.childCount<8)
@@ -139,7 +140,18 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
                 }
-               
+
+                //Inside Box Element
+                InsideBox_newObj = Instantiate(Copied);
+                InsideBox_newObj.name = loadedString;
+                if(!InsideBox_newObj.GetComponent<BoxCollider2D>().enabled)
+                {
+                  InsideBox_newObj.GetComponent<BoxCollider2D>().enabled = true;
+                }
+                InsideBox_newObj.transform.parent = elementsPanel.transform;
+                InsideBox_newObj.transform.position = Instance_Element.averagePos;
+
+
                 //Giving Image to Loaded Element
 
                 Sprite elementImage = LoadElementImage(loadedString);
@@ -149,7 +161,9 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
-                    
+                    InsideBox_newObj.GetComponent<Image>().sprite = elementImage;
+                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+
                 }
                 int childInTopScrolllocal = topScrollView.transform.childCount;
                 if(childInTopScrolllocal>=8)
