@@ -29,9 +29,10 @@ public class combinationManager : MonoBehaviour
     //public Text CollidingResult;
     public Image NewelementImage;
     public GameObject ContentPanel;
-
+    [Header("Public Fields")]
     public GameObject elementsPanel;
-
+    public GameObject topScrollView;
+    public GameObject BottomScrollView;
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
     public List<string> CreatedElements = new List<string>();
@@ -44,6 +45,8 @@ public class combinationManager : MonoBehaviour
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
         elementsPanel = GameObject.Find("ElementsPanel");
+        topScrollView = GameObject.Find("TopScroll_Content");
+        BottomScrollView = GameObject.Find("DownScroll_Content");
 
     }
 
@@ -118,6 +121,18 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(newCreatedElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
+                
+                if(count<=5)
+                {
+                    newObj.transform.parent = topScrollView.transform;
+                    newObj.transform.position = topScrollView.transform.position;
+                }
+                else if(count>5)
+                {
+                    newObj.transform.parent = BottomScrollView.transform;
+                    newObj.transform.position = BottomScrollView.transform.position;
+                }
+                
 
                 /*
                 //Creating Instance of NewObj for Inside Ring
@@ -135,7 +150,7 @@ public class combinationManager : MonoBehaviour
                 Instance_NewObj.GetComponent<BoxCollider2D>().enabled = false;
                 */
 
-
+                /*
                 if (i < elementsPanelObj.Length && elementsPanelObj[i] != null)
                 {
                     if (elementsPanelObj[i].transform.childCount == 0)
@@ -160,7 +175,7 @@ public class combinationManager : MonoBehaviour
                         }
                     }
                 }
-
+                */
 
                 //Giving Image to Loaded Element
 

@@ -24,7 +24,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private void Start()
     {
         ElementsPanel = GameObject.Find("ElementsPanel");
-        ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
+        //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         if(this.gameObject.tag=="InsideRingElement")
@@ -62,17 +62,18 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 mousePosition = eventData.position;
-        Vector2 localPosition;
-
+       //Vector2 mousePosition = eventData.position;
+       // Vector2 localPosition;
+        /*
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(ClampPanelRectTransform,mousePosition,eventData.pressEventCamera,out localPosition))
         {
            localPosition.x=Mathf.Clamp(localPosition.x, ClampPanelRectTransform.rect.min.x, ClampPanelRectTransform.rect.max.x - copiedGameObject.GetComponent<RectTransform>().rect.width);
            localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y, ClampPanelRectTransform.rect.max.y - copiedGameObject.GetComponent<RectTransform>().rect.height);
            copiedGameObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
+        */
         copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
-        //copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
+        copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
     }
 
     public void OnPointerUp(PointerEventData eventData)
