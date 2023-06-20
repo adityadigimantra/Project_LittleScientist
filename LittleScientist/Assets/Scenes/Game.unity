@@ -632,9 +632,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!114 &53108921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,7 +1174,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 196.656, y: 90.1707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284334303
 MonoBehaviour:
@@ -1195,7 +1196,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -722566556389610975, guid: 2bbfdfffd62ad7c439528ac689232681,
+  m_Sprite: {fileID: -8871198409986384491, guid: ea6422667ccd8ec4d8e779a99e0dde99,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1435,9 +1436,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!1 &402869285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,9 +2398,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!50 &619023742
 Rigidbody2D:
   serializedVersion: 4
@@ -2739,7 +2742,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 196.656, y: 90.1707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649257140
 MonoBehaviour:
@@ -2761,7 +2764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7067718132184561751, guid: 2a415f51779698148afea7fd06c92299,
+  m_Sprite: {fileID: 7574339786859721596, guid: 8bb9374b649c1a0448b851e65c8c0ba5,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -2993,16 +2996,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 101
-    m_Right: 115
+    m_Left: 100
+    m_Right: 100
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -3362,9 +3365,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!50 &831896448
 Rigidbody2D:
   serializedVersion: 4
@@ -3962,7 +3966,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 196.4345, y: 90.1707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129138420
 MonoBehaviour:
@@ -3984,7 +3988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5959318975747784094, guid: 8e2528b1bff20044da5c6d8115e187cf,
+  m_Sprite: {fileID: 3760352300230200222, guid: 941cb53bf1044f94086b0791d9ccd6d0,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -4209,7 +4213,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 196.2131, y: 90.1707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1212805949
 MonoBehaviour:
@@ -4231,7 +4235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4427728631891131199, guid: c5149f47b078a3845bc0a762d56aea38,
+  m_Sprite: {fileID: 4904575536432956917, guid: eec64b874033542498421195c6406e2e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -4794,9 +4798,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!1 &1431888834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,11 +5251,13 @@ MonoBehaviour:
   COM_Element1: 
   COM_Element2: 
   isCreatingElement: 1
-  prefab: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3, type: 3}
-  newCreatedElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
+  newCreatedElement: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3,
+    type: 3}
+  InsideRingElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
     type: 3}
   Copied: {fileID: 1018282689255727619, guid: 03fa29116b0929146afa188557b2004c, type: 3}
   newObj: {fileID: 0}
+  InsideBox_newObj: {fileID: 0}
   elementImages: []
   newElementCreatedPanel: {fileID: 1431888834}
   NewelementImage: {fileID: 715885258}
@@ -5258,6 +5265,7 @@ MonoBehaviour:
   elementsPanel: {fileID: 0}
   topScrollView: {fileID: 0}
   BottomScrollView: {fileID: 0}
+  elementCreated: 0
   intialElements:
   - earth
   - water
@@ -6625,9 +6633,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!1 &1804575080
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,9 +6847,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!50 &1850506447
 Rigidbody2D:
   serializedVersion: 4
@@ -7631,9 +7641,10 @@ MonoBehaviour:
   ELE_Element2Name: 
   ELE_Element1Obj: {fileID: 0}
   ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  ELE_Element1Pos: {x: 0, y: 0}
+  ELE_Element2Pos: {x: 0, y: 0}
+  averagePos: {x: 0, y: 0}
+  isColliding: 0
 --- !u!1 &2056331371
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement ;
 
 public class GameOperation : MonoBehaviour
 {
+
     public void ChangeScene(int index)
     {
         SceneManager.LoadScene(index);
@@ -13,5 +14,7 @@ public class GameOperation : MonoBehaviour
 
         PlayerPrefs.DeleteKey(key1);
         PlayerPrefs.DeleteKey(key2);
+
+        PlayerPrefs.SetInt("IsRestart", 1);
     }
 }

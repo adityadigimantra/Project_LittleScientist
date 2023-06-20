@@ -16,8 +16,8 @@ public class combinationManager : MonoBehaviour
     public bool isCreatingElement = true;
 
     [Header("Prefabs")]
-    public GameObject prefab;
     public GameObject newCreatedElement;
+    public GameObject InsideRingElement;
     public GameObject Copied;
 
     [Header("Element Created Through Result")]
@@ -34,6 +34,7 @@ public class combinationManager : MonoBehaviour
     public GameObject elementsPanel;
     public GameObject topScrollView;
     public GameObject BottomScrollView;
+    public bool elementCreated=false;
     [Header("Lists")]
     public List<string> intialElements = new List<string>();
     public List<string> CreatedElements = new List<string>();
@@ -117,8 +118,6 @@ public class combinationManager : MonoBehaviour
     {
         int count = PlayerPrefs.GetInt("StringCount", 0);
         Debug.Log("Count" + count);
-
-
         for (int i=0;i<count;i++)
         {
             string loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
@@ -127,8 +126,9 @@ public class combinationManager : MonoBehaviour
             if (!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
-                newObj = Instantiate(newCreatedElement);                
+                newObj = Instantiate(InsideRingElement);                
                 newObj.name = loadedString;
+                elementCreated = true;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 if (topScrollView.transform.childCount<8)
                 {
@@ -140,20 +140,7 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
                 }
-
-                //Inside Box Element
-                InsideBox_newObj = Instantiate(Copied);
-                InsideBox_newObj.name = loadedString;
-                if(!InsideBox_newObj.GetComponent<BoxCollider2D>().enabled)
-                {
-                  InsideBox_newObj.GetComponent<BoxCollider2D>().enabled = true;
-                }
-                InsideBox_newObj.transform.parent = elementsPanel.transform;
-                InsideBox_newObj.transform.position = Instance_Element.averagePos;
-
-
-                //Giving Image to Loaded Element
-
+                //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
                 {
@@ -161,19 +148,21 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
                     NewelementImage.sprite = elementImage;
-                    InsideBox_newObj.GetComponent<Image>().sprite = elementImage;
-                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-
                 }
+                Instance_Element.isColliding = false;
                 int childInTopScrolllocal = topScrollView.transform.childCount;
-                if(childInTopScrolllocal>=8)
+                if (childInTopScrolllocal >= 8)
                 {
                     break;
                 }
             }
+            
         }
-
+        
     }
+
+
+
     public int findNextAvailableChildIndex(int startIndex)
     {
         for(int i=startIndex;i<elementsPanelObj.Length;i++)
