@@ -148,7 +148,7 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
                 }
-
+                elementCreated = true;
 
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;

@@ -53,8 +53,6 @@ public class Element : MonoBehaviour
             averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2;
             savePositionofElements(averagePos,"averagePos");
         }
-        
-        
     }
     
     public void savePositionofElements(Vector3 position,string key)
