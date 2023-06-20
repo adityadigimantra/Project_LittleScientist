@@ -52,11 +52,12 @@ public class combinationManager : MonoBehaviour
 
     private void Update()
     {
+        LoadCreatedElementList();
         //Elements Name coming from collision
-        COM_Element1=PlayerPrefs.GetString("element1");
+        COM_Element1 =PlayerPrefs.GetString("element1");
         COM_Element2= PlayerPrefs.GetString("element2");
         Instance_Element = FindObjectOfType<Element>();
-        LoadCreatedElementList();
+
         //If Elements Combine and Give out Results
         resultCombination =FindCombination(COM_Element1,COM_Element2);
         if (resultCombination != null)
@@ -77,6 +78,7 @@ public class combinationManager : MonoBehaviour
         {
             Debug.Log("Result:No Combinations Found ");
         }
+        PlayerPrefs.Save();
     }
     
 
@@ -114,10 +116,12 @@ public class combinationManager : MonoBehaviour
     {
         int count = PlayerPrefs.GetInt("StringCount", 0);
         Debug.Log("Count" + count);
-        for(int i=0;i<count;i++)
+
+
+        for (int i=0;i<count;i++)
         {
             string loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
-            Debug.Log("Created Element Data String "+loadedString);
+            //Debug.Log("Created Element Data String "+loadedString);
 
             if (!loadCreatedElements.Contains(loadedString))
             {
@@ -125,13 +129,12 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(newCreatedElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-                
-                if(count<=5)
+                if (topScrollView.transform.childCount<8)
                 {
                     newObj.transform.position = topScrollView.transform.position;
                     newObj.transform.parent = topScrollView.transform;
                 }
-                else if(count>5)
+                else
                 {
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
@@ -148,9 +151,14 @@ public class combinationManager : MonoBehaviour
                     NewelementImage.sprite = elementImage;
                     
                 }
+                int childInTopScrolllocal = topScrollView.transform.childCount;
+                if(childInTopScrolllocal>=8)
+                {
+                    break;
+                }
             }
         }
-        PlayerPrefs.Save();
+
     }
     public int findNextAvailableChildIndex(int startIndex)
     {
