@@ -21,7 +21,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         rectTransform = thisObject.GetComponent<RectTransform>();
         canvasGroup = thisObject.GetComponent<CanvasGroup>();
         LoadSetImageforthisElement();
-        ClampPanelRectTransform = GameObject.Find("InnerPanel").GetComponent<RectTransform>();
+        ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();
 
     }
     public void LoadSetImageforthisElement()
@@ -51,8 +51,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(ClampPanelRectTransform, mousePosition, eventData.pressEventCamera, out localPosition))
         {
-            localPosition.x = Mathf.Clamp(localPosition.x, ClampPanelRectTransform.rect.min.x, ClampPanelRectTransform.rect.max.x - thisObject.GetComponent<RectTransform>().rect.width);
-            localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y, ClampPanelRectTransform.rect.max.y - thisObject.GetComponent<RectTransform>().rect.height);
+            localPosition.x = Mathf.Clamp(localPosition.x, ClampPanelRectTransform.rect.min.x + thisObject.GetComponent<RectTransform>().rect.width, ClampPanelRectTransform.rect.max.x - thisObject.GetComponent<RectTransform>().rect.width);
+            localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y + thisObject.GetComponent<RectTransform>().rect.height, ClampPanelRectTransform.rect.max.y - thisObject.GetComponent<RectTransform>().rect.height);
             thisObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
         rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
