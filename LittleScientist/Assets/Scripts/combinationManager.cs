@@ -23,13 +23,17 @@ public class combinationManager : MonoBehaviour
     public GameObject newObj;
     public GameObject InsideBox_newObj;
 
-    [Header("Ring Element Images for Transforms/Data")]
+    [Header("Panels")]
     public Sprite[] elementImages;
     public GameObject newElementCreatedPanel;
     //public Text CollidingResult;
     public Image NewelementImage;
     public Text newElementText;
+    public GameObject noCombinationFoundPanel;
+    public GameObject combinationAlreadyMadePanel;
     public GameObject ContentPanel;
+
+
     [Header("Public Fields")]
     public GameObject elementsPanel;
     public GameObject topScrollView;
@@ -42,6 +46,10 @@ public class combinationManager : MonoBehaviour
     public Vector3 loadedPosition;
     public Vector3 finalPosition;
     public GameObject[] tempNewCreatedObj;
+
+
+    [Header("Bools")]
+    public bool iscombinationfound = false;
 
 
     [Header("Lists")]
@@ -69,9 +77,7 @@ public class combinationManager : MonoBehaviour
         COM_Element1 =PlayerPrefs.GetString("element1");
         COM_Element2= PlayerPrefs.GetString("element2");
         Instance_Element = FindObjectOfType<Element>();
-
-        //If Elements Combine and Give out Results
-        resultCombination =FindCombination(COM_Element1,COM_Element2);
+        resultCombination = FindCombination(COM_Element1, COM_Element2);
         if (resultCombination != null)
         {
             Debug.Log("Result:" + resultCombination.result);
@@ -84,20 +90,16 @@ public class combinationManager : MonoBehaviour
                 createNewElement();
 
             }
-            else
-            {
-
-                Debug.Log("Combination Already Made");
-            }
+            
         }
         else
         {
             Debug.Log("Result:No Combinations Found ");
         }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-        PlayerPrefs.Save();
+        PlayerPrefs.Save();  
     }
-    
+   
 
 
     public void createNewElement()
@@ -115,8 +117,6 @@ public class combinationManager : MonoBehaviour
             //Changes done here
             PlayerPrefs.Save();
         }
-       
-       
     }
     IEnumerator OpenNewElementPanel()
     {        
@@ -124,6 +124,19 @@ public class combinationManager : MonoBehaviour
         SoundManager._instance.newElementCreatedSound();
         yield return new WaitForSeconds(2f);
         newElementCreatedPanel.SetActive(false);
+    }
+    IEnumerator NoCombinationFound()
+    {
+        noCombinationFoundPanel.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        noCombinationFoundPanel.SetActive(false);
+    }
+
+    IEnumerator CombinationAlreadyMade()
+    {
+        combinationAlreadyMadePanel.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        combinationAlreadyMadePanel.SetActive(false);
     }
     IEnumerator playnewelementSound()
     {
@@ -188,7 +201,7 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().preserveAspect = true;
                    
                     NewelementImage.sprite = elementImage;
-                    newElementText.text = newObj.name;
+                    newElementText.text = loadedString;
                 }
 
                 //Instance_Element.isColliding = false;

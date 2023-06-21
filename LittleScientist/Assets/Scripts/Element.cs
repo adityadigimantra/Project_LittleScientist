@@ -55,6 +55,7 @@ public class Element : MonoBehaviour
         PlayerPrefs.SetString("element2", OtherElementName);
         Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
         isCollided = true;
+        PlayerPrefs.SetInt("GameStarted", 1);
     }
 
     public void getPositionOfElements()
