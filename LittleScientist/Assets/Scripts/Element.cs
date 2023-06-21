@@ -21,7 +21,10 @@ public class Element : MonoBehaviour
     [Header("Element Colliding Data")]
     public GameObject[] tempObj;
     public Vector2 averagePos;
+    public GameObject[] SameNameTagObj;
     public bool isColliding = false;
+    public bool isCollided = false;
+
 
     [Header("Instances")]
     public combinationManager comManager;
@@ -38,6 +41,7 @@ public class Element : MonoBehaviour
     {
         //Getting live Position of Both Element
         getPositionOfElements();
+        SameNameTagObj = GameObject.FindGameObjectsWithTag("Copied");
         DestroyingObj();
     }
 
@@ -50,6 +54,7 @@ public class Element : MonoBehaviour
         OtherElementName = otherElementObj.name;
         PlayerPrefs.SetString("element2", OtherElementName);
         Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
+        isCollided = true;
     }
 
     public void getPositionOfElements()
@@ -67,23 +72,17 @@ public class Element : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("elementCreated")==1)
         {
-            string Obj1Name = PlayerPrefs.GetString("parentElement1");
-            string Obj2Name = PlayerPrefs.GetString("parentElement2");
-            tempObj = GameObject.FindGameObjectsWithTag("Copied");
-            foreach(GameObject g in tempObj)
+            //To Search all the Elements with same Name Present in the Scene
+            foreach(GameObject g in SameNameTagObj)
             {
-                if(g.name==Obj1Name)
+                Element element = g.GetComponent<Element>();
+                if(element!=null && element.isCollided)
                 {
+                    Debug.Log("GameObject " + g.name + "has collided");
                     g.SetActive(false);
-                }
-                if(g.name==Obj2Name)
-                {
-                    g.SetActive(false);
-                }
+                }    
             }
-                PlayerPrefs.SetInt("elementCreated", 0);
-                Debug.Log("Element Created Value" + PlayerPrefs.GetInt("elementCreated"));
-           
+            PlayerPrefs.SetInt("elementCreated", 0);
         }
 
     }
