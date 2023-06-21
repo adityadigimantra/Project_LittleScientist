@@ -15,6 +15,7 @@ public class Element : MonoBehaviour
     public string ELE_Element2Name;
     public GameObject ELE_Element1Obj;
     public GameObject ELE_Element2Obj;
+    public GameObject[] tempObj;
     public Vector2 ELE_Element1Pos;
     public Vector2 ELE_Element2Pos;
     public Vector2 averagePos;
@@ -31,6 +32,7 @@ public class Element : MonoBehaviour
     {
         //Getting live Position of Both Element
         getPositionOfElements();
+        DestroyingObj();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +55,31 @@ public class Element : MonoBehaviour
             averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2;
             savePositionofElements(averagePos,"averagePos");
         }
+    }
+
+    public void DestroyingObj()
+    {
+        if(PlayerPrefs.GetInt("elementCreated")==1)
+        {
+            string Obj1Name = PlayerPrefs.GetString("parentElement1");
+            string Obj2Name = PlayerPrefs.GetString("parentElement2");
+            tempObj = GameObject.FindGameObjectsWithTag("Copied");
+            foreach(GameObject g in tempObj)
+            {
+                if(g.name==Obj1Name)
+                {
+                    g.SetActive(false);
+                }
+                if(g.name==Obj2Name)
+                {
+                    g.SetActive(false);
+                }
+            }
+                PlayerPrefs.SetInt("elementCreated", 0);
+                Debug.Log("Element Created Value" + PlayerPrefs.GetInt("elementCreated"));
+           
+        }
+
     }
     
     public void savePositionofElements(Vector3 position,string key)

@@ -73,7 +73,11 @@ public class combinationManager : MonoBehaviour
         if (resultCombination != null)
         {
             Debug.Log("Result:" + resultCombination.result);
-            if(!loadCreatedElements.Contains(resultCombination.result))
+            PlayerPrefs.SetString("parentElement1", COM_Element1);
+            Debug.Log("ParentElement1" + PlayerPrefs.GetString("parentElement1"));
+            PlayerPrefs.SetString("parentElement2", COM_Element2);
+            Debug.Log("ParentElement2" + PlayerPrefs.GetString("parentElement2"));
+            if (!loadCreatedElements.Contains(resultCombination.result))
             {
                 createNewElement();
                
@@ -136,7 +140,7 @@ public class combinationManager : MonoBehaviour
                 loadCreatedElements.Add(loadedString);
                 newObj = Instantiate(InsideRingElement);                
                 newObj.name = loadedString;
-                elementCreated = true;
+                PlayerPrefs.SetInt("elementCreated", 1);
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 if (topScrollView.transform.childCount<8)
                 {
@@ -211,7 +215,7 @@ public class combinationManager : MonoBehaviour
     {
         FinalposString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
         PlayerPrefs.SetString(key, FinalposString);
-        Debug.Log("PlayerPref Value" + PlayerPrefs.GetString(key));
+        //Debug.Log("PlayerPref Value" + PlayerPrefs.GetString(key));
     }
 
     public Vector3 loadfinalPosNewCreatedElement(string key)
