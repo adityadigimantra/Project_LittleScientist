@@ -272,6 +272,12 @@
             "result": "Energy"
         },
         {
+            "Name": "Energy",
+            "element1": "fire",
+            "element2": "fire",
+            "result": "Energy"
+        },
+        {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",

@@ -200,6 +200,20 @@ public class combinationManager : MonoBehaviour
         }
         
     }
+    public Vector3 loadfinalPosNewCreatedElement(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            FinalposString = PlayerPrefs.GetString(key);
+            string[] positionCordinates = FinalposString.Split(',');
+            float x = float.Parse(positionCordinates[0]);
+            float y = float.Parse(positionCordinates[1]);
+            float z = float.Parse(positionCordinates[2]);
+            Vector3 localPosition = new Vector3(x, y, z);
+            return localPosition;
+        }
+        return Vector3.zero;
+    }
 
     IEnumerator ChangePlayerPrefValue()
     {
@@ -214,13 +228,6 @@ public class combinationManager : MonoBehaviour
        loadedPosition = finalPosition;
     }
 
-    public void CleanUpTable()
-    {
-        foreach (GameObject g in tempNewCreatedObj)
-        {
-            g.gameObject.SetActive(false);
-        }
-    }
     public Vector3 loadPositionOfElement(string key)
     {
         if(PlayerPrefs.HasKey(key))
@@ -245,19 +252,13 @@ public class combinationManager : MonoBehaviour
         //Debug.Log("PlayerPref Value" + PlayerPrefs.GetString(key));
     }
 
-    public Vector3 loadfinalPosNewCreatedElement(string key)
+
+    public void CleanUpTable()
     {
-        if(PlayerPrefs.HasKey(key))
+        foreach (GameObject g in tempNewCreatedObj)
         {
-            FinalposString = PlayerPrefs.GetString(key);
-            string[] positionCordinates = FinalposString.Split(',');
-            float x = float.Parse(positionCordinates[0]);
-            float y = float.Parse(positionCordinates[1]);
-            float z = float.Parse(positionCordinates[2]);
-            Vector3 localPosition = new Vector3(x, y, z);
-            return localPosition;
+            g.gameObject.SetActive(false);
         }
-        return Vector3.zero;
     }
 
     public int findNextAvailableChildIndex(int startIndex)

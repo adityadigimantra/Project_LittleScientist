@@ -5,27 +5,33 @@ using UnityEngine.UI;
 
 public class Element : MonoBehaviour
 {
-    [Header("Element Data")]
-    public string elementName;
+    [Header("This Element Data")]
+    public string thisElementName;
+    public GameObject thisElementObj;
+    public Vector2 thisElementPosition;
+    public Sprite thisElementImage;
 
-    combinationManager comManager;
+    [Header("Other Element Data")]
+    public string OtherElementName;
+    public GameObject otherElementObj;
+    public Vector2 otherElementPosition;
+    public Sprite otherElementImage;
+
 
     [Header("Element Colliding Data")]
-    public string ELE_Element1Name;
-    public string ELE_Element2Name;
-    public GameObject ELE_Element1Obj;
-    public GameObject ELE_Element2Obj;
     public GameObject[] tempObj;
-    public Vector2 ELE_Element1Pos;
-    public Vector2 ELE_Element2Pos;
     public Vector2 averagePos;
     public bool isColliding = false;
+
+    [Header("Instances")]
+    public combinationManager comManager;
 
     private void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
-        elementName = this.gameObject.name;
-        ELE_Element1Obj = this.gameObject;
+        thisElementName = this.gameObject.name;
+        thisElementObj = this.gameObject;
+        thisElementImage = this.gameObject.GetComponent<Image>().sprite;
     }
 
     private void Update()
@@ -38,21 +44,21 @@ public class Element : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //SoundManager._instance.elementCollideSound();
-        ELE_Element2Obj = other.gameObject;
-        ELE_Element1Name = ELE_Element1Obj.name;
-        PlayerPrefs.SetString("element1", ELE_Element1Name);
-        ELE_Element2Name = ELE_Element2Obj.name;
-        PlayerPrefs.SetString("element2", ELE_Element2Name);
-        Debug.Log("Element 1=" + ELE_Element1Obj + "Collided with Element 2=" + ELE_Element2Obj);
+        otherElementObj = other.gameObject;
+        thisElementName = thisElementObj.name;
+        PlayerPrefs.SetString("element1", thisElementName);
+        OtherElementName = otherElementObj.name;
+        PlayerPrefs.SetString("element2", OtherElementName);
+        Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
     }
 
     public void getPositionOfElements()
     {
-        ELE_Element1Pos = ELE_Element1Obj.GetComponent<RectTransform>().transform.position;
-        if(ELE_Element2Obj!=null)
+        thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
+        if(otherElementObj != null)
         {
-            ELE_Element2Pos = ELE_Element2Obj.GetComponent<RectTransform>().transform.position;
-            averagePos = (ELE_Element1Pos + ELE_Element2Pos) / 2;
+            otherElementPosition = otherElementObj.GetComponent<RectTransform>().transform.position;
+            averagePos = (thisElementPosition + otherElementPosition) / 2;
             savePositionofElements(averagePos,"averagePos");
         }
     }

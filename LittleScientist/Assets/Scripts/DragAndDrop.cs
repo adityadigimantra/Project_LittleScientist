@@ -60,7 +60,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         copiedGameObject.GetComponent<BoxCollider2D>().enabled =false;
-        copiedGameObject.gameObject.name = gameObject.GetComponent<Element>().elementName;
+        copiedGameObject.gameObject.name = gameObject.GetComponent<Element>().thisElementName;
         copiedGameObject.gameObject.tag = "Copied";
     }
 
