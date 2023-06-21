@@ -14,7 +14,7 @@ public class IntroScene1 : MonoBehaviour
 
     IEnumerator startSplashScreen()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneNumbertoLoad);
 
     }

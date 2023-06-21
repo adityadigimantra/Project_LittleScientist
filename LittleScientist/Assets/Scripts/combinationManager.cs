@@ -40,6 +40,7 @@ public class combinationManager : MonoBehaviour
     public Vector3 newCreatedElementPos;
     public Vector3 loadedPosition;
     public Vector3 finalPosition;
+    public GameObject[] tempNewCreatedObj;
 
 
     [Header("Lists")]
@@ -80,11 +81,11 @@ public class combinationManager : MonoBehaviour
             if (!loadCreatedElements.Contains(resultCombination.result))
             {
                 createNewElement();
-               
+
             }
             else
             {
-               
+
                 Debug.Log("Combination Already Made");
             }
         }
@@ -92,6 +93,7 @@ public class combinationManager : MonoBehaviour
         {
             Debug.Log("Result:No Combinations Found ");
         }
+        tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         PlayerPrefs.Save();
     }
     
@@ -109,6 +111,8 @@ public class combinationManager : MonoBehaviour
             }
             StartCoroutine(OpenNewElementPanel());
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
+            //Changes done here
+            PlayerPrefs.Save();
         }
        
        
@@ -142,6 +146,7 @@ public class combinationManager : MonoBehaviour
                 newObj.name = loadedString;
                 PlayerPrefs.SetInt("elementCreated", 1);
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
+
                 if (topScrollView.transform.childCount<8)
                 {
                     newObj.transform.position = topScrollView.transform.position;
@@ -154,13 +159,22 @@ public class combinationManager : MonoBehaviour
                 }
                 elementCreated = true;
 
-                InsideBox_newObj = Instantiate(newCreatedElement);
-                InsideBox_newObj.name = newObj.name;
-                InsideBox_newObj.transform.parent = elementsPanel.transform;
-                InsideBox_newObj.transform.position = finalPosition;
-                
-                InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+
+                //New Created Element
+
+                //Temperary Have to remove this
+                StartCoroutine(ChangePlayerPrefValue());
+                if (PlayerPrefs.GetInt("IsRestart") == 0)
+                {
+                    InsideBox_newObj = Instantiate(newCreatedElement);
+                    InsideBox_newObj.name = newObj.name;
+                    InsideBox_newObj.transform.parent = elementsPanel.transform;
+                    InsideBox_newObj.transform.position = finalPosition;
+
+                    InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                }
+
                 
 
 
@@ -186,6 +200,12 @@ public class combinationManager : MonoBehaviour
         }
         
     }
+
+    IEnumerator ChangePlayerPrefValue()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PlayerPrefs.SetInt("IsRestart", 0);
+    }
     public void getPosition()
     {
        loadedPosition = loadPositionOfElement("averagePos");
@@ -194,6 +214,13 @@ public class combinationManager : MonoBehaviour
        loadedPosition = finalPosition;
     }
 
+    public void CleanUpTable()
+    {
+        foreach (GameObject g in tempNewCreatedObj)
+        {
+            g.gameObject.SetActive(false);
+        }
+    }
     public Vector3 loadPositionOfElement(string key)
     {
         if(PlayerPrefs.HasKey(key))
