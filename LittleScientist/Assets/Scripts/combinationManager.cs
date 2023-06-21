@@ -28,6 +28,7 @@ public class combinationManager : MonoBehaviour
     public GameObject newElementCreatedPanel;
     //public Text CollidingResult;
     public Image NewelementImage;
+    public Text newElementText;
     public GameObject ContentPanel;
     [Header("Public Fields")]
     public GameObject elementsPanel;
@@ -187,6 +188,7 @@ public class combinationManager : MonoBehaviour
                     newObj.GetComponent<Image>().preserveAspect = true;
                    
                     NewelementImage.sprite = elementImage;
+                    newElementText.text = newObj.name;
                 }
 
                 //Instance_Element.isColliding = false;
