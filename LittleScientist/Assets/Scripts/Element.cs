@@ -53,9 +53,10 @@ public class Element : MonoBehaviour
         PlayerPrefs.SetString("element1", thisElementName);
         OtherElementName = otherElementObj.name;
         PlayerPrefs.SetString("element2", OtherElementName);
-        Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
-        isCollided = true;
-        PlayerPrefs.SetInt("GameStarted", 1);
+        //Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
+        //isCollided = true;
+        //PlayerPrefs.SetInt("GameStarted", 1);
+        comManager.handleCombination(thisElementName, OtherElementName);
     }
 
     public void getPositionOfElements()
@@ -79,7 +80,7 @@ public class Element : MonoBehaviour
                 Element element = g.GetComponent<Element>();
                 if(element!=null && element.isCollided)
                 {
-                    Debug.Log("GameObject " + g.name + "has collided");
+                    //Debug.Log("GameObject " + g.name + "has collided");
                     g.SetActive(false);
                 }    
             }

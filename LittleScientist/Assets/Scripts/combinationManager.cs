@@ -71,6 +71,7 @@ public class combinationManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         getPosition();
         LoadCreatedElementList();
         //Elements Name coming from collision
@@ -82,9 +83,9 @@ public class combinationManager : MonoBehaviour
         {
             Debug.Log("Result:" + resultCombination.result);
             PlayerPrefs.SetString("parentElement1", COM_Element1);
-            Debug.Log("ParentElement1" + PlayerPrefs.GetString("parentElement1"));
+            //Debug.Log("ParentElement1" + PlayerPrefs.GetString("parentElement1"));
             PlayerPrefs.SetString("parentElement2", COM_Element2);
-            Debug.Log("ParentElement2" + PlayerPrefs.GetString("parentElement2"));
+            //Debug.Log("ParentElement2" + PlayerPrefs.GetString("parentElement2"));
             if (!loadCreatedElements.Contains(resultCombination.result))
             {
                 createNewElement();
@@ -98,8 +99,27 @@ public class combinationManager : MonoBehaviour
         }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         PlayerPrefs.Save();  
+        */
     }
    
+    public void handleCombination(string element1,string element2)
+    {
+        resultCombination = FindCombination(element1, element2);
+        if(resultCombination!=null)
+        {
+            Debug.Log("Result:" + resultCombination.result);
+            LoadCreatedElementList();
+            createNewElement();
+            
+        }
+        else
+        {
+            Debug.Log("Not combination Found");
+            //StartCoroutine(NoCombinationFound());
+        }
+    }
+
+
 
 
     public void createNewElement()
@@ -115,7 +135,7 @@ public class combinationManager : MonoBehaviour
             StartCoroutine(OpenNewElementPanel());
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             //Changes done here
-            PlayerPrefs.Save();
+            //PlayerPrefs.Save();
         }
     }
     IEnumerator OpenNewElementPanel()
@@ -146,7 +166,7 @@ public class combinationManager : MonoBehaviour
 
     public void LoadCreatedElementList()
     {
-        int count = PlayerPrefs.GetInt("StringCount", 0);
+        int count = PlayerPrefs.GetInt("StringCount");
         Debug.Log("Count" + count);
         for (int i=0;i<count;i++)
         {
@@ -158,9 +178,7 @@ public class combinationManager : MonoBehaviour
                 loadCreatedElements.Add(loadedString);
                 newObj = Instantiate(InsideRingElement);                
                 newObj.name = loadedString;
-                PlayerPrefs.SetInt("elementCreated", 1);
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-
                 if (topScrollView.transform.childCount<8)
                 {
                     newObj.transform.position = topScrollView.transform.position;
@@ -171,35 +189,13 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
                 }
-                elementCreated = true;
-
-
-                //New Created Element
-
-                //Temperary Have to remove this
-                StartCoroutine(ChangePlayerPrefValue());
-                if (PlayerPrefs.GetInt("IsRestart") == 0)
-                {
-                    InsideBox_newObj = Instantiate(newCreatedElement);
-                    InsideBox_newObj.name = newObj.name;
-                    InsideBox_newObj.transform.parent = elementsPanel.transform;
-                    InsideBox_newObj.transform.position = finalPosition;
-
-                    InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-                }
-
-                
-
-
-                //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
                 {
                     //Inside Ring Element
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
-                   
+
                     NewelementImage.sprite = elementImage;
                     newElementText.text = loadedString;
                 }
@@ -210,10 +206,30 @@ public class combinationManager : MonoBehaviour
                 {
                     break;
                 }
+
+
+                //New Created Element in Play Area
+
+                InsideBox_newObj = Instantiate(newCreatedElement);
+                InsideBox_newObj.name = loadedString;
+                InsideBox_newObj.transform.parent = elementsPanel.transform;
+                positionOfNewElement(FindObjectOfType<Element>().thisElementPosition);
+                InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                //Element Inside Play area
+
             }
 
         }
         
+    }
+    IEnumerator WaitforfewSec()
+    {
+        yield return new WaitForSeconds(1f);
+    }
+    public void positionOfNewElement(Vector2 position)
+    {
+        InsideBox_newObj.transform.position = position;
     }
     public Vector3 loadfinalPosNewCreatedElement(string key)
     {
