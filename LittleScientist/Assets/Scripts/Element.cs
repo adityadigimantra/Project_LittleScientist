@@ -25,11 +25,12 @@ public class Element : MonoBehaviour
     public bool isColliding = false;
     public bool isCollided = false;
     public string loadedString;
+    public Vector2 loadedVector;
+    public Vector2 newelementCreatedPos;
+
 
     [Header("Instances")]
     public combinationManager comManager;
-
-
 
     private void Start()
     {
@@ -42,52 +43,93 @@ public class Element : MonoBehaviour
     private void Update()
     {
         //Getting live Position of Both Element
-        getAveragePosOfElements();
+        loadedString = FindObjectOfType<combinationManager>().loadedString;
         SameNameTagObj = GameObject.FindGameObjectsWithTag("Copied");
         DestroyingObj();
-        loadedString = FindObjectOfType<combinationManager>().loadedString;
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        SoundManager._instance.elementCollideSound();
+        //SoundManager._instance.elementCollideSound();
         otherElementObj = other.gameObject;
         thisElementName = thisElementObj.name;
         PlayerPrefs.SetString("element1", thisElementName);
         OtherElementName = otherElementObj.name;
         PlayerPrefs.SetString("element2", OtherElementName);
-        comManager.handleCombination(thisElementName, OtherElementName);
-
+        getPositionOfElements();
+        //Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
+        isCollided = true;
+        //PlayerPrefs.SetInt("GameStarted", 1);
     }
 
-    public void getAveragePosOfElements()
+    public void getPositionOfElements()
     {
         thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
-        if(otherElementObj != null)
+        if (otherElementObj != null)
         {
             otherElementPosition = otherElementObj.GetComponent<RectTransform>().transform.position;
             averagePos = (thisElementPosition + otherElementPosition) / 2;
         }
+        string vectorString = convertVectorToString(averagePos);
+        PlayerPrefs.SetString(loadedString, vectorString);
+        PlayerPrefs.Save();
+        Debug.Log("Vector saved=" + vectorString);
+        string savedVectorString = PlayerPrefs.GetString(loadedString);
+        loadedVector = converStringToVector(savedVectorString);
+        Debug.Log("Vector loaded" + loadedVector);
+        //loadingPositionOfNewElement();
+        //Debug.Log("Saved Position of" +PlayerPrefs.GetString(loadedString));
+
+    }
+
+    public string convertVectorToString(Vector2 vector)
+    {
+        return vector.x.ToString() + "," + vector.y.ToString();
+    }
+    public Vector2 converStringToVector(string vectorString)
+    {
+        float x = 0f;
+        float y=0f;
+        string[] components = vectorString.Split(',');
+        bool parseSuccess = false;
+        if(components.Length>=2)
+        {
+            parseSuccess = float.TryParse(components[0], out x) && float.TryParse(components[1], out y);
+            
+        }
+        if (parseSuccess)
+        {
+            Vector2 vector = new Vector2(x, y);
+            return vector;
+        }
+        else
+        {
+            Debug.LogError("Failed to parse Vector2 from string: " + vectorString);
+            return Vector2.zero;
+
+        }
+
+
     }
 
     public void DestroyingObj()
     {
-        if(PlayerPrefs.GetInt("elementCreated")==1)
+        if (PlayerPrefs.GetInt("elementCreated") == 1)
         {
             //To Search all the Elements with same Name Present in the Scene
-            foreach(GameObject g in SameNameTagObj)
+            foreach (GameObject g in SameNameTagObj)
             {
                 Element element = g.GetComponent<Element>();
-                if(element!=null && element.isCollided)
+                if (element != null && element.isCollided)
                 {
                     //Debug.Log("GameObject " + g.name + "has collided");
                     g.SetActive(false);
-                }    
+                }
             }
             PlayerPrefs.SetInt("elementCreated", 0);
         }
 
     }
+
 
 }

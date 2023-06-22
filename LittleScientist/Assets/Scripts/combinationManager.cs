@@ -1,3 +1,4 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,6 @@ public class combinationManager : MonoBehaviour
     [Header("Element Created Through Result")]
     public GameObject newObj;
     public GameObject InsideBox_newObj;
-    public Vector2 NewCreatedElementPos;
 
     [Header("Panels")]
     public Sprite[] elementImages;
@@ -39,13 +39,13 @@ public class combinationManager : MonoBehaviour
     public GameObject elementsPanel;
     public GameObject topScrollView;
     public GameObject BottomScrollView;
-    public bool elementCreated=false;
+    public bool elementCreated = false;
     public string posString;
     public string FinalposString;
     public string loadedString;
-    public Vector3 newCreatedElementPos;
-    public Vector3 loadedPosition;
-    public Vector3 finalPosition;
+    public Vector2 newCreatedElementPos;
+    public Vector2 loadedPosition;
+    public Vector2 finalPosition;
     public GameObject[] tempNewCreatedObj;
 
 
@@ -59,11 +59,10 @@ public class combinationManager : MonoBehaviour
     public List<string> loadCreatedElements = new List<string>();
 
     [Header("Arrays")]
-    public GameObject[] elementsPanelObj=new GameObject[5];
+    public GameObject[] elementsPanelObj = new GameObject[5];
 
-    [Header("Transform/Transform Dictionary")]
-    public Dictionary<string, Vector2> objectPositions=new Dictionary<string, Vector2>();
-    public Vector2 finalPositionOfElement;
+    [Header("FileData")]
+    private string saveFilePath = "CreatedElements.txt";
 
     private void Start()
     {
@@ -71,17 +70,15 @@ public class combinationManager : MonoBehaviour
         elementsPanel = GameObject.Find("ElementsPanel");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
-
+        loadSavedCreatedElements();
     }
 
     private void Update()
     {
-        /*
-        getPosition();
         LoadCreatedElementList();
         //Elements Name coming from collision
-        COM_Element1 =PlayerPrefs.GetString("element1");
-        COM_Element2= PlayerPrefs.GetString("element2");
+        COM_Element1 = PlayerPrefs.GetString("element1");
+        COM_Element2 = PlayerPrefs.GetString("element2");
         Instance_Element = FindObjectOfType<Element>();
         resultCombination = FindCombination(COM_Element1, COM_Element2);
         if (resultCombination != null)
@@ -96,171 +93,55 @@ public class combinationManager : MonoBehaviour
                 createNewElement();
 
             }
-            
+
         }
         else
         {
             Debug.Log("Result:No Combinations Found ");
         }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-        PlayerPrefs.Save();  
-        */
-        LoadCreatedElementList();
+        PlayerPrefs.Save();
     }
-   
-    public void handleCombination(string element1,string element2)
-    {
-        resultCombination = FindCombination(element1, element2);
-        if(resultCombination!=null)
-        {
-            Debug.Log("Result:" + resultCombination.result);
-            createNewElement();
-            
-        }
-        else
-        {
-            Debug.Log("Not combination Found");
-        }
-    }
+
+
+
     public void createNewElement()
     {
-        
-        if(!CreatedElements.Contains(resultCombination.result))
+
+        if (!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            for (int i=0;i<CreatedElements.Count;i++)
+            for (int i = 0; i < CreatedElements.Count; i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
-                loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
-                NewCreatedElementPos = FindObjectOfType<Element>().thisElementPosition;
-                if(NewCreatedElementPos != null)
-                {
-                    saveObjectPosition(loadedString, NewCreatedElementPos);
-                    finalPositionOfElement = getObjectPosition(loadedString);
-                    Debug.Log("New Created Element Position=" + finalPositionOfElement);
-                }
             }
             StartCoroutine(OpenNewElementPanel());
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
+            saveCreateNewElement();
+            PlayerPrefs.Save();
         }
     }
 
-    public void saveObjectPosition(string key,Vector2 position)
+    public void saveCreateNewElement()
     {
-        if(objectPositions.ContainsKey(key))
-        {
-            objectPositions[key] = position;
-        }
-        else
-        {
-            objectPositions.Add(key, position);
-        }
+        //For Android
+        /*
+        string filePath = Path.Combine(Application.persistentDataPath, saveFilePath);
+        File.WriteAllLines(filePath, CreatedElements.ToArray());
+        */
+        //For WebGL
+        string saveData = string.Join(";", CreatedElements.ToArray());
+        PlayerPrefs.SetString("CreatedElements", saveData);
+        PlayerPrefs.Save();
     }
-
-    public Vector2 getObjectPosition(string key)
+    public void loadSavedCreatedElements()
     {
-        if(objectPositions.ContainsKey(key))
+        if(PlayerPrefs.HasKey("CreatedElements"))
         {
-            return objectPositions[key];
-        }
-        Debug.LogWarning("Object position with key" + loadedString + "does not exist");
-        return Vector2.zero;
-    }
-
-
-    public void LoadCreatedElementList()
-    {
-        int count = PlayerPrefs.GetInt("StringCount");
-        Debug.Log("Count" + count);
-        for (int i=0;i<count;i++)
-        {
-            if (!loadCreatedElements.Contains(loadedString))
-            {
-                loadCreatedElements.Add(loadedString);
-                newObj = Instantiate(InsideRingElement);                
-                newObj.name = loadedString;
-                newObj.GetComponent<BoxCollider2D>().enabled = false;
-                if (topScrollView.transform.childCount<8)
-                {
-                    newObj.transform.position = topScrollView.transform.position;
-                    newObj.transform.parent = topScrollView.transform;
-                }
-                else
-                {
-                    newObj.transform.position = BottomScrollView.transform.position;
-                    newObj.transform.parent = BottomScrollView.transform;
-                }
-                Sprite elementImage = LoadElementImage(loadedString);
-                if (elementImage != null)
-                {
-                    //Inside Ring Element
-                    newObj.GetComponent<Image>().sprite = elementImage;
-                    newObj.GetComponent<Image>().preserveAspect = true;
-
-                    NewelementImage.sprite = elementImage;
-                    newElementText.text = loadedString;
-                }
-                int childInTopScrolllocal = topScrollView.transform.childCount;
-                if (childInTopScrolllocal >= 8)
-                {
-                    break;
-                }
-
-
-                //New Created Element in Play Area
-                InsideBox_newObj = Instantiate(newCreatedElement);
-                InsideBox_newObj.name = loadedString;
-                InsideBox_newObj.transform.parent = elementsPanel.transform;
-                InsideBox_newObj.transform.position = finalPositionOfElement;
-                InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-                //Element Inside Play area
-
-            }
-
+            string savedData = PlayerPrefs.GetString("CreatedElements");
+            CreatedElements.AddRange(savedData.Split(';'));
         }
         
-    }
-
-
-
-    public void CleanUpTable()
-    {
-        foreach (GameObject g in tempNewCreatedObj)
-        {
-            g.gameObject.SetActive(false);
-        }
-    }
-
-    public int findNextAvailableChildIndex(int startIndex)
-    {
-        for(int i=startIndex;i<elementsPanelObj.Length;i++)
-        {
-            if(elementsPanelObj[i].transform.childCount==0)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public Sprite LoadElementImage(string elemenName)
-    {
-        string imagePath = "Elements/" + elemenName;
-        return Resources.Load<Sprite>(imagePath);
-        Debug.Log("Image Loaded");
-    }
-
-    private Combination FindCombination(string el1,string el2)
-    {
-        foreach(Combination comb in elementLoaderObj.elementsList)
-        {
-            if(comb.element1==el1 && comb.element2==el2)
-            {
-                return comb;
-            }
-        }
-        return null;
     }
 
     IEnumerator OpenNewElementPanel()
@@ -287,5 +168,113 @@ public class combinationManager : MonoBehaviour
     {
         yield return new WaitForSeconds(SoundManager._instance.ElementsCollideSound.clip.length);
         SoundManager._instance.newElementCreatedSound();
+    }
+
+    public void LoadCreatedElementList()
+    {
+        int count = PlayerPrefs.GetInt("StringCount");
+        Debug.Log("Count" + count);
+        for (int i = 0; i < count; i++)
+        {
+            loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
+            //Debug.Log("Created Element Data String "+loadedString);
+
+            if (!loadCreatedElements.Contains(loadedString))
+            {
+                loadCreatedElements.Add(loadedString);
+                newObj = Instantiate(InsideRingElement);
+                newObj.name = loadedString;
+                newObj.GetComponent<BoxCollider2D>().enabled = false;
+
+                if (topScrollView.transform.childCount < 8)
+                {
+                    newObj.transform.position = topScrollView.transform.position;
+                    newObj.transform.parent = topScrollView.transform;
+                }
+                else
+                {
+                    newObj.transform.position = BottomScrollView.transform.position;
+                    newObj.transform.parent = BottomScrollView.transform;
+                }
+                elementCreated = true;
+                
+                //Creating New Elements for Play Area
+                InsideBox_newObj = Instantiate(newCreatedElement);
+                InsideBox_newObj.name = newObj.name;
+                InsideBox_newObj.transform.parent = elementsPanel.transform;
+                GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
+                foreach(GameObject g in var)
+                {
+                    if(g.GetComponent<Element>().isCollided)
+                    {
+                        newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                    }
+                }
+                InsideBox_newObj.transform.position = newCreatedElementPos;
+                InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                
+                //Element Inside Play area
+                Sprite elementImage = LoadElementImage(loadedString);
+                if (elementImage != null)
+                {
+                    //Inside Ring Element
+                    newObj.GetComponent<Image>().sprite = elementImage;
+                    newObj.GetComponent<Image>().preserveAspect = true;
+
+                    NewelementImage.sprite = elementImage;
+                    newElementText.text = loadedString;
+                }
+
+                //Instance_Element.isColliding = false;
+                int childInTopScrolllocal = topScrollView.transform.childCount;
+                if (childInTopScrolllocal >= 8)
+                {
+                    break;
+                }
+            }
+
+        }
+
+    }
+
+
+    public void CleanUpTable()
+    {
+        foreach (GameObject g in tempNewCreatedObj)
+        {
+            g.gameObject.SetActive(false);
+        }
+    }
+
+    public int findNextAvailableChildIndex(int startIndex)
+    {
+        for (int i = startIndex; i < elementsPanelObj.Length; i++)
+        {
+            if (elementsPanelObj[i].transform.childCount == 0)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Sprite LoadElementImage(string elemenName)
+    {
+        string imagePath = "Elements/" + elemenName;
+        return Resources.Load<Sprite>(imagePath);
+        Debug.Log("Image Loaded");
+    }
+
+    private Combination FindCombination(string el1, string el2)
+    {
+        foreach (Combination comb in elementLoaderObj.elementsList)
+        {
+            if (comb.element1 == el1 && comb.element2 == el2)
+            {
+                return comb;
+            }
+        }
+        return null;
     }
 }
