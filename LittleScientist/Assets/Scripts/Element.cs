@@ -24,10 +24,12 @@ public class Element : MonoBehaviour
     public GameObject[] SameNameTagObj;
     public bool isColliding = false;
     public bool isCollided = false;
-
+    public string loadedString;
 
     [Header("Instances")]
     public combinationManager comManager;
+
+
 
     private void Start()
     {
@@ -40,33 +42,32 @@ public class Element : MonoBehaviour
     private void Update()
     {
         //Getting live Position of Both Element
-        getPositionOfElements();
+        getAveragePosOfElements();
         SameNameTagObj = GameObject.FindGameObjectsWithTag("Copied");
         DestroyingObj();
+        loadedString = FindObjectOfType<combinationManager>().loadedString;
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //SoundManager._instance.elementCollideSound();
+        SoundManager._instance.elementCollideSound();
         otherElementObj = other.gameObject;
         thisElementName = thisElementObj.name;
         PlayerPrefs.SetString("element1", thisElementName);
         OtherElementName = otherElementObj.name;
         PlayerPrefs.SetString("element2", OtherElementName);
-        //Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
-        //isCollided = true;
-        //PlayerPrefs.SetInt("GameStarted", 1);
         comManager.handleCombination(thisElementName, OtherElementName);
+
     }
 
-    public void getPositionOfElements()
+    public void getAveragePosOfElements()
     {
         thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
         if(otherElementObj != null)
         {
             otherElementPosition = otherElementObj.GetComponent<RectTransform>().transform.position;
             averagePos = (thisElementPosition + otherElementPosition) / 2;
-            savePositionofElements(averagePos,"averagePos");
         }
     }
 
@@ -88,12 +89,5 @@ public class Element : MonoBehaviour
         }
 
     }
-
-    public void savePositionofElements(Vector3 position,string key)
-    {
-        string posString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
-        PlayerPrefs.SetString(key, posString);
-    }
-    
 
 }

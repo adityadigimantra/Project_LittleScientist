@@ -22,6 +22,7 @@ public class combinationManager : MonoBehaviour
     [Header("Element Created Through Result")]
     public GameObject newObj;
     public GameObject InsideBox_newObj;
+    public Vector2 NewCreatedElementPos;
 
     [Header("Panels")]
     public Sprite[] elementImages;
@@ -59,6 +60,10 @@ public class combinationManager : MonoBehaviour
 
     [Header("Arrays")]
     public GameObject[] elementsPanelObj=new GameObject[5];
+
+    [Header("Transform/Transform Dictionary")]
+    public Dictionary<string, Vector2> objectPositions=new Dictionary<string, Vector2>();
+    public Vector2 finalPositionOfElement;
 
     private void Start()
     {
@@ -100,6 +105,7 @@ public class combinationManager : MonoBehaviour
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         PlayerPrefs.Save();  
         */
+        LoadCreatedElementList();
     }
    
     public void handleCombination(string element1,string element2)
@@ -108,20 +114,14 @@ public class combinationManager : MonoBehaviour
         if(resultCombination!=null)
         {
             Debug.Log("Result:" + resultCombination.result);
-            LoadCreatedElementList();
             createNewElement();
             
         }
         else
         {
             Debug.Log("Not combination Found");
-            //StartCoroutine(NoCombinationFound());
         }
     }
-
-
-
-
     public void createNewElement()
     {
         
@@ -130,39 +130,43 @@ public class combinationManager : MonoBehaviour
             CreatedElements.Add(resultCombination.result);
             for (int i=0;i<CreatedElements.Count;i++)
             {
-                PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]); 
+                PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
+                loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
+                NewCreatedElementPos = FindObjectOfType<Element>().thisElementPosition;
+                if(NewCreatedElementPos != null)
+                {
+                    saveObjectPosition(loadedString, NewCreatedElementPos);
+                    finalPositionOfElement = getObjectPosition(loadedString);
+                    Debug.Log("New Created Element Position=" + finalPositionOfElement);
+                }
             }
             StartCoroutine(OpenNewElementPanel());
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
-            //Changes done here
-            //PlayerPrefs.Save();
         }
     }
-    IEnumerator OpenNewElementPanel()
-    {        
-        newElementCreatedPanel.SetActive(true);
-        SoundManager._instance.newElementCreatedSound();
-        yield return new WaitForSeconds(2f);
-        newElementCreatedPanel.SetActive(false);
-    }
-    IEnumerator NoCombinationFound()
+
+    public void saveObjectPosition(string key,Vector2 position)
     {
-        noCombinationFoundPanel.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        noCombinationFoundPanel.SetActive(false);
+        if(objectPositions.ContainsKey(key))
+        {
+            objectPositions[key] = position;
+        }
+        else
+        {
+            objectPositions.Add(key, position);
+        }
     }
 
-    IEnumerator CombinationAlreadyMade()
+    public Vector2 getObjectPosition(string key)
     {
-        combinationAlreadyMadePanel.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        combinationAlreadyMadePanel.SetActive(false);
+        if(objectPositions.ContainsKey(key))
+        {
+            return objectPositions[key];
+        }
+        Debug.LogWarning("Object position with key" + loadedString + "does not exist");
+        return Vector2.zero;
     }
-    IEnumerator playnewelementSound()
-    {
-        yield return new WaitForSeconds(SoundManager._instance.ElementsCollideSound.clip.length);
-        SoundManager._instance.newElementCreatedSound();
-    }
+
 
     public void LoadCreatedElementList()
     {
@@ -170,9 +174,6 @@ public class combinationManager : MonoBehaviour
         Debug.Log("Count" + count);
         for (int i=0;i<count;i++)
         {
-            loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
-            //Debug.Log("Created Element Data String "+loadedString);
-
             if (!loadCreatedElements.Contains(loadedString))
             {
                 loadCreatedElements.Add(loadedString);
@@ -199,8 +200,6 @@ public class combinationManager : MonoBehaviour
                     NewelementImage.sprite = elementImage;
                     newElementText.text = loadedString;
                 }
-
-                //Instance_Element.isColliding = false;
                 int childInTopScrolllocal = topScrollView.transform.childCount;
                 if (childInTopScrolllocal >= 8)
                 {
@@ -209,11 +208,10 @@ public class combinationManager : MonoBehaviour
 
 
                 //New Created Element in Play Area
-
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = loadedString;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
-                positionOfNewElement(FindObjectOfType<Element>().thisElementPosition);
+                InsideBox_newObj.transform.position = finalPositionOfElement;
                 InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                 InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
                 //Element Inside Play area
@@ -223,65 +221,7 @@ public class combinationManager : MonoBehaviour
         }
         
     }
-    IEnumerator WaitforfewSec()
-    {
-        yield return new WaitForSeconds(1f);
-    }
-    public void positionOfNewElement(Vector2 position)
-    {
-        InsideBox_newObj.transform.position = position;
-    }
-    public Vector3 loadfinalPosNewCreatedElement(string key)
-    {
-        if (PlayerPrefs.HasKey(key))
-        {
-            FinalposString = PlayerPrefs.GetString(key);
-            string[] positionCordinates = FinalposString.Split(',');
-            float x = float.Parse(positionCordinates[0]);
-            float y = float.Parse(positionCordinates[1]);
-            float z = float.Parse(positionCordinates[2]);
-            Vector3 localPosition = new Vector3(x, y, z);
-            return localPosition;
-        }
-        return Vector3.zero;
-    }
 
-    IEnumerator ChangePlayerPrefValue()
-    {
-        yield return new WaitForSeconds(0.5f);
-        PlayerPrefs.SetInt("IsRestart", 0);
-    }
-    public void getPosition()
-    {
-       loadedPosition = loadPositionOfElement("averagePos");
-       savefinalPosNewCreatedElement(loadedPosition, loadedString);
-       finalPosition=loadfinalPosNewCreatedElement(loadedString);
-       loadedPosition = finalPosition;
-    }
-
-    public Vector3 loadPositionOfElement(string key)
-    {
-        if(PlayerPrefs.HasKey(key))
-        {
-            posString = PlayerPrefs.GetString(key);
-            string[] posCordinates = posString.Split(',');
-            float x = float.Parse(posCordinates[0]);
-            float y = float.Parse(posCordinates[1]);
-            float z = float.Parse(posCordinates[2]);
-
-            Vector3 localPos = new Vector3(x, y, z);
-            return localPos;
-        }
-        return Vector3.zero;
-
-    }
-
-    public void savefinalPosNewCreatedElement(Vector3 position,string key)
-    {
-        FinalposString = position.x.ToString() + "," + position.y.ToString() + "," + position.z.ToString();
-        PlayerPrefs.SetString(key, FinalposString);
-        //Debug.Log("PlayerPref Value" + PlayerPrefs.GetString(key));
-    }
 
 
     public void CleanUpTable()
@@ -321,5 +261,31 @@ public class combinationManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    IEnumerator OpenNewElementPanel()
+    {
+        newElementCreatedPanel.SetActive(true);
+        SoundManager._instance.newElementCreatedSound();
+        yield return new WaitForSeconds(2f);
+        newElementCreatedPanel.SetActive(false);
+    }
+    IEnumerator NoCombinationFound()
+    {
+        noCombinationFoundPanel.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        noCombinationFoundPanel.SetActive(false);
+    }
+
+    IEnumerator CombinationAlreadyMade()
+    {
+        combinationAlreadyMadePanel.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        combinationAlreadyMadePanel.SetActive(false);
+    }
+    IEnumerator playnewelementSound()
+    {
+        yield return new WaitForSeconds(SoundManager._instance.ElementsCollideSound.clip.length);
+        SoundManager._instance.newElementCreatedSound();
     }
 }
