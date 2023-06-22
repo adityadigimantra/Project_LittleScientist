@@ -44,6 +44,7 @@ public class combinationManager : MonoBehaviour
     public string FinalposString;
     public string loadedString;
     public Vector2 newCreatedElementPos;
+    public Vector2 savednewCreatedElementPos;
     public Vector2 loadedPosition;
     public Vector2 finalPosition;
     public GameObject[] tempNewCreatedObj;
@@ -185,7 +186,7 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(InsideRingElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-
+                PlayerPrefs.SetInt("elementCreated", 1);
                 if (topScrollView.transform.childCount < 8)
                 {
                     newObj.transform.position = topScrollView.transform.position;
@@ -196,24 +197,27 @@ public class combinationManager : MonoBehaviour
                     newObj.transform.position = BottomScrollView.transform.position;
                     newObj.transform.parent = BottomScrollView.transform;
                 }
-                elementCreated = true;
-                
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
+
+                //Getting Position
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
-                foreach(GameObject g in var)
+                foreach (GameObject g in var)
                 {
-                    if(g.GetComponent<Element>().isCollided)
+                    if (g.GetComponent<Element>().isCollided)
                     {
                         newCreatedElementPos = g.GetComponent<Element>().loadedVector;
                     }
                 }
+                Debug.Log("Working till here");
                 InsideBox_newObj.transform.position = newCreatedElementPos;
                 InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                 InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-                
+                newElementPositionFunction();
+                LoadNewElementPositionFunction(loadedString + "1");
+
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
@@ -238,7 +242,58 @@ public class combinationManager : MonoBehaviour
 
     }
 
+    public void newElementPositionFunction()
+    {
+        //Saving Position for New Created Element
+        if(newCreatedElementPos!=null)
+        {
+            savednewCreatedElementPos = newCreatedElementPos;
+            string PosString = ConvertVectorToString(savednewCreatedElementPos);
+            PlayerPrefs.SetString(loadedString + "1", PosString);
+            PlayerPrefs.Save();
+            Debug.Log("SavedPosString" + PosString);
 
+        }
+    }
+
+    public void LoadNewElementPositionFunction(string elementKey)
+    {
+        string savedPosString = PlayerPrefs.GetString(elementKey);
+        if (!string.IsNullOrEmpty(savedPosString))
+        {
+            Debug.Log("Value" + PlayerPrefs.GetString(elementKey));
+            loadedPosition = convertStringToVector(savedPosString);
+            Debug.Log("Loaded Position for New Created Element" + elementKey +":"+loadedPosition) ;
+        }
+    }
+
+    public string ConvertVectorToString(Vector2 vector)
+    {
+        return vector.x.ToString() + "," + vector.y.ToString();
+    }
+    public Vector2 convertStringToVector(string vectorString)
+    {
+        float x = 0f;
+        float y = 0f;
+        string[] components = vectorString.Split(',');
+        bool parseSuccess = false;
+        if (components.Length >= 2)
+        {
+            parseSuccess = float.TryParse(components[0], out x) && float.TryParse(components[1], out y);
+
+        }
+        if (parseSuccess)
+        {
+            Vector2 vector = new Vector2(x, y);
+            return vector;
+        }
+        else
+        {
+            Debug.LogError("Failed to parse Vector2 from string: " + vectorString);
+            return Vector2.zero;
+
+        }
+    }
     public void CleanUpTable()
     {
         foreach (GameObject g in tempNewCreatedObj)

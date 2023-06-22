@@ -22,6 +22,7 @@ public class Element : MonoBehaviour
     public GameObject[] tempObj;
     public Vector2 averagePos;
     public GameObject[] SameNameTagObj;
+    public GameObject[] SameNameTagObj2;
     public bool isColliding = false;
     public bool isCollided = false;
     public string loadedString;
@@ -45,6 +46,7 @@ public class Element : MonoBehaviour
         //Getting live Position of Both Element
         loadedString = FindObjectOfType<combinationManager>().loadedString;
         SameNameTagObj = GameObject.FindGameObjectsWithTag("Copied");
+        SameNameTagObj2 = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         DestroyingObj();
     }
 
@@ -57,9 +59,7 @@ public class Element : MonoBehaviour
         OtherElementName = otherElementObj.name;
         PlayerPrefs.SetString("element2", OtherElementName);
         getPositionOfElements();
-        //Debug.Log("Element 1=" + thisElementObj + "Collided with Element 2=" + otherElementObj);
         isCollided = true;
-        //PlayerPrefs.SetInt("GameStarted", 1);
     }
 
     public void getPositionOfElements()
@@ -73,12 +73,10 @@ public class Element : MonoBehaviour
         string vectorString = convertVectorToString(averagePos);
         PlayerPrefs.SetString(loadedString, vectorString);
         PlayerPrefs.Save();
-        Debug.Log("Vector saved=" + vectorString);
+        Debug.Log("Vector saved="+ vectorString);
         string savedVectorString = PlayerPrefs.GetString(loadedString);
         loadedVector = converStringToVector(savedVectorString);
         Debug.Log("Vector loaded" + loadedVector);
-        //loadingPositionOfNewElement();
-        //Debug.Log("Saved Position of" +PlayerPrefs.GetString(loadedString));
 
     }
 
@@ -123,6 +121,14 @@ public class Element : MonoBehaviour
                 if (element != null && element.isCollided)
                 {
                     //Debug.Log("GameObject " + g.name + "has collided");
+                    g.SetActive(false);
+                }
+            }
+            foreach(GameObject g in SameNameTagObj2)
+            {
+                Element element = g.GetComponent<Element>();
+                if (element != null && element.isCollided)
+                {
                     g.SetActive(false);
                 }
             }
