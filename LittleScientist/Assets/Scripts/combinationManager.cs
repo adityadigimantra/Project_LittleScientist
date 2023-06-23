@@ -130,11 +130,13 @@ public class combinationManager : MonoBehaviour
             else
             {
                 Debug.Log("Combination already Present");
+                StartCoroutine(CombinationPresent());
             }
         }
         else
         {
             Debug.Log("No Combination Found");
+            StartCoroutine(NoCombinationFound());
         }
         Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
         Debug.Log("Parent Element2" + PlayerPrefs.GetString("parentElement2"));
@@ -191,6 +193,12 @@ public class combinationManager : MonoBehaviour
         noCombinationFoundPanel.SetActive(true);
         yield return new WaitForSeconds(1.2f);
         noCombinationFoundPanel.SetActive(false);
+    }
+    IEnumerator CombinationPresent()
+    {
+        combinationAlreadyMadePanel.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        combinationAlreadyMadePanel.SetActive(false);
     }
 
 
