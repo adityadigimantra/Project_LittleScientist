@@ -72,6 +72,7 @@ public class combinationManager : MonoBehaviour
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
         loadSavedCreatedElements();
+        //PlayerPrefs.SetInt("IsRestart", 0);
     }
 
     private void Update()
@@ -98,7 +99,7 @@ public class combinationManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Result:No Combinations Found ");
+           // Debug.Log("Result:No Combinations Found ");
         }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         PlayerPrefs.Save();
@@ -174,7 +175,7 @@ public class combinationManager : MonoBehaviour
     public void LoadCreatedElementList()
     {
         int count = PlayerPrefs.GetInt("StringCount");
-        Debug.Log("Count" + count);
+       // Debug.Log("Count" + count);
         for (int i = 0; i < count; i++)
         {
             loadedString = PlayerPrefs.GetString("CreatedElementData" + i);
@@ -203,21 +204,32 @@ public class combinationManager : MonoBehaviour
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
 
                 //Getting Position
+                
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
-                foreach (GameObject g in var)
+                if(PlayerPrefs.GetInt("IsRestart") ==0)
                 {
-                    if (g.GetComponent<Element>().isCollided)
+                    foreach (GameObject g in var)
                     {
-                        newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                        if (g.GetComponent<Element>().isCollided)
+                        {
+                            newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                        }
                     }
+                    Debug.Log("Working till here");
+                    InsideBox_newObj.transform.position = newCreatedElementPos;
+                    InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                    newElementPositionFunction();
                 }
-                Debug.Log("Working till here");
-                InsideBox_newObj.transform.position = newCreatedElementPos;
-                InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-                newElementPositionFunction();
-                LoadNewElementPositionFunction(loadedString + "1");
+                else
+                {
+                    Debug.Log("after Restart");
+                    LoadNewElementPositionFunction(loadedString + "1");
+                    InsideBox_newObj.transform.position = loadedPosition;
+                    InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
 
+                }
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
@@ -229,7 +241,6 @@ public class combinationManager : MonoBehaviour
                     NewelementImage.sprite = elementImage;
                     newElementText.text = loadedString;
                 }
-
                 //Instance_Element.isColliding = false;
                 int childInTopScrolllocal = topScrollView.transform.childCount;
                 if (childInTopScrolllocal >= 8)
@@ -250,8 +261,9 @@ public class combinationManager : MonoBehaviour
             savednewCreatedElementPos = newCreatedElementPos;
             string PosString = ConvertVectorToString(savednewCreatedElementPos);
             PlayerPrefs.SetString(loadedString + "1", PosString);
+            Debug.Log("Before PlayerPrefs.SetString: loadedString = " + loadedString + "1, PosString = " + PosString);
+            Debug.Log("After PlayerPrefs.SetString: Key = " + loadedString + "1, Value = " + PlayerPrefs.GetString(loadedString + "1"));
             PlayerPrefs.Save();
-            Debug.Log("SavedPosString" + PosString);
 
         }
     }
@@ -261,7 +273,7 @@ public class combinationManager : MonoBehaviour
         string savedPosString = PlayerPrefs.GetString(elementKey);
         if (!string.IsNullOrEmpty(savedPosString))
         {
-            Debug.Log("Value" + PlayerPrefs.GetString(elementKey));
+            //Debug.Log("Value" + PlayerPrefs.GetString(elementKey));
             loadedPosition = convertStringToVector(savedPosString);
             Debug.Log("Loaded Position for New Created Element" + elementKey +":"+loadedPosition) ;
         }
