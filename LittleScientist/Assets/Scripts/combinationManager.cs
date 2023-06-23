@@ -45,6 +45,7 @@ public class combinationManager : MonoBehaviour
     public string loadedString;
     public Vector2 newCreatedElementPos;
     public Vector2 savednewCreatedElementPos;
+
     public Vector2 loadedPosition;
     public Vector2 finalPosition;
     public GameObject[] tempNewCreatedObj;
@@ -52,6 +53,7 @@ public class combinationManager : MonoBehaviour
 
     [Header("Bools")]
     public bool iscombinationfound = false;
+    public bool panelShown = false;
 
 
     [Header("Lists")]
@@ -78,6 +80,7 @@ public class combinationManager : MonoBehaviour
     private void Update()
     {
         LoadCreatedElementList();
+        /*
         //Elements Name coming from collision
         COM_Element1 = PlayerPrefs.GetString("element1");
         COM_Element2 = PlayerPrefs.GetString("element2");
@@ -93,7 +96,11 @@ public class combinationManager : MonoBehaviour
             if (!loadCreatedElements.Contains(resultCombination.result))
             {
                 createNewElement();
-
+                iscombinationfound = true;
+            }
+            else
+            {
+                iscombinationfound = false;
             }
 
         }
@@ -101,11 +108,37 @@ public class combinationManager : MonoBehaviour
         {
            // Debug.Log("Result:No Combinations Found ");
         }
+
+        */
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         PlayerPrefs.Save();
     }
 
-
+    public void HandleCombination(string element1,string element2)
+    {
+        resultCombination = FindCombination(element1,element2);
+        if(resultCombination!=null)
+        {
+            Debug.Log("Result:" + resultCombination.result);
+            PlayerPrefs.SetString("parentElement1", element1);
+            PlayerPrefs.SetString("parentElement2", element2);
+            if (!loadCreatedElements.Contains(resultCombination.result))
+            {
+                createNewElement();
+                
+            }
+            else
+            {
+                Debug.Log("Combination already Present");
+            }
+        }
+        else
+        {
+            Debug.Log("No Combination Found");
+        }
+        Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
+        Debug.Log("Parent Element2" + PlayerPrefs.GetString("parentElement2"));
+    }
 
     public void createNewElement()
     {
@@ -160,12 +193,7 @@ public class combinationManager : MonoBehaviour
         noCombinationFoundPanel.SetActive(false);
     }
 
-    IEnumerator CombinationAlreadyMade()
-    {
-        combinationAlreadyMadePanel.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        combinationAlreadyMadePanel.SetActive(false);
-    }
+
     IEnumerator playnewelementSound()
     {
         yield return new WaitForSeconds(SoundManager._instance.ElementsCollideSound.clip.length);
@@ -343,5 +371,12 @@ public class combinationManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+
+    public void CheckElementPresence(string el1,string el2)
+    {
+        el1 = PlayerPrefs.GetString("element1");
+        el2 = PlayerPrefs.GetString("element2");
     }
 }

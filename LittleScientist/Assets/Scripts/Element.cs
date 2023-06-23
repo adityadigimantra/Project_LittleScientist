@@ -39,15 +39,18 @@ public class Element : MonoBehaviour
         thisElementName = this.gameObject.name;
         thisElementObj = this.gameObject;
         thisElementImage = this.gameObject.GetComponent<Image>().sprite;
+        //ComMadePanel = FindObjectOfType<combinationManager>().combinationAlreadyMadePanel;
     }
 
     private void Update()
     {
         //Getting live Position of Both Element
-        loadedString = FindObjectOfType<combinationManager>().loadedString;
+        loadedString = PlayerPrefs.GetString("CreatedElementData");
         SameNameTagObj = GameObject.FindGameObjectsWithTag("Copied");
         SameNameTagObj2 = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+        //CheckforElementPresence(FindObjectOfType<combinationManager>().loadedString);
         DestroyingObj();
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -58,10 +61,13 @@ public class Element : MonoBehaviour
         PlayerPrefs.SetString("element1", thisElementName);
         OtherElementName = otherElementObj.name;
         PlayerPrefs.SetString("element2", OtherElementName);
+        FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
         getPositionOfElements();
         isCollided = true;
+       // CheckforElementPresence();
     }
 
+    
     public void getPositionOfElements()
     {
         thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
@@ -76,7 +82,8 @@ public class Element : MonoBehaviour
         //Debug.Log("Vector saved="+ vectorString);
         string savedVectorString = PlayerPrefs.GetString(loadedString);
         loadedVector = converStringToVector(savedVectorString);
-       // Debug.Log("Vector loaded" + loadedVector);
+        // Debug.Log("Vector loaded" + loadedVector);
+
 
     }
 
@@ -136,6 +143,5 @@ public class Element : MonoBehaviour
         }
 
     }
-
 
 }
