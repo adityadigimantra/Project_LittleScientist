@@ -137,6 +137,7 @@ public class combinationManager : MonoBehaviour
         {
             Debug.Log("No Combination Found");
             StartCoroutine(NoCombinationFound());
+            
         }
         Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
         Debug.Log("Parent Element2" + PlayerPrefs.GetString("parentElement2"));
@@ -224,23 +225,14 @@ public class combinationManager : MonoBehaviour
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 PlayerPrefs.SetInt("elementCreated", 1);
-                if (topScrollView.transform.childCount < 8)
-                {
-                    newObj.transform.position = topScrollView.transform.position;
-                    newObj.transform.parent = topScrollView.transform;
-                }
-                else
-                {
-                    newObj.transform.position = BottomScrollView.transform.position;
-                    newObj.transform.parent = BottomScrollView.transform;
-                }
+            
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
+                placingElementsInScrollRect();
 
-                //Getting Position
-                
+
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                 if(PlayerPrefs.GetInt("IsRestart") ==0)
                 {
@@ -287,6 +279,20 @@ public class combinationManager : MonoBehaviour
 
         }
 
+    }
+
+    public void placingElementsInScrollRect()
+    {
+        if (topScrollView.transform.childCount < 8)
+        {
+            newObj.transform.position = topScrollView.transform.position;
+            newObj.transform.parent = topScrollView.transform;
+        }
+        else
+        {
+            newObj.transform.position = BottomScrollView.transform.position;
+            newObj.transform.parent = BottomScrollView.transform;
+        }
     }
 
     public void newElementPositionFunction()
