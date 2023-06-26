@@ -86,6 +86,12 @@
             "result": "brick"
         },
         {
+            "Name": "Brick",
+            "element1": "mud",
+            "element2": "fire",
+            "result": "brick"
+        },
+        {
             "Name": "Chimney",
             "element1": "brick",
             "element2": "smoke",
@@ -146,6 +152,12 @@
             "result": "brick"
         },
         {
+            "Name": "Brick",
+            "element1": "stone",
+            "element2": "clay",
+            "result": "brick"
+        },
+        {
             "Name": "Glass",
             "element1": "fire",
             "element2": "sand",
@@ -197,6 +209,12 @@
             "Name": "Continent",
             "element1": "earth",
             "element2": "land",
+            "result": "continent"
+        },
+        {
+            "Name": "Continent",
+            "element1": "land",
+            "element2": "earth",
             "result": "continent"
         },
         {
@@ -276,6 +294,12 @@
             "element1": "fire",
             "element2": "fire",
             "result": "energy"
+        },
+        {
+            "Name": "Land",
+            "element1": "earth",
+            "element2": "earth",
+            "result": "land"
         },
         {
             "Name": "Land",

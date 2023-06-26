@@ -146,12 +146,12 @@ TextureImporter:
       name: air_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 144
-        width: 986
-        height: 773
+        x: 0
+        y: 0
+        width: 1024
+        height: 1025
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -58,5 +58,7 @@ public class GameOperation : MonoBehaviour
         PlayerPrefs.DeleteKey(key1);
         PlayerPrefs.DeleteKey(key2);
         PlayerPrefs.SetInt("IsRestart", 1);
+        GameState = GameState.Prepare;
+        Debug.Log("GameState is "+GameState);
     }
 }

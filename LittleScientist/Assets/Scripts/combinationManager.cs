@@ -61,6 +61,7 @@ public class combinationManager : MonoBehaviour
     public List<string> CreatedElements = new List<string>();
     public List<string> loadCreatedElements = new List<string>();
     public List<string> disabledGameobjects = new List<string>();
+    public List<string> NoCombinationFoundElements = new List<string>();
 
     [Header("Arrays")]
     public GameObject[] elementsPanelObj = new GameObject[5];
@@ -77,12 +78,14 @@ public class combinationManager : MonoBehaviour
         BottomScrollView = GameObject.Find("DownScroll_Content");
         loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
+
         //PlayerPrefs.SetInt("IsRestart", 0);
     }
 
     private void Update()
     {
         //Fetching All Created List
+
         LoadCreatedElementList();
         switchingOffElements();
         /*
@@ -140,6 +143,7 @@ public class combinationManager : MonoBehaviour
                 {
                     Debug.Log("Combination already Present");
                     StartCoroutine(CombinationPresent());
+                    
                 }
             }
             else
@@ -147,6 +151,7 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 StartCoroutine(NoCombinationFound());
+                StoreElementsOfNoCombination(element1, element2);
 
             }
             Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
@@ -206,6 +211,15 @@ public class combinationManager : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         noCombinationFoundPanel.SetActive(false);
     }
+    public void CheckifCombinationNotFound(string el1,string el2)
+    {        
+    }
+
+    public void StoreElementsOfNoCombination(string el1,string el2)
+    {
+        NoCombinationFoundElements.Add(el1);
+        //NoCombinationFoundElements.Add(el2);
+    }
     IEnumerator CombinationPresent()
     {
         combinationAlreadyMadePanel.SetActive(true);
@@ -213,6 +227,7 @@ public class combinationManager : MonoBehaviour
         combinationAlreadyMadePanel.SetActive(false);
     }
 
+    
 
     IEnumerator playnewelementSound()
     {
@@ -235,6 +250,7 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(InsideRingElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
+                newObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                 PlayerPrefs.SetInt("elementCreated", 1);
 
 
@@ -246,6 +262,7 @@ public class combinationManager : MonoBehaviour
 
 
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
+
                 if(PlayerPrefs.GetInt("IsRestart") ==0)
                 {
                     foreach (GameObject g in var)
@@ -255,9 +272,6 @@ public class combinationManager : MonoBehaviour
                             newCreatedElementPos = g.GetComponent<Element>().loadedVector;
                         }
                     }
-                    Debug.Log("Working till here");
-
-
                     InsideBox_newObj.transform.position = newCreatedElementPos;
                     InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                     InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
@@ -301,11 +315,13 @@ public class combinationManager : MonoBehaviour
         {
             if (disabledGameobjects.Contains(sameElement))
             {
-                Debug.Log("FoundElement");
-                GameObject matchingGameObject = GameObject.Find(sameElement);
-                if (matchingGameObject != null)
+                GameObject[] matchingGameObject = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+                foreach(GameObject g in matchingGameObject)
                 {
-                    matchingGameObject.SetActive(false);
+                    if(g.name==sameElement)
+                    {
+                        g.SetActive(false);
+                    }
                 }
             }
         }

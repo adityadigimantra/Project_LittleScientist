@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80ef1ad33e4054b48914baf7c00c6862
+guid: cab77c6872527514c9ebd0c0be15920e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1835659336907895967
-    second: MicrosoftTeams-image (95)_0
+      213: -8092295105046505211
+    second: explosion_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -107,12 +107,12 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -143,7 +143,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MicrosoftTeams-image (95)_0
+      name: explosion_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,14 +151,14 @@ TextureImporter:
         width: 1024
         height: 1025
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f943601f072997910800000000000000
-      internalID: 1835659336907895967
+      spriteID: 509121e0a7462bf80800000000000000
+      internalID: -8092295105046505211
       vertices: []
       indices: 
       edges: []
@@ -166,7 +166,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: da12f21f83abff44991b0f1cd6df6f4d
+    spriteID: ff1d89cfddfe44f4c87f8496185a5522
     internalID: 0
     vertices: []
     indices: 

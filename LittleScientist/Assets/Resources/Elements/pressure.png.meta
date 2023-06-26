@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80ef1ad33e4054b48914baf7c00c6862
+guid: 3f327efebaa80f541ac0157aeacb2cc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1835659336907895967
-    second: MicrosoftTeams-image (95)_0
+      213: -1549733131265812753
+    second: pressure_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -143,7 +143,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MicrosoftTeams-image (95)_0
+      name: pressure_0
       rect:
         serializedVersion: 2
         x: 0
@@ -157,8 +157,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f943601f072997910800000000000000
-      internalID: 1835659336907895967
+      spriteID: fe65f3e8ded3e7ae0800000000000000
+      internalID: -1549733131265812753
       vertices: []
       indices: 
       edges: []
@@ -166,7 +166,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: da12f21f83abff44991b0f1cd6df6f4d
+    spriteID: 33340af45eb7e8943afd3e750631daa1
     internalID: 0
     vertices: []
     indices: 

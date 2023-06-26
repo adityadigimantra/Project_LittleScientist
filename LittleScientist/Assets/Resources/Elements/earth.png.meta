@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85914ddc7c0b087438ce161e3aebfa89
+guid: 85d6fd2ece9ad3e49bbd72f49ecfcf84
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,12 +107,12 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 12
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -148,8 +148,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 239
-        height: 146
+        width: 1024
+        height: 1025
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,7 +166,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b06045631606ca749b6bb0f4c35faf02
+    spriteID: c2e5cf4442c80694c8163cf6fd1c1416
     internalID: 0
     vertices: []
     indices: 
