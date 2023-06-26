@@ -45,6 +45,7 @@ public class combinationManager : MonoBehaviour
     public string loadedString;
     public Vector2 newCreatedElementPos;
     public Vector2 savednewCreatedElementPos;
+    public string elementFound;
 
     public Vector2 loadedPosition;
     public Vector2 finalPosition;
@@ -85,7 +86,6 @@ public class combinationManager : MonoBehaviour
     private void Update()
     {
         //Fetching All Created List
-
         LoadCreatedElementList();
         switchingOffElements();
         /*
@@ -119,15 +119,12 @@ public class combinationManager : MonoBehaviour
 
         */
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-        PlayerPrefs.Save();
     }
 
     public void HandleCombination(string element1,string element2)
     {
-        if (GameOperation._Instance.GameState == GameState.Playing)
-        {
-
-
+            COM_Element2 = element2;
+            COM_Element1 = element1;
             resultCombination = FindCombination(element1, element2);
             if (resultCombination != null)
             {
@@ -151,12 +148,12 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 StartCoroutine(NoCombinationFound());
-                StoreElementsOfNoCombination(element1, element2);
+               // StoreElementsOfNoCombination(element1, element2);
 
             }
             Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
             Debug.Log("Parent Element2" + PlayerPrefs.GetString("parentElement2"));
-        }
+        
     }
 
     public void createNewElement()
@@ -211,15 +208,6 @@ public class combinationManager : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         noCombinationFoundPanel.SetActive(false);
     }
-    public void CheckifCombinationNotFound(string el1,string el2)
-    {        
-    }
-
-    public void StoreElementsOfNoCombination(string el1,string el2)
-    {
-        NoCombinationFoundElements.Add(el1);
-        //NoCombinationFoundElements.Add(el2);
-    }
     IEnumerator CombinationPresent()
     {
         combinationAlreadyMadePanel.SetActive(true);
@@ -237,7 +225,7 @@ public class combinationManager : MonoBehaviour
 
     public void LoadCreatedElementList()
     {
-        int count = PlayerPrefs.GetInt("StringCount");
+       int count = PlayerPrefs.GetInt("StringCount");
        // Debug.Log("Count" + count);
         for (int i = 0; i < count; i++)
         {
@@ -251,18 +239,14 @@ public class combinationManager : MonoBehaviour
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 newObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-                PlayerPrefs.SetInt("elementCreated", 1);
-
-
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
                 placingElementsInScrollRect();
 
-
+                PlayerPrefs.SetInt("elementCreated", 1);
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
-
                 if(PlayerPrefs.GetInt("IsRestart") ==0)
                 {
                     foreach (GameObject g in var)
@@ -279,12 +263,11 @@ public class combinationManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("after Restart");
+                    Debug.Log("after Restart");                   
                     LoadNewElementPositionFunction(loadedString + "1");
                     InsideBox_newObj.transform.position = loadedPosition;
                     InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                     InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-
                 }
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
@@ -308,17 +291,27 @@ public class combinationManager : MonoBehaviour
         }
 
     }
-
+    
     public void switchingOffElements()
     {
         foreach (string sameElement in CreatedElements)
         {
             if (disabledGameobjects.Contains(sameElement))
             {
-                GameObject[] matchingGameObject = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-                foreach(GameObject g in matchingGameObject)
+                Debug.Log("Found Element" + sameElement);
+                elementFound = sameElement;
+                GameObject[] CopiedTypeObj = GameObject.FindGameObjectsWithTag("Copied");
+                foreach(GameObject g in CopiedTypeObj)
                 {
-                    if(g.name==sameElement)
+                    if(g.name==elementFound)
+                    {
+                        g.SetActive(false);
+                    }
+                }
+                GameObject[] NewTypeObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+                foreach (GameObject g in NewTypeObj)
+                {
+                    if (g.name == elementFound)
                     {
                         g.SetActive(false);
                     }
@@ -326,6 +319,7 @@ public class combinationManager : MonoBehaviour
             }
         }
     }
+    
     public void placingElementsInScrollRect()
     {
         if (topScrollView.transform.childCount < 8)
@@ -394,6 +388,7 @@ public class combinationManager : MonoBehaviour
         }
     }
 
+    
     public void LoadDisabledGameObjectsList()
     {
         if (PlayerPrefs.HasKey("DisabledCollidedGameObject"))
@@ -402,6 +397,8 @@ public class combinationManager : MonoBehaviour
             FindObjectOfType<combinationManager>().disabledGameobjects.AddRange(saveDisObj.Split(';'));
         }
     }
+    
+    
     public void CleanUpTable()
     {
         foreach (GameObject g in tempNewCreatedObj)

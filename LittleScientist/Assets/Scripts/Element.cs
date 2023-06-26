@@ -64,18 +64,9 @@ public class Element : MonoBehaviour
         PlayerPrefs.SetString("element2", OtherElementName);
         FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
         getPositionOfElements();
-        gameObject.GetComponent<Element>().isCollided = true;
-        otherElementObj.GetComponent<Element>().isCollided = true;
-        GameOperation._Instance.GameState = GameState.Playing;
-        Debug.Log("Game State is" + GameOperation._Instance.GameState);
+        isCollided = true;
         // CheckforElementPresence();
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        //gameObject.GetComponent<Element>().isCollided = true;
-        //otherElementObj.GetComponent<Element>().isCollided = true;
-    }
-
     public void getPositionOfElements()
     {
         thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
@@ -133,24 +124,23 @@ public class Element : MonoBehaviour
             foreach (GameObject g in SameNameTagObj)
             {
                 Element element = g.GetComponent<Element>();
-                if (element != null && element.isCollided)
+                if (element.isCollided)
                 {
-                    //Debug.Log("GameObject " + g.name + "has collided");
                     g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.gameObject.name);
-                    saveDisabledGameObjectsList();
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
                 }
             }
             foreach (GameObject g in SameNameTagObj2)
             {
                 Element element = g.GetComponent<Element>();
-                if (element != null && element.isCollided)
+                if (element.isCollided)
                 {
                     g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.gameObject.name);
-                    saveDisabledGameObjectsList();
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
+
                 }
             }
+            saveDisabledGameObjectsList();
             PlayerPrefs.SetInt("elementCreated", 0);
         }
 
@@ -162,5 +152,6 @@ public void saveDisabledGameObjectsList()
         PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
         PlayerPrefs.Save();
     }
+    
 
 }
