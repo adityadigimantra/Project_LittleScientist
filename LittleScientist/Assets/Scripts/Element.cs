@@ -33,13 +33,14 @@ public class Element : MonoBehaviour
     [Header("Instances")]
     public combinationManager comManager;
 
+
+
     private void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
         thisElementName = this.gameObject.name;
         thisElementObj = this.gameObject;
         thisElementImage = this.gameObject.GetComponent<Image>().sprite;
-        //ComMadePanel = FindObjectOfType<combinationManager>().combinationAlreadyMadePanel;
     }
 
     private void Update()
@@ -64,6 +65,8 @@ public class Element : MonoBehaviour
         FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
         getPositionOfElements();
         isCollided = true;
+        GameOperation._Instance.GameState = GameState.Playing;
+        Debug.Log("Game State is"+GameOperation._Instance.GameState);
        // CheckforElementPresence();
     }
 
@@ -129,6 +132,8 @@ public class Element : MonoBehaviour
                 {
                     //Debug.Log("GameObject " + g.name + "has collided");
                     g.SetActive(false);
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.gameObject.name);
+                    saveDisabledGameObjectsList();
                 }
             }
             foreach(GameObject g in SameNameTagObj2)
@@ -137,11 +142,20 @@ public class Element : MonoBehaviour
                 if (element != null && element.isCollided)
                 {
                     g.SetActive(false);
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.gameObject.name);
+                    saveDisabledGameObjectsList();
                 }
             }
             PlayerPrefs.SetInt("elementCreated", 0);
         }
 
+    }
+
+    public void saveDisabledGameObjectsList()
+    {
+        string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
+        PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
+        PlayerPrefs.Save();
     }
 
 }
