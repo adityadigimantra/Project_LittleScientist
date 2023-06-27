@@ -237,7 +237,7 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(InsideRingElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-                newObj.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                newObj.transform.localScale = new Vector3(1f,1f, 1f);
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;

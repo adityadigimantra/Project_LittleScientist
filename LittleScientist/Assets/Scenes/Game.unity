@@ -284,7 +284,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804575082}
   m_HandleRect: {fileID: 1804575081}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5772369909859583529, guid: 8b3202e21d8afff4a80cb1def63dcde5,
+  m_Sprite: {fileID: 5757750083339748195, guid: 85d6fd2ece9ad3e49bbd72f49ecfcf84,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -2683,7 +2683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7931933333801787441, guid: 8b3202e21d8afff4a80cb1def63dcde5,
+  m_Sprite: {fileID: 4311277859609562655, guid: c09c164728730d749a5e8bf5ec451a5f,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -3738,7 +3738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8773515417504564494, guid: 8b3202e21d8afff4a80cb1def63dcde5,
+  m_Sprite: {fileID: 2530512187584579857, guid: 361ed0875f9c6fd43b46cf3541f94320,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -5846,7 +5846,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Combination Already Made
+  m_Text: Combination Already Exits
 --- !u!222 &1459688413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6098,6 +6098,7 @@ MonoBehaviour:
   loadedString: 
   newCreatedElementPos: {x: 0, y: 0}
   savednewCreatedElementPos: {x: 0, y: 0}
+  elementFound: 
   loadedPosition: {x: 0, y: 0}
   finalPosition: {x: 0, y: 0}
   tempNewCreatedObj: []
@@ -7886,7 +7887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8724227399020289809, guid: 8b3202e21d8afff4a80cb1def63dcde5,
+  m_Sprite: {fileID: 8509550459451208454, guid: 7f301da9e8ca89247a8c422c6db1ba4a,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -9071,7 +9072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21325816, y: 0}
   m_AnchorMax: {x: 0.79116917, y: 1}
-  m_AnchoredPosition: {x: -2.0033875, y: 0}
+  m_AnchoredPosition: {x: -2.0035706, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102901240
