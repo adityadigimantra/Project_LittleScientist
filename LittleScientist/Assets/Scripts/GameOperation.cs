@@ -20,6 +20,9 @@ public class GameOperation : MonoBehaviour
     public static GameOperation _Instance;
     public static event System.Action<GameState,GameState> GameStateChanged;
 
+    [Header("Panels")]
+    public GameObject discoveryTrayPanel;
+    public GameObject lowerSmallPanel;
 
     public GameState GameState
     {
@@ -58,5 +61,16 @@ public class GameOperation : MonoBehaviour
         PlayerPrefs.DeleteKey(key1);
         PlayerPrefs.DeleteKey(key2);
         PlayerPrefs.SetInt("IsRestart", 1);
+    }
+
+    public void OpenDiscoveryTray()
+    {
+        discoveryTrayPanel.SetActive(true);
+        lowerSmallPanel.SetActive(false);
+    }
+    public void CloseDiscoveryPanel()
+    {
+        discoveryTrayPanel.SetActive(false);
+        lowerSmallPanel.SetActive(true);
     }
 }

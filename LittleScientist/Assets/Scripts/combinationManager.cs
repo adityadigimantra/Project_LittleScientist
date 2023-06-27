@@ -19,10 +19,12 @@ public class combinationManager : MonoBehaviour
     public GameObject newCreatedElement;
     public GameObject InsideRingElement;
     public GameObject Copied;
+    public GameObject discoveryElementPrefab;
 
     [Header("Element Created Through Result")]
     public GameObject newObj;
     public GameObject InsideBox_newObj;
+    public GameObject discovery_element;
 
     [Header("Panels")]
     public Sprite[] elementImages;
@@ -33,6 +35,7 @@ public class combinationManager : MonoBehaviour
     public GameObject noCombinationFoundPanel;
     public GameObject combinationAlreadyMadePanel;
     public GameObject ContentPanel;
+    public GameObject discoveryTray_Panel;
 
 
     [Header("Public Fields")]
@@ -77,7 +80,6 @@ public class combinationManager : MonoBehaviour
         elementsPanel = GameObject.Find("ElementsPanel");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
-
         loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
 
@@ -237,12 +239,24 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(InsideRingElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-                newObj.transform.localScale = new Vector3(1f,1f, 1f);
+                newObj.transform.localScale = new Vector2(1f,1f);
+                placingElementsInScrollRect();
+
+
+
+                //Creating Element of Discovery Tray
+                discovery_element = Instantiate(discoveryElementPrefab);
+                discovery_element.name = loadedString;
+                discovery_element.GetComponent<BoxCollider2D>().enabled = false;
+                discovery_element.transform.localScale = new Vector2(1f, 1f);
+                placingElementsInDiscoveryTray();
+
+
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
-                placingElementsInScrollRect();
+                
 
                 PlayerPrefs.SetInt("elementCreated", 1);
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
@@ -275,6 +289,8 @@ public class combinationManager : MonoBehaviour
                     //Inside Ring Element
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
+                    discovery_element.GetComponent<Image>().sprite = elementImage;
+                    discovery_element.GetComponent<Image>().preserveAspect = true;
 
                     NewelementImage.sprite = elementImage;
                     newElementText.text = loadedString;
@@ -331,6 +347,12 @@ public class combinationManager : MonoBehaviour
             newObj.transform.position = BottomScrollView.transform.position;
             newObj.transform.parent = BottomScrollView.transform;
         }
+    }
+
+    public void placingElementsInDiscoveryTray()
+    {
+        discovery_element.transform.position = discoveryTray_Panel.transform.position;
+        discovery_element.transform.parent = discoveryTray_Panel.transform;
     }
 
     public void newElementPositionFunction()
