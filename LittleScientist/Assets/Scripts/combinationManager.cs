@@ -77,10 +77,10 @@ public class combinationManager : MonoBehaviour
         elementsPanel = GameObject.Find("ElementsPanel");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
+
         loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
 
-        //PlayerPrefs.SetInt("IsRestart", 0);
     }
 
     private void Update()
@@ -148,7 +148,6 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 StartCoroutine(NoCombinationFound());
-               // StoreElementsOfNoCombination(element1, element2);
 
             }
             Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
