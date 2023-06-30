@@ -320,17 +320,23 @@ public class combinationManager : MonoBehaviour
                 {
                     if(g.name==elementFound)
                     {
-                        g.SetActive(false);
+                        if(g.GetComponent<Element>().isCollided)
+                        {
+                            g.SetActive(false);
+                        }
+                        
                     }
                 }
                 GameObject[] NewTypeObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+
                 foreach (GameObject g in NewTypeObj)
                 {
                     if (g.name == elementFound)
                     {
-                        g.SetActive(false);
+                     g.SetActive(false);
                     }
                 }
+                
             }
         }
     }

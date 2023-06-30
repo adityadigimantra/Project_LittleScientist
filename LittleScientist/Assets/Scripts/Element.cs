@@ -65,7 +65,6 @@ public class Element : MonoBehaviour
         FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
         getPositionOfElements();
         isCollided = true;
-        StartCoroutine(offIsCollidedBool());
         PlayerPrefs.SetInt("IsRestart", 0);
         // CheckforElementPresence();
     }
