@@ -56,7 +56,7 @@ public class Element : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //SoundManager._instance.elementCollideSound();
+        SoundManager._instance.elementCollideSound();
         otherElementObj = other.gameObject;
         thisElementName = thisElementObj.name;
         PlayerPrefs.SetString("element1", thisElementName);
@@ -65,8 +65,9 @@ public class Element : MonoBehaviour
         FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
         getPositionOfElements();
         isCollided = true;
+        StartCoroutine(offIsCollidedBool());
         PlayerPrefs.SetInt("IsRestart", 0);
-        // CheckforElementPresence();
+        
     }
 
     IEnumerator offIsCollidedBool()

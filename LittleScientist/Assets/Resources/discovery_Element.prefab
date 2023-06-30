@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2190883537162543896}
   - component: {fileID: 1760640592793004783}
   - component: {fileID: -5513604846164949738}
-  - component: {fileID: 3592440239954422048}
+  - component: {fileID: -6811701977374153085}
   m_Layer: 5
   m_Name: discovery_Element
   m_TagString: discoveryElement
@@ -169,23 +169,19 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
---- !u!114 &3592440239954422048
+--- !u!114 &-6811701977374153085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8205407628571246900}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
+  m_Script: {fileID: 11500000, guid: 6abfa940d39398b448219ce523d2cbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentElementName: 
+  currentElementData: 
   thisObject: {fileID: 0}
-  canvasGroup: {fileID: 0}
-  rectTransform: {fileID: 0}
-  copiedGameObject: {fileID: 0}
-  newGameObject: {fileID: 0}
-  ElementsPanel: {fileID: 0}
-  ClampPanelRectTransform: {fileID: 0}
+  clampPanelRectTransform: {fileID: 0}
+  addElementToRectPanel: {fileID: 0}

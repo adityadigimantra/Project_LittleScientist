@@ -38,6 +38,9 @@ public class combinationManager : MonoBehaviour
     public GameObject discoveryTray_Panel;
 
 
+
+
+
     [Header("Public Fields")]
     public GameObject elementsPanel;
     public GameObject topScrollView;
@@ -53,6 +56,7 @@ public class combinationManager : MonoBehaviour
     public Vector2 loadedPosition;
     public Vector2 finalPosition;
     public GameObject[] tempNewCreatedObj;
+    public GameObject[] tempCopiedCreatedObj;
 
 
     [Header("Bools")]
@@ -121,6 +125,7 @@ public class combinationManager : MonoBehaviour
 
         */
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+        tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
     }
 
     public void HandleCombination(string element1,string element2)
@@ -432,6 +437,11 @@ public class combinationManager : MonoBehaviour
         {
             g.gameObject.SetActive(false);
         }
+        foreach(GameObject g in tempCopiedCreatedObj)
+        {
+            g.gameObject.SetActive(false);
+        }
+
     }
 
     public int findNextAvailableChildIndex(int startIndex)
