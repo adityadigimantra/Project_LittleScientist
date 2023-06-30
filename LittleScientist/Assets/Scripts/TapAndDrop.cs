@@ -22,14 +22,13 @@ public class TapAndDrop : MonoBehaviour,IPointerDownHandler
         currentElementName = this.gameObject.name;
         thisObject = this.gameObject;
         //Data from Combination Manager
-        addElementToRectPanel = FindObjectOfType<GameOperation>().addElementToRectPanel;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        addElementToRectPanel.SetActive(true);
         PlayerPrefs.SetString("DiscoveryElementSelected",currentElementName);
         Debug.Log(PlayerPrefs.GetString("DiscoveryElementSelected"));
+        FindObjectOfType<combinationManager>().SpawningDiscoveryElementInsideRect();
 
     }
 }

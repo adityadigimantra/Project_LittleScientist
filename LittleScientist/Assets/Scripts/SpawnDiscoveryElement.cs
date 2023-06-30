@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class SpawnDiscoveryElement : MonoBehaviour
 {
-    [Header("Element Data")]
-    public string elementName;
 
     private void Start()
     {
-        elementName = this.gameObject.name;
     }
 
     private void Update()
@@ -17,8 +14,9 @@ public class SpawnDiscoveryElement : MonoBehaviour
         
     }
 
-    public void selectDiscoveryElement()
+    public void setDiscoveryElementInsideRect()
     {
-        PlayerPrefs.SetString("DiscoveryElementSelected", elementName);
+        PlayerPrefs.SetInt("InsideRectangle",1);
+        PlayerPrefs.SetInt("InsidePlayArea", 0);
     }
 }

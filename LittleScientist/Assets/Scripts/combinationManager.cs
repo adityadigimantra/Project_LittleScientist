@@ -25,6 +25,7 @@ public class combinationManager : MonoBehaviour
     public GameObject newObj;
     public GameObject InsideBox_newObj;
     public GameObject discovery_element;
+    public GameObject discoveryInsideRecObj;
 
     [Header("Panels")]
     public Sprite[] elementImages;
@@ -45,6 +46,8 @@ public class combinationManager : MonoBehaviour
     public GameObject elementsPanel;
     public GameObject topScrollView;
     public GameObject BottomScrollView;
+    public GameObject leftScrollView;
+    public GameObject RightScrollView;
     public bool elementCreated = false;
     public string posString;
     public string FinalposString;
@@ -84,6 +87,8 @@ public class combinationManager : MonoBehaviour
         elementsPanel = GameObject.Find("ElementsPanel");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
+        leftScrollView = GameObject.Find("LeftScroll_Content");
+        RightScrollView = GameObject.Find("RightScroll_Content");
         loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
 
@@ -244,11 +249,10 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(InsideRingElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-                newObj.transform.localScale = new Vector2(1f,1f);
+                newObj.transform.localScale = new Vector2(1f, 1f);
                 placingElementsInScrollRect();
 
-
-
+                
                 //Creating Element of Discovery Tray
                 discovery_element = Instantiate(discoveryElementPrefab);
                 discovery_element.name = loadedString;
@@ -261,11 +265,11 @@ public class combinationManager : MonoBehaviour
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
-                
+
 
                 PlayerPrefs.SetInt("elementCreated", 1);
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
-                if(PlayerPrefs.GetInt("IsRestart") ==0)
+                if (PlayerPrefs.GetInt("IsRestart") == 0)
                 {
                     foreach (GameObject g in var)
                     {
@@ -281,7 +285,7 @@ public class combinationManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("after Restart");                   
+                    Debug.Log("after Restart");
                     LoadNewElementPositionFunction(loadedString + "1");
                     InsideBox_newObj.transform.position = loadedPosition;
                     InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
@@ -294,13 +298,22 @@ public class combinationManager : MonoBehaviour
                     //Inside Ring Element
                     newObj.GetComponent<Image>().sprite = elementImage;
                     newObj.GetComponent<Image>().preserveAspect = true;
+
                     discovery_element.GetComponent<Image>().sprite = elementImage;
                     discovery_element.GetComponent<Image>().preserveAspect = true;
 
                     NewelementImage.sprite = elementImage;
                     newElementText.text = loadedString;
                 }
+
+                
+
                 //Instance_Element.isColliding = false;
+                int childinLeftScrollLocal = leftScrollView.transform.childCount;
+                if (childinLeftScrollLocal >= 5)
+                {
+                    break;
+                }
                 int childInTopScrolllocal = topScrollView.transform.childCount;
                 if (childInTopScrolllocal >= 8)
                 {
@@ -311,7 +324,27 @@ public class combinationManager : MonoBehaviour
         }
 
     }
-    
+
+    public void SpawningDiscoveryElementInsideRect()
+    {
+        //Creating element from Discovery Tray to Rectangle
+        string discoveryElementName = PlayerPrefs.GetString("DiscoveryElementSelected");
+        if (!string.IsNullOrEmpty(discoveryElementName))
+        {
+            discoveryInsideRecObj = Instantiate(InsideRingElement);
+            discoveryInsideRecObj.name = discoveryElementName;
+            discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
+            discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
+            placingDiscoveryElementInScrollRect();
+            Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
+            if (discoveryElementImageInsideRect != null)
+            {
+                discoveryInsideRecObj.GetComponent<Image>().sprite = discoveryElementImageInsideRect;
+                discoveryInsideRecObj.GetComponent<Image>().preserveAspect = true;
+            }
+        }
+    }
+
     public void switchingOffElements()
     {
         foreach (string sameElement in CreatedElements)
@@ -357,6 +390,20 @@ public class combinationManager : MonoBehaviour
         {
             newObj.transform.position = BottomScrollView.transform.position;
             newObj.transform.parent = BottomScrollView.transform;
+        }
+    }
+
+    public void placingDiscoveryElementInScrollRect()
+    {
+        if(leftScrollView.transform.childCount<=5)
+        {
+            discoveryInsideRecObj.transform.position = leftScrollView.transform.position;
+            discoveryInsideRecObj.transform.parent = leftScrollView.transform;
+        }
+        else
+        {
+            discoveryInsideRecObj.transform.position = RightScrollView.transform.position;
+            discoveryInsideRecObj.transform.parent = RightScrollView.transform;
         }
     }
 
@@ -457,6 +504,12 @@ public class combinationManager : MonoBehaviour
     }
 
     public Sprite LoadElementImage(string elemenName)
+    {
+        string imagePath = "Elements/" + elemenName;
+        return Resources.Load<Sprite>(imagePath);
+        Debug.Log("Image Loaded");
+    }
+    public Sprite LoadElementImageOfDiscoveryElement(string elemenName)
     {
         string imagePath = "Elements/" + elemenName;
         return Resources.Load<Sprite>(imagePath);

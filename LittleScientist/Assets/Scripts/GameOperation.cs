@@ -24,8 +24,6 @@ public class GameOperation : MonoBehaviour
     public GameObject discoveryTrayPanel;
     public GameObject lowerSmallPanel;
 
-    [Header("Discovery Element Panels")]
-    public GameObject addElementToRectPanel;
 
     public GameState GameState
     {
