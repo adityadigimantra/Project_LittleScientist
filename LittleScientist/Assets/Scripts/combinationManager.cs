@@ -99,45 +99,17 @@ public class combinationManager : MonoBehaviour
         //Fetching All Created List
         LoadCreatedElementList();
         switchingOffElements();
-        /*
-        //Elements Name coming from collision
-        COM_Element1 = PlayerPrefs.GetString("element1");
-        COM_Element2 = PlayerPrefs.GetString("element2");
-        Instance_Element = FindObjectOfType<Element>();
-        resultCombination = FindCombination(COM_Element1, COM_Element2);
-        if (resultCombination != null)
-        {
-            Debug.Log("Result:" + resultCombination.result);
-            PlayerPrefs.SetString("parentElement1", COM_Element1);
-            //Debug.Log("ParentElement1" + PlayerPrefs.GetString("parentElement1"));
-            PlayerPrefs.SetString("parentElement2", COM_Element2);
-            //Debug.Log("ParentElement2" + PlayerPrefs.GetString("parentElement2"));
-            if (!loadCreatedElements.Contains(resultCombination.result))
-            {
-                createNewElement();
-                iscombinationfound = true;
-            }
-            else
-            {
-                iscombinationfound = false;
-            }
-
-        }
-        else
-        {
-           // Debug.Log("Result:No Combinations Found ");
-        }
-
-        */
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
     }
 
     public void HandleCombination(string element1,string element2)
     {
+        if (GameOperation._Instance.GameState == GameState.Playing)
+        {
             COM_Element2 = element2;
             COM_Element1 = element1;
-            resultCombination = FindCombination(element1, element2);
+            resultCombination = FindCombination(COM_Element1, COM_Element2);
             if (resultCombination != null)
             {
                 Debug.Log("Result:" + resultCombination.result);
@@ -152,7 +124,7 @@ public class combinationManager : MonoBehaviour
                 {
                     Debug.Log("Combination already Present");
                     StartCoroutine(CombinationPresent());
-                    
+
                 }
             }
             else
@@ -164,7 +136,7 @@ public class combinationManager : MonoBehaviour
             }
             Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
             Debug.Log("Parent Element2" + PlayerPrefs.GetString("parentElement2"));
-        
+        }
     }
 
     public void createNewElement()
@@ -263,12 +235,11 @@ public class combinationManager : MonoBehaviour
 
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
-                InsideBox_newObj.name = newObj.name;
+                InsideBox_newObj.name = loadedString;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
-
-
-
                 PlayerPrefs.SetInt("elementCreated", 1);
+
+
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                 if (PlayerPrefs.GetInt("IsRestart") == 0)
                 {
@@ -372,12 +343,11 @@ public class combinationManager : MonoBehaviour
                     }
                 }
                 GameObject[] NewTypeObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-
                 foreach (GameObject g in NewTypeObj)
                 {
                     if (g.name == elementFound)
                     {
-                     g.SetActive(false);
+                         g.SetActive(false);
                     }
                 }
                 
@@ -401,7 +371,6 @@ public class combinationManager : MonoBehaviour
 
     public void placingDiscoveryElementInScrollRect()
     {
-
 
         if(leftScrollView.transform.childCount<4)
         {
@@ -535,12 +504,5 @@ public class combinationManager : MonoBehaviour
             }
         }
         return null;
-    }
-
-
-    public void CheckElementPresence(string el1,string el2)
-    {
-        el1 = PlayerPrefs.GetString("element1");
-        el2 = PlayerPrefs.GetString("element2");
     }
 }

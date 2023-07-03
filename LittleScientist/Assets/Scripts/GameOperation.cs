@@ -55,6 +55,7 @@ public class GameOperation : MonoBehaviour
 
     public void ChangeScene(int index)
     {
+        GameOperation._Instance.GameState = GameState.Prepare;
         SceneManager.LoadScene(index);
         string key1 = "element1";
         string key2 = "element2";
@@ -62,6 +63,7 @@ public class GameOperation : MonoBehaviour
         PlayerPrefs.DeleteKey(key1);
         PlayerPrefs.DeleteKey(key2);
         PlayerPrefs.SetInt("IsRestart", 1);
+        EmptyStringInComManager();
     }
 
     public void OpenDiscoveryTray()
@@ -73,5 +75,21 @@ public class GameOperation : MonoBehaviour
     {
         discoveryTrayPanel.SetActive(false);
         lowerSmallPanel.SetActive(true);
+    }
+
+    public void EmptyStringInComManager()
+    {
+        PlayerPrefs.DeleteKey("parentElement1");
+        PlayerPrefs.DeleteKey("parentElement2");
+
+        if (FindObjectOfType<combinationManager>().COM_Element1!=null)
+        {
+            FindObjectOfType<combinationManager>().COM_Element1 = null;
+        }
+        if (FindObjectOfType<combinationManager>().COM_Element2 != null)
+        {
+            FindObjectOfType<combinationManager>().COM_Element2 = null;
+        }
+
     }
 }

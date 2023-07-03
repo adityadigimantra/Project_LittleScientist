@@ -56,12 +56,11 @@ public class Element : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        GameOperation._Instance.GameState = GameState.Playing;
         SoundManager._instance.elementCollideSound();
         otherElementObj = other.gameObject;
         thisElementName = thisElementObj.name;
-        PlayerPrefs.SetString("element1", thisElementName);
         OtherElementName = otherElementObj.name;
-        PlayerPrefs.SetString("element2", OtherElementName);
         FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
         getPositionOfElements();
         isCollided = true;

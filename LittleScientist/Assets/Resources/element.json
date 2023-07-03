@@ -104,6 +104,12 @@
             "result": "wall"
         },
         {
+            "Name": "Wall",
+            "element1": "brick",
+            "element2": "brick",
+            "result": "wall"
+        },
+        {
             "Name": "Firewall",
             "element1": "fire",
             "element2": "wall",
