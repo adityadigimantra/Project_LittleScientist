@@ -261,10 +261,12 @@ public class combinationManager : MonoBehaviour
                 placingElementsInDiscoveryTray();
 
 
+
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
                 InsideBox_newObj.transform.parent = elementsPanel.transform;
+
 
 
                 PlayerPrefs.SetInt("elementCreated", 1);
@@ -291,6 +293,8 @@ public class combinationManager : MonoBehaviour
                     InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                     InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
                 }
+
+
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
