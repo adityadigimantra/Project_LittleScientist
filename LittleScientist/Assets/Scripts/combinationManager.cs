@@ -261,7 +261,6 @@ public class combinationManager : MonoBehaviour
                 placingElementsInDiscoveryTray();
 
 
-
                 //Creating New Elements for Play Area
                 InsideBox_newObj = Instantiate(newCreatedElement);
                 InsideBox_newObj.name = newObj.name;
@@ -335,16 +334,19 @@ public class combinationManager : MonoBehaviour
         string discoveryElementName = PlayerPrefs.GetString("DiscoveryElementSelected");
         if (!string.IsNullOrEmpty(discoveryElementName))
         {
-            discoveryInsideRecObj = Instantiate(InsideRingElement);
-            discoveryInsideRecObj.name = discoveryElementName;
-            discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
-            discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
-            placingDiscoveryElementInScrollRect();
-            Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
-            if (discoveryElementImageInsideRect != null)
+            if (leftScrollView.transform.childCount < 4 || RightScrollView.transform.childCount < 4)
             {
-                discoveryInsideRecObj.GetComponent<Image>().sprite = discoveryElementImageInsideRect;
-                discoveryInsideRecObj.GetComponent<Image>().preserveAspect = true;
+                discoveryInsideRecObj = Instantiate(InsideRingElement);
+                discoveryInsideRecObj.name = discoveryElementName;
+                discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
+                discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
+                Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
+                placingDiscoveryElementInScrollRect();
+                if (discoveryElementImageInsideRect != null)
+                {
+                    discoveryInsideRecObj.GetComponent<Image>().sprite = discoveryElementImageInsideRect;
+                    discoveryInsideRecObj.GetComponent<Image>().preserveAspect = true;
+                }
             }
         }
     }
@@ -399,12 +401,15 @@ public class combinationManager : MonoBehaviour
 
     public void placingDiscoveryElementInScrollRect()
     {
-        if(leftScrollView.transform.childCount<=5)
+
+
+        if(leftScrollView.transform.childCount<4)
         {
             discoveryInsideRecObj.transform.position = leftScrollView.transform.position;
             discoveryInsideRecObj.transform.parent = leftScrollView.transform;
+
         }
-        else
+        else if(RightScrollView.transform.childCount<4)
         {
             discoveryInsideRecObj.transform.position = RightScrollView.transform.position;
             discoveryInsideRecObj.transform.parent = RightScrollView.transform;
