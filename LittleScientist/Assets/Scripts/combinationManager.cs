@@ -96,9 +96,9 @@ public class combinationManager : MonoBehaviour
 
     private void Update()
     {
+        switchingOffElements();
         //Fetching All Created List
         LoadCreatedElementList();
-        switchingOffElements();
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
     }
@@ -241,11 +241,19 @@ public class combinationManager : MonoBehaviour
 
 
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
+                GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                 if (PlayerPrefs.GetInt("IsRestart") == 0)
                 {
                     foreach (GameObject g in var)
                     {
                         if (g.GetComponent<Element>().isCollided)
+                        {
+                            newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                        }
+                    }
+                    foreach(GameObject g in varNewCreatedObj)
+                    {
+                        if(g.GetComponent<Element>().isCollided)
                         {
                             newCreatedElementPos = g.GetComponent<Element>().loadedVector;
                         }
@@ -362,7 +370,7 @@ public class combinationManager : MonoBehaviour
             newObj.transform.position = topScrollView.transform.position;
             newObj.transform.parent = topScrollView.transform;
         }
-        else
+        else if(BottomScrollView.transform.childCount<8)
         {
             newObj.transform.position = BottomScrollView.transform.position;
             newObj.transform.parent = BottomScrollView.transform;

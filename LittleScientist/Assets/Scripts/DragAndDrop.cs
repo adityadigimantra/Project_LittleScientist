@@ -109,6 +109,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
         copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+        
     }
 
     private float GetCanvasScale()
