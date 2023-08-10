@@ -92,7 +92,8 @@ public class combinationManager : MonoBehaviour
         BottomScrollView = GameObject.Find("DownScroll_Content");
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
-        loadSavedCreatedElements();
+        loadCreatedElementsToFile();
+        //loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
 
     }
@@ -154,7 +155,8 @@ public class combinationManager : MonoBehaviour
             }
             StartCoroutine(OpenNewElementPanel());
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
-            saveCreateNewElement();
+            saveCreatedElementsToFile();
+            //saveCreateNewElement();
             PlayerPrefs.Save();
         }
     }
@@ -174,6 +176,29 @@ public class combinationManager : MonoBehaviour
             Debug.Log("Error While saving the Created Elements:" + e.Message);
         }
     }
+
+    public void loadCreatedElementsToFile()
+    {
+        string FilePath = Path.Combine(Application.persistentDataPath, saveFilePath);
+        if(File.Exists(FilePath))
+        {
+            try
+            {
+                using(FileStream fileStream=File.Open(FilePath,FileMode.Open))
+                {
+                    BinaryFormatter binaryFormatter = new BinaryFormatter();
+                    CreatedElements=(List<string>)binaryFormatter.Deserialize(fileStream);
+                }
+            }
+            catch(Exception e)
+            {
+                Debug.Log("Error While Loading Created Elements:" + e.Message);
+            }
+        }
+    }
+
+
+
 
     public void saveCreateNewElement()
     {
@@ -196,6 +221,9 @@ public class combinationManager : MonoBehaviour
         }
         
     }
+
+
+
 
     IEnumerator OpenNewElementPanel()
     {
