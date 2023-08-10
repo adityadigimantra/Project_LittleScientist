@@ -84,6 +84,7 @@ public class combinationManager : MonoBehaviour
 
     [Header("FileData")]
     private string saveFilePath = "CreatedElements.txt";
+    private string saveElementPositions = "saveElementPositions.txt";
 
 
     private void Start()
@@ -94,7 +95,8 @@ public class combinationManager : MonoBehaviour
         BottomScrollView = GameObject.Find("DownScroll_Content");
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
-        loadCreatedElementsToFile();
+        loadingElementPositonFromFile();
+        loadCreatedElementsFromFile();
         //loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
 
@@ -181,7 +183,7 @@ public class combinationManager : MonoBehaviour
         }
     }
 
-    public void loadCreatedElementsToFile()
+    public void loadCreatedElementsFromFile()
     {
         string FilePath = Path.Combine(Application.persistentDataPath, saveFilePath);
         if(File.Exists(FilePath))
@@ -310,7 +312,7 @@ public class combinationManager : MonoBehaviour
                 else
                 {
                     Debug.Log("after Restart");
-                    LoadNewElementPositionFunction(loadedString + "1");
+                    LoadNewElementPositionFunction(loadedString);
                     InsideBox_newObj.transform.position = loadedPosition;
                     InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                     InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
@@ -450,27 +452,74 @@ public class combinationManager : MonoBehaviour
         {
             savednewCreatedElementPos = newCreatedElementPos;
             string PosString = ConvertVectorToString(savednewCreatedElementPos);
-            PlayerPrefs.SetString(loadedString + "1", PosString);
-            savedPositionValue = PlayerPrefs.GetString(loadedString + "1");
+            PlayerPrefs.SetString(loadedString, PosString);
+            savedPositionValue = PlayerPrefs.GetString(loadedString);
             Debug.Log("Before PlayerPrefs.SetString: loadedString = " + loadedString + "1, PosString = " + PosString);
             Debug.Log("After PlayerPrefs.SetString: Key = " + loadedString + "1, Value = " + PlayerPrefs.GetString(loadedString + "1"));
 
-            if(!SavedPositions.Contains(loadedString+savedPositionValue))
+            if(!SavedPositions.Contains(savedPositionValue))
             {
-                SavedPositions.Add(loadedString+savedPositionValue);
+                SavedPositions.Add(loadedString+":"+savedPositionValue);
             }
+            savingElementPositionToFile();
             PlayerPrefs.Save();
+        }
+    }
+
+    public void savingElementPositionToFile()
+    {
+        string FilePath = Path.Combine(Application.persistentDataPath, saveElementPositions);
+        try
+        {
+            using (FileStream fileStream = File.Open(FilePath, FileMode.Create))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(fileStream, SavedPositions);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Error While saving the Elements Positions:" + e.Message);
+        }
+    }
+
+    public void loadingElementPositonFromFile()
+    {
+        string FilePath = Path.Combine(Application.persistentDataPath, saveElementPositions);
+        if (File.Exists(FilePath))
+        {
+            try
+            {
+                using (FileStream fileStream = File.Open(FilePath, FileMode.Open))
+                {
+                    BinaryFormatter binaryFormatter = new BinaryFormatter();
+                    SavedPositions = (List<string>)binaryFormatter.Deserialize(fileStream);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Error While Loading Elements Position:" + e.Message);
+            }
         }
     }
 
     public void LoadNewElementPositionFunction(string elementKey)
     {
-        string savedPosString = PlayerPrefs.GetString(elementKey);
-        if (!string.IsNullOrEmpty(savedPosString))
+        //string savedPosString = PlayerPrefs.GetString(elementKey);
+        //if (!string.IsNullOrEmpty(savedPosString))
+        //{
+        //    //Debug.Log("Value" + PlayerPrefs.GetString(elementKey));
+        //    loadedPosition = convertStringToVector(savedPosString);
+        //    Debug.Log("Loaded Position for New Created Element" + elementKey +":"+loadedPosition) ;
+        //}
+        foreach (string str in SavedPositions)
         {
-            //Debug.Log("Value" + PlayerPrefs.GetString(elementKey));
-            loadedPosition = convertStringToVector(savedPosString);
-            Debug.Log("Loaded Position for New Created Element" + elementKey +":"+loadedPosition) ;
+            string[] parts = str.Split(':');
+            if (parts.Length >= 2 && parts[0] == elementKey)
+            {
+                loadedPosition = convertStringToVector(parts[1]);
+                break;
+            }
         }
     }
 
