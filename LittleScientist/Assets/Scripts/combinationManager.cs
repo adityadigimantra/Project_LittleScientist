@@ -61,6 +61,7 @@ public class combinationManager : MonoBehaviour
 
     public Vector2 loadedPosition;
     public Vector2 finalPosition;
+    public string savedPositionValue;
     public GameObject[] tempNewCreatedObj;
     public GameObject[] tempCopiedCreatedObj;
 
@@ -76,6 +77,7 @@ public class combinationManager : MonoBehaviour
     public List<string> loadCreatedElements = new List<string>();
     public List<string> disabledGameobjects = new List<string>();
     public List<string> NoCombinationFoundElements = new List<string>();
+    public List<string> SavedPositions = new List<string>();
 
     [Header("Arrays")]
     public GameObject[] elementsPanelObj = new GameObject[5];
@@ -143,6 +145,7 @@ public class combinationManager : MonoBehaviour
         }
     }
 
+
     public void createNewElement()
     {
 
@@ -160,6 +163,7 @@ public class combinationManager : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+
     public void saveCreatedElementsToFile()
     {
         string FilePath = Path.Combine(Application.persistentDataPath, saveFilePath);
@@ -198,19 +202,17 @@ public class combinationManager : MonoBehaviour
     }
 
 
-
-
     public void saveCreateNewElement()
     {
-        //For Android
-        /*
-        string filePath = Path.Combine(Application.persistentDataPath, saveFilePath);
-        File.WriteAllLines(filePath, CreatedElements.ToArray());
-        */
-        //For WebGL
-        string saveData = string.Join(";", CreatedElements.ToArray());
-        PlayerPrefs.SetString("CreatedElements", saveData);
-        PlayerPrefs.Save();
+       // //For Android
+       // 
+       // string filePath = Path.Combine(Application.persistentDataPath, saveFilePath);
+       // File.WriteAllLines(filePath, CreatedElements.ToArray());
+       // 
+       // //For WebGL
+       // string saveData = string.Join(";", CreatedElements.ToArray());
+       // PlayerPrefs.SetString("CreatedElements", saveData);
+       // PlayerPrefs.Save();
     }
     public void loadSavedCreatedElements()
     {
@@ -221,9 +223,6 @@ public class combinationManager : MonoBehaviour
         }
         
     }
-
-
-
 
     IEnumerator OpenNewElementPanel()
     {
@@ -244,8 +243,6 @@ public class combinationManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         combinationAlreadyMadePanel.SetActive(false);
     }
-
-    
 
     IEnumerator playnewelementSound()
     {
@@ -454,10 +451,15 @@ public class combinationManager : MonoBehaviour
             savednewCreatedElementPos = newCreatedElementPos;
             string PosString = ConvertVectorToString(savednewCreatedElementPos);
             PlayerPrefs.SetString(loadedString + "1", PosString);
+            savedPositionValue = PlayerPrefs.GetString(loadedString + "1");
             Debug.Log("Before PlayerPrefs.SetString: loadedString = " + loadedString + "1, PosString = " + PosString);
             Debug.Log("After PlayerPrefs.SetString: Key = " + loadedString + "1, Value = " + PlayerPrefs.GetString(loadedString + "1"));
-            PlayerPrefs.Save();
 
+            if(!SavedPositions.Contains(loadedString+savedPositionValue))
+            {
+                SavedPositions.Add(loadedString+savedPositionValue);
+            }
+            PlayerPrefs.Save();
         }
     }
 
