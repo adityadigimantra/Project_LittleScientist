@@ -285,7 +285,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1804575081}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99998677
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9844,6 +9844,7 @@ MonoBehaviour:
   elementFound: 
   loadedPosition: {x: 0, y: 0}
   finalPosition: {x: 0, y: 0}
+  savedPositionValue: 
   tempNewCreatedObj: []
   tempCopiedCreatedObj: []
   iscombinationfound: 0
@@ -9857,6 +9858,7 @@ MonoBehaviour:
   loadCreatedElements: []
   disabledGameobjects: []
   NoCombinationFoundElements: []
+  SavedPositions: []
   elementsPanelObj:
   - {fileID: 1312952406}
   - {fileID: 1694996130}
@@ -13642,7 +13644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21325816, y: 0}
   m_AnchorMax: {x: 0.79116917, y: 1}
-  m_AnchoredPosition: {x: -2.0030823, y: 0}
+  m_AnchoredPosition: {x: -2.0032654, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102901240
