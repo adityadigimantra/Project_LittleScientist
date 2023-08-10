@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System;
 
 public class combinationManager : MonoBehaviour
 {
@@ -153,6 +156,22 @@ public class combinationManager : MonoBehaviour
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             saveCreateNewElement();
             PlayerPrefs.Save();
+        }
+    }
+    public void saveCreatedElementsToFile()
+    {
+        string FilePath = Path.Combine(Application.persistentDataPath, saveFilePath);
+        try
+        {
+            using (FileStream fileStream = File.Open(FilePath, FileMode.Create))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(fileStream, CreatedElements);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Error While saving the Created Elements:" + e.Message);
         }
     }
 
