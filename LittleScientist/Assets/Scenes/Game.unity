@@ -285,7 +285,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1804575081}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99998677
+  m_Size: 0.99997777
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6906,7 +6906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 65.31207, y: 0}
+  m_AnchoredPosition: {x: 65.31195, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063802880
@@ -9918,8 +9918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e911cfbc62144c4bb7ce7808ace0fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawImage: {fileID: 0}
-  vp: {fileID: 0}
+  rawImage: {fileID: 993054557}
+  vp: {fileID: 1475683224}
 --- !u!222 &1475683221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9965,14 +9965,14 @@ VideoPlayer:
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: file://E:/Unity Projects/Digimantra_Projects/Digimantra_LittleScientist/LittleScientist/Assets/StreamingAssets/MyVideo.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -13644,7 +13644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21325816, y: 0}
   m_AnchorMax: {x: 0.79116917, y: 1}
-  m_AnchoredPosition: {x: -2.0032654, y: 0}
+  m_AnchoredPosition: {x: -2.0028381, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102901240

@@ -99,14 +99,14 @@
         },
         {
             "Name": "Chimney",
-            "element1": "brick",
+            "element1": "stone",
             "element2": "smoke",
             "result": "chimney"
         },
         {
             "Name": "Chimney",
             "element1": "smoke",
-            "element2": "brick",
+            "element2": "stone",
             "result": "chimney"
         },
         {

@@ -121,8 +121,8 @@ public class combinationManager : MonoBehaviour
             if (resultCombination != null)
             {
                 Debug.Log("Result:" + resultCombination.result);
-                PlayerPrefs.SetString("parentElement1", element1);
-                PlayerPrefs.SetString("parentElement2", element2);
+                PlayerPrefs.SetString("parentElement1", COM_Element1);
+                PlayerPrefs.SetString("parentElement2", COM_Element2);
                 if (!loadCreatedElements.Contains(resultCombination.result))
                 {
                     createNewElement();
@@ -454,8 +454,7 @@ public class combinationManager : MonoBehaviour
             string PosString = ConvertVectorToString(savednewCreatedElementPos);
             PlayerPrefs.SetString(loadedString, PosString);
             savedPositionValue = PlayerPrefs.GetString(loadedString);
-            Debug.Log("Before PlayerPrefs.SetString: loadedString = " + loadedString + "1, PosString = " + PosString);
-            Debug.Log("After PlayerPrefs.SetString: Key = " + loadedString + "1, Value = " + PlayerPrefs.GetString(loadedString + "1"));
+            Debug.Log("Saved Position value for- "+ loadedString + " Is = " + PlayerPrefs.GetString(loadedString));
 
             if(!SavedPositions.Contains(savedPositionValue))
             {
