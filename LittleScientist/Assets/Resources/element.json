@@ -164,18 +164,6 @@
             "result": "stone"
         },
         {
-            "Name": "Clay",
-            "element1": "stone",
-            "element2": "mud",
-            "result": "clay"
-        },
-        {
-            "Name": "Clay",
-            "element1": "mud",
-            "element2": "stone",
-            "result": "clay"
-        },
-        {
             "Name": "Glass",
             "element1": "fire",
             "element2": "sand",

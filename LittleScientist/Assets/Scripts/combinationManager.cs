@@ -78,6 +78,11 @@ public class combinationManager : MonoBehaviour
     public List<string> disabledGameobjects = new List<string>();
     public List<string> NoCombinationFoundElements = new List<string>();
     public List<string> SavedPositions = new List<string>();
+    public List<string> SavedPositionsForNewCreatedElements = new List<string>();
+
+    [Header("Collecting GameObjects-New Created Elements")]
+    public GameObject[] NewCreatedElementsPresent;
+
 
     [Header("Arrays")]
     public GameObject[] elementsPanelObj = new GameObject[5];
@@ -108,7 +113,29 @@ public class combinationManager : MonoBehaviour
         //Fetching All Created List
         LoadCreatedElementList();
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+        
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
+        NewCreatedElementsPresent = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+        GetRealTimePositionOfNewCreatedElement();
+    }
+
+    public void GetRealTimePositionOfNewCreatedElement()
+    {
+        string objName;
+        Vector2 ObjPos;
+        for(int i=0;i<NewCreatedElementsPresent.Length;i++)
+        {
+            objName= NewCreatedElementsPresent[i].name;
+            ObjPos = NewCreatedElementsPresent[i].transform.position;
+            string NewObjPos = ConvertVectorToString(ObjPos);
+            PlayerPrefs.SetString(objName, NewObjPos);
+            string savedPosForNewCreatedElement = PlayerPrefs.GetString(objName);
+            Debug.Log(savedPosForNewCreatedElement);
+            if(!SavedPositionsForNewCreatedElements.Contains(savedPosForNewCreatedElement))
+            {
+                SavedPositionsForNewCreatedElements.Add(objName + ":" + savedPosForNewCreatedElement);
+            }
+        }
     }
 
     public void HandleCombination(string element1,string element2)
@@ -323,7 +350,6 @@ public class combinationManager : MonoBehaviour
                         InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                         InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
                     }
-
 
                 }
                 else
