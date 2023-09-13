@@ -14,6 +14,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     public RectTransform ClampPanelRectTransform;
+    public Vector2 InitialPosition;
+    public Vector2 FinalPosition;
     public bool isDragging = false;
     private void Start()
     {
@@ -36,13 +38,16 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
+        InitialPosition = gameObject.transform.position;
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+
         isDragging = false;
+        FinalPosition = gameObject.transform.position;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
