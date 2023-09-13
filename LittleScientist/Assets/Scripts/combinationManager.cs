@@ -116,27 +116,8 @@ public class combinationManager : MonoBehaviour
         
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
         NewCreatedElementsPresent = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-        GetRealTimePositionOfNewCreatedElement();
     }
 
-    public void GetRealTimePositionOfNewCreatedElement()
-    {
-        string objName;
-        Vector2 ObjPos;
-        for(int i=0;i<NewCreatedElementsPresent.Length;i++)
-        {
-            objName= NewCreatedElementsPresent[i].name;
-            ObjPos = NewCreatedElementsPresent[i].transform.position;
-            string NewObjPos = ConvertVectorToString(ObjPos);
-            PlayerPrefs.SetString(objName, NewObjPos);
-            string savedPosForNewCreatedElement = PlayerPrefs.GetString(objName);
-            Debug.Log(savedPosForNewCreatedElement);
-            if(!SavedPositionsForNewCreatedElements.Contains(savedPosForNewCreatedElement))
-            {
-                SavedPositionsForNewCreatedElements.Add(objName + ":" + savedPosForNewCreatedElement);
-            }
-        }
-    }
 
     public void HandleCombination(string element1,string element2)
     {
@@ -167,6 +148,7 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 StartCoroutine(NoCombinationFound());
+
 
             }
             Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
@@ -265,6 +247,8 @@ public class combinationManager : MonoBehaviour
         noCombinationFoundPanel.SetActive(true);
         yield return new WaitForSeconds(1.2f);
         noCombinationFoundPanel.SetActive(false);
+
+
     }
     IEnumerator CombinationPresent()
     {
