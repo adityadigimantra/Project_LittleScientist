@@ -84,7 +84,7 @@ public class Element : MonoBehaviour
         }
         string vectorString = convertVectorToString(averagePos);
         PlayerPrefs.SetString(loadedString, vectorString);
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
         //Debug.Log("Vector saved="+ vectorString);
         string savedVectorString = PlayerPrefs.GetString(loadedString);
         loadedVector = converStringToVector(savedVectorString);

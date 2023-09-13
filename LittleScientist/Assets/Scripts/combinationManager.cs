@@ -288,26 +288,43 @@ public class combinationManager : MonoBehaviour
 
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                 GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+                Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
                 if (PlayerPrefs.GetInt("IsRestart") == 0)
                 {
+                   
                     foreach (GameObject g in var)
                     {
                         if (g.GetComponent<Element>().isCollided)
                         {
                             newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                            Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
                         }
+
                     }
                     foreach(GameObject g in varNewCreatedObj)
                     {
                         if(g.GetComponent<Element>().isCollided)
                         {
                             newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                            Debug.Log("New Element Created Pos2=" + newCreatedElementPos);
                         }
                     }
-                    InsideBox_newObj.transform.position = newCreatedElementPos;
-                    InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-                    newElementPositionFunction();
+                    if(newCreatedElementPos==Vector2.zero)
+                    {
+                        LoadNewElementPositionFunction(loadedString);
+                        InsideBox_newObj.transform.position = loadedPosition;
+                        Debug.Log("Loaded Position for =" + loadedString + " Is= " + loadedPosition);
+                    }
+                    else
+                    {
+                        InsideBox_newObj.transform.position = newCreatedElementPos;
+                        Debug.Log("New Element Created Pos3=" + newCreatedElementPos);
+                        newElementPositionFunction();
+                        InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                        InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                    }
+
+
                 }
                 else
                 {
@@ -454,14 +471,13 @@ public class combinationManager : MonoBehaviour
             string PosString = ConvertVectorToString(savednewCreatedElementPos);
             PlayerPrefs.SetString(loadedString, PosString);
             savedPositionValue = PlayerPrefs.GetString(loadedString);
-            Debug.Log("Saved Position value for- "+ loadedString + " Is = " + PlayerPrefs.GetString(loadedString));
+            Debug.Log("Saved Position value="+savedPositionValue);
 
-            if(!SavedPositions.Contains(savedPositionValue))
+            if(!SavedPositions.Contains(loadedString+":"+savedPositionValue))
             {
                 SavedPositions.Add(loadedString+":"+savedPositionValue);
+                savingElementPositionToFile();
             }
-            savingElementPositionToFile();
-            PlayerPrefs.Save();
         }
     }
 
