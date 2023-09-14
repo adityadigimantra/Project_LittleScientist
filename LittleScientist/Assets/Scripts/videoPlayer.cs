@@ -17,7 +17,7 @@ public class videoPlayer : MonoBehaviour
 
         vp.playOnAwake = false;
         vp.source = VideoSource.Url;
-        vp.url = "file://E:/Unity Projects/Digimantra_Projects/Digimantra_LittleScientist/LittleScientist/Assets/StreamingAssets/MyVideo.mp4";
+        vp.url = "https://little-scientist.s3.ap-south-1.amazonaws.com/MyVideo.mp4";
         vp.renderMode = VideoRenderMode.APIOnly;
         vp.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         rawImage.texture = vp.targetTexture;
