@@ -322,9 +322,17 @@ public class combinationManager : MonoBehaviour
                     }
                     if(newCreatedElementPos==Vector2.zero)
                     {
-                        LoadNewElementPositionFunction(loadedString);
-                        InsideBox_newObj.transform.position = loadedPosition;
-                        Debug.Log("Loaded Position for =" + loadedString + " Is= " + loadedPosition);
+                        if(FindObjectOfType<ElementPosition>().newFinalPos==Vector2.zero)
+                        {
+                            LoadNewElementPositionFunction(loadedString);
+                            InsideBox_newObj.transform.position = loadedPosition;
+                            Debug.Log("Loaded Position for =" + loadedString + " Is= " + loadedPosition);
+                        }
+                        else
+                        {
+                            FindObjectOfType<ElementPosition>().GetPositonFromList();
+                        }
+
                     }
                     else
                     {
