@@ -79,6 +79,7 @@ public class combinationManager : MonoBehaviour
     public List<string> NoCombinationFoundElements = new List<string>();
     public List<string> SavedPositions = new List<string>();
     public List<string> SavedPositionsForNewCreatedElements = new List<string>();
+    public List<string> FinalSavedPosition = new List<string>();
 
     [Header("Collecting GameObjects-New Created Elements")]
     public GameObject[] NewCreatedElementsPresent;

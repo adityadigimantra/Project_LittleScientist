@@ -10,7 +10,7 @@ public class ElementPosition : MonoBehaviour
     public Vector2 InitialPos;
     public Vector3 FinalPos;
     public Vector2 newFinalPos;
-    public List<string> FinalSavedPosition = new List<string>();
+    
     
 
     [Header("Files")]
@@ -40,9 +40,9 @@ public class ElementPosition : MonoBehaviour
     {
         string convertedPosString = FindObjectOfType<combinationManager>().ConvertVectorToString(FinalPos);
         PlayerPrefs.SetString(gameObject.name, convertedPosString);
-        if (!FinalSavedPosition.Contains(gameObject.name+":"+convertedPosString))
+        if (!FindObjectOfType<combinationManager>().FinalSavedPosition.Contains(gameObject.name+":"+convertedPosString))
         {
-            FinalSavedPosition.Add(gameObject.name+":"+convertedPosString);
+            FindObjectOfType<combinationManager>().FinalSavedPosition.Add(gameObject.name+":"+convertedPosString);
             SetListToFile();
         }
     }
@@ -54,7 +54,7 @@ public class ElementPosition : MonoBehaviour
             using (FileStream fileStream = File.Open(FilePath, FileMode.Create))
             {
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
-                binaryFormatter.Serialize(fileStream, FinalSavedPosition);
+                binaryFormatter.Serialize(fileStream, FindObjectOfType<combinationManager>().FinalSavedPosition);
             }
         }
         catch (Exception e)
@@ -70,7 +70,7 @@ public class ElementPosition : MonoBehaviour
             using (FileStream fileStream = File.Open(FilePath, FileMode.Open))
             {
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FinalSavedPosition = (List<string>)binaryFormatter.Deserialize(fileStream);
+                FindObjectOfType<combinationManager>().FinalSavedPosition = (List<string>)binaryFormatter.Deserialize(fileStream);
             }
         }
         catch (Exception e)
@@ -81,12 +81,19 @@ public class ElementPosition : MonoBehaviour
     public void GetPositonFromList()
     {
         GetListFromFile();
-        if(FinalSavedPosition.Count>0)
+        if (FindObjectOfType<combinationManager>().FinalSavedPosition.Count > 0)
         {
-            string PosInString = FinalSavedPosition[FinalSavedPosition.Count - 1];
-            newFinalPos = FindObjectOfType<combinationManager>().convertStringToVector(PosInString);
-            gameObject.transform.position = newFinalPos;
+            foreach (string str in FindObjectOfType<combinationManager>().FinalSavedPosition)
+            {
+                string[] parts = str.Split(':');
+                if (parts.Length >= 2 && parts[0] == gameObject.name)
+                {
+                    newFinalPos = FindObjectOfType<combinationManager>().convertStringToVector(parts[1]);
+                    gameObject.transform.position = newFinalPos;
+
+                }
+            }
+
         }
-        
     }
 }
