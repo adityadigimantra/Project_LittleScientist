@@ -38,7 +38,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
-        InitialPosition = gameObject.transform.position;
+        gameObject.GetComponent<ElementPosition>().GetInitialPos(gameObject.transform.position);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
     }
@@ -47,7 +47,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     {
 
         isDragging = false;
-        FinalPosition = gameObject.transform.position;
+        gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
