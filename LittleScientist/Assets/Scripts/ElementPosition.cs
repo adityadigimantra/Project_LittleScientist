@@ -11,6 +11,7 @@ public class ElementPosition : MonoBehaviour
     public Vector3 FinalPos;
     public Vector2 newFinalPos;
     public List<string> FinalSavedPosition = new List<string>();
+    
 
     [Header("Files")]
     private string saveFinalElementPositions = "saveElementFinalPosition.txt";
@@ -38,9 +39,10 @@ public class ElementPosition : MonoBehaviour
     public void SetPositionToList()
     {
         string convertedPosString = FindObjectOfType<combinationManager>().ConvertVectorToString(FinalPos);
-        if (!FinalSavedPosition.Contains(convertedPosString))
+        PlayerPrefs.SetString(gameObject.name, convertedPosString);
+        if (!FinalSavedPosition.Contains(gameObject.name+":"+convertedPosString))
         {
-            FinalSavedPosition.Add(convertedPosString);
+            FinalSavedPosition.Add(gameObject.name+":"+convertedPosString);
             SetListToFile();
         }
     }
