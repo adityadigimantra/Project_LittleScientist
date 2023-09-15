@@ -14,19 +14,29 @@ public class ScrollRectElements : MonoBehaviour
         {
             if(other.GetComponent<CheckStatus>().isInsidePlayArea)
             {
-                GameObject newObj = Instantiate(InsideRingElement);
-                newObj.name = other.name;
-                newObj.GetComponent<Image>().sprite = other.GetComponent<Image>().sprite;
-                newObj.GetComponent<BoxCollider2D>().enabled = false;
-                newObj.transform.localScale = new Vector2(1f, 1f);
-                newObj.transform.position = ScrollRect_Content.transform.position;
-                newObj.transform.parent = ScrollRect_Content.transform;
-                Destroy(other.gameObject);
+                Transform existingChild = ScrollRect_Content.transform.Find(other.name);
+                if(existingChild==null)
+                {
+                    GameObject newObj = Instantiate(InsideRingElement);
+                    newObj.name = other.name;
+                    newObj.GetComponent<Image>().sprite = other.GetComponent<Image>().sprite;
+                    newObj.GetComponent<BoxCollider2D>().enabled = false;
+                    newObj.transform.localScale = new Vector2(1f, 1f);
+                    newObj.transform.position = ScrollRect_Content.transform.position;
+                    newObj.transform.parent = ScrollRect_Content.transform;
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    Destroy(other.gameObject);
+                }
+
             }
 
         }
         else
         {
+            //If Limit exceeds
            if(other.GetComponent<CheckStatus>().isInsidePlayArea)
             {
                 Destroy(other.gameObject);
