@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1018282689255727622}
   - component: {fileID: 1018282689255727617}
   - component: {fileID: 1018282689255727616}
+  - component: {fileID: -8126082751979013197}
   m_Layer: 5
   m_Name: Copied
   m_TagString: Copied
@@ -153,6 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentElementName: 
   thisObject: {fileID: 0}
+  ClampPanelRectTransform: {fileID: 0}
+  InitialPosition: {x: 0, y: 0}
+  FinalPosition: {x: 0, y: 0}
+  isDragging: 0
+  isInsidePlayArea: 0
 --- !u!114 &1018282689255727616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,11 +171,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e143676f6225458c5a2bf472e0330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementName: 
-  ELE_Element1Name: 
-  ELE_Element2Name: 
-  ELE_Element1Obj: {fileID: 0}
-  ELE_Element2Obj: {fileID: 0}
-  ELE_Element1Pos: {x: 0, y: 0, z: 0}
-  ELE_Element2Pos: {x: 0, y: 0, z: 0}
-  averagePos: {x: 0, y: 0, z: 0}
+  thisElementName: 
+  thisElementObj: {fileID: 0}
+  thisElementPosition: {x: 0, y: 0}
+  thisElementImage: {fileID: 0}
+  OtherElementName: 
+  otherElementObj: {fileID: 0}
+  otherElementPosition: {x: 0, y: 0}
+  otherElementImage: {fileID: 0}
+  tempObj: []
+  averagePos: {x: 0, y: 0}
+  SameNameTagObj: []
+  SameNameTagObj2: []
+  isColliding: 0
+  isCollided: 0
+  loadedString: 
+  loadedVector: {x: 0, y: 0}
+  newelementCreatedPos: {x: 0, y: 0}
+  comManager: {fileID: 0}
+--- !u!114 &-8126082751979013197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018282689255727619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205be843a4813e344a9762a1cca80809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

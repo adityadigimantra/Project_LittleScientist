@@ -17,6 +17,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public Vector2 InitialPosition;
     public Vector2 FinalPosition;
     public bool isDragging = false;
+
     private void Start()
     {
         currentElementName = gameObject.name;
@@ -38,7 +39,10 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
-        gameObject.GetComponent<ElementPosition>().GetInitialPos(gameObject.transform.position);
+        if(gameObject.tag=="NewCreatedElement")
+        {
+            gameObject.GetComponent<ElementPosition>().GetInitialPos(gameObject.transform.position);
+        }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
     }
@@ -47,7 +51,10 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     {
 
         isDragging = false;
-        gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
+        if (gameObject.tag == "NewCreatedElement")
+        {
+            gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
+        }
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
@@ -73,5 +80,6 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         else
             return 1f;
     }
+
 }
 

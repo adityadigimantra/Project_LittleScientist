@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class Element : MonoBehaviour
@@ -56,16 +58,21 @@ public class Element : MonoBehaviour
 
     public  void OnTriggerEnter2D(Collider2D other)
     {
-        GameOperation._Instance.GameState = GameState.Playing;
-        SoundManager._instance.elementCollideSound();
-        otherElementObj = other.gameObject;
-        thisElementName = thisElementObj.name;
-        OtherElementName = otherElementObj.name;
-        FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
-        PlayerPrefs.SetInt("IsRestart", 0);
-        isCollided = true;
-        getPositionOfElements();
-        StartCoroutine(offIsCollidedBool());
+        string[] excludedObjects = new string[] { "ScrollRect", "PlayArea" };
+        if(Array.IndexOf(excludedObjects,other.gameObject.tag)==-1)
+        {
+            GameOperation._Instance.GameState = GameState.Playing;
+            SoundManager._instance.elementCollideSound();
+            otherElementObj = other.gameObject;
+            thisElementName = thisElementObj.name;
+            OtherElementName = otherElementObj.name;
+            FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
+            PlayerPrefs.SetInt("IsRestart", 0);
+            isCollided = true;
+            getPositionOfElements();
+            StartCoroutine(offIsCollidedBool());
+        }
+
     }
 
     IEnumerator offIsCollidedBool()

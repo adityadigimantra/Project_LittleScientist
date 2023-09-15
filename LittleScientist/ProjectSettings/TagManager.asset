@@ -11,6 +11,8 @@ TagManager:
   - InsideRingElement
   - DownPanelElement
   - discoveryElement
+  - PlayArea
+  - ScrollRect
   layers:
   - Default
   - TransparentFX
