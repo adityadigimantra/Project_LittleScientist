@@ -285,7 +285,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1804575081}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999848
+  m_Size: 0.99997234
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13230,6 +13230,7 @@ GameObject:
   - component: {fileID: 2066408257}
   - component: {fileID: 2066408256}
   - component: {fileID: 2066408259}
+  - component: {fileID: 2066408260}
   m_Layer: 5
   m_Name: Top_ScrollView
   m_TagString: ScrollRect
@@ -13337,7 +13338,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -13353,6 +13354,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1212.3, y: 125}
   m_EdgeRadius: 0
+--- !u!114 &2066408260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066408254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a458db5af9f584a8d76be85d84ed3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollRect_Content: {fileID: 1974582449}
 --- !u!1 &2073215575
 GameObject:
   m_ObjectHideFlags: 0
@@ -13658,7 +13672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21325816, y: 0}
   m_AnchorMax: {x: 0.79116917, y: 1}
-  m_AnchoredPosition: {x: -2.0028076, y: 0}
+  m_AnchoredPosition: {x: -2.003601, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102901240

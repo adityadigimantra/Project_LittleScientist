@@ -79,7 +79,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             copiedGameObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
         
-        //copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
         //Uncomment Below Line if Neccessary
         copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
     }
