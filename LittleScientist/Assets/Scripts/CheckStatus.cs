@@ -13,7 +13,7 @@ public class CheckStatus : MonoBehaviour
         }
         if(other.gameObject.tag=="ScrollRect")
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //isInsidePlayArea = false;
         }
     }
    
