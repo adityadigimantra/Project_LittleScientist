@@ -291,69 +291,72 @@ public class combinationManager : MonoBehaviour
                 discovery_element.transform.localScale = new Vector2(1f, 1f);
                 placingElementsInDiscoveryTray();
 
+               // if(PlayerPrefs.GetInt("CleanedUpNewCreatedElement")==0)
+                
+                    //Creating New Elements for Play Area
+                    InsideBox_newObj = Instantiate(newCreatedElement);
+                    InsideBox_newObj.name = loadedString;
+                    InsideBox_newObj.transform.parent = elementsPanel.transform;
+                    PlayerPrefs.SetInt("elementCreated", 1);
 
-                //Creating New Elements for Play Area
-                InsideBox_newObj = Instantiate(newCreatedElement);
-                InsideBox_newObj.name = loadedString;
-                InsideBox_newObj.transform.parent = elementsPanel.transform;
-                PlayerPrefs.SetInt("elementCreated", 1);
 
-
-                GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
-                GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-                Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
-                if (PlayerPrefs.GetInt("IsRestart") == 0)
-                {
-                   
-                    foreach (GameObject g in var)
+                    GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
+                    GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+                    Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
+                    if (PlayerPrefs.GetInt("IsRestart") == 0)
                     {
-                        if (g.GetComponent<Element>().isCollided)
+
+                        foreach (GameObject g in var)
                         {
-                            newCreatedElementPos = g.GetComponent<Element>().loadedVector;
-                            Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
+                            if (g.GetComponent<Element>().isCollided)
+                            {
+                                newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                                Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
+                            }
+
                         }
-
-                    }
-                    foreach(GameObject g in varNewCreatedObj)
-                    {
-                        if(g.GetComponent<Element>().isCollided)
+                        foreach (GameObject g in varNewCreatedObj)
                         {
-                            newCreatedElementPos = g.GetComponent<Element>().loadedVector;
-                            Debug.Log("New Element Created Pos2=" + newCreatedElementPos);
+                            if (g.GetComponent<Element>().isCollided)
+                            {
+                                newCreatedElementPos = g.GetComponent<Element>().loadedVector;
+                                Debug.Log("New Element Created Pos2=" + newCreatedElementPos);
+                            }
                         }
-                    }
-                    if(newCreatedElementPos==Vector2.zero)
-                    {
-                        if(FindObjectOfType<ElementPosition>().newFinalPos==Vector2.zero)
+                        if (newCreatedElementPos == Vector2.zero)
                         {
-                            LoadNewElementPositionFunction(loadedString);
-                            InsideBox_newObj.transform.position = loadedPosition;
-                            Debug.Log("Loaded Position for =" + loadedString + " Is= " + loadedPosition);
+                            if (FindObjectOfType<ElementPosition>().newFinalPos == Vector2.zero)
+                            {
+                                LoadNewElementPositionFunction(loadedString);
+                                InsideBox_newObj.transform.position = loadedPosition;
+                                Debug.Log("Loaded Position for =" + loadedString + " Is= " + loadedPosition);
+                            }
+                            else
+                            {
+                                FindObjectOfType<ElementPosition>().GetPositonFromList();
+                            }
+
                         }
                         else
                         {
-                            FindObjectOfType<ElementPosition>().GetPositonFromList();
+                            InsideBox_newObj.transform.position = newCreatedElementPos;
+                            Debug.Log("New Element Created Pos3=" + newCreatedElementPos);
+                            newElementPositionFunction();
+                            InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                            InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
                         }
 
                     }
                     else
                     {
-                        InsideBox_newObj.transform.position = newCreatedElementPos;
-                        Debug.Log("New Element Created Pos3=" + newCreatedElementPos);
-                        newElementPositionFunction();
+                        Debug.Log("after Restart");
+                        LoadNewElementPositionFunction(loadedString);
+                        InsideBox_newObj.transform.position = loadedPosition;
                         InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
                         InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
                     }
-
-                }
-                else
-                {
-                    Debug.Log("after Restart");
-                    LoadNewElementPositionFunction(loadedString);
-                    InsideBox_newObj.transform.position = loadedPosition;
-                    InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                    InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
-                }
+                
+                
 
 
                 //Element Inside Play area
@@ -616,6 +619,7 @@ public class combinationManager : MonoBehaviour
         foreach (GameObject g in tempNewCreatedObj)
         {
             g.gameObject.SetActive(false);
+            PlayerPrefs.SetInt("CleanedUpNewCreatedElement", 1);
         }
         foreach(GameObject g in tempCopiedCreatedObj)
         {
