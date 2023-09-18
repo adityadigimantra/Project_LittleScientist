@@ -22,6 +22,7 @@ public class GameOperation : MonoBehaviour
 
     [Header("Panels")]
     public GameObject discoveryTrayPanel;
+    public GameObject OpenDiscoveryTrayButton;
     public GameObject lowerSmallPanel;
 
 
@@ -69,12 +70,12 @@ public class GameOperation : MonoBehaviour
     public void OpenDiscoveryTray()
     {
         discoveryTrayPanel.SetActive(true);
-        lowerSmallPanel.SetActive(false);
+        OpenDiscoveryTrayButton.SetActive(false);
     }
     public void CloseDiscoveryPanel()
     {
         discoveryTrayPanel.SetActive(false);
-        lowerSmallPanel.SetActive(true);
+        OpenDiscoveryTrayButton.SetActive(true);
     }
 
     public void EmptyStringInComManager()
