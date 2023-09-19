@@ -157,7 +157,56 @@ public class Element : MonoBehaviour
             saveDisabledGameObjectsList();
             PlayerPrefs.SetInt("elementCreated", 0);
         }
+        if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
+        {
+            //To Search all the Elements with same Name Present in the Scene
+            foreach (GameObject g in SameNameTagObj)
+            {
+                Element element = g.GetComponent<Element>();
+                if (element.isCollided)
+                {
+                    g.SetActive(false);
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
+                }
+            }
+            foreach (GameObject g in SameNameTagObj2)
+            {
+                Element element = g.GetComponent<Element>();
+                if (element.isCollided)
+                {
+                    g.SetActive(false);
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
 
+                }
+            }
+            saveDisabledGameObjectsList();
+            PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
+        }
+        if(PlayerPrefs.GetInt("NoCombinationFound")==1)
+        {
+            //To Search all the Elements with same Name Present in the Scene
+            foreach (GameObject g in SameNameTagObj)
+            {
+                Element element = g.GetComponent<Element>();
+                if (element.isCollided)
+                {
+                    g.SetActive(false);
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
+                }
+            }
+            foreach (GameObject g in SameNameTagObj2)
+            {
+                Element element = g.GetComponent<Element>();
+                if (element.isCollided)
+                {
+                    g.SetActive(false);
+                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
+
+                }
+            }
+            saveDisabledGameObjectsList();
+            PlayerPrefs.SetInt("NoCombinationFound", 0);
+        }
     }
     
 public void saveDisabledGameObjectsList()

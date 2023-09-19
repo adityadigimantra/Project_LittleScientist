@@ -141,6 +141,7 @@ public class combinationManager : MonoBehaviour
                 else
                 {
                     Debug.Log("Combination already Present");
+                    PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
                     StartCoroutine(CombinationPresent());
 
                 }
@@ -149,6 +150,7 @@ public class combinationManager : MonoBehaviour
             {
 
                 Debug.Log("No Combination Found");
+                PlayerPrefs.SetInt("NoCombinationFound", 1);
                 StartCoroutine(NoCombinationFound());
 
 
@@ -170,6 +172,7 @@ public class combinationManager : MonoBehaviour
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
             }
             StartCoroutine(OpenNewElementPanel());
+            
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             saveCreatedElementsToFile();
             //saveCreateNewElement();
@@ -300,7 +303,7 @@ public class combinationManager : MonoBehaviour
                     PlayerPrefs.SetInt("elementCreated", 1);
 
 
-                    GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
+                GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                     Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
                     if (PlayerPrefs.GetInt("IsRestart") == 0)
