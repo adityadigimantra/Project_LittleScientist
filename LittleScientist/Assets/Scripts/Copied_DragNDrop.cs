@@ -31,8 +31,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     {
         string imagePath = "Elements/" + currentElementName;
         Sprite image = Resources.Load<Sprite>(imagePath);
-        gameObject.GetComponent<Image>().sprite = image;
-        gameObject.GetComponent<Image>().preserveAspect = true;
+        gameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
+        gameObject.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)

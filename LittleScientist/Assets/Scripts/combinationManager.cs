@@ -348,8 +348,8 @@ public class combinationManager : MonoBehaviour
                             InsideBox_newObj.transform.position = newCreatedElementPos;
                             Debug.Log("New Element Created Pos3=" + newCreatedElementPos);
                             newElementPositionFunction();
-                            InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                            InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                            InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                            InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                         }
 
                     }
@@ -358,8 +358,8 @@ public class combinationManager : MonoBehaviour
                         Debug.Log("after Restart");
                         LoadNewElementPositionFunction(loadedString);
                         InsideBox_newObj.transform.position = loadedPosition;
-                        InsideBox_newObj.GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
-                        InsideBox_newObj.GetComponent<Image>().preserveAspect = true;
+                        InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                        InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                     }
                 
                 

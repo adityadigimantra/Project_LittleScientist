@@ -40,7 +40,15 @@ public class Element : MonoBehaviour
         comManager = FindObjectOfType<combinationManager>();
         thisElementName = this.gameObject.name;
         thisElementObj = this.gameObject;
-        thisElementImage = this.gameObject.GetComponent<Image>().sprite;
+        if(this.gameObject.tag=="Copied")
+        {
+            thisElementImage = this.gameObject.transform.GetChild(1).GetComponent<Image>().sprite;
+        }
+        else
+        {
+            thisElementImage = gameObject.GetComponent<Image>().sprite;
+        }
+        
     }
 
     private void Update()
@@ -63,6 +71,8 @@ public class Element : MonoBehaviour
                 thisElementName = thisElementObj.name;
                 //FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
                 isCollided = true;
+                gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 getPositionOfElements();
                 //StartCoroutine(offIsCollidedBool());
             }
@@ -73,7 +83,8 @@ public class Element : MonoBehaviour
         if (Array.IndexOf(excludedObjects, other.gameObject.tag) == -1)
         {
             Debug.Log("OnTriggerExit Called ");
-            isCollided = false;    
+            isCollided = false;
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
     IEnumerator offIsCollidedBool()
