@@ -16,7 +16,6 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public RectTransform ClampPanelRectTransform;
     public Vector2 InitialPosition;
     public Vector2 FinalPosition;
-    public bool isDragging = false;
 
     private void Start()
     {
@@ -38,8 +37,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isDragging = true;
-        if(gameObject.tag=="NewCreatedElement")
+ 
+        if (gameObject.tag=="NewCreatedElement")
         {
             gameObject.GetComponent<ElementPosition>().GetInitialPos(gameObject.transform.position);
         }
@@ -49,18 +48,15 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     public void OnPointerUp(PointerEventData eventData)
     {
-
-        isDragging = false;
-        if (gameObject.tag == "NewCreatedElement")
-        {
-            gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
-        }
+        Debug.Log("Copied-On Pointer Up Called");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        StartCombinationProcess();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("Copied-On Drag Called");
         Vector2 mousePosition = eventData.position;
         Vector2 localPosition;
 
@@ -79,6 +75,15 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             return canvas.scaleFactor;
         else
             return 1f;
+    }
+    public void StartCombinationProcess()
+    {
+        Debug.Log("Element Creation Starting");
+        if(gameObject.GetComponent<Element>().isCollided)
+        {
+            FindObjectOfType<combinationManager>().HandleCombination(gameObject.GetComponent<Element>().thisElementName, gameObject.GetComponent<Element>().OtherElementName);
+        }
+        
     }
 
 }

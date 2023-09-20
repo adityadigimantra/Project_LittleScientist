@@ -23,8 +23,6 @@ public class Element : MonoBehaviour
     [Header("Element Colliding Data")]
     public GameObject[] tempObj;
     public Vector2 averagePos;
-    public GameObject[] SameNameTagObj;
-    public GameObject[] SameNameTagObj2;
     public bool isColliding = false;
     public bool isCollided = false;
     public string loadedString;
@@ -47,34 +45,37 @@ public class Element : MonoBehaviour
 
     private void Update()
     {
-        //Getting live Position of Both Element
         loadedString = PlayerPrefs.GetString("CreatedElementData");
-        SameNameTagObj = GameObject.FindGameObjectsWithTag("Copied");
-        SameNameTagObj2 = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-        //CheckforElementPresence(FindObjectOfType<combinationManager>().loadedString);
-        DestroyingObj();
-
     }
 
     public  void OnTriggerEnter2D(Collider2D other)
     {
-        string[] excludedObjects = new string[] { "ScrollRect", "PlayArea" };
-        if(Array.IndexOf(excludedObjects,other.gameObject.tag)==-1)
-        {
-            GameOperation._Instance.GameState = GameState.Playing;
-            SoundManager._instance.elementCollideSound();
-            otherElementObj = other.gameObject;
-            thisElementName = thisElementObj.name;
-            OtherElementName = otherElementObj.name;
-            FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
-            PlayerPrefs.SetInt("IsRestart", 0);
-            isCollided = true;
-            getPositionOfElements();
-            StartCoroutine(offIsCollidedBool());
-        }
 
+            string[] excludedObjects = new string[] { "ScrollRect", "PlayArea" };
+            if (Array.IndexOf(excludedObjects, other.gameObject.tag) == -1)
+            {
+                Debug.Log("OnTrigger Enter Called");
+                GameOperation._Instance.GameState = GameState.Playing;
+                PlayerPrefs.SetInt("IsRestart", 0);
+                SoundManager._instance.elementCollideSound();
+                otherElementObj = other.gameObject;
+                OtherElementName = otherElementObj.name;
+                thisElementName = thisElementObj.name;
+                //FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
+                isCollided = true;
+                getPositionOfElements();
+                //StartCoroutine(offIsCollidedBool());
+            }
     }
-
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        string[] excludedObjects = new string[] { "ScrollRect", "PlayArea" };
+        if (Array.IndexOf(excludedObjects, other.gameObject.tag) == -1)
+        {
+            Debug.Log("OnTriggerExit Called ");
+            isCollided = false;    
+        }
+    }
     IEnumerator offIsCollidedBool()
     {
         yield return new WaitForSeconds(0.5f);
@@ -130,91 +131,7 @@ public class Element : MonoBehaviour
 
     }
 
-    public void DestroyingObj()
-    {
-        if (PlayerPrefs.GetInt("elementCreated") == 1)
-        {
-            //To Search all the Elements with same Name Present in the Scene
-            foreach (GameObject g in SameNameTagObj)
-            {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-                }
-            }
-            foreach (GameObject g in SameNameTagObj2)
-            {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-
-                }
-            }
-            saveDisabledGameObjectsList();
-            PlayerPrefs.SetInt("elementCreated", 0);
-        }
-        if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
-        {
-            //To Search all the Elements with same Name Present in the Scene
-            foreach (GameObject g in SameNameTagObj)
-            {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-                }
-            }
-            foreach (GameObject g in SameNameTagObj2)
-            {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-
-                }
-            }
-            saveDisabledGameObjectsList();
-            PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
-        }
-        if(PlayerPrefs.GetInt("NoCombinationFound")==1)
-        {
-            //To Search all the Elements with same Name Present in the Scene
-            foreach (GameObject g in SameNameTagObj)
-            {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-                }
-            }
-            foreach (GameObject g in SameNameTagObj2)
-            {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-
-                }
-            }
-            saveDisabledGameObjectsList();
-            PlayerPrefs.SetInt("NoCombinationFound", 0);
-        }
-    }
-    
-public void saveDisabledGameObjectsList()
-    {
-        string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
-        PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
-        PlayerPrefs.Save();
-    }
+   
     
 
 }

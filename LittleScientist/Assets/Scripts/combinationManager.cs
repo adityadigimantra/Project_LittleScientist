@@ -136,6 +136,9 @@ public class combinationManager : MonoBehaviour
                 if (!loadCreatedElements.Contains(resultCombination.result))
                 {
                     createNewElement();
+                    
+
+
 
                 }
                 else
@@ -294,14 +297,14 @@ public class combinationManager : MonoBehaviour
                 discovery_element.transform.localScale = new Vector2(1f, 1f);
                 placingElementsInDiscoveryTray();
 
-               // if(PlayerPrefs.GetInt("CleanedUpNewCreatedElement")==0)
-                
-                    //Creating New Elements for Play Area
+                // if(PlayerPrefs.GetInt("CleanedUpNewCreatedElement")==0)
+
+                //Creating New Elements for Play Area
                     InsideBox_newObj = Instantiate(newCreatedElement);
                     InsideBox_newObj.name = loadedString;
                     InsideBox_newObj.transform.parent = elementsPanel.transform;
                     PlayerPrefs.SetInt("elementCreated", 1);
-
+                   
 
                 GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
@@ -624,7 +627,7 @@ public class combinationManager : MonoBehaviour
             g.gameObject.SetActive(false);
             PlayerPrefs.SetInt("CleanedUpNewCreatedElement", 1);
         }
-        foreach(GameObject g in tempCopiedCreatedObj)
+        foreach(GameObject g in tempCopiedCreatedObj) 
         {
             g.gameObject.SetActive(false);
         }

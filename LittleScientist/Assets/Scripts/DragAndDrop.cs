@@ -24,6 +24,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private Vector2 initialPosition;
     private RectTransform outerPanelTransform;
 
+
+
     private void Start()
     {
         ElementsPanel = GameObject.Find("ElementsPanel");
@@ -68,7 +70,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     public void OnDrag(PointerEventData eventData)
     {
-       Vector2 mousePosition = eventData.position;
+        Vector2 mousePosition = eventData.position;
        Vector2 localPosition;
         
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(ClampPanelRectTransform,mousePosition,eventData.pressEventCamera,out localPosition))
@@ -104,8 +106,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         //For This Object
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-
         //For Copied Object
+        copiedGameObject.GetComponent<Copied_DragNDrop>().StartCombinationProcess();
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
         copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -113,7 +115,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         {
             Destroy(copiedGameObject);
         }
-        
+
     }
 
     private float GetCanvasScale()
