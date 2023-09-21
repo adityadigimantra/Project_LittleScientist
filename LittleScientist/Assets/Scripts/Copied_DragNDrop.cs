@@ -86,8 +86,17 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         if(gameObject.GetComponent<Element>().isCollided)
         {
             FindObjectOfType<combinationManager>().HandleCombination(gameObject.GetComponent<Element>().thisElementName, gameObject.GetComponent<Element>().OtherElementName);
+            if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
+            {
+                gameObject.GetComponent<WiggleAnimation>().startShake();
+            }
+            else if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
+            {
+                gameObject.GetComponent<WiggleAnimation>().startShake();
+            }
+
         }
-        
+
     }
 
 }

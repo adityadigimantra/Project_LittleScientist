@@ -145,7 +145,7 @@ public class combinationManager : MonoBehaviour
                 {
                     Debug.Log("Combination already Present");
                     PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
-                    StartCoroutine(CombinationPresent());
+                    //StartCoroutine(CombinationPresent());
 
                 }
             }
@@ -154,7 +154,7 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
-                StartCoroutine(NoCombinationFound());
+                //StartCoroutine(NoCombinationFound());
 
 
             }
