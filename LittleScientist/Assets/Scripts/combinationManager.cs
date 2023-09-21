@@ -348,7 +348,7 @@ public class combinationManager : MonoBehaviour
                             InsideBox_newObj.transform.position = newCreatedElementPos;
                             Debug.Log("New Element Created Pos3=" + newCreatedElementPos);
                             newElementPositionFunction();
-                            InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                            InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
                             InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                         }
 
@@ -358,7 +358,7 @@ public class combinationManager : MonoBehaviour
                         Debug.Log("after Restart");
                         LoadNewElementPositionFunction(loadedString);
                         InsideBox_newObj.transform.position = loadedPosition;
-                        InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.GetComponent<Image>().sprite;
+                        InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
                         InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                     }
                 
@@ -370,8 +370,8 @@ public class combinationManager : MonoBehaviour
                 if (elementImage != null)
                 {
                     //Inside Ring Element
-                    newObj.GetComponent<Image>().sprite = elementImage;
-                    newObj.GetComponent<Image>().preserveAspect = true;
+                    newObj.transform.GetChild(1).GetComponent<Image>().sprite = elementImage;
+                    newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
 
                     discovery_element.GetComponent<Image>().sprite = elementImage;
                     discovery_element.GetComponent<Image>().preserveAspect = true;

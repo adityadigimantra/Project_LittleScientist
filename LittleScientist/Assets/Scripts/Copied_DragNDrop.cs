@@ -51,6 +51,10 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         Debug.Log("Copied-On Pointer Up Called");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        if (gameObject.tag == "NewCreatedElement")
+        {
+            gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
+        }
         StartCombinationProcess();
     }
 
