@@ -46,7 +46,7 @@ public class Element : MonoBehaviour
         }
         else
         {
-            thisElementImage = gameObject.GetComponent<Image>().sprite;
+            thisElementImage = gameObject.transform.GetChild(1).GetComponent<Image>().sprite;
         }
         
     }
