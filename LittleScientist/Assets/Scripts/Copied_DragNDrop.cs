@@ -16,6 +16,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public RectTransform ClampPanelRectTransform;
     public Vector2 InitialPosition;
     public Vector2 FinalPosition;
+    public GameObject otherGameObject;
 
     private void Start()
     {
@@ -31,8 +32,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     {
         string imagePath = "Elements/" + currentElementName;
         Sprite image = Resources.Load<Sprite>(imagePath);
-        gameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
-        gameObject.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+        gameObject.transform.GetChild(2).GetComponent<Image>().sprite = image;
+        gameObject.transform.GetChild(2).GetComponent<Image>().preserveAspect = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -80,6 +81,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         else
             return 1f;
     }
+
+
+
     public void StartCombinationProcess()
     {
         Debug.Log("Element Creation Starting");
@@ -88,16 +92,34 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             FindObjectOfType<combinationManager>().HandleCombination(gameObject.GetComponent<Element>().thisElementName, gameObject.GetComponent<Element>().OtherElementName);
             if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
             {
+                //Need to play the Animation to the other gameobject not the one which is pointer.
                 gameObject.GetComponent<WiggleAnimation>().startShake();
+                StartCoroutine(MakeActiveExitsElement());
             }
             else if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
             {
-                gameObject.GetComponent<WiggleAnimation>().startShake();
+                otherGameObject.GetComponent<WiggleAnimation>().startShake();
+                PlayerPrefs.SetInt("NoCombinationFound", 0);
             }
 
         }
 
     }
+    IEnumerator MakeActiveExitsElement()
+    {
+        string imagePath = "Elements/" + PlayerPrefs.GetString("AlreadyPresentElement");
+        Sprite image = Resources.Load<Sprite>(imagePath);
+        otherGameObject.transform.GetChild(1).gameObject.SetActive(true);
+        otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
+        yield return new WaitForSeconds(2f);
+        otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
+        PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
+    }
 
+    public void GetAnotherGameObject(GameObject other)
+    {
+        otherGameObject = other;
+
+    }
 }
 

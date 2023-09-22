@@ -69,13 +69,12 @@ public class Element : MonoBehaviour
                 otherElementObj = other.gameObject;
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
-                //FindObjectOfType<combinationManager>().HandleCombination(thisElementName, OtherElementName);
                 isCollided = true;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
-                //StartCoroutine(offIsCollidedBool());
-            }
+        }
     }
     public void OnTriggerExit2D(Collider2D other)
     {
