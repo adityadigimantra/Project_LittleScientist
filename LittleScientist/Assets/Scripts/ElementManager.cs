@@ -7,36 +7,33 @@ public class ElementManager : MonoBehaviour
     public GameObject[] CopiedElements;
     public GameObject[] NewCreatedElements;
 
+    public GameObject Parent1Object;
+    public GameObject Parent2Object;
     private void Update()
     {
-        CopiedElements= GameObject.FindGameObjectsWithTag("Copied"); 
-        NewCreatedElements= GameObject.FindGameObjectsWithTag("NewCreatedElement");
-        DisablingObjects();
+
     }
 
     public void DisablingObjects()
     {
         if (PlayerPrefs.GetInt("elementCreated") == 1)
         {
-            //To Search all the Elements with same Name Present in the Scene
-            foreach (GameObject g in CopiedElements)
+            if (Parent1Object != null && Parent2Object != null)
             {
-                if (g.GetComponent<Element>().isCollided==true)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-                }
+                Parent1Object.SetActive(false);
+                Parent2Object.SetActive(false);
+                FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent1Object.name);
+                FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent2Object.name);
+                saveDisabledGameObjectsList();
             }
-            foreach (GameObject g in NewCreatedElements)
-            {
-                if (g.GetComponent<Element>().isCollided==true)
-                {
-                    g.SetActive(false);
-                    FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-                }
-            }
-            saveDisabledGameObjectsList();
         }
+
+    }
+
+    public void SetParentElements(GameObject obj1,GameObject obj2)
+    {
+        Parent1Object = obj1;
+        Parent2Object = obj2;
     }
 
     public void saveDisabledGameObjectsList()

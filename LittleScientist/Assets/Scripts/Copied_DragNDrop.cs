@@ -91,7 +91,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         if(gameObject.GetComponent<Element>().isCollided)
         {
             FindObjectOfType<combinationManager>().HandleCombination(gameObject.GetComponent<Element>().thisElementName, gameObject.GetComponent<Element>().OtherElementName);
-            
+            FindObjectOfType<ElementManager>().SetParentElements(this.gameObject, otherGameObject);
             if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
             {
                 //Need to play the Animation to the other gameobject not the one which is pointer.

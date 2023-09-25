@@ -174,6 +174,7 @@ public class combinationManager : MonoBehaviour
             
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             saveCreatedElementsToFile();
+            
             //saveCreateNewElement();
             PlayerPrefs.Save();
         }
@@ -304,9 +305,9 @@ public class combinationManager : MonoBehaviour
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                     Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
                     PlayerPrefs.SetInt("elementCreated", 1);
+               
 
-
-                    if (PlayerPrefs.GetInt("IsRestart") == 0)
+                if (PlayerPrefs.GetInt("IsRestart") == 0)
                     {
 
                         foreach (GameObject g in var)
@@ -383,7 +384,7 @@ public class combinationManager : MonoBehaviour
                     {
                         break;
                     }
-
+                    FindObjectOfType<ElementManager>().DisablingObjects();
             }
 
         }
