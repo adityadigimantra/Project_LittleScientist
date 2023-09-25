@@ -87,18 +87,21 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public void StartCombinationProcess()
     {
         Debug.Log("Element Creation Starting");
+
         if(gameObject.GetComponent<Element>().isCollided)
         {
             FindObjectOfType<combinationManager>().HandleCombination(gameObject.GetComponent<Element>().thisElementName, gameObject.GetComponent<Element>().OtherElementName);
+            
             if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
             {
                 //Need to play the Animation to the other gameobject not the one which is pointer.
                 gameObject.GetComponent<WiggleAnimation>().startShake();
                 StartCoroutine(MakeActiveExitsElement());
             }
+
             else if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
             {
-                otherGameObject.GetComponent<WiggleAnimation>().startShake();
+                otherGameObject.GetComponent<WiggleAnimation>().startShake();  
                 PlayerPrefs.SetInt("NoCombinationFound", 0);
             }
 
@@ -111,9 +114,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         Sprite image = Resources.Load<Sprite>(imagePath);
         otherGameObject.transform.GetChild(1).gameObject.SetActive(true);
         otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
-        yield return new WaitForSeconds(2f);
-        otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
         PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
+        
     }
 
     public void GetAnotherGameObject(GameObject other)

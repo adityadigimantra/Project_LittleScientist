@@ -21,8 +21,7 @@ public class ElementManager : MonoBehaviour
             //To Search all the Elements with same Name Present in the Scene
             foreach (GameObject g in CopiedElements)
             {
-               
-                if (g.GetComponent<Element>().isCollided=true)
+                if (g.GetComponent<Element>().isCollided==true)
                 {
                     g.SetActive(false);
                     FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
@@ -30,16 +29,13 @@ public class ElementManager : MonoBehaviour
             }
             foreach (GameObject g in NewCreatedElements)
             {
-                Element element = g.GetComponent<Element>();
-                if (element.isCollided)
+                if (g.GetComponent<Element>().isCollided==true)
                 {
                     g.SetActive(false);
                     FindObjectOfType<combinationManager>().disabledGameobjects.Add(g.name);
-
                 }
             }
             saveDisabledGameObjectsList();
-            PlayerPrefs.SetInt("elementCreated", 0);
         }
     }
 
@@ -47,6 +43,7 @@ public class ElementManager : MonoBehaviour
     {
         string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
         PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
+        PlayerPrefs.SetInt("elementCreated", 0);
         PlayerPrefs.Save();
     }
 }

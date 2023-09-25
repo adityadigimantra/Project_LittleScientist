@@ -86,11 +86,6 @@ public class Element : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
-    IEnumerator offIsCollidedBool()
-    {
-        yield return new WaitForSeconds(0.5f);
-        isCollided = false;
-    }
    
     public void getPositionOfElements()
     {
@@ -102,11 +97,8 @@ public class Element : MonoBehaviour
         }
         string vectorString = convertVectorToString(averagePos);
         PlayerPrefs.SetString(loadedString, vectorString);
-        //PlayerPrefs.Save();
-        //Debug.Log("Vector saved="+ vectorString);
         string savedVectorString = PlayerPrefs.GetString(loadedString);
         loadedVector = converStringToVector(savedVectorString);
-        // Debug.Log("Vector loaded" + loadedVector);
 
 
     }
