@@ -97,7 +97,7 @@ public class combinationManager : MonoBehaviour
     private void Start()
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
-        elementsPanel = GameObject.Find("ElementsPanel");
+        elementsPanel = GameObject.Find("AllElements");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
         leftScrollView = GameObject.Find("LeftScroll_Content");
@@ -152,10 +152,7 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
-                //StartCoroutine(NoCombinationFound());
             }
-            Debug.Log("Parent Element1" + PlayerPrefs.GetString("parentElement1"));
-            Debug.Log("Parent Element2" + PlayerPrefs.GetString("parentElement2"));
         }
     }
 

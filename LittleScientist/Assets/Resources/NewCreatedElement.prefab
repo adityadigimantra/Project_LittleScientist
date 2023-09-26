@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7101769074033980783}
   - component: {fileID: 9110327944026271820}
   - component: {fileID: 969006440127302645}
+  - component: {fileID: 8353575210396176595}
   m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
@@ -76,6 +77,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &8353575210396176595
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571665977219614392}
+  m_Enabled: 1
+  m_SortingLayerID: 348683539
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &8205407628571246900
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +289,7 @@ GameObject:
   - component: {fileID: 8131579804218027835}
   - component: {fileID: 4505986529219039645}
   - component: {fileID: 6342280076831690467}
+  - component: {fileID: 62407859348557211}
   m_Layer: 5
   m_Name: CombExitsElement
   m_TagString: Untagged
@@ -361,6 +374,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!210 &62407859348557211
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8353949773392311905}
+  m_Enabled: 1
+  m_SortingLayerID: 1134912957
+  m_SortingLayer: 2
+  m_SortingOrder: 1
 --- !u!1 &9191343537219445325
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +396,7 @@ GameObject:
   - component: {fileID: 3469713044894031863}
   - component: {fileID: 523401792393624519}
   - component: {fileID: 3593972861740574634}
+  - component: {fileID: 8719032144697514320}
   m_Layer: 5
   m_Name: ElementImage
   m_TagString: Untagged
@@ -436,3 +461,14 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &8719032144697514320
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191343537219445325}
+  m_Enabled: 1
+  m_SortingLayerID: -1666941185
+  m_SortingLayer: 3
+  m_SortingOrder: 2

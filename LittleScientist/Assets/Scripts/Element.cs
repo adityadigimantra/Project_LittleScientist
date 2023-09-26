@@ -70,8 +70,16 @@ public class Element : MonoBehaviour
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
                 isCollided = true;
-                gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                if(gameObject.tag=="Copied")
+                {
+                    gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                    other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                else if(gameObject.tag=="NewCreatedElement")
+                {
+                    gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                    other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                }
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
         }
