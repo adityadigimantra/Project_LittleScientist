@@ -134,12 +134,12 @@ TextureImporter:
       name: MicrosoftTeams-image (44)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 630
-        height: 550
+        x: 19
+        y: 17
+        width: 595
+        height: 514
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
