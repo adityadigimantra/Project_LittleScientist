@@ -116,7 +116,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
         yield return new WaitForSeconds(1f);
         PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
-        
+        otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
+        otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
+
     }
 
     public void GetAnotherGameObject(GameObject other)
