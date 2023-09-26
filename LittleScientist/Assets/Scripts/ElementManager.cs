@@ -24,6 +24,7 @@ public class ElementManager : MonoBehaviour
                 Parent2Object.SetActive(false);
                 FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent1Object.name);
                 FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent2Object.name);
+                PlayerPrefs.SetInt("elementCreated", 0);
                 saveDisabledGameObjectsList();
             }
         }
@@ -40,7 +41,6 @@ public class ElementManager : MonoBehaviour
     {
         string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
         PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
-        PlayerPrefs.SetInt("elementCreated", 0);
         PlayerPrefs.Save();
     }
 }
