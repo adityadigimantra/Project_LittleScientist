@@ -996,7 +996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.079, y: 0.13378729}
   m_AnchorMax: {x: 0.90544754, y: 0.7751718}
-  m_AnchoredPosition: {x: -0.22671509, y: -0.7160187}
+  m_AnchoredPosition: {x: -0.2267456, y: -0.71603394}
   m_SizeDelta: {x: 4.7526855, y: -1.1799927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70804329
@@ -4384,7 +4384,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1027966004}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6089,7 +6089,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 710944421}
   m_HandleRect: {fileID: 710944420}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6805,7 +6805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21758334, y: 0}
   m_AnchorMax: {x: 0.7814376, y: 0.58914816}
-  m_AnchoredPosition: {x: 0, y: -28.444458}
+  m_AnchoredPosition: {x: 0, y: -28.444214}
   m_SizeDelta: {x: -2, y: 54.8889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954811981
@@ -6884,7 +6884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.74700004, y: 0}
   m_AnchorMax: {x: 1, y: 0.30200002}
-  m_AnchoredPosition: {x: 27.284546, y: -18.96045}
+  m_AnchoredPosition: {x: 27.284668, y: -18.96045}
   m_SizeDelta: {x: -56.5692, y: -39.9209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962818877
@@ -9382,15 +9382,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 238709f351fcac743a21a9378d10ad0c, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.33333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5199178894331413479, guid: bd1bd122178f4404380ef812290ee7fe,
+  m_Sprite: {fileID: -1146674650087936537, guid: f4e038c004b9b744c9f5bf10aac7c71c,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -9846,7 +9846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1469223834
 MonoBehaviour:
   m_ObjectHideFlags: 0
