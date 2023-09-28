@@ -10004,7 +10004,7 @@ MonoBehaviour:
   combinationAlreadyMadePanel: {fileID: 1452363242}
   ContentPanel: {fileID: 2102901238}
   discoveryTray_Panel: {fileID: 1878907883}
-  elementsPanel: {fileID: 1590346037}
+  elementsPanel: {fileID: 1212416853}
   topScrollView: {fileID: 1974582449}
   BottomScrollView: {fileID: 1342208335}
   leftScrollView: {fileID: 452289873}

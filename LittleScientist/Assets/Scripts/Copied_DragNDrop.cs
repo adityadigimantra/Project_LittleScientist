@@ -45,6 +45,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        gameObject.transform.SetAsLastSibling();
     }
 
     public void OnPointerUp(PointerEventData eventData)

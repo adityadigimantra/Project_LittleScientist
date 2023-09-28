@@ -60,6 +60,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject = Instantiate(prefab,thisObject.transform.position,Quaternion.identity);
         copiedGameObject.transform.localScale = new Vector3(1f,1f,1f);
         copiedGameObject.transform.parent = ElementsPanel.transform;
+        copiedGameObject.transform.SetAsLastSibling();
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         copiedGameObject.GetComponent<BoxCollider2D>().enabled =false;
