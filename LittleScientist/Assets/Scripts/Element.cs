@@ -94,7 +94,7 @@ public class Element : MonoBehaviour
     }
     IEnumerator giveBreak()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         otherElementObj.transform.GetChild(0).gameObject.SetActive(false);
     }
    

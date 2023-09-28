@@ -125,27 +125,16 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         Sprite image = Resources.Load<Sprite>(imagePath);
         otherGameObject.transform.GetChild(1).gameObject.SetActive(true);
         otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
+        otherGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
         yield return new WaitForSeconds(1f);
         PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
-        if(gameObject.tag=="Copied")
-        {
-            gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        else if(gameObject.tag=="NewCreatedElement")
-        {
-            otherGameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
-            otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
-            otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
-        }
-
-
+        otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
+        otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void GetAnotherGameObject(GameObject other)
     {
         otherGameObject = other;
-
     }
 }
 
