@@ -132,8 +132,8 @@ public class combinationManager : MonoBehaviour
             if (resultCombination != null)
             {
                 Debug.Log("Result:" + resultCombination.result);
-                PlayerPrefs.SetString("parentElement1", COM_Element1);
-                PlayerPrefs.SetString("parentElement2", COM_Element2);
+                //PlayerPrefs.SetString("parentElement1", COM_Element1);
+                //PlayerPrefs.SetString("parentElement2", COM_Element2);
                 if (!loadCreatedElements.Contains(resultCombination.result))
                 {
                     createNewElement();

@@ -69,13 +69,14 @@ public class Element : MonoBehaviour
                 otherElementObj = other.gameObject;
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
+                PlayerPrefs.SetInt("IamTriggered", 1);
                 isCollided = true;
-                //Open Circle for Other GameObject
-                gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
-                //Close Circle for Current Selected GameObject
-                other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                //gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                string UpperObjName = PlayerPrefs.GetString("UpperObject");
+                if(thisElementObj.name==UpperObjName)
+                {
+                  otherElementObj.transform.GetChild(0).gameObject.SetActive(true);
+                  otherElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+                }
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
         }
@@ -87,14 +88,14 @@ public class Element : MonoBehaviour
         {
             Debug.Log("OnTriggerExit Called ");
             isCollided = false;
-            other.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+            otherElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
             StartCoroutine(giveBreak());
-            other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
     IEnumerator giveBreak()
     {
         yield return new WaitForSeconds(0.8f);
+        otherElementObj.transform.GetChild(0).gameObject.SetActive(false);
     }
    
     public void getPositionOfElements()

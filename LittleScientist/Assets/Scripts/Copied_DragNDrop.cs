@@ -46,6 +46,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         gameObject.transform.SetAsLastSibling();
+        PlayerPrefs.SetString("UpperObject", gameObject.name);
+        Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 
     public void OnPointerUp(PointerEventData eventData)

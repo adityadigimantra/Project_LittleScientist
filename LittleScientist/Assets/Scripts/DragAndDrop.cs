@@ -50,6 +50,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
             canvasGroup.blocksRaycasts = false;
             copiedElementData();
+            
         }
     }
 
@@ -66,6 +67,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject.GetComponent<BoxCollider2D>().enabled =false;
         copiedGameObject.gameObject.name = gameObject.GetComponent<Element>().thisElementName;
         copiedGameObject.gameObject.tag = "Copied";
+        copiedGameObject.transform.SetAsLastSibling();
+        PlayerPrefs.SetString("UpperObject", copiedGameObject.name);
+        Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 
 
