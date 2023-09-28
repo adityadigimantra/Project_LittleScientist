@@ -899,7 +899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &63012927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -994,10 +994,10 @@ RectTransform:
   m_Father: {fileID: 954811980}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.079, y: 0.13378729}
-  m_AnchorMax: {x: 0.90544754, y: 0.7751718}
-  m_AnchoredPosition: {x: -0.22680664, y: -0.7160034}
-  m_SizeDelta: {x: 4.7526855, y: -1.1799927}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -8.726807, y: 16.006}
+  m_SizeDelta: {x: 897.7527, y: 444.264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70804329
 MonoBehaviour:
@@ -3050,7 +3050,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 65.31207, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -4761,17 +4761,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641798126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1463734420}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3444792, y: 0}
-  m_AnchorMax: {x: 0.65683335, y: 0.05962963}
-  m_AnchoredPosition: {x: -1, y: -18.783691}
-  m_SizeDelta: {x: 0.31188965, y: 36.720596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -14.125183}
+  m_SizeDelta: {x: 600.3119, y: 28.1709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641798128
 MonoBehaviour:
@@ -4796,7 +4796,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 3409583044654200897, guid: b3f973504cac7a44da4480ae691106fd,
     type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6697,10 +6697,10 @@ RectTransform:
   m_Father: {fileID: 1435075583}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.21758334, y: 0}
-  m_AnchorMax: {x: 0.7814376, y: 0.58914816}
-  m_AnchoredPosition: {x: 0, y: -28.444214}
-  m_SizeDelta: {x: -2, y: 54.8889}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -281.44586}
+  m_SizeDelta: {x: 1080, y: 562.8918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954811981
 MonoBehaviour:
@@ -6722,10 +6722,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5286358197967005255, guid: bf6f259c3bec4374098d8df9cedfe86e,
+  m_Sprite: {fileID: -4651757167450031119, guid: 1818ffd8d157f5f4a9f171b5f215f3f6,
     type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7048,7 +7048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 30
+    m_Right: 40
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 2
@@ -7969,10 +7969,10 @@ RectTransform:
   m_Father: {fileID: 954811980}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.40100002, y: 0.9378937}
-  m_AnchorMax: {x: 0.5887763, y: 1}
-  m_AnchoredPosition: {x: 0.28985596, y: -0.6244507}
-  m_SizeDelta: {x: 0.3222046, y: 2.4179993}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -5.210144, y: 14.892395}
+  m_SizeDelta: {x: 203.3222, y: 29.646423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218285845
 MonoBehaviour:
@@ -9499,7 +9499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.33333334}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -104,7 +104,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
             else if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
             {
-                otherGameObject.GetComponent<WiggleAnimation>().startShake();
+                gameObject.GetComponent<WiggleAnimation>().startShake();
                 PlayerPrefs.SetInt("NoCombinationFound", 0);
                 StartCoroutine(StartIfNoCombinationExists());
             }
@@ -115,8 +115,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     IEnumerator StartIfNoCombinationExists()
     {
-        yield return new WaitForSeconds(1f);
         otherGameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+        yield return new WaitForSeconds(0.5f);
         otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
     IEnumerator MakeActiveExitsElement()

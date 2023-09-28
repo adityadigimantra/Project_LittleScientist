@@ -404,8 +404,8 @@ public class combinationManager : MonoBehaviour
                 placingDiscoveryElementInScrollRect();
                 if (discoveryElementImageInsideRect != null)
                 {
-                    discoveryInsideRecObj.GetComponent<Image>().sprite = discoveryElementImageInsideRect;
-                    discoveryInsideRecObj.GetComponent<Image>().preserveAspect = true;
+                    discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().sprite = discoveryElementImageInsideRect;
+                    discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                 }
             }
             else
@@ -418,8 +418,8 @@ public class combinationManager : MonoBehaviour
                 placingDiscoveryElementInScrollRect();
                 if (discoveryElementImageInsideRect != null)
                 {
-                    discoveryInsideRecObj.GetComponent<Image>().sprite = discoveryElementImageInsideRect;
-                    discoveryInsideRecObj.GetComponent<Image>().preserveAspect = true;
+                    discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().sprite = discoveryElementImageInsideRect;
+                    discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                 }
             }
         }
