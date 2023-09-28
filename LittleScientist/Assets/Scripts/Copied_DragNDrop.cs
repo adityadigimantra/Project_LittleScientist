@@ -113,7 +113,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     IEnumerator StartIfNoCombinationExists()
     {
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f);
+        otherGameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
         otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
     IEnumerator MakeActiveExitsElement()
@@ -124,9 +125,18 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
         yield return new WaitForSeconds(1f);
         PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
-        gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
-        otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
+        if(gameObject.tag=="Copied")
+        {
+            gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else if(gameObject.tag=="NewCreatedElement")
+        {
+            otherGameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+            otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
+            otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
 
     }
 

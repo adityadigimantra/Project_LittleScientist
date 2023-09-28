@@ -70,16 +70,12 @@ public class Element : MonoBehaviour
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
                 isCollided = true;
-                if(gameObject.tag=="Copied")
-                {
-                    gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                    other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                }
-                else if(gameObject.tag=="NewCreatedElement")
-                {
-                    gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                    other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                }
+                //Open Circle for Other GameObject
+                gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+                //Close Circle for Current Selected GameObject
+                other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                //gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
         }
@@ -91,8 +87,14 @@ public class Element : MonoBehaviour
         {
             Debug.Log("OnTriggerExit Called ");
             isCollided = false;
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            other.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+            StartCoroutine(giveBreak());
+            other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
+    }
+    IEnumerator giveBreak()
+    {
+        yield return new WaitForSeconds(0.8f);
     }
    
     public void getPositionOfElements()
