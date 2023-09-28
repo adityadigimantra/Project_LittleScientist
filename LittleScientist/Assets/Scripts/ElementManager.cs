@@ -22,10 +22,10 @@ public class ElementManager : MonoBehaviour
             {
                 Parent1Object.SetActive(false);
                 Parent2Object.SetActive(false);
-                FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent1Object.name);
-                FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent2Object.name);
+                //FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent1Object.name);
+                //FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent2Object.name);
                 PlayerPrefs.SetInt("elementCreated", 0);
-                saveDisabledGameObjectsList();
+                //saveDisabledGameObjectsList();
             }
         }
 

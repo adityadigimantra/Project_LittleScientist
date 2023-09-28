@@ -69,13 +69,27 @@ public class Element : MonoBehaviour
                 otherElementObj = other.gameObject;
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
-                PlayerPrefs.SetInt("IamTriggered", 1);
                 isCollided = true;
                 string UpperObjName = PlayerPrefs.GetString("UpperObject");
-                if(thisElementObj.name==UpperObjName)
+                if(thisElementObj.name==UpperObjName && otherElementObj.name!=UpperObjName)
                 {
                   otherElementObj.transform.GetChild(0).gameObject.SetActive(true);
                   otherElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+                  Debug.Log("Working");
+                }
+                else if(thisElementObj.name==UpperObjName && otherElementObj.name==UpperObjName)
+                {
+                    if(thisElementObj.transform.parent==otherElementObj.transform.parent)
+                     {
+                         Transform ParentTransform = thisElementObj.transform.parent;
+                         int childCount = ParentTransform.childCount;
+                         if (thisElementObj.transform.GetSiblingIndex() == childCount-1)
+                         {
+                            Debug.Log("YOYO");
+                         }
+
+                     }
+
                 }
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
@@ -88,16 +102,22 @@ public class Element : MonoBehaviour
         {
             Debug.Log("OnTriggerExit Called ");
             isCollided = false;
-            otherElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
-            StartCoroutine(giveBreak());
+            thisElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+          
+            if (otherElementObj.activeSelf)
+            {
+                //StartCoroutine(giveBreak());
+            }
+            
         }
     }
     IEnumerator giveBreak()
     {
         yield return new WaitForSeconds(0.5f);
         otherElementObj.transform.GetChild(0).gameObject.SetActive(false);
+
     }
-   
+
     public void getPositionOfElements()
     {
         thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
