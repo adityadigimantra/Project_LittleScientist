@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
     public Text MessageBoxText;
     public combinationManager comb_instance;
     public bool OpenPanelOnce = false;
+    public bool shownOnce = false;
     private void Start()
     {
         
@@ -26,7 +27,7 @@ public class CharacterManager : MonoBehaviour
         {
             case combinationManager.ElementState.InitialState:
                 MessageBoxText.text = "Hello Let's find new elements";
-                if(!OpenPanelOnce)
+                if(!shownOnce)
                 {
                     StartCoroutine(switchOnOffCharacterPanel());
                 }
@@ -54,6 +55,7 @@ public class CharacterManager : MonoBehaviour
             yield return new WaitForSeconds(4f);
             CharacterPanel.SetActive(false);
             OpenPanelOnce = true;
+            shownOnce = true;
         }
 
     }
