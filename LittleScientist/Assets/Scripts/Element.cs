@@ -70,29 +70,39 @@ public class Element : MonoBehaviour
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
                 isCollided = true;
-                string UpperObjName = PlayerPrefs.GetString("UpperObject");
-                if(thisElementObj.name==UpperObjName && otherElementObj.name!=UpperObjName)
-                {
-                  otherElementObj.transform.GetChild(0).gameObject.SetActive(true);
-                  otherElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
-                  Debug.Log("Working");
-                }
-                else if(thisElementObj.name==UpperObjName && otherElementObj.name==UpperObjName)
-                {
-                    if(thisElementObj.transform.parent==otherElementObj.transform.parent)
-                     {
-                         Transform ParentTransform = thisElementObj.transform.parent;
-                         int childCount = ParentTransform.childCount;
-                         if (thisElementObj.transform.GetSiblingIndex() == childCount-1)
-                         {
-                            Debug.Log("YOYO");
-                         }
-
-                     }
-
-                }
+                identifyingObjs();
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
+        }
+    }
+
+    public void identifyingObjs()
+    {
+        string UpperObjName = PlayerPrefs.GetString("UpperObject");
+        if (thisElementObj.name == UpperObjName && otherElementObj.name != UpperObjName)
+        {
+            Debug.Log("ThisElement" + UpperObjName);
+            Debug.Log("OtherElement" + otherElementObj.name);
+            otherElementObj.transform.GetChild(0).gameObject.SetActive(true);
+            otherElementObj.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+            //Debug.Log("Working");
+        }
+        else if (thisElementObj.name == UpperObjName && otherElementObj.name == UpperObjName)
+        {
+            Debug.Log("ThisElement" + UpperObjName);
+            Debug.Log("OtherElement" + otherElementObj.name);
+            //if (thisElementObj.transform.parent == otherElementObj.transform.parent)
+            //{
+            //    Transform ParentTransform = thisElementObj.transform.parent;
+            //    int childCount = ParentTransform.childCount;
+            //    if (thisElementObj.transform.GetSiblingIndex() == childCount - 1)
+            //    {
+            //        Debug.Log("YOYO");
+            //    }
+            //
+            //}
+            
+
         }
     }
     public void OnTriggerExit2D(Collider2D other)
