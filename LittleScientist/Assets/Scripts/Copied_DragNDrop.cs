@@ -47,12 +47,12 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         canvasGroup.blocksRaycasts = false;
         gameObject.transform.SetAsLastSibling();
         PlayerPrefs.SetString("UpperObject", gameObject.name);
-        Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
+        //Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("Copied-On Pointer Up Called");
+        //Debug.Log("Copied-On Pointer Up Called");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         if (gameObject.tag == "NewCreatedElement")
@@ -64,7 +64,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Copied-On Drag Called");
+        //Debug.Log("Copied-On Drag Called");
         Vector2 mousePosition = eventData.position;
         Vector2 localPosition;
 
@@ -89,7 +89,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     public void StartCombinationProcess()
     {
-        Debug.Log("Element Creation Starting");
+        //Debug.Log("Element Creation Starting");
 
         if(gameObject.GetComponent<Element>().isCollided)
         {

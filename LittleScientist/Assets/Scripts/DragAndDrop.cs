@@ -68,8 +68,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         copiedGameObject.gameObject.name = gameObject.GetComponent<Element>().thisElementName;
         copiedGameObject.gameObject.tag = "Copied";
         copiedGameObject.transform.SetAsLastSibling();
-        PlayerPrefs.SetString("UpperObject", copiedGameObject.name);
-        Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
+        PlayerPrefs.SetString("UpperObject", copiedGameObject.gameObject.name);
+        //Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 
 
