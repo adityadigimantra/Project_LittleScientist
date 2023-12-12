@@ -764,6 +764,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!114 &53108921
 MonoBehaviour:
@@ -2448,6 +2449,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!1 &298531874
 GameObject:
@@ -4383,6 +4385,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!50 &619023742
 Rigidbody2D:
@@ -6207,6 +6210,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!50 &831896448
 Rigidbody2D:
@@ -9036,7 +9040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1410390151
 Transform:
   m_ObjectHideFlags: 0
@@ -9066,6 +9070,8 @@ MonoBehaviour:
   CharacterPanel: {fileID: 719404901}
   MessageBoxText: {fileID: 1675614244}
   comb_instance: {fileID: 1469223834}
+  OpenPanelOnce: 0
+  shownOnce: 0
 --- !u!1 &1420043064
 GameObject:
   m_ObjectHideFlags: 0
@@ -9256,6 +9262,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!1 &1425373293
 GameObject:
@@ -11495,6 +11502,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!1 &1804575080
 GameObject:
@@ -11814,6 +11822,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!50 &1850506447
 Rigidbody2D:
@@ -12668,6 +12677,7 @@ MonoBehaviour:
   loadedVector: {x: 0, y: 0}
   newelementCreatedPos: {x: 0, y: 0}
   comManager: {fileID: 0}
+  charManager: {fileID: 0}
   UpperObjName: 
 --- !u!1 &2040026978
 GameObject:
