@@ -93,6 +93,13 @@ public class combinationManager : MonoBehaviour
     private string saveFilePath = "CreatedElements.txt";
     private string saveElementPositions = "saveElementPositions.txt";
 
+    public enum ElementState
+    {
+        InitialState,NewElementFound,ElementExists,NoCombinationFound
+    };
+
+    public ElementState currentElementState = ElementState.InitialState;
+
 
     private void Start()
     {
@@ -107,7 +114,7 @@ public class combinationManager : MonoBehaviour
         loadCreatedElementsFromFile();
         //loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
-
+        currentElementState = ElementState.InitialState;
     }
 
     private void Update()
@@ -136,7 +143,10 @@ public class combinationManager : MonoBehaviour
                 //PlayerPrefs.SetString("parentElement2", COM_Element2);
                 if (!loadCreatedElements.Contains(resultCombination.result))
                 {
+                   
                     createNewElement();
+                    currentElementState = ElementState.NewElementFound;
+
                 }
                 else
                 {
@@ -163,17 +173,17 @@ public class combinationManager : MonoBehaviour
         if (!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
+            
             for (int i = 0; i < CreatedElements.Count; i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
             }
-            StartCoroutine(OpenNewElementPanel());
-            
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             saveCreatedElementsToFile();
-            
             //saveCreateNewElement();
             PlayerPrefs.Save();
+
+            StartCoroutine(OpenNewElementPanel());
         }
     }
 

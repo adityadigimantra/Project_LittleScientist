@@ -32,12 +32,14 @@ public class Element : MonoBehaviour
 
     [Header("Instances")]
     public combinationManager comManager;
+    public CharacterManager charManager;
 
     public string UpperObjName;
 
     private void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
+        charManager = FindObjectOfType<CharacterManager>();
         thisElementName = this.gameObject.name;
         thisElementObj = this.gameObject;
         if(this.gameObject.tag=="Copied")
@@ -71,9 +73,11 @@ public class Element : MonoBehaviour
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
                 isCollided = true;
+                charManager.OpenPanelOnce = false;
                 identifyingObjs();
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
+                
         }
     }
 
