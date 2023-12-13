@@ -313,10 +313,11 @@ public class combinationManager : MonoBehaviour
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                     Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
                     PlayerPrefs.SetInt("elementCreated", 1);
+                   
                
 
                 if (PlayerPrefs.GetInt("IsRestart") == 0)
-                    {
+                { 
 
                         foreach (GameObject g in var)
                         {
@@ -358,43 +359,45 @@ public class combinationManager : MonoBehaviour
                             InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                         }
 
-                    }
-                    else
-                    {
-                        Debug.Log("after Restart");
-                        LoadNewElementPositionFunction(loadedString);
-                        InsideBox_newObj.transform.position = loadedPosition;
-                        InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
-                        InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
-                    }
-                    //Element Inside Play area
-                    Sprite elementImage = LoadElementImage(loadedString);
-                    if (elementImage != null)
-                    {
-                        //Inside Ring Element
-                        newObj.transform.GetChild(1).GetComponent<Image>().sprite = elementImage;
-                        newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
-                    
-                        discovery_element.GetComponent<Image>().sprite = elementImage;
-                        discovery_element.GetComponent<Image>().preserveAspect = true;
-                    
-                        NewelementImage.sprite = elementImage;
-                        newElementText.text = loadedString;
-                    }
-                    //Instance_Element.isColliding = false;
-                    int childinLeftScrollLocal = leftScrollView.transform.childCount;
-                    if (childinLeftScrollLocal >= 5)
-                    {
-                        break;
-                    }
-                    int childInTopScrolllocal = topScrollView.transform.childCount;
-                    if (childInTopScrolllocal >= 8)
-                    {
-                        break;
-                    }
-                    FindObjectOfType<ElementManager>().DisablingObjects();
-            }
+                }
+                else
+                {
+                    Debug.Log("after Restart");
+                    LoadNewElementPositionFunction(loadedString);
+                    InsideBox_newObj.transform.position = loadedPosition;
+                    InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
+                    InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                }
+                //Element Inside Play area
+                Sprite elementImage = LoadElementImage(loadedString);
+                if (elementImage != null)
+                {
+                    //Inside Ring Element
+                    newObj.transform.GetChild(1).GetComponent<Image>().sprite = elementImage;
+                    newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                
+                    discovery_element.GetComponent<Image>().sprite = elementImage;
+                    discovery_element.GetComponent<Image>().preserveAspect = true;
+                
+                    NewelementImage.sprite = elementImage;
+                    newElementText.text = loadedString;
+                }
+                //Instance_Element.isColliding = false;
+                int childinLeftScrollLocal = leftScrollView.transform.childCount;
+                if (childinLeftScrollLocal >= 5)
+                {
+                    break;
+                }
+                int childInTopScrolllocal = topScrollView.transform.childCount;
+                if (childInTopScrolllocal >= 8)
+                {
+                    break;
+                }
 
+               
+
+            }
+            FindObjectOfType<ElementManager>().DisablingObjects();
         }
 
     }
