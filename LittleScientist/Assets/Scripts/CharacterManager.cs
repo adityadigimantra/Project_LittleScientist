@@ -27,6 +27,7 @@ public class CharacterManager : MonoBehaviour
         {
             case combinationManager.ElementState.InitialState:
                 MessageBoxText.text = "Hello Let's find new elements";
+                Debug.Log("State is-Initial");
                 if(!shownOnce)
                 {
                     StartCoroutine(switchOnOffCharacterPanel());
@@ -35,6 +36,7 @@ public class CharacterManager : MonoBehaviour
 
             case combinationManager.ElementState.NewElementFound:
                 MessageBoxText.text = "Wow! New Element Found";
+                Debug.Log("State is-New Element Found");
                 if (!OpenPanelOnce)
                 {
                     StartCoroutine(switchOnOffCharacterPanel());
@@ -42,6 +44,7 @@ public class CharacterManager : MonoBehaviour
                 break;
             case combinationManager.ElementState.ElementExists:
                 MessageBoxText.text = "Hmm! This element already exists";
+                Debug.Log("State is-Element Exists");
                 if (!OpenPanelOnce)
                 {
                     StartCoroutine(switchOnOffCharacterPanel());

@@ -73,7 +73,6 @@ public class Element : MonoBehaviour
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
                 isCollided = true;
-                charManager.OpenPanelOnce = false;
                 identifyingObjs();
                 gameObject.GetComponent<Copied_DragNDrop>().GetAnotherGameObject(otherElementObj);
                 getPositionOfElements();
@@ -124,9 +123,9 @@ public class Element : MonoBehaviour
             thisElementObj.transform.GetChild(0).gameObject.SetActive(false);
             if (otherElementObj.activeSelf)
             {
-                //StartCoroutine(giveBreak());
+              //No Comments
             }
-            
+            comManager.currentElementState = combinationManager.ElementState.InitialState;
         }
     }
     IEnumerator giveBreak()

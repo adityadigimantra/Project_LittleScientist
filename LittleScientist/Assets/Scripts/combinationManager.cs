@@ -136,7 +136,6 @@ public class combinationManager : MonoBehaviour
             COM_Element2 = element2;
             COM_Element1 = element1;
             resultCombination = FindCombination(COM_Element1, COM_Element2);
-            currentElementState = ElementState.InitialState;
             if (resultCombination != null)
             {
                 Debug.Log("Result:" + resultCombination.result);
@@ -183,7 +182,6 @@ public class combinationManager : MonoBehaviour
             saveCreatedElementsToFile();
             //saveCreateNewElement();
             PlayerPrefs.Save();
-
             StartCoroutine(OpenNewElementPanel());
         }
     }
