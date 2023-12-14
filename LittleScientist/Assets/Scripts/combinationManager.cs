@@ -179,18 +179,20 @@ public class combinationManager : MonoBehaviour
         if (!CreatedElements.Contains(resultCombination.result))
         {
             CreatedElements.Add(resultCombination.result);
-            currentElementState = ElementState.NewElementFound;
-            charManager.HandlingCharacterBehaviour();
 
             for (int i = 0; i < CreatedElements.Count; i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
             }
+
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             saveCreatedElementsToFile();
             //saveCreateNewElement();
             PlayerPrefs.Save();
+            currentElementState = ElementState.NewElementFound;
+            charManager.HandlingCharacterBehaviour();
             StartCoroutine(OpenNewElementPanel());
+            
         }
     }
 

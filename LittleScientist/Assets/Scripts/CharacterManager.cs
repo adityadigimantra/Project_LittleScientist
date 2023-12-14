@@ -12,7 +12,7 @@ public class CharacterManager : MonoBehaviour
     public Image MessageBoxImage;
     public Text MessageBoxText;
     public int fadeDuration=4;
-
+    public string loadedString;
     public bool OpenPanelOnce = false;
     public bool shownOnce = false;
 
@@ -28,7 +28,7 @@ public class CharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        loadedString = combManager.loadedString;
     }
 
     public void HandlingCharacterBehaviour()
@@ -42,12 +42,12 @@ public class CharacterManager : MonoBehaviour
                 break;
 
             case combinationManager.ElementState.NewElementFound:
-                ShowMessage("Wow! New Element Found.");
+                ShowMessage("Wow! New Element is Found.");
                 Debug.Log("State is-New Element Found");
 
                 break;
             case combinationManager.ElementState.ElementExists:
-                ShowMessage("Hmm! This element already exists.");
+                ShowMessage("Hmm! The element already exists.");
                 Debug.Log("State is-Element Exists");
 
                 break;
@@ -75,8 +75,8 @@ public class CharacterManager : MonoBehaviour
     {
         MessageBoxText.text = message;
         CharacterPanel.SetActive(true);
-        yield return new WaitForSeconds(4f);
-        CharacterPanel.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        //CharacterPanel.SetActive(false);
     }
 
 
