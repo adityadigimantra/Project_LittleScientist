@@ -23,6 +23,7 @@ public class CharacterManager : MonoBehaviour
     private void Start()
     {
         combManager = FindObjectOfType<combinationManager>();
+
     }
 
     // Update is called once per frame
@@ -73,9 +74,9 @@ public class CharacterManager : MonoBehaviour
 
     IEnumerator DisplayMessage(string message)
     {
-        MessageBoxText.text = message;
         CharacterPanel.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        MessageBoxText.text = message;
+        yield return new WaitForSeconds(2f);
         //CharacterPanel.SetActive(false);
     }
 

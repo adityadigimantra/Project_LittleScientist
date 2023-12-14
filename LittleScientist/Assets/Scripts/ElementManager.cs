@@ -9,6 +9,11 @@ public class ElementManager : MonoBehaviour
 
     public GameObject Parent1Object;
     public GameObject Parent2Object;
+    public combinationManager comManager;
+    private void Start()
+    {
+        comManager = FindObjectOfType<combinationManager>();
+    }
     private void Update()
     {
 

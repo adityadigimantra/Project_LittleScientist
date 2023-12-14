@@ -184,11 +184,11 @@ public class combinationManager : MonoBehaviour
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
             }
-
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             saveCreatedElementsToFile();
             //saveCreateNewElement();
             PlayerPrefs.Save();
+
             currentElementState = ElementState.NewElementFound;
             charManager.HandlingCharacterBehaviour();
             StartCoroutine(OpenNewElementPanel());
