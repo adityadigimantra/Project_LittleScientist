@@ -158,7 +158,6 @@ public class combinationManager : MonoBehaviour
                     PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
                     PlayerPrefs.SetString("AlreadyPresentElement",resultCombination.result);
                     currentElementState = ElementState.ElementExists;
-                    charManager.OpenPanelOnce = false;
                     charManager.HandlingCharacterBehaviour();
                 }
             }
@@ -168,7 +167,6 @@ public class combinationManager : MonoBehaviour
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
                 currentElementState = ElementState.NoCombinationFound;
-                charManager.OpenPanelOnce = false;
                 charManager.HandlingCharacterBehaviour();
             }
         }
@@ -182,7 +180,6 @@ public class combinationManager : MonoBehaviour
         {
             CreatedElements.Add(resultCombination.result);
             currentElementState = ElementState.NewElementFound;
-            charManager.OpenPanelOnce = false;
             charManager.HandlingCharacterBehaviour();
 
             for (int i = 0; i < CreatedElements.Count; i++)
