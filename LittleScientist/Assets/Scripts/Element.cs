@@ -125,7 +125,7 @@ public class Element : MonoBehaviour
             {
               //No Comments
             }
-            comManager.currentElementState = combinationManager.ElementState.InitialState;
+           
         }
     }
     IEnumerator giveBreak()

@@ -13,6 +13,7 @@ public class combinationManager : MonoBehaviour
     public Combination resultCombination;
     public ElementLoader elementLoaderObj;
     public Element Instance_Element;
+    public CharacterManager charManager;
 
     [Header("Colliding Elements Name")]
     public string COM_Element1;
@@ -104,6 +105,7 @@ public class combinationManager : MonoBehaviour
     private void Start()
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
+        charManager = FindObjectOfType<CharacterManager>();
         elementsPanel = GameObject.Find("AllElements");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
@@ -115,6 +117,8 @@ public class combinationManager : MonoBehaviour
         //loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
         currentElementState = ElementState.InitialState;
+        charManager.HandlingCharacterBehaviour();
+
     }
 
     private void Update()
@@ -153,8 +157,9 @@ public class combinationManager : MonoBehaviour
                     Debug.Log("Combination already Present");
                     PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
                     PlayerPrefs.SetString("AlreadyPresentElement",resultCombination.result);
-                    //StartCoroutine(CombinationPresent());
-
+                    currentElementState = ElementState.ElementExists;
+                    charManager.OpenPanelOnce = false;
+                    charManager.HandlingCharacterBehaviour();
                 }
             }
             else
@@ -162,6 +167,9 @@ public class combinationManager : MonoBehaviour
 
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
+                currentElementState = ElementState.NoCombinationFound;
+                charManager.OpenPanelOnce = false;
+                charManager.HandlingCharacterBehaviour();
             }
         }
     }
@@ -174,6 +182,9 @@ public class combinationManager : MonoBehaviour
         {
             CreatedElements.Add(resultCombination.result);
             currentElementState = ElementState.NewElementFound;
+            charManager.OpenPanelOnce = false;
+            charManager.HandlingCharacterBehaviour();
+
             for (int i = 0; i < CreatedElements.Count; i++)
             {
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
