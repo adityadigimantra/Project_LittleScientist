@@ -75,14 +75,16 @@ public class CharacterManager : MonoBehaviour
         IEnumerator switchOnOffCharacterPanel()
         {
             CharacterPanel.SetActive(true);
-            //yield return fadeCharacterImage(0, 1);
             yield return new WaitForSeconds(4f);
-            //yield return fadeCharacterImage(1,0);
             CharacterPanel.SetActive(false);
             OpenPanelOnce = true;
             shownOnce = true;
-           
         }
+
+
+
+        //yield return fadeCharacterImage(0, 1);
+        //yield return fadeCharacterImage(1,0);
         IEnumerator fadeCharacterImage(int startAlpha,int targetAlpha)
         {
             float currentTime = 0f;
