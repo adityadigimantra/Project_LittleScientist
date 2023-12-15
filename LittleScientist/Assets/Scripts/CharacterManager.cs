@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
     public Image CharacterBgImage;
     public Image MessageBoxImage;
     public Text MessageBoxText;
+    public Text NewElementText;
     public int fadeDuration=4;
     public string loadedString;
     public bool OpenPanelOnce = false;
@@ -32,28 +33,29 @@ public class CharacterManager : MonoBehaviour
         loadedString = combManager.loadedString;
     }
 
-    public void HandlingCharacterBehaviour()
+    public void HandlingCharacterBehaviour(string message)
     {
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage("Hello Let's find new elements.");
+                ShowMessage(message);
                 Debug.Log("State is-Initial");
 
                 break;
 
             case combinationManager.ElementState.NewElementFound:
-                ShowMessage("Wow! New Element is Found.");
+                string uppercaseWord = ConvertToUpperCase(message);
+                ShowMessage("Wow! New Element "+uppercaseWord+" is Found.");
                 Debug.Log("State is-New Element Found");
 
                 break;
             case combinationManager.ElementState.ElementExists:
-                ShowMessage("Hmm! The element already exists.");
+                ShowMessage(message);
                 Debug.Log("State is-Element Exists");
 
                 break;
             case combinationManager.ElementState.NoCombinationFound:
-                ShowMessage("Hmm! I can't find any combination of these elements.");
+                ShowMessage(message);
                 Debug.Log("State is-No Combination Found");
 
                 break;
@@ -71,7 +73,18 @@ public class CharacterManager : MonoBehaviour
         messageCoroutine = StartCoroutine(DisplayMessage(message));
     }
 
+    public string ConvertToUpperCase(string input)
+    {
+        if(string.IsNullOrEmpty(input))
+        {
+            return input;
 
+        }
+        else
+        {
+            return char.ToUpper(input[0])+input.Substring(1);
+        }
+    }
     IEnumerator DisplayMessage(string message)
     {
         CharacterPanel.SetActive(true);

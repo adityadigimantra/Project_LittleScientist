@@ -3054,7 +3054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 65.31207, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -7762,6 +7762,7 @@ MonoBehaviour:
   NewCreatedElements: []
   Parent1Object: {fileID: 0}
   Parent2Object: {fileID: 0}
+  comManager: {fileID: 0}
 --- !u!4 &1210606006
 Transform:
   m_ObjectHideFlags: 0
@@ -9072,7 +9073,9 @@ MonoBehaviour:
   CharacterBgImage: {fileID: 1835297481}
   MessageBoxImage: {fileID: 915317463}
   MessageBoxText: {fileID: 1675614244}
+  NewElementText: {fileID: 12850275}
   fadeDuration: 2
+  loadedString: 
   OpenPanelOnce: 0
   shownOnce: 0
   combManager: {fileID: 0}

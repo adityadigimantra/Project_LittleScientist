@@ -117,7 +117,7 @@ public class combinationManager : MonoBehaviour
         //loadSavedCreatedElements();
         LoadDisabledGameObjectsList();
         currentElementState = ElementState.InitialState;
-        charManager.HandlingCharacterBehaviour();
+        charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements");
 
     }
 
@@ -158,7 +158,7 @@ public class combinationManager : MonoBehaviour
                     PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
                     PlayerPrefs.SetString("AlreadyPresentElement",resultCombination.result);
                     currentElementState = ElementState.ElementExists;
-                    charManager.HandlingCharacterBehaviour();
+                    charManager.HandlingCharacterBehaviour("Hmm! This Element already exits.");
                 }
             }
             else
@@ -167,7 +167,7 @@ public class combinationManager : MonoBehaviour
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
                 currentElementState = ElementState.NoCombinationFound;
-                charManager.HandlingCharacterBehaviour();
+                charManager.HandlingCharacterBehaviour("Hmm! No Combination found for these elements.");
             }
         }
     }
@@ -188,11 +188,9 @@ public class combinationManager : MonoBehaviour
             saveCreatedElementsToFile();
             //saveCreateNewElement();
             PlayerPrefs.Save();
-
             currentElementState = ElementState.NewElementFound;
-            charManager.HandlingCharacterBehaviour();
+            charManager.HandlingCharacterBehaviour(resultCombination.result);
             StartCoroutine(OpenNewElementPanel());
-            
         }
     }
 

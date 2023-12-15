@@ -32,6 +32,12 @@ public class ElementManager : MonoBehaviour
                 PlayerPrefs.SetInt("elementCreated", 0);
                 //saveDisabledGameObjectsList();
             }
+            else
+            {
+                //Parent1Object.SetActive(true);
+                //Parent2Object.SetActive(true);
+                PlayerPrefs.SetInt("elementCreated", 0);
+            }
         }
 
     }
