@@ -386,7 +386,8 @@ public class combinationManager : MonoBehaviour
                     discovery_element.GetComponent<Image>().preserveAspect = true;
                 
                     NewelementImage.sprite = elementImage;
-                    newElementText.text = loadedString;
+                    string finalStringtoShowOnPanel=charManager.ConvertToUpperCase(loadedString);
+                    newElementText.text = finalStringtoShowOnPanel;
                 }
                 //Instance_Element.isColliding = false;
                 int childinLeftScrollLocal = leftScrollView.transform.childCount;
