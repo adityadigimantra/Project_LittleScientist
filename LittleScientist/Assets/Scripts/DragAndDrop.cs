@@ -80,15 +80,18 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         
         if(RectTransformUtility.ScreenPointToLocalPointInRectangle(ClampPanelRectTransform,mousePosition,eventData.pressEventCamera,out localPosition))
         {
-            localPosition.x = Mathf.Clamp(localPosition.x, ClampPanelRectTransform.rect.min.x + copiedGameObject.GetComponent<RectTransform>().rect.width, ClampPanelRectTransform.rect.max.x - copiedGameObject.GetComponent<RectTransform>().rect.width);
-            localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y + copiedGameObject.GetComponent<RectTransform>().rect.height, ClampPanelRectTransform.rect.max.y - copiedGameObject.GetComponent<RectTransform>().rect.height);
-
-            copiedGameObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
+            if(copiedGameObject!=null)
+            {
+                localPosition.x = Mathf.Clamp(localPosition.x, ClampPanelRectTransform.rect.min.x + copiedGameObject.GetComponent<RectTransform>().rect.width, ClampPanelRectTransform.rect.max.x - copiedGameObject.GetComponent<RectTransform>().rect.width);
+                localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y + copiedGameObject.GetComponent<RectTransform>().rect.height, ClampPanelRectTransform.rect.max.y - copiedGameObject.GetComponent<RectTransform>().rect.height);
+                copiedGameObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
+                copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+                //Uncomment Below Line if Neccessary
+                copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
+            }
+            
         }
-        
-        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
-        //Uncomment Below Line if Neccessary
-        copiedGameObject.GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetCanvasScale();
+       
     }
 
     private Vector2 clampPosition(Vector2 position)
@@ -108,19 +111,21 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        //For This Object
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
-        //For Copied Object
-        copiedGameObject.GetComponent<Copied_DragNDrop>().StartCombinationProcess();
-        copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
-        copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
-        copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
-        if(!copiedGameObject.GetComponent<CheckStatus>().isInsidePlayArea)
+        if(copiedGameObject!=null)
         {
-            Destroy(copiedGameObject);
+            //For This Object
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+            //For Copied Object
+            copiedGameObject.GetComponent<Copied_DragNDrop>().StartCombinationProcess();
+            copiedGameObject.GetComponent<CanvasGroup>().alpha = 1f;
+            copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            copiedGameObject.GetComponent<BoxCollider2D>().enabled = true;
+            if (!copiedGameObject.GetComponent<CheckStatus>().isInsidePlayArea)
+            {
+                Destroy(copiedGameObject);
+            }
         }
-
     }
 
     private float GetCanvasScale()

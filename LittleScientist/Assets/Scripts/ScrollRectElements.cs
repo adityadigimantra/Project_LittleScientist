@@ -15,6 +15,7 @@ public class ScrollRectElements : MonoBehaviour
             if(other.GetComponent<CheckStatus>().isInsidePlayArea)
             {
                 Transform existingChild = ScrollRect_Content.transform.Find(other.name);
+
                 if(existingChild==null)
                 {
                     GameObject newObj = Instantiate(InsideRingElement);
@@ -26,7 +27,7 @@ public class ScrollRectElements : MonoBehaviour
                     newObj.transform.parent = ScrollRect_Content.transform;
                     Destroy(other.gameObject);
                 }
-                else
+                else if(existingChild!=null)
                 {
                     Destroy(other.gameObject);
                 }
