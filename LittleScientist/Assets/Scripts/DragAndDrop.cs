@@ -126,6 +126,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                 Destroy(copiedGameObject);
             }
         }
+        else
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+        } 
     }
 
     private float GetCanvasScale()

@@ -27,7 +27,7 @@ public class ScrollRectElements : MonoBehaviour
                     newObj.transform.parent = ScrollRect_Content.transform;
                     Destroy(other.gameObject);
                 }
-                else if(existingChild!=null)
+                else
                 {
                     Destroy(other.gameObject);
                 }
