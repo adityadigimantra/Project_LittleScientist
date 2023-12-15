@@ -18,9 +18,11 @@ public class ScrollRectElements : MonoBehaviour
 
                 if(existingChild==null)
                 {
+                    //Removed feature-To arrange elements to either scroll rects.
+
                     GameObject newObj = Instantiate(InsideRingElement);
                     newObj.name = other.name;
-                    newObj.GetComponent<Image>().sprite = other.GetComponent<Image>().sprite;
+                    newObj.transform.GetChild(1).GetComponent<Image>().sprite = other.gameObject.transform.GetChild(2).gameObject.GetComponent<Image>().sprite;
                     newObj.GetComponent<BoxCollider2D>().enabled = false;
                     newObj.transform.localScale = new Vector2(1f, 1f);
                     newObj.transform.position = ScrollRect_Content.transform.position;
