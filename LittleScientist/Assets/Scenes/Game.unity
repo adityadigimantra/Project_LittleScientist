@@ -3054,7 +3054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 65.31207, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -9216,7 +9216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1410390151
 Transform:
   m_ObjectHideFlags: 0
@@ -12603,6 +12603,11 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198323440451699974, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: simulationSpeed
@@ -12836,7 +12841,7 @@ PrefabInstance:
     - target: {fileID: 224908181251007168, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000015259
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 224908181251007168, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
