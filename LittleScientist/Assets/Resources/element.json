@@ -91,14 +91,14 @@
             "element1": "fire",
             "element2": "gunpowder",
             "result": "explosion",
-            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki, respectively. The aerial bombings together killed between 129,000 and 226,000 people."
+            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki."
         },
         {
             "Name": "Explosion",
             "element1": "gunpowder",
             "element2": "fire",
             "result": "explosion",
-            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki, respectively. The aerial bombings together killed between 129,000 and 226,000 people."
+            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki."
         },
         {
             "Name": "Brick",
@@ -133,7 +133,7 @@
             "element1": "brick",
             "element2": "brick",
             "result": "wall",
-            "fact": "We began building stone walls about 10,000 years ago when farming began, and ways were needed to divide farms and keep sheep in."
+            "fact": "We began building stone walls about 10,000 years ago when farming began."
         },
         {
             "Name": "Firewall",
@@ -167,440 +167,450 @@
             "Name": "Lava",
             "element1": "earth",
             "element2": "fire",
-            "result": "lava"
+            "result": "lava",
+            "fact": "Lava can reach temperatures as hot as 1,250C."
         },
         {
             "Name": "Lava",
             "element1": "fire",
             "element2": "earth",
-            "result": "lava"
+            "result": "lava",
+            "fact": "Lava can reach temperatures as hot as 1,250C."
         },
         {
             "Name": "Stone",
             "element1": "air",
             "element2": "lava",
-            "result": "stone"
+            "result": "stone",
+            "fact": "The oldest stone tools date to around 3.3 million years ago."
         },
         {
             "Name": "Stone",
             "element1": "lava",
             "element2": "air",
-            "result": "stone"
+            "result": "stone",
+            "fact": "The oldest stone tools date to around 3.3 million years ago."
         },
         {
             "Name": "Glass",
             "element1": "fire",
             "element2": "sand",
-            "result": "glass"
+            "result": "glass",
+            "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A."
         },
         {
             "Name": "Glass",
             "element1": "sand",
             "element2": "fire",
-            "result": "glass"
+            "result": "glass",
+            "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A."
         },
         {
             "Name": "Metal",
             "element1": "fire",
             "element2": "stone",
-            "result": "metal"
+            "result": "metal",
+            "fact": "It snows metal on Venus."
         },
         {
             "Name": "Metal",
             "element1": "stone",
             "element2": "fire",
-            "result": "metal"
-        },
-        {
-            "Name": "Steam",
-            "element1": "water",
-            "element2": "lava",
-            "result": "steam"
+            "result": "metal",
+            "fact": "It snows metal on Venus."
         },
         {
             "Name": "Obsidian",
             "element1": "water",
             "element2": "lava",
-            "result": "obsidian"
+            "result": "obsidian",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
         },
         {
             "Name": "Obsidian",
             "element1": "lava",
             "element2": "water",
-            "result": "obsidian"
+            "result": "obsidian",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
         },
         {
             "Name": "Aquarium",
             "element1": "water",
             "element2": "glass",
-            "result": "aquarium"
+            "result": "aquarium",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
+
         },
         {
             "Name": "Aquarium",
             "element1": "glass",
             "element2": "water",
-            "result": "aquarium"
+            "result": "aquarium",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
         },
         {
             "Name": "Beach",
             "element1": "water",
             "element2": "sand",
-            "result": "beach"
+            "result": "beach",
+            "fact": "It can take thousands of years for a natural beach to be created."
         },
         {
             "Name": "Beach",
             "element1": "sand",
             "element2": "water",
-            "result": "beach"
+            "result": "beach",
+            "fact": "It can take thousands of years for a natural beach to be created."
         },
         {
             "Name": "Rust",
             "element1": "air",
             "element2": "metal",
-            "result": "rust"
+            "result": "rust",
+            "fact": "If the metal is covered in wax, oil, or paint, it cannot oxidize."
         },
         {
             "Name": "Rust",
             "element1": "metal",
             "element2": "air",
-            "result": "rust"
+            "result": "rust",
+            "fact": "If the metal is covered in wax, oil, or paint, it cannot oxidize."
         },
         {
             "Name": "Geyser",
             "element1": "earth",
             "element2": "steam",
-            "result": "geyser"
+            "result": "geyser",
+            "fact": "A natural spring that sometimes sends hot water or steam up into the air."
         },
         {
             "Name": "Geyser",
             "element1": "steam",
             "element2": "earth",
-            "result": "geyser"
+            "result": "geyser",
+            "fact": "A natural spring that sometimes sends hot water or steam up into the air."
         },
         {
             "Name": "Continent",
             "element1": "earth",
             "element2": "land",
-            "result": "continent"
+            "result": "continent",
+            "fact": "Asia is the largest continent in size."
         },
         {
             "Name": "Continent",
             "element1": "land",
             "element2": "earth",
-            "result": "continent"
+            "result": "continent",
+            "fact": "Asia is the largest continent in size."
         },
         {
             "Name": "Plow",
             "element1": "earth",
             "element2": "metal",
-            "result": "plow"
+            "result": "plow",
+            "fact": "Ground that has been plowed is a good place for a farmer to grow food."
         },
         {
             "Name": "Plow",
             "element1": "metal",
             "element2": "earth",
-            "result": "plow"
+            "result": "plow",
+            "fact": "Ground that has been plowed is a good place for a farmer to grow food."
         },
         {
             "Name": "Field",
             "element1": "plow",
             "element2": "earth",
-            "result": "feild"
+            "result": "feild",
+            "fact": ""
         },
         {
             "Name": "Field",
             "element1": "earth",
             "element2": "plow",
-            "result": "feild"
+            "result": "feild",
+            "fact": ""
         },
         {
             "Name": "Hourglass",
             "element1": "sand",
             "element2": "glass",
-            "result": "hourglass"
+            "result": "hourglass",
+            "fact": ""
         },
         {
             "Name": "Hourglass",
             "element1": "glass",
             "element2": "sand",
-            "result": "hourglass"
+            "result": "hourglass",
+            "fact": ""
         },
         {
             "Name": "Sunglasses",
             "element1": "glass",
             "element2": "metal",
-            "result": "sunglasses"
+            "result": "sunglasses",
+            "fact": ""
         },
         {
             "Name": "Sunglasses",
             "element1": "metal",
             "element2": "glass",
-            "result": "sunglasses"
+            "result": "sunglasses",
+            "fact": ""
         },
         {
             "Name": "Mirror",
             "element1": "glass",
             "element2": "metal",
-            "result": "mirror"
+            "result": "mirror",
+            "fact": ""
         },
         {
             "Name": "Mirror",
             "element1": "metal",
             "element2": "glass",
-            "result": "mirror"
+            "result": "mirror",
+            "fact": ""
         },
         {
             "Name": "Grenade",
             "element1": "metal",
             "element2": "explosion",
-            "result": "grenade"
+            "result": "grenade",
+            "fact": ""
         },
         {
             "Name": "Grenade",
             "element1": "explosion",
             "element2": "metal",
-            "result": "grenade"
+            "result": "grenade",
+            "fact": ""
         },
         {
             "Name": "Bullet",
             "element1": "gunpowder",
             "element2": "metal",
-            "result": "bullet"
+            "result": "bullet",
+            "fact": ""
         },
         {
             "Name": "Bullet",
             "element1": "metal",
             "element2": "gunpowder",
-            "result": "bullet"
+            "result": "bullet",
+            "fact": ""
         },
         {
             "Name": "Gun",
             "element1": "metal",
             "element2": "bullet",
-            "result": "gun"
+            "result": "gun",
+            "fact": ""
         },
         {
             "Name": "Gun",
             "element1": "bullet",
             "element2": "metal",
-            "result": "gun"
+            "result": "gun",
+            "fact": ""
         },
         {
             "Name": "Gold",
             "element1": "metal",
             "element2": "sand",
-            "result": "gold"
+            "result": "gold",
+            "fact": ""
         },
         {
             "Name": "Gold",
             "element1": "sand",
             "element2": "metal",
-            "result": "gold"
+            "result": "gold",
+            "fact": ""
         },
         {
             "Name": "Boiler",
             "element1": "metal",
             "element2": "steam",
-            "result": "boiler"
+            "result": "boiler",
+            "fact": ""
         },
         {
             "Name": "Boiler",
             "element1": "steam",
             "element2": "metal",
-            "result": "boiler"
+            "result": "boiler",
+            "fact": ""
         },
         {
             "Name": "Flamethrower",
             "element1": "fire",
             "element2": "gun",
-            "result": "flamethrower"
+            "result": "flamethrower",
+            "fact": ""
         },
         {
             "Name": "Flamethrower",
             "element1": "gun",
             "element2": "fire",
-            "result": "flamethrower"
+            "result": "flamethrower",
+            "fact": ""
         },
         {
             "Name": "Energy",
             "element1": "fire",
             "element2": "fire",
-            "result": "energy"
+            "result": "energy",
+            "fact": ""
         },
         {
             "Name": "Energy",
             "element1": "fire",
             "element2": "fire",
-            "result": "energy"
+            "result": "energy",
+            "fact": ""
         },
         {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",
-            "result": "land"
+            "result": "land",
+            "fact": ""
         },
         {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",
-            "result": "land"
+            "result": "land",
+            "fact": ""
         },
         {
             "Name": "Puddle",
             "element1": "water",
             "element2": "water",
-            "result": "puddle"
+            "result": "puddle",
+            "fact": ""
         },
         {
             "Name": "Pressure",
             "element1": "air",
             "element2": "air",
-            "result": "pressure"
+            "result": "pressure",
+            "fact": ""
         },
         {
             "Name": "Wind",
             "element1": "pressure",
             "element2": "air",
-            "result": "wind"
+            "result": "wind",
+            "fact": ""
         },
         {
             "Name": "Wind",
             "element1": "air",
             "element2": "pressure",
-            "result": "wind"
+            "result": "wind",
+            "fact": ""
         },
         {
             "Name": "Pond",
             "element1": "puddle",
             "element2": "water",
-            "result": "pond"
+            "result": "pond",
+            "fact": ""
         },
         {
             "Name": "Pond",
             "element1": "water",
             "element2": "puddle",
-            "result": "pond"
+            "result": "pond",
+            "fact": ""
         },
         {
             "Name": "Lake",
             "element1": "water",
             "element2": "pond",
-            "result": "lake"
+            "result": "lake",
+            "fact": ""
         },
         {
             "Name": "Lake",
             "element1": "pond",
             "element2": "water",
-            "result": "lake"
+            "result": "lake",
+            "fact": ""
         },
         {
             "Name": "Sea",
             "element1": "water",
             "element2": "lake",
-            "result": "sea"
+            "result": "sea",
+            "fact": ""
         },
         {
             "Name": "Sea",
             "element1": "lake",
             "element2": "water",
-            "result": "sea"
+            "result": "sea",
+            "fact": ""
         },
         {
             "Name": "Ocean",
             "element1": "water",
             "element2": "sea",
-            "result": "ocean"
+            "result": "ocean",
+            "fact": ""
         },
         {
             "Name": "Ocean",
             "element1": "sea",
             "element2": "water",
-            "result": "ocean"
+            "result": "ocean",
+            "fact": ""
         },
         {
             "Name": "Heat",
             "element1": "air",
             "element2": "energy",
-            "result": "heat"
+            "result": "heat",
+            "fact": ""
         },
         {
             "Name": "Heat",
             "element1": "energy",
             "element2": "air",
-            "result": "heat"
+            "result": "heat",
+            "fact": ""
         },
         {
             "Name": "Stungun",
             "element1": "energy",
             "element2": "gun",
-            "result": "stungun"
+            "result": "stungun",
+            "fact": ""
         },
         {
             "Name": "Stungun",
             "element1": "gun",
             "element2": "energy",
-            "result": "stungun"
-        },
-        {
-            "Name": "Gunpowder",
-            "element1": "energy",
-            "element2": "dust",
-            "result": "gunpowder"
-        },
-        {
-            "Name": "Gunpowder",
-            "element1": "dust",
-            "element2": "energy",
-            "result": "gunpowder"
+            "result": "stungun",
+            "fact": ""
         },
         {
             "Name": "Atomicbomb",
             "element1": "energy",
             "element2": "explosion",
-            "result": "atomicbomb"
+            "result": "atomicbomb",
+            "fact": ""
         },
         {
             "Name": "Atomicbomb",
             "element1": "explosion",
             "element2": "energy",
-            "result": "atomicbomb"
-        },
-        {
-            "Name": "Aquarium",
-            "element1": "glass",
-            "element2": "pond",
-            "result": "aquarium"
-        },
-        {
-            "Name": "Aquarium",
-            "element1": "pond",
-            "element2": "glass",
-            "result": "aquarium"
-        },
-        {
-            "Name": "Aquarium",
-            "element1": "glass",
-            "element2": "puddle",
-            "result": "aquarium"
-        },
-        {
-            "Name": "Aquarium",
-            "element1": "puddle",
-            "element2": "glass",
-            "result": "aquarium"
-        },
-        {
-            "Name": "Metal",
-            "element1": "heat",
-            "element2": "stone",
-            "result": "metal"
-        },
-        {
-            "Name": "Metal",
-            "element1": "stone",
-            "element2": "heat",
-            "result": "metal"
+            "result": "atomicbomb",
+            "fact": ""
         }
-
     ]
 }
