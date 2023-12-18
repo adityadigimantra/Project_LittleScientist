@@ -296,6 +296,8 @@ public class combinationManager : MonoBehaviour
         SoundManager._instance.newElementCreatedSound();
         yield return new WaitForSeconds(5f);
         newElementCreatedPanel.SetActive(false);
+        currentElementState = ElementState.InitialState;
+        charManager.HandlingCharacterBehaviour(resultCombination.result);
     }
     IEnumerator NoCombinationFound()
     {

@@ -38,26 +38,51 @@ public class CharacterManager : MonoBehaviour
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage(message);
+                ShowMessage("Hello Let's Find New Elements");
                 Debug.Log("State is-Initial");
-
                 break;
 
             case combinationManager.ElementState.NewElementFound:
                 string uppercaseWord = ConvertToUpperCase(message);
                 ShowMessage("Wow! New Element "+uppercaseWord+" is Found.");
+                StartCoroutine(givingDelay());
                 Debug.Log("State is-New Element Found");
-
                 break;
             case combinationManager.ElementState.ElementExists:
                 ShowMessage(message);
+                StartCoroutine(givingDelay());
                 Debug.Log("State is-Element Exists");
-
                 break;
             case combinationManager.ElementState.NoCombinationFound:
                 ShowMessage(message);
+                StartCoroutine(givingDelay());
                 Debug.Log("State is-No Combination Found");
+                break;
+        }
 
+        //yield return fadeCharacterImage(0, 1);
+        //yield return fadeCharacterImage(1,0);
+    }
+    public void HandlingCharacterBehaviourdefault()
+    {
+        switch (combManager.currentElementState)
+        {
+            case combinationManager.ElementState.InitialState:
+                ShowMessage("Hello, Let's Find New Elements");
+                Debug.Log("State is-Initial");
+                break;
+
+            case combinationManager.ElementState.NewElementFound:
+                ShowMessage("Wow! New Element is Found.");
+                Debug.Log("State is-New Element Found");
+                break;
+            case combinationManager.ElementState.ElementExists:
+                ShowMessage("Hmm! This Element already exists.");
+                Debug.Log("State is-Element Exists");
+                break;
+            case combinationManager.ElementState.NoCombinationFound:
+                ShowMessage("Oops! I cannot find any combination for these");
+                Debug.Log("State is-No Combination Found");
                 break;
         }
         //yield return fadeCharacterImage(0, 1);
@@ -69,7 +94,6 @@ public class CharacterManager : MonoBehaviour
         {
             StopCoroutine(messageCoroutine);
         }
-
         messageCoroutine = StartCoroutine(DisplayMessage(message));
     }
 
@@ -93,7 +117,12 @@ public class CharacterManager : MonoBehaviour
         //CharacterPanel.SetActive(false);
     }
 
-
+    IEnumerator givingDelay()
+    {
+        yield return new WaitForSeconds(9);
+        combManager.currentElementState = combinationManager.ElementState.InitialState;
+        HandlingCharacterBehaviourdefault();
+    }
 
     IEnumerator switchOnOffCharacterPanel()
     {
