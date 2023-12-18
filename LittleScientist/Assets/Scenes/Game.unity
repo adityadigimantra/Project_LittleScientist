@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3054,7 +3054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 65.31207, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -9253,6 +9253,7 @@ MonoBehaviour:
   loadedString: 
   OpenPanelOnce: 0
   shownOnce: 0
+  messageBoxAnimator: {fileID: 915317465}
   combManager: {fileID: 0}
 --- !u!1 &1420043064
 GameObject:
@@ -12744,7 +12745,7 @@ PrefabInstance:
     - target: {fileID: 224226107227391106, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.4999695
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 224226107227391106, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
@@ -12844,7 +12845,7 @@ PrefabInstance:
     - target: {fileID: 224908181251007168, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000015258789
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224908181251007168, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}

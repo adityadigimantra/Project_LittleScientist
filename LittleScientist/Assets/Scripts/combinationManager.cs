@@ -296,8 +296,15 @@ public class combinationManager : MonoBehaviour
         SoundManager._instance.newElementCreatedSound();
         yield return new WaitForSeconds(5f);
         newElementCreatedPanel.SetActive(false);
+        charManager.messageBoxAnimator.SetBool("IsOpen", true);
+
+        yield return new WaitForSeconds(3);
+        charManager.messageBoxAnimator.SetBool("IsOpen", false);
+        yield return new WaitForSeconds(1);
         currentElementState = ElementState.InitialState;
-        charManager.HandlingCharacterBehaviour(resultCombination.result);
+        charManager.HandlingCharacterBehaviourdefault();
+        charManager.messageBoxAnimator.SetBool("IsOpen", true);
+
     }
     IEnumerator NoCombinationFound()
     {

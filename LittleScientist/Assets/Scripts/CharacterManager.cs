@@ -19,12 +19,15 @@ public class CharacterManager : MonoBehaviour
 
     private Coroutine messageCoroutine;
 
+    [Header("MessageBox Data")]
+    public Animator messageBoxAnimator;
+
     [Header("Instances")]
     public combinationManager combManager;
     private void Start()
     {
         combManager = FindObjectOfType<combinationManager>();
-
+        messageBoxAnimator.SetBool("IsOpen", true);
     }
 
     // Update is called once per frame
@@ -45,17 +48,16 @@ public class CharacterManager : MonoBehaviour
             case combinationManager.ElementState.NewElementFound:
                 string uppercaseWord = ConvertToUpperCase(message);
                 ShowMessage("Wow! New Element "+uppercaseWord+" is Found.");
-                StartCoroutine(givingDelay());
                 Debug.Log("State is-New Element Found");
                 break;
             case combinationManager.ElementState.ElementExists:
                 ShowMessage(message);
-                StartCoroutine(givingDelay());
+                //StartCoroutine(givingDelay());
                 Debug.Log("State is-Element Exists");
                 break;
             case combinationManager.ElementState.NoCombinationFound:
                 ShowMessage(message);
-                StartCoroutine(givingDelay());
+                //StartCoroutine(givingDelay());
                 Debug.Log("State is-No Combination Found");
                 break;
         }
@@ -73,6 +75,7 @@ public class CharacterManager : MonoBehaviour
                 break;
 
             case combinationManager.ElementState.NewElementFound:
+
                 ShowMessage("Wow! New Element is Found.");
                 Debug.Log("State is-New Element Found");
                 break;
@@ -112,16 +115,20 @@ public class CharacterManager : MonoBehaviour
     IEnumerator DisplayMessage(string message)
     {
         CharacterPanel.SetActive(true);
+        MessageBoxImage.gameObject.SetActive(true);
         MessageBoxText.text = message;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
+        messageBoxAnimator.SetBool("IsOpen", false);
+        //MessageBoxImage.gameObject.SetActive(false);
         //CharacterPanel.SetActive(false);
     }
 
     IEnumerator givingDelay()
     {
-        yield return new WaitForSeconds(9);
-        combManager.currentElementState = combinationManager.ElementState.InitialState;
-        HandlingCharacterBehaviourdefault();
+        yield return new WaitForSeconds(3);
+        messageBoxAnimator.SetBool("IsOpen", false);
+        //combManager.currentElementState = combinationManager.ElementState.InitialState;
+        //HandlingCharacterBehaviourdefault();
     }
 
     IEnumerator switchOnOffCharacterPanel()
