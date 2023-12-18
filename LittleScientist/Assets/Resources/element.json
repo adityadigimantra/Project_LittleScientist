@@ -5,37 +5,44 @@
             "Name": "Steam",
             "element1": "water",
             "element2": "fire",
-            "result": "steam"
+            "result": "steam",
+            "fact": "Steam often forms when water is heated."
+
         },
         {
             "Name": "Steam",
             "element1": "fire",
             "element2": "water",
-            "result": "steam"
+            "result": "steam",
+            "fact": "Steam often forms when water is heated."
         },
         {
             "Name": "Mist",
             "element1": "water",
             "element2": "air",
-            "result": "mist"
+            "result": "mist",
+            "fact":"Mist often forms when warmer air over water suddenly encounters the cooler surface of land."
         },
         {
             "Name": "Mist",
             "element1": "air",
             "element2": "water",
-            "result": "mist"
+            "result": "mist",
+            "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land."
         },
         {
             "Name": "Smoke",
             "element1": "air",
             "element2": "fire",
-            "result": "smoke"
+            "result": "smoke",
+            "fact": "Smoke spreads faster than fire."
         },
         {
             "Name": "Smoke",
             "element1": "fire",
             "element2": "air",
-            "result": "smoke"
+            "result": "smoke",
+            "fact": "Smoke spreads faster than fire."
         },
         {
             "Name": "Dust",
