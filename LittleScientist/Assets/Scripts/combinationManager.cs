@@ -146,8 +146,11 @@ public class combinationManager : MonoBehaviour
             {
                 Debug.Log("Result:" + resultCombination.result);
                 funfactstr = resultCombination.fact;
-                //PlayerPrefs.SetString("parentElement1", COM_Element1);
-                //PlayerPrefs.SetString("parentElement2", COM_Element2);
+                if(string.IsNullOrEmpty(funfactstr))
+                {
+                    funfactstr = "I have to put a fun fact here.";
+                }
+
                 if (!loadCreatedElements.Contains(resultCombination.result))
                 {
                    
