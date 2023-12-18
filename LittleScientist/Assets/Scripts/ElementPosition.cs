@@ -39,10 +39,33 @@ public class ElementPosition : MonoBehaviour
     public void SetPositionToList()
     {
         string convertedPosString = FindObjectOfType<combinationManager>().ConvertVectorToString(FinalPos);
+        string elementKey = gameObject.name;
         PlayerPrefs.SetString(gameObject.name, convertedPosString);
-        if (!FindObjectOfType<combinationManager>().FinalSavedPosition.Contains(gameObject.name+":"+convertedPosString))
+
+        //Checking if the same name element already present in the list
+
+        int existingIndex = -1;
+        for(int i=0;i<FindObjectOfType<combinationManager>().FinalSavedPosition.Count;i++)
         {
-            FindObjectOfType<combinationManager>().FinalSavedPosition.Add(gameObject.name+":"+convertedPosString);
+            if(FindObjectOfType<combinationManager>().FinalSavedPosition[i].StartsWith(elementKey+":"))
+            {
+                existingIndex = i;
+                break;
+            }
+        }
+
+        //If the element exists then removing the old positions
+
+        if(existingIndex!=-1)
+        {
+            FindObjectOfType<combinationManager>().FinalSavedPosition.RemoveAt(existingIndex);
+        }
+
+        //Adding new Position
+
+        if (!FindObjectOfType<combinationManager>().FinalSavedPosition.Contains(elementKey+":"+convertedPosString))
+        {
+            FindObjectOfType<combinationManager>().FinalSavedPosition.Add(elementKey+":"+convertedPosString);
             SetListToFile();
         }
     }

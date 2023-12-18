@@ -28,7 +28,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     private void Start()
     {
-        ElementsPanel = GameObject.Find("ElementsPanel");
+        ElementsPanel = GameObject.Find("AllElements");
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
         ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();

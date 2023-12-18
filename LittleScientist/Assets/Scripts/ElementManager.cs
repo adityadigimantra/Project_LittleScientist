@@ -25,10 +25,8 @@ public class ElementManager : MonoBehaviour
         {
             if (Parent1Object != null && Parent2Object != null)
             {
-                Parent1Object.SetActive(false);
-                Parent2Object.SetActive(false);
-                //FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent1Object.name);
-                //FindObjectOfType<combinationManager>().disabledGameobjects.Add(Parent2Object.name);
+                Destroy(Parent1Object);
+                Destroy(Parent2Object);
                 PlayerPrefs.SetInt("elementCreated", 0);
                 //saveDisabledGameObjectsList();
             }
