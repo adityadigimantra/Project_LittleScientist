@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class ElementManager : MonoBehaviour
 {
@@ -10,6 +13,10 @@ public class ElementManager : MonoBehaviour
     public GameObject Parent1Object;
     public GameObject Parent2Object;
     public combinationManager comManager;
+
+    [Header("Files")]
+    private string saveDisabledGameObjects = "saveDisabledGameobjects.txt";
+
     private void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
@@ -27,8 +34,17 @@ public class ElementManager : MonoBehaviour
             {
                 Destroy(Parent1Object);
                 Destroy(Parent2Object);
+                if(!comManager.disabledGameobjects.Contains(Parent1Object.name))
+                {
+                    comManager.disabledGameobjects.Add(Parent1Object.name);
+                }
+                if(!comManager.disabledGameobjects.Contains(Parent2Object.name))
+                {
+                    comManager.disabledGameobjects.Add(Parent2Object.name);
+                }
+                
                 PlayerPrefs.SetInt("elementCreated", 0);
-                //saveDisabledGameObjectsList();
+                saveDisabledGameObjectsList();
             }
             else
             {
@@ -50,6 +66,43 @@ public class ElementManager : MonoBehaviour
     {
         string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
         PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
+        saveDisabledGameobjectListToFile();
         PlayerPrefs.Save();
     }
+    public void saveDisabledGameobjectListToFile()
+    {
+        string filePath = Path.Combine(Application.persistentDataPath, saveDisabledGameObjects);
+        try
+        {
+            using (FileStream fileStream = File.Open(filePath, FileMode.Create))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(fileStream, comManager.disabledGameobjects);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
+    public void getDisabledGameobjectsToList()
+    {
+        comManager.disabledGameobjects.Clear();
+        string filePath = Path.Combine(Application.persistentDataPath, saveDisabledGameObjects);
+        try
+        {
+            using(FileStream fileStream=File.Open(filePath,FileMode.Open))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                comManager.disabledGameobjects = (List<string>)binaryFormatter.Deserialize(fileStream);
+
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
 }

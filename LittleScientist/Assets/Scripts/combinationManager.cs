@@ -14,6 +14,7 @@ public class combinationManager : MonoBehaviour
     public ElementLoader elementLoaderObj;
     public Element Instance_Element;
     public CharacterManager charManager;
+    public ElementManager elementManager;
 
     [Header("Colliding Elements Name")]
     public string COM_Element1;
@@ -120,6 +121,12 @@ public class combinationManager : MonoBehaviour
         LoadDisabledGameObjectsList();
         currentElementState = ElementState.InitialState;
         charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements");
+        disabledGameobjects.Clear();
+        elementManager = FindObjectOfType<ElementManager>();
+        //First Clearing the list of Disabled Gameobjects
+        disabledGameobjects.Clear();
+        //Loading Last game session data to the list
+        elementManager.getDisabledGameobjectsToList();
 
     }
 
