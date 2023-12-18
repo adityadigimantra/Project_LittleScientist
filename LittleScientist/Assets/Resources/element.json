@@ -48,103 +48,120 @@
             "Name": "Dust",
             "element1": "air",
             "element2": "earth",
-            "result": "dust"
+            "result": "dust",
+            "fact": "Inside every raindrop/Snowflake is a piece of dust!"
         },
         {
             "Name": "Dust",
             "element1": "earth",
             "element2": "air",
-            "result": "dust"
+            "result": "dust",
+            "fact": "Inside every raindrop/Snowflake is a piece of dust!"
         },
         {
             "Name": "Gunpowder",
             "element1": "fire",
             "element2": "dust",
-            "result": "gunpowder"
+            "result": "gunpowder",
+            "fact": "Gunpowder is the earliest known chemical explosive."
         },
         {
             "Name": "Gunpowder",
             "element1": "dust",
             "element2": "fire",
-            "result": "gunpowder"
+            "result": "gunpowder",
+            "fact": "Gunpowder is the earliest known chemical explosive."
         },
         {
             "Name": "Mud",
             "element1": "earth",
             "element2": "water",
-            "result": "mud"
+            "result": "mud",
+            "fact": "Clay aka mud pottery dates back to 27,000 BC."
         },
         {
             "Name": "Mud",
             "element1": "water",
             "element2": "earth",
-            "result": "mud"
+            "result": "mud",
+            "fact": "Clay aka mud pottery dates back to 27,000 BC."
         },
         {
             "Name": "Explosion",
             "element1": "fire",
             "element2": "gunpowder",
-            "result": "explosion"
+            "result": "explosion",
+            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki, respectively. The aerial bombings together killed between 129,000 and 226,000 people."
         },
         {
             "Name": "Explosion",
             "element1": "gunpowder",
             "element2": "fire",
-            "result": "explosion"
+            "result": "explosion",
+            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki, respectively. The aerial bombings together killed between 129,000 and 226,000 people."
         },
         {
             "Name": "Brick",
             "element1": "fire",
             "element2": "mud",
-            "result": "brick"
+            "result": "brick",
+            "fact": "The Great Wall of China was made from 3.8 billion bricks."
         },
         {
             "Name": "Brick",
             "element1": "mud",
             "element2": "fire",
-            "result": "brick"
+            "result": "brick",
+            "fact": "The Great Wall of China was made from 3.8 billion bricks."
         },
         {
             "Name": "Chimney",
             "element1": "stone",
             "element2": "smoke",
-            "result": "chimney"
+            "result": "chimney",
+            "fact": "Chimneys have been around for over 1,000 years."
         },
         {
             "Name": "Chimney",
             "element1": "smoke",
             "element2": "stone",
-            "result": "chimney"
+            "result": "chimney",
+            "fact": "Chimneys have been around for over 1,000 years."
         },
         {
             "Name": "Wall",
             "element1": "brick",
             "element2": "brick",
-            "result": "wall"
+            "result": "wall",
+            "fact": "We began building stone walls about 10,000 years ago when farming began, and ways were needed to divide farms and keep sheep in."
         },
         {
             "Name": "Firewall",
             "element1": "fire",
             "element2": "wall",
-            "result": "firewall"
+            "result": "firewall",
+            "fact": "A firewall can be used as an ultimate defense against the spread of fire."
         },
         {
             "Name": "Firewall",
             "element1": "wall",
             "element2": "fire",
-            "result": "firewall"
+            "result": "firewall",
+            "fact": "A firewall can be used as an ultimate defense against the spread of fire."
         },
         {
             "Name": "Dam",
             "element1": "water",
             "element2": "wall",
-            "result": "dam"
+            "result": "dam",
+            "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism."
         },
         {
             "Name": "Dam",
             "element1": "wall",
             "element2": "water",
-            "result": "dam"
+            "result": "dam",
+            "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism."
         },
         {
             "Name": "Lava",
