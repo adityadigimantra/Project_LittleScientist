@@ -25,37 +25,33 @@ public class ElementManager : MonoBehaviour
     {
 
     }
-
+    
     public void DisablingObjects()
     {
-        if (PlayerPrefs.GetInt("elementCreated") == 1)
+        if(PlayerPrefs.GetInt("elementCreated")==1)
         {
             if (Parent1Object != null && Parent2Object != null)
             {
-                Destroy(Parent1Object);
-                Destroy(Parent2Object);
-                if(!comManager.disabledGameobjects.Contains(Parent1Object.name))
+                if (!comManager.disabledGameobjects.Contains(Parent1Object.name))
                 {
                     comManager.disabledGameobjects.Add(Parent1Object.name);
                 }
-                if(!comManager.disabledGameobjects.Contains(Parent2Object.name))
+                if (!comManager.disabledGameobjects.Contains(Parent2Object.name))
                 {
                     comManager.disabledGameobjects.Add(Parent2Object.name);
                 }
-                
-                PlayerPrefs.SetInt("elementCreated", 0);
+                PlayerPrefs.SetInt("elementCreated", 2);
                 saveDisabledGameObjectsList();
+                Parent1Object.SetActive(false);
+                Parent2Object.SetActive(false);
             }
             else
             {
-                //Parent1Object.SetActive(true);
-                //Parent2Object.SetActive(true);
-                PlayerPrefs.SetInt("elementCreated", 0);
+                PlayerPrefs.SetInt("elementCreated", 2);
             }
         }
-
     }
-
+    
     public void SetParentElements(GameObject obj1,GameObject obj2)
     {
         Parent1Object = obj1;
@@ -88,7 +84,6 @@ public class ElementManager : MonoBehaviour
 
     public void getDisabledGameobjectsToList()
     {
-        comManager.disabledGameobjects.Clear();
         string filePath = Path.Combine(Application.persistentDataPath, saveDisabledGameObjects);
         try
         {

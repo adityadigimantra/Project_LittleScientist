@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
+using System.Linq;
 
 public class combinationManager : MonoBehaviour
 {
@@ -104,7 +105,9 @@ public class combinationManager : MonoBehaviour
 
     public ElementState currentElementState = ElementState.InitialState;
 
-
+    [Header("Duplicated Gameobjects")]
+    public GameObject[] duplicatedObjs;
+    public GameObject[] switchedOffGameObjects;
     private void Start()
     {
         elementLoaderObj = FindObjectOfType<ElementLoader>();
@@ -115,10 +118,12 @@ public class combinationManager : MonoBehaviour
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
         PlayerPrefs.SetInt("elementCreated", 0);
+        
         loadingElementPositonFromFile();
         loadCreatedElementsFromFile();
+        //HandlingDuplicatedElements(disabledGameobjects, loadCreatedElements);
         //loadSavedCreatedElements();
-        LoadDisabledGameObjectsList();
+        //LoadDisabledGameObjectsList();
         currentElementState = ElementState.InitialState;
         charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements");
         disabledGameobjects.Clear();
@@ -127,20 +132,37 @@ public class combinationManager : MonoBehaviour
         disabledGameobjects.Clear();
         //Loading Last game session data to the list
         elementManager.getDisabledGameobjectsToList();
+        //switchingOffElements();
 
     }
 
     private void Update()
     {
-        switchingOffElements();
+
         //Fetching All Created List
         LoadCreatedElementList();
+        if (PlayerPrefs.GetInt("elementCreated")==1)
+        {
+            elementManager.DisablingObjects();
+        }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
         NewCreatedElementsPresent = GameObject.FindGameObjectsWithTag("NewCreatedElement");
     }
 
+    public void HandlingDuplicatedElements()
+    {
+        foreach (string name in disabledGameobjects)
+        {
+            GameObject foundobj = GameObject.Find(name);
+            if(foundobj.tag=="NewCreatedElement")
+            {
+                foundobj.SetActive(false);
+            }
+
+         } 
+    }
 
     public void HandleCombination(string element1,string element2)
     {
@@ -198,6 +220,7 @@ public class combinationManager : MonoBehaviour
                 PlayerPrefs.SetString("CreatedElementData" + i, CreatedElements[i]);
             }
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
+            PlayerPrefs.SetInt("elementCreated", 1);
             saveCreatedElementsToFile();
             //saveCreateNewElement();
             PlayerPrefs.Save();
@@ -297,7 +320,7 @@ public class combinationManager : MonoBehaviour
 
     public void LoadCreatedElementList()
     {
-       int count = PlayerPrefs.GetInt("StringCount");
+        int count = PlayerPrefs.GetInt("StringCount");
        // Debug.Log("Count" + count);
         for (int i = 0; i < count; i++)
         {
@@ -331,7 +354,7 @@ public class combinationManager : MonoBehaviour
                     GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                     Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
-                    PlayerPrefs.SetInt("elementCreated", 1);
+                    
                    
                
 
@@ -382,11 +405,15 @@ public class combinationManager : MonoBehaviour
                 else
                 {
                     Debug.Log("after Restart");
+
                     LoadNewElementPositionFunction(loadedString);
                     InsideBox_newObj.transform.position = loadedPosition;
                     InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
                     InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                    switchingOffElements();
                 }
+
+
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
                 if (elementImage != null)
@@ -414,13 +441,10 @@ public class combinationManager : MonoBehaviour
                 {
                     break;
                 }
-
-               
-
             }
-            FindObjectOfType<ElementManager>().DisablingObjects();
+            //HandlingDuplicatedElements(disabledGameobjects, loadCreatedElements);
         }
-
+        
     }
 
     public void SpawningDiscoveryElementInsideRect()
@@ -462,7 +486,7 @@ public class combinationManager : MonoBehaviour
 
     public void switchingOffElements()
     {
-        foreach (string sameElement in CreatedElements)
+        foreach (string sameElement in loadCreatedElements)
         {
             if (disabledGameobjects.Contains(sameElement))
             {
@@ -633,7 +657,7 @@ public class combinationManager : MonoBehaviour
         }
     }
 
-    
+    /*
     public void LoadDisabledGameObjectsList()
     {
         if (PlayerPrefs.HasKey("DisabledCollidedGameObject"))
@@ -642,6 +666,7 @@ public class combinationManager : MonoBehaviour
             FindObjectOfType<combinationManager>().disabledGameobjects.AddRange(saveDisObj.Split(';'));
         }
     }
+    */
     
     
     public void CleanUpTable()
