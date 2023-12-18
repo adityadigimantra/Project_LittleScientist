@@ -37,7 +37,9 @@ public class combinationManager : MonoBehaviour
     public GameObject newElementCreatedPanel;
     //public Text CollidingResult;
     public Image NewelementImage;
+    private string funfactstr;
     public Text newElementText;
+    public Text FunfactText;
     public GameObject noCombinationFoundPanel;
     public GameObject combinationAlreadyMadePanel;
     public GameObject ContentPanel;
@@ -143,6 +145,7 @@ public class combinationManager : MonoBehaviour
             if (resultCombination != null)
             {
                 Debug.Log("Result:" + resultCombination.result);
+                funfactstr = resultCombination.fact;
                 //PlayerPrefs.SetString("parentElement1", COM_Element1);
                 //PlayerPrefs.SetString("parentElement2", COM_Element2);
                 if (!loadCreatedElements.Contains(resultCombination.result))
@@ -258,7 +261,7 @@ public class combinationManager : MonoBehaviour
     {
         newElementCreatedPanel.SetActive(true);
         SoundManager._instance.newElementCreatedSound();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         newElementCreatedPanel.SetActive(false);
     }
     IEnumerator NoCombinationFound()
@@ -388,6 +391,7 @@ public class combinationManager : MonoBehaviour
                     NewelementImage.sprite = elementImage;
                     string finalStringtoShowOnPanel=charManager.ConvertToUpperCase(loadedString);
                     newElementText.text = finalStringtoShowOnPanel;
+                    FunfactText.text = funfactstr;
                 }
                 //Instance_Element.isColliding = false;
                 int childinLeftScrollLocal = leftScrollView.transform.childCount;
