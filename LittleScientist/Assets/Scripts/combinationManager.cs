@@ -98,6 +98,11 @@ public class combinationManager : MonoBehaviour
     private string saveFilePath = "CreatedElements.txt";
     private string saveElementPositions = "saveElementPositions.txt";
 
+    [Header("Animations Data")]
+    public Animator NewCreatedElementPanelAnimator;
+
+
+
     public enum ElementState
     {
         InitialState,NewElementFound,ElementExists,NoCombinationFound
@@ -292,15 +297,17 @@ public class combinationManager : MonoBehaviour
 
     IEnumerator OpenNewElementPanel()
     {
+        NewCreatedElementPanelAnimator.SetBool("IsOpen", true);
         newElementCreatedPanel.SetActive(true);
         SoundManager._instance.newElementCreatedSound();
-        yield return new WaitForSeconds(5f);
-        newElementCreatedPanel.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
+        //newElementCreatedPanel.SetActive(false);
         charManager.messageBoxAnimator.SetBool("IsOpen", true);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         charManager.messageBoxAnimator.SetBool("IsOpen", false);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         currentElementState = ElementState.InitialState;
         charManager.HandlingCharacterBehaviourdefault();
         charManager.messageBoxAnimator.SetBool("IsOpen", true);

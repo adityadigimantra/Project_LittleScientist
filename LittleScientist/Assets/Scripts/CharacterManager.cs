@@ -125,7 +125,7 @@ public class CharacterManager : MonoBehaviour
 
     IEnumerator givingDelay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         messageBoxAnimator.SetBool("IsOpen", false);
         //combManager.currentElementState = combinationManager.ElementState.InitialState;
         //HandlingCharacterBehaviourdefault();
