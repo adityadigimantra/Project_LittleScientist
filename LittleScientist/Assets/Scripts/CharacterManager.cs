@@ -41,7 +41,7 @@ public class CharacterManager : MonoBehaviour
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage("Hello Let's Find New Elements");
+                ShowMessage("Let's Find New Elements");
                 Debug.Log("State is-Initial");
                 break;
 
@@ -70,7 +70,7 @@ public class CharacterManager : MonoBehaviour
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage("Hello, Let's Find New Elements");
+                ShowMessage("Let's Find New Elements");
                 Debug.Log("State is-Initial");
                 break;
 
