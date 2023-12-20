@@ -131,7 +131,7 @@ public class combinationManager : MonoBehaviour
         //LoadDisabledGameObjectsList();
         currentElementState = ElementState.InitialState;
         charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements");
-        disabledGameobjects.Clear();
+        //disabledGameobjects.Clear();
         elementManager = FindObjectOfType<ElementManager>();
         //First Clearing the list of Disabled Gameobjects
         disabledGameobjects.Clear();

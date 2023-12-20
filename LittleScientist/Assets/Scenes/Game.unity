@@ -1165,6 +1165,8 @@ MonoBehaviour:
   ScrollRect_Content: {fileID: 1342208335}
   InsideRingElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
     type: 3}
+  comManager: {fileID: 0}
+  elementManager: {fileID: 0}
 --- !u!61 &80486281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9631,7 +9633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1431888835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12603,13 +12605,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368203918813138, guid: 09e0a66ac3942b74d99111d6a67d7772, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1906951276141572, guid: 09e0a66ac3942b74d99111d6a67d7772, type: 3}
       propertyPath: m_Name
       value: vfx_SphereParticles
       objectReference: {fileID: 0}
     - target: {fileID: 114525482924924756, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 15f4b07d9318a1b46929e0dc57412806, type: 2}
+    - target: {fileID: 114852990733271628, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: m_Material
       value: 
@@ -12627,12 +12634,12 @@ PrefabInstance:
     - target: {fileID: 198323440451699974, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 198323440451699974, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
@@ -12647,7 +12654,7 @@ PrefabInstance:
     - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 0.84
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
@@ -12662,7 +12669,42 @@ PrefabInstance:
     - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 40
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.8830184
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.8246852
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
+        type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 198977038450173416, guid: 09e0a66ac3942b74d99111d6a67d7772,
         type: 3}
@@ -13428,6 +13470,8 @@ MonoBehaviour:
   ScrollRect_Content: {fileID: 452289873}
   InsideRingElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
     type: 3}
+  comManager: {fileID: 0}
+  elementManager: {fileID: 0}
 --- !u!61 &2042131421
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13659,6 +13703,8 @@ MonoBehaviour:
   ScrollRect_Content: {fileID: 1063802878}
   InsideRingElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
     type: 3}
+  comManager: {fileID: 0}
+  elementManager: {fileID: 0}
 --- !u!61 &2053791681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13965,6 +14011,8 @@ MonoBehaviour:
   ScrollRect_Content: {fileID: 1974582449}
   InsideRingElement: {fileID: 8205407628571246900, guid: 062c439f84b8b184abb7057faa1518a3,
     type: 3}
+  comManager: {fileID: 0}
+  elementManager: {fileID: 0}
 --- !u!1 &2068744781
 GameObject:
   m_ObjectHideFlags: 0
