@@ -88,6 +88,7 @@ public class combinationManager : MonoBehaviour
     public List<string> FinalSavedPosition = new List<string>();
     public List<string> LeftScrollViewList = new List<string>();
     public List<string> RightScrollViewList = new List<string>();
+    public List<string> InsideRinglElementsList = new List<string>();
 
     [Header("Collecting GameObjects-New Created Elements")]
     public GameObject[] NewCreatedElementsPresent;
@@ -352,12 +353,18 @@ public class combinationManager : MonoBehaviour
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
                 newObj.transform.localScale = new Vector2(1f, 1f);
-                placingElementsInScrollRect();
+                if(!InsideRinglElementsList.Contains(newObj.name))
+                {
+                    placingElementsInScrollRect();
+                }
+                
 
                 
                 //Creating Element of Discovery Tray
                 discovery_element = Instantiate(discoveryElementPrefab);
                 discovery_element.name = loadedString;
+ 
+                discovery_element.transform.GetChild(2).GetComponent<Text>().text = charManager.ConvertToUpperCase(loadedString);
                 discovery_element.GetComponent<BoxCollider2D>().enabled = false;
                 discovery_element.transform.localScale = new Vector2(1f, 1f);
                 placingElementsInDiscoveryTray();
@@ -471,44 +478,47 @@ public class combinationManager : MonoBehaviour
         string discoveryElementName = PlayerPrefs.GetString("DiscoveryElementSelected");
         if (!string.IsNullOrEmpty(discoveryElementName))
         {
-
-            if (leftScrollView.transform.childCount < 4)
+            if (!InsideRinglElementsList.Contains(discoveryElementName))
             {
-                if(!LeftScrollViewList.Contains(discoveryElementName))
+                InsideRinglElementsList.Add(discoveryElementName);
+                if (leftScrollView.transform.childCount < 4)
                 {
-                    LeftScrollViewList.Add(discoveryElementName);
-                    discoveryInsideRecObj = Instantiate(InsideRingElement);
-                    discoveryInsideRecObj.name = discoveryElementName;
-                    discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
-                    discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
-                    Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
-                    placingDiscoveryElementInScrollRect();
-                    if (discoveryElementImageInsideRect != null)
+                    if (!LeftScrollViewList.Contains(discoveryElementName))
                     {
-                        discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().sprite = discoveryElementImageInsideRect;
-                        discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                        LeftScrollViewList.Add(discoveryElementName);
+                        discoveryInsideRecObj = Instantiate(InsideRingElement);
+                        discoveryInsideRecObj.name = discoveryElementName;
+                        discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
+                        discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
+                        Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
+                        placingDiscoveryElementInScrollRect();
+                        if (discoveryElementImageInsideRect != null)
+                        {
+                            discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().sprite = discoveryElementImageInsideRect;
+                            discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                        }
                     }
                 }
 
-            }
-            else
-            {
-                if(!RightScrollViewList.Contains(discoveryElementName))
+                else
                 {
-                    RightScrollViewList.Add(discoveryElementName);
-                    discoveryInsideRecObj = Instantiate(InsideRingElement);
-                    discoveryInsideRecObj.name = discoveryElementName;
-                    discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
-                    discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
-                    Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
-                    placingDiscoveryElementInScrollRect();
-                    if (discoveryElementImageInsideRect != null)
+                    if (!RightScrollViewList.Contains(discoveryElementName))
                     {
-                        discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().sprite = discoveryElementImageInsideRect;
-                        discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                        RightScrollViewList.Add(discoveryElementName);
+                        discoveryInsideRecObj = Instantiate(InsideRingElement);
+                        discoveryInsideRecObj.name = discoveryElementName;
+                        discoveryInsideRecObj.GetComponent<BoxCollider2D>().enabled = false;
+                        discoveryInsideRecObj.transform.localScale = new Vector2(1f, 1f);
+                        Sprite discoveryElementImageInsideRect = LoadElementImageOfDiscoveryElement(discoveryElementName);
+                        placingDiscoveryElementInScrollRect();
+                        if (discoveryElementImageInsideRect != null)
+                        {
+                            discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().sprite = discoveryElementImageInsideRect;
+                            discoveryInsideRecObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+                        }
                     }
-                }
 
+                }
             }
         }
     }
