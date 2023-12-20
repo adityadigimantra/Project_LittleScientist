@@ -117,7 +117,7 @@ public class CharacterManager : MonoBehaviour
         CharacterPanel.SetActive(true);
         MessageBoxImage.gameObject.SetActive(true);
         MessageBoxText.text = message;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         messageBoxAnimator.SetBool("IsOpen", false);
         //MessageBoxImage.gameObject.SetActive(false);
         //CharacterPanel.SetActive(false);

@@ -303,11 +303,11 @@ public class combinationManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
         //newElementCreatedPanel.SetActive(false);
-        charManager.messageBoxAnimator.SetBool("IsOpen", true);
 
-        yield return new WaitForSeconds(1.5f);
+        charManager.messageBoxAnimator.SetBool("IsOpen", true);
+        yield return new WaitForSeconds(2.5f);
         charManager.messageBoxAnimator.SetBool("IsOpen", false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         currentElementState = ElementState.InitialState;
         charManager.HandlingCharacterBehaviourdefault();
         charManager.messageBoxAnimator.SetBool("IsOpen", true);
