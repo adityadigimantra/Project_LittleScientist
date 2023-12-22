@@ -10,8 +10,10 @@ public class ElementManager : MonoBehaviour
     public GameObject[] CopiedElements;
     public GameObject[] NewCreatedElements;
 
+    [Header("Parents and Last GameObjects")]
     public GameObject Parent1Object;
     public GameObject Parent2Object;
+    public List<GameObject>ObjectsToSwitchOff=new List<GameObject>();
     public combinationManager comManager;
 
     [Header("Files")]
@@ -44,18 +46,43 @@ public class ElementManager : MonoBehaviour
                 saveDisabledGameObjectsList();
                 Parent1Object.SetActive(false);
                 Parent2Object.SetActive(false);
+
             }
+
             else
             {
                 PlayerPrefs.SetInt("elementCreated", 2);
             }
         }
+
+        if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
+        {
+            StartCoroutine(waitAndPlayAnimation());
+            PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
+        }
+        if(PlayerPrefs.GetInt("NoCombinationFound")==1)
+        {
+            StartCoroutine(waitAndPlayAnimation());
+            PlayerPrefs.SetInt("NoCombinationFound", 2);
+        }
+    }
+
+    public void MakeGameObjectsNull()
+    {
+        Parent1Object = null;
+        Parent2Object = null;
     }
     
     public void SetParentElements(GameObject obj1,GameObject obj2)
     {
         Parent1Object = obj1;
         Parent2Object = obj2;
+        SetLastParentObects(Parent1Object, Parent2Object);
+    }
+
+    public void SetLastParentObects(params GameObject[] gameObjects)
+    {
+        ObjectsToSwitchOff.AddRange(gameObjects);
     }
 
     public void saveDisabledGameObjectsList()
@@ -97,6 +124,15 @@ public class ElementManager : MonoBehaviour
         catch(Exception e)
         {
             Debug.Log(e.Message);
+        }
+    }
+
+    IEnumerator waitAndPlayAnimation()
+    {
+        yield return new WaitForSeconds(3f);
+        foreach(GameObject g in ObjectsToSwitchOff)
+        {
+            g.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
         }
     }
 

@@ -153,6 +153,10 @@ public class combinationManager : MonoBehaviour
         {
             elementManager.DisablingObjects();
         }
+        if(PlayerPrefs.GetInt("ElementAlreadyPresent") ==1)
+        {
+            elementManager.DisablingObjects();
+        }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
@@ -305,6 +309,7 @@ public class combinationManager : MonoBehaviour
         SoundManager._instance.newElementCreatedSound();
         yield return new WaitForSeconds(3f);
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
+        elementManager.MakeGameObjectsNull();
         //newElementCreatedPanel.SetActive(false);
 
         charManager.messageBoxAnimator.SetBool("IsOpen", true);
