@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,10 +134,10 @@ TextureImporter:
       name: gold_0
       rect:
         serializedVersion: 2
-        x: 2200
-        y: 2196
-        width: 3324
-        height: 3720
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e3cca3f98e4c04f4ba8f0740b894b2a5
+    spriteID: b5324a510a28dbc4ea3a488505b68496
     internalID: 0
     vertices: []
     indices: 

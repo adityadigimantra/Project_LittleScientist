@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5e7f6755e7fd139459c1937207764a7e
+guid: ab50836fd47baaf47b636e80626f79ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3260171324595997514
-    second: beach_0
+      213: 3840729366954468783
+    second: beach 1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,22 +131,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: beach_0
+      name: beach 1_0
       rect:
         serializedVersion: 2
-        x: 2334
-        y: 2261
-        width: 3640
-        height: 3170
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b47a82147b81c2d0800000000000000
-      internalID: -3260171324595997514
+      spriteID: fa56bbb92030d4530800000000000000
+      internalID: 3840729366954468783
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e574a1114cd31e34da7e4c5c92bb2c63
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

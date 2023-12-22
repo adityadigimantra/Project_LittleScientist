@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0e93cbf25ec09042866dfe04d7b5d80
+guid: 89c68c4e36627f449b98018afaf6e7d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7988607641004366778
-    second: MicrosoftTeams-image (25)_0
+      213: 140454737824146253
+    second: boiler_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MicrosoftTeams-image (25)_0
+      name: boiler_0
       rect:
         serializedVersion: 2
-        x: 2175
-        y: 2284
-        width: 4198
-        height: 3018
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abb5904f25c3dde60800000000000000
-      internalID: 7988607641004366778
+      spriteID: d43670307def2f100800000000000000
+      internalID: 140454737824146253
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f7aed54b6f67258478a89af09a2139aa
+    spriteID: 8d740ee895493c8469ca74484befbb0f
     internalID: 0
     vertices: []
     indices: 

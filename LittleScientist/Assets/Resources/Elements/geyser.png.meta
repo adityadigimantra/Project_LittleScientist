@@ -134,10 +134,10 @@ TextureImporter:
       name: geyser_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 19
-        width: 922
-        height: 966
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ecd51b58443dc0d488812b05653732b9
+    spriteID: 949666500dc8813428d8fb3b3b53db69
     internalID: 0
     vertices: []
     indices: 

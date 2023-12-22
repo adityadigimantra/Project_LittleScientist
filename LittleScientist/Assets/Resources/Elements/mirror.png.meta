@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,10 +134,10 @@ TextureImporter:
       name: mirror_0
       rect:
         serializedVersion: 2
-        x: 2256
-        y: 2174
-        width: 2528
-        height: 3590
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: addb3c9336b34744ebb7e314e68d3125
+    spriteID: 3c9f1dc5ff253e0408fbbfa1696d8d49
     internalID: 0
     vertices: []
     indices: 

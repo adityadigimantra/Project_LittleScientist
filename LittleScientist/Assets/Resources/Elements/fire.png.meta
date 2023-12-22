@@ -3,8 +3,8 @@ guid: 361ed0875f9c6fd43b46cf3541f94320
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2530512187584579857
-    second: fire 1_0
+      213: 8334651344603559088
+    second: fire_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,18 +107,6 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -143,22 +131,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fire 1_0
+      name: fire_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1024
-        height: 1023
+        height: 1024
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11986c86d6f2e1320800000000000000
-      internalID: 2530512187584579857
+      spriteID: 0b4b3d13d31aaa370800000000000000
+      internalID: 8334651344603559088
       vertices: []
       indices: 
       edges: []
@@ -166,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 17b67e6890570c94cadd92e6e4549ec7
+    spriteID: abbb5668a25831b459d31e9cd054ee13
     internalID: 0
     vertices: []
     indices: 

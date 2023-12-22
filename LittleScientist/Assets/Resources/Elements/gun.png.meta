@@ -134,10 +134,10 @@ TextureImporter:
       name: gun_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 109
-        width: 988
-        height: 804
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 164f7f0e784cd9f48afcf105dae9405d
+    spriteID: 98606b92c8807a14b9b9152d907c09cb
     internalID: 0
     vertices: []
     indices: 
