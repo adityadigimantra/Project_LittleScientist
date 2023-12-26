@@ -133,7 +133,7 @@ public class combinationManager : MonoBehaviour
         //loadSavedCreatedElements();
         //LoadDisabledGameObjectsList();
         currentElementState = ElementState.InitialState;
-        charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements");
+        charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements",3);
         //disabledGameobjects.Clear();
         elementManager = FindObjectOfType<ElementManager>();
         //First Clearing the list of Disabled Gameobjects
@@ -205,7 +205,7 @@ public class combinationManager : MonoBehaviour
                     PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
                     PlayerPrefs.SetString("AlreadyPresentElement",resultCombination.result);
                     currentElementState = ElementState.ElementExists;
-                    charManager.HandlingCharacterBehaviour("Hmm! This Element already exits.");
+                    charManager.HandlingCharacterBehaviour("Hmm! This Element already exits.",3);
                 }
             }
             else
@@ -214,7 +214,7 @@ public class combinationManager : MonoBehaviour
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
                 currentElementState = ElementState.NoCombinationFound;
-                charManager.HandlingCharacterBehaviour("Hmm! No Combination found for these elements.");
+                charManager.HandlingCharacterBehaviour("Hmm! No Combination found for these elements.",3);
             }
         }
     }
@@ -237,7 +237,7 @@ public class combinationManager : MonoBehaviour
             //saveCreateNewElement();
             PlayerPrefs.Save();
             currentElementState = ElementState.NewElementFound;
-            charManager.HandlingCharacterBehaviour(resultCombination.result);
+            charManager.HandlingCharacterBehaviour(resultCombination.result,3);
             StartCoroutine(OpenNewElementPanel());
         }
     }
@@ -317,7 +317,7 @@ public class combinationManager : MonoBehaviour
         charManager.messageBoxAnimator.SetBool("IsOpen", false);
         yield return new WaitForSeconds(1f);
         currentElementState = ElementState.InitialState;
-        charManager.HandlingCharacterBehaviourdefault();
+        charManager.HandlingCharacterBehaviourdefault(3);
         charManager.messageBoxAnimator.SetBool("IsOpen", true);
 
     }

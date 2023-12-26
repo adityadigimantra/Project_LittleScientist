@@ -41,27 +41,27 @@ public class CharacterManager : MonoBehaviour
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage("Let's Find New Elements");
+                ShowMessage("Let's Find New Elements",time);
                 Debug.Log("State is-Initial");
                 break;
 
             case combinationManager.ElementState.NewElementFound:
                 string uppercaseWord = ConvertToUpperCase(message);
-                ShowMessage("Wow! New Element "+uppercaseWord+" is Found.");
+                ShowMessage("Wow! New Element "+uppercaseWord+" is Found.",time);
                 Debug.Log("State is-New Element Found");
                 break;
             case combinationManager.ElementState.ElementExists:
-                ShowMessage(message);
+                ShowMessage(message,time);
                 //StartCoroutine(givingDelay());
                 Debug.Log("State is-Element Exists");
                 break;
             case combinationManager.ElementState.NoCombinationFound:
-                ShowMessage(message);
+                ShowMessage(message,time);
                 //StartCoroutine(givingDelay());
                 Debug.Log("State is-No Combination Found");
                 break;
             case combinationManager.ElementState.IdleState:
-                ShowMessage(message);
+                ShowMessage(message,time);
                 Debug.Log("State is-Idle");
                 break;
         }
@@ -69,40 +69,41 @@ public class CharacterManager : MonoBehaviour
         //yield return fadeCharacterImage(0, 1);
         //yield return fadeCharacterImage(1,0);
     }
-    public void HandlingCharacterBehaviourdefault()
+    public void HandlingCharacterBehaviourdefault(int time)
     {
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage("Let's Find New Elements");
+                ShowMessage("Let's Find New Elements",time);
                 Debug.Log("State is-Initial");
                 break;
 
             case combinationManager.ElementState.NewElementFound:
 
-                ShowMessage("Wow! New Element is Found.");
+                ShowMessage("Wow! New Element is Found.",time);
                 Debug.Log("State is-New Element Found");
                 break;
             case combinationManager.ElementState.ElementExists:
-                ShowMessage("Hmm! This Element already exists.");
+                ShowMessage("Hmm! This Element already exists.",time);
                 Debug.Log("State is-Element Exists");
                 break;
             case combinationManager.ElementState.NoCombinationFound:
-                ShowMessage("Oops! I cannot find any combination for these");
+                ShowMessage("Oops! I cannot find any combination for these",time);
                 Debug.Log("State is-No Combination Found");
                 break;
         }
         //yield return fadeCharacterImage(0, 1);
         //yield return fadeCharacterImage(1,0);
     }
-    public void ShowMessage(string message)
+    public void ShowMessage(string message,int time)
     {
         if (messageCoroutine != null)
         {
             StopCoroutine(messageCoroutine);
         }
-        messageCoroutine = StartCoroutine(DisplayMessage(message));
+        messageCoroutine = StartCoroutine(DisplayMessage(message,time));
     }
+
 
     public string ConvertToUpperCase(string input)
     {
@@ -116,13 +117,13 @@ public class CharacterManager : MonoBehaviour
             return char.ToUpper(input[0])+input.Substring(1);
         }
     }
-    IEnumerator DisplayMessage(string message)
+    IEnumerator DisplayMessage(string message,int time)
     {
         CharacterPanel.SetActive(true);
         //messageBoxAnimator.SetBool("IsOpen", true);
         MessageBoxImage.gameObject.SetActive(true);
         MessageBoxText.text = message;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(time);
         messageBoxAnimator.SetBool("IsOpen", false);
         //MessageBoxImage.gameObject.SetActive(false);
         //CharacterPanel.SetActive(false);
