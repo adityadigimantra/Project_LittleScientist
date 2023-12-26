@@ -36,7 +36,7 @@ public class CharacterManager : MonoBehaviour
         loadedString = combManager.loadedString;
     }
 
-    public void HandlingCharacterBehaviour(string message)
+    public void HandlingCharacterBehaviour(string message,int time)
     {
         switch (combManager.currentElementState)
         {
@@ -119,6 +119,7 @@ public class CharacterManager : MonoBehaviour
     IEnumerator DisplayMessage(string message)
     {
         CharacterPanel.SetActive(true);
+        //messageBoxAnimator.SetBool("IsOpen", true);
         MessageBoxImage.gameObject.SetActive(true);
         MessageBoxText.text = message;
         yield return new WaitForSeconds(3f);

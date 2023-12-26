@@ -15,6 +15,7 @@ public class PlayerActivityManager : MonoBehaviour
 
     [Header("Messages")]
     public string[] RandomWelcomeMessages;
+    public string currentMessage;
 
 
     [Header("Instances")]
@@ -53,51 +54,39 @@ public class PlayerActivityManager : MonoBehaviour
         if (inactivityTimer >= inactivityThreshold)
         {
             isPlayerActive = false;
+            comManager.currentElementState = combinationManager.ElementState.IdleState;
+            if(!hasDisplayedMessage)
+            {
+                currentMessage = GetRandomWelcomeMessage();
+                charManager.HandlingCharacterBehaviour(currentMessage);
+                charManager.messageBoxAnimator.SetBool("IsOpen", true);
+                hasDisplayedMessage = true;
+            }
         }
 
     }
 
 
-    public void CheckPlayerActivity()
-    {
-
-    }
 
     public void UpdateInactivityTimer()
     {
         if (!isPlayerActive)
         {
             inactivityTimer += Time.deltaTime;
-            comManager.currentElementState = combinationManager.ElementState.IdleState;
+            
 
         }
         else
         {
-            ResetInactivityTimer();
+           
             comManager.currentElementState = combinationManager.ElementState.InitialState;
-        }
-    }
-
-    public void CheckInactivityThreshold()
-    {
-        if(!isPlayerActive && inactivityTimer>=inactivityThreshold && !hasDisplayedMessage)
-        {
-            string message = GetRandomWelcomeMessage();
-            charManager.HandlingCharacterBehaviour(message);
-            hasDisplayedMessage = true;
-            
         }
     }
 
     public void ActivatePlayer()
     {
         isPlayerActive = true;
-        ResetInactivityTimer();
-    }
-    public void ResetInactivityTimer()
-    {
-        inactivityTimer = 0f;
-        hasDisplayedMessage = false;
+        inactivityTimer = 0;
     }
 
     public void StartTimer()
