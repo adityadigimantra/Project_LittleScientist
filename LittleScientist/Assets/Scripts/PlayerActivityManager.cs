@@ -58,7 +58,7 @@ public class PlayerActivityManager : MonoBehaviour
             if(!hasDisplayedMessage)
             {
                 currentMessage = GetRandomWelcomeMessage();
-                charManager.HandlingCharacterBehaviour(currentMessage,4);
+                charManager.HandlingCharacterBehaviour(currentMessage,4,20);
                 charManager.messageBoxAnimator.SetBool("IsOpen", true);
                 hasDisplayedMessage = true;
             }
