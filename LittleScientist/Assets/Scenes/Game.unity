@@ -3056,7 +3056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 65.31212, y: 0}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -11229,11 +11229,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 31
+    m_Font: {fileID: 12800000, guid: d39a98db0352fa749bceac6177007c34, type: 3}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 43
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -11919,10 +11919,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerActive: 1
   inactivityTimer: 0
-  inactivityThreshold: 20
+  inactivityThreshold: 10
   hasDisplayedMessage: 0
   RandomWelcomeMessages:
-  - Life just isn't the same without your presence. Come back soon !
+  - 'Your VIP ticket to fun: a simple tap! The Elements are throwing a party, and
+    you''re the guest of honor.'
+  - Hey Little Scientist! Tap anywhere to start the adventure! The Elements are eager
+    for your magic touch.
+  - Spark a new adventure with a tap! The Elements are waiting for you.
+  - Psst! Quick tap needed! Earth, Air, Fire, and Water are ready to play.
+  - Give the screen some love! A tap unlocks a world of wonders with Earth, Air,
+    Fire, and Water.
+  - Wake up the Elements! Your energy is the key. Give your device a tap for some
+    magic.
+  - Little adventurer, a tap is all it takes to break the silence and start the fun
+    in the Elemental Kingdom.
+  - Be the conductor of the Elements' symphony! Break the silence with a tap and
+    start the magical music.
+  - Ready to be the hero? The Elements await your superpower touch. A quick tap is
+    all it takes!
+  - Turn the day around with a tap! The Elemental Kingdom is waiting for your giggles,
+    laughter, and fun.
   currentMessage: 
   comManager: {fileID: 0}
   charManager: {fileID: 0}

@@ -97,6 +97,7 @@ public class PlayerActivityManager : MonoBehaviour
     public string GetRandomWelcomeMessage()
     {
         int randomIndex = Random.Range(0, RandomWelcomeMessages.Length);
+
         return RandomWelcomeMessages[randomIndex];
     }
 }
