@@ -60,6 +60,10 @@ public class CharacterManager : MonoBehaviour
                 //StartCoroutine(givingDelay());
                 Debug.Log("State is-No Combination Found");
                 break;
+            case combinationManager.ElementState.IdleState:
+                ShowMessage(message);
+                Debug.Log("State is-Idle");
+                break;
         }
 
         //yield return fadeCharacterImage(0, 1);

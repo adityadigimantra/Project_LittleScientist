@@ -108,7 +108,7 @@ public class combinationManager : MonoBehaviour
 
     public enum ElementState
     {
-        InitialState,NewElementFound,ElementExists,NoCombinationFound
+        InitialState,NewElementFound,ElementExists,NoCombinationFound,IdleState
     };
 
     public ElementState currentElementState = ElementState.InitialState;
