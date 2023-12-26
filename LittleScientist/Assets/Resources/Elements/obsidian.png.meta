@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3c2cc03222f04cd4e9c082a8b6184476
+guid: d260121bc983ff44aa6ccb46f66743d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3460598817795432408
-    second: sunglasses_0
+      213: 7941861035248771930
+    second: obsidian
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,14 +105,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 12
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -131,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sunglasses_0
+      name: obsidian
       rect:
         serializedVersion: 2
-        x: 2200
-        y: 2164
-        width: 3864
-        height: 2220
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 820aa23d5bb79ffc0800000000000000
-      internalID: -3460598817795432408
+      spriteID: a53e485a888273e60800000000000000
+      internalID: 7941861035248771930
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2e163975dd3e04a4eb45b96072ed5608
+    spriteID: 64b1a7c222a7acc42a8ff40d63f215e9
     internalID: 0
     vertices: []
     indices: 

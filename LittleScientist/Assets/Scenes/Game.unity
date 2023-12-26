@@ -2777,7 +2777,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 517213231}
   m_HandleRect: {fileID: 517213230}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4274,7 +4274,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 494206771}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9999996
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5288,8 +5288,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 146379394}
   m_HandleRect: {fileID: 146379393}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5743,7 +5743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24356213, y: 0.8998123}
   m_AnchorMax: {x: 0.7576036, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: -974}
+  m_AnchoredPosition: {x: -1.500061, y: -974}
   m_SizeDelta: {x: -1, y: -1.6240845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762729658
@@ -7940,6 +7940,7 @@ MonoBehaviour:
   NewCreatedElements: []
   Parent1Object: {fileID: 0}
   Parent2Object: {fileID: 0}
+  ObjectsToSwitchOff: []
   comManager: {fileID: 0}
 --- !u!4 &1210606006
 Transform:
@@ -9507,7 +9508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2530512187584579857, guid: 361ed0875f9c6fd43b46cf3541f94320,
+  m_Sprite: {fileID: 8334651344603559088, guid: 361ed0875f9c6fd43b46cf3541f94320,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -10307,6 +10308,7 @@ MonoBehaviour:
   FinalSavedPosition: []
   LeftScrollViewList: []
   RightScrollViewList: []
+  InsideRinglElementsList: []
   NewCreatedElementsPresent: []
   elementsPanelObj:
   - {fileID: 0}
@@ -10955,7 +10957,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 589824864}
   m_HandleRect: {fileID: 589824863}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12477,7 +12479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.032533485, y: 0}
   m_AnchorMax: {x: 1, y: 0.97300935}
-  m_AnchoredPosition: {x: -31.231934, y: 14.574951}
+  m_AnchoredPosition: {x: -31.232056, y: 14.574951}
   m_SizeDelta: {x: -340.488, y: -192.6218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971330085
