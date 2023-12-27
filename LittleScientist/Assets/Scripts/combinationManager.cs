@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using System;
 using System.Linq;
 
@@ -16,6 +15,7 @@ public class combinationManager : MonoBehaviour
     public Element Instance_Element;
     public CharacterManager charManager;
     public ElementManager elementManager;
+
 
     [Header("Colliding Elements Name")]
     public string COM_Element1;
@@ -118,27 +118,29 @@ public class combinationManager : MonoBehaviour
     public GameObject[] switchedOffGameObjects;
     private void Start()
     {
+        //Start-Preload.
         elementLoaderObj = FindObjectOfType<ElementLoader>();
         charManager = FindObjectOfType<CharacterManager>();
+        elementManager = FindObjectOfType<ElementManager>();
         elementsPanel = GameObject.Find("AllElements");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
         PlayerPrefs.SetInt("elementCreated", 0);
-        
+        currentElementState = ElementState.InitialState;
+
+        //Calling Methods.
         loadingElementPositonFromFile();
         loadCreatedElementsFromFile();
-        //HandlingDuplicatedElements(disabledGameobjects, loadCreatedElements);
-        //loadSavedCreatedElements();
-        //LoadDisabledGameObjectsList();
-        currentElementState = ElementState.InitialState;
+
+        //Character Behaviour when the game Starts.
         charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements",3,30);
-        //disabledGameobjects.Clear();
-        elementManager = FindObjectOfType<ElementManager>();
-        //First Clearing the list of Disabled Gameobjects
+
+
+        //Disabled Elements List clearing and loading from File.
+        //First Clearing the list of Disabled Gameobjects.
         disabledGameobjects.Clear();
-        //Loading Last game session data to the list
         elementManager.getDisabledGameobjectsToList();
         //switchingOffElements();
 
@@ -763,4 +765,10 @@ public class combinationManager : MonoBehaviour
         }
         return null;
     }
+
+    public string CharacterWelcomingMessages()
+    {
+
+    }
+
 }
