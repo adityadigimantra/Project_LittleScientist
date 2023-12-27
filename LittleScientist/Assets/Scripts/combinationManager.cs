@@ -773,7 +773,7 @@ public class combinationManager : MonoBehaviour
     public void GiveWelcomeMessage()
     {
         WelcomeMessage = characterMessages.ReturnWelcomingMessages();
-        charManager.HandlingCharacterBehaviour(WelcomeMessage,4, 30);
+        charManager.HandlingCharacterBehaviour(WelcomeMessage,4, 20);
 
     }
 

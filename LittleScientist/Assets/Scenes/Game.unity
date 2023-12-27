@@ -3056,7 +3056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 65.31212, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -9273,11 +9273,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inactivityMessages: []
-  inactivityMessagesOnReturn: []
+  inactivityMessagesOnReturn:
+  - Hello, master of creations !
+  - Welcome back, apprentice of wonders !
   welcomingMessages:
-  - Helloo! Welcome How are you today ?
-  - Aur bhai mere kya haal hai tere.
-  newElementFoundMessages: []
+  - Welcome to the world of magic mixing !
+  - Greetings, young scientist! Prepare to dive into the enchanting universe of Little
+    Scientist !
+  newElementFoundMessages:
+  - 'Congratulations ! You''ve uncovered a new element in the magical mix of Little
+    Scientist. '
+  - 'Hooray! A new ingredient has been added to your collection in  Little Scientist. '
   combinationExistsMessages: []
   noCombinationExistsMessages: []
   randomFunFactsMessages: []
