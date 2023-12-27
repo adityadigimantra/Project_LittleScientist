@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,7 @@ public class CharacterManager : MonoBehaviour
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage("Let's Find New Elements",time, fontsize);
+                ShowMessage(message,time, fontsize);
                 Debug.Log("State is-Initial");
                 break;
 
@@ -128,6 +129,11 @@ public class CharacterManager : MonoBehaviour
         messageBoxAnimator.SetBool("IsOpen", false);
         //MessageBoxImage.gameObject.SetActive(false);
         //CharacterPanel.SetActive(false);
+    }
+
+    internal void HandlingCharacterBehaviour(Func<string> returnWelcomingMessages, int v1, int v2)
+    {
+        throw new NotImplementedException();
     }
 
     IEnumerator givingDelay()

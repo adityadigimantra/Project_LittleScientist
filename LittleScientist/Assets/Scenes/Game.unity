@@ -5743,7 +5743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24356213, y: 0.8998123}
   m_AnchorMax: {x: 0.7576036, y: 1}
-  m_AnchoredPosition: {x: -1.500061, y: -974}
+  m_AnchoredPosition: {x: -1.5001221, y: -974}
   m_SizeDelta: {x: -1, y: -1.6240845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762729658
@@ -9214,6 +9214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410390151}
   - component: {fileID: 1410390152}
+  - component: {fileID: 1410390153}
   m_Layer: 0
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -9259,6 +9260,27 @@ MonoBehaviour:
   shownOnce: 0
   messageBoxAnimator: {fileID: 915317465}
   combManager: {fileID: 0}
+--- !u!114 &1410390153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410390150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2ba69ea6424c744a3c7bd4c73fdb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inactivityMessages: []
+  inactivityMessagesOnReturn: []
+  welcomingMessages:
+  - Helloo! Welcome How are you today ?
+  - Aur bhai mere kya haal hai tere.
+  newElementFoundMessages: []
+  combinationExistsMessages: []
+  noCombinationExistsMessages: []
+  randomFunFactsMessages: []
 --- !u!1 &1420043064
 GameObject:
   m_ObjectHideFlags: 0
@@ -10253,6 +10275,7 @@ MonoBehaviour:
   Instance_Element: {fileID: 0}
   charManager: {fileID: 0}
   elementManager: {fileID: 0}
+  characterMessages: {fileID: 0}
   COM_Element1: 
   COM_Element2: 
   newCreatedElement: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3,
@@ -10324,6 +10347,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   NewCreatedElementPanelAnimator: {fileID: 1431888838}
+  WelcomeMessage: 
   currentElementState: 0
   duplicatedObjs: []
   switchedOffGameObjects: []
@@ -12548,7 +12572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.032533485, y: 0}
   m_AnchorMax: {x: 1, y: 0.97300935}
-  m_AnchoredPosition: {x: -31.232056, y: 14.574951}
+  m_AnchoredPosition: {x: -31.231934, y: 14.574951}
   m_SizeDelta: {x: -340.488, y: -192.6218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971330085

@@ -15,6 +15,7 @@ public class combinationManager : MonoBehaviour
     public Element Instance_Element;
     public CharacterManager charManager;
     public ElementManager elementManager;
+    public CharacterMessages characterMessages;
 
 
     [Header("Colliding Elements Name")]
@@ -104,7 +105,8 @@ public class combinationManager : MonoBehaviour
     [Header("Animations Data")]
     public Animator NewCreatedElementPanelAnimator;
 
-
+    [Header("Messages Fields")]
+    public string WelcomeMessage;
 
     public enum ElementState
     {
@@ -122,12 +124,14 @@ public class combinationManager : MonoBehaviour
         elementLoaderObj = FindObjectOfType<ElementLoader>();
         charManager = FindObjectOfType<CharacterManager>();
         elementManager = FindObjectOfType<ElementManager>();
+        characterMessages = FindObjectOfType<CharacterMessages>();
         elementsPanel = GameObject.Find("AllElements");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
         PlayerPrefs.SetInt("elementCreated", 0);
+
         currentElementState = ElementState.InitialState;
 
         //Calling Methods.
@@ -135,7 +139,7 @@ public class combinationManager : MonoBehaviour
         loadCreatedElementsFromFile();
 
         //Character Behaviour when the game Starts.
-        charManager.HandlingCharacterBehaviour("Hello Let's Find New Elements",3,30);
+        GiveWelcomeMessage();
 
 
         //Disabled Elements List clearing and loading from File.
@@ -766,8 +770,10 @@ public class combinationManager : MonoBehaviour
         return null;
     }
 
-    public string CharacterWelcomingMessages()
+    public void GiveWelcomeMessage()
     {
+        WelcomeMessage = characterMessages.ReturnWelcomingMessages();
+        charManager.HandlingCharacterBehaviour(WelcomeMessage,4, 30);
 
     }
 
