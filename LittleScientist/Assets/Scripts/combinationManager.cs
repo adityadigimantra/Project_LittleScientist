@@ -194,33 +194,27 @@ public class combinationManager : MonoBehaviour
             resultCombination = FindCombination(COM_Element1, COM_Element2);
             if (resultCombination != null)
             {
-                Debug.Log("Result:" + resultCombination.result);
-                funfactstr = resultCombination.fact;
-                if(string.IsNullOrEmpty(funfactstr))
-                {
-                    funfactstr = "I have to put a fun fact here.";
-                }
+                 Debug.Log("Result:" + resultCombination.result);
+                 funfactstr = resultCombination.fact;
+                 if(string.IsNullOrEmpty(funfactstr))
+                 {
+                     funfactstr = "I have to put a fun fact here.";
+                 }
+                 
+                 if (!loadCreatedElements.Contains(resultCombination.result))
+                 {
+                     createNewElement();
+                 }
+                 else
+                 {
+                     HandlesCombinationExists();
+                 }
 
-                if (!loadCreatedElements.Contains(resultCombination.result))
-                {
-                    createNewElement();
-                }
-                else
-                {
-                    Debug.Log("Combination already Present");
-                    PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
-                    PlayerPrefs.SetString("AlreadyPresentElement",resultCombination.result);
-                    currentElementState = ElementState.ElementExists;
-                    GiveCombinationAlreadyExistsMessage();
-                }
             }
+
             else
             {
-
-                Debug.Log("No Combination Found");
-                PlayerPrefs.SetInt("NoCombinationFound", 1);
-                currentElementState = ElementState.NoCombinationFound;
-                GiveNoCombinationFoundMessage();
+                 HandlesNoCombinationFound();
             }
         }
     }
@@ -240,13 +234,28 @@ public class combinationManager : MonoBehaviour
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             PlayerPrefs.SetInt("elementCreated", 1);
             saveCreatedElementsToFile();
-            //saveCreateNewElement();
             PlayerPrefs.Save();
             currentElementState = ElementState.NewElementFound;
             StartCoroutine(OpenNewElementPanel());
         }
     }
 
+    public void HandlesCombinationExists()
+    {
+        Debug.Log("Combination already Present");
+        PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
+        PlayerPrefs.SetString("AlreadyPresentElement", resultCombination.result);
+        currentElementState = ElementState.ElementExists;
+        GiveCombinationAlreadyExistsMessage();
+    }
+
+    public void HandlesNoCombinationFound()
+    {
+        Debug.Log("No Combination Found");
+        PlayerPrefs.SetInt("NoCombinationFound", 1);
+        currentElementState = ElementState.NoCombinationFound;
+        GiveNoCombinationFoundMessage();
+    }
     public void saveCreatedElementsToFile()
     {
         string FilePath = Path.Combine(Application.persistentDataPath, saveFilePath);
@@ -316,14 +325,8 @@ public class combinationManager : MonoBehaviour
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
         elementManager.MakeGameObjectsNull();
         GiveNewElementFoundMessage();
-        //charManager.messageBoxAnimator.SetBool("IsOpen", true);
-        // yield return new WaitForSeconds(2.5f);
-        //charManager.messageBoxAnimator.SetBool("IsOpen", false);
         yield return new WaitForSeconds(3f);
         currentElementState = ElementState.InitialState;
-        
-        //charManager.messageBoxAnimator.SetBool("IsOpen", true);
-
     }
     IEnumerator NoCombinationFound()
     {

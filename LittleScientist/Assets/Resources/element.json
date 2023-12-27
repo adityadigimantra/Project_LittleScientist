@@ -322,14 +322,14 @@
             "Name": "Field",
             "element1": "plow",
             "element2": "earth",
-            "result": "feild",
+            "result": "field",
             "fact": ""
         },
         {
             "Name": "Field",
             "element1": "earth",
             "element2": "plow",
-            "result": "feild",
+            "result": "field",
             "fact": ""
         },
         {
