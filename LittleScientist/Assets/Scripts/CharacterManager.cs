@@ -47,8 +47,8 @@ public class CharacterManager : MonoBehaviour
                 break;
 
             case combinationManager.ElementState.NewElementFound:
-                string uppercaseWord = ConvertToUpperCase(message);
-                ShowMessage("Wow! New Element "+uppercaseWord+" is Found.",time, fontsize);
+                //string uppercaseWord = ConvertToUpperCase(message);
+                ShowMessage(message,time, fontsize);
                 Debug.Log("State is-New Element Found");
                 break;
             case combinationManager.ElementState.ElementExists:
@@ -121,7 +121,7 @@ public class CharacterManager : MonoBehaviour
     IEnumerator DisplayMessage(string message,int time,int fontSize)
     {
         CharacterPanel.SetActive(true);
-        //messageBoxAnimator.SetBool("IsOpen", true);
+        messageBoxAnimator.SetBool("IsOpen", true);
         MessageBoxImage.gameObject.SetActive(true);
         MessageBoxText.text = message;
         MessageBoxText.fontSize = fontSize;

@@ -15,7 +15,7 @@ public class combinationManager : MonoBehaviour
     public Element Instance_Element;
     public CharacterManager charManager;
     public ElementManager elementManager;
-    public CharacterMessages characterMessages;
+    public CharacterMessages charMessages;
 
 
     [Header("Colliding Elements Name")]
@@ -107,6 +107,9 @@ public class combinationManager : MonoBehaviour
 
     [Header("Messages Fields")]
     public string WelcomeMessage;
+    public string NewElementFoundMessage;
+    public string CombinationExistsMessage;
+    public string NoCombinationExistsMessage;
 
     public enum ElementState
     {
@@ -124,7 +127,7 @@ public class combinationManager : MonoBehaviour
         elementLoaderObj = FindObjectOfType<ElementLoader>();
         charManager = FindObjectOfType<CharacterManager>();
         elementManager = FindObjectOfType<ElementManager>();
-        characterMessages = FindObjectOfType<CharacterMessages>();
+        charMessages = FindObjectOfType<CharacterMessages>();
         elementsPanel = GameObject.Find("AllElements");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
@@ -200,10 +203,7 @@ public class combinationManager : MonoBehaviour
 
                 if (!loadCreatedElements.Contains(resultCombination.result))
                 {
-                   
                     createNewElement();
-                    
-
                 }
                 else
                 {
@@ -211,7 +211,7 @@ public class combinationManager : MonoBehaviour
                     PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
                     PlayerPrefs.SetString("AlreadyPresentElement",resultCombination.result);
                     currentElementState = ElementState.ElementExists;
-                    charManager.HandlingCharacterBehaviour("Hmm! This Element already exits.",3,30);
+                    GiveCombinationAlreadyExistsMessage();
                 }
             }
             else
@@ -220,7 +220,7 @@ public class combinationManager : MonoBehaviour
                 Debug.Log("No Combination Found");
                 PlayerPrefs.SetInt("NoCombinationFound", 1);
                 currentElementState = ElementState.NoCombinationFound;
-                charManager.HandlingCharacterBehaviour("Hmm! No Combination found for these elements.",3,30);
+                GiveNoCombinationFoundMessage();
             }
         }
     }
@@ -243,7 +243,6 @@ public class combinationManager : MonoBehaviour
             //saveCreateNewElement();
             PlayerPrefs.Save();
             currentElementState = ElementState.NewElementFound;
-            charManager.HandlingCharacterBehaviour(resultCombination.result,3,30);
             StartCoroutine(OpenNewElementPanel());
         }
     }
@@ -316,15 +315,14 @@ public class combinationManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
         elementManager.MakeGameObjectsNull();
-        //newElementCreatedPanel.SetActive(false);
-
-        charManager.messageBoxAnimator.SetBool("IsOpen", true);
-        yield return new WaitForSeconds(2.5f);
-        charManager.messageBoxAnimator.SetBool("IsOpen", false);
-        yield return new WaitForSeconds(1f);
+        GiveNewElementFoundMessage();
+        //charManager.messageBoxAnimator.SetBool("IsOpen", true);
+        // yield return new WaitForSeconds(2.5f);
+        //charManager.messageBoxAnimator.SetBool("IsOpen", false);
+        yield return new WaitForSeconds(3f);
         currentElementState = ElementState.InitialState;
-        charManager.HandlingCharacterBehaviourdefault(3,30);
-        charManager.messageBoxAnimator.SetBool("IsOpen", true);
+        
+        //charManager.messageBoxAnimator.SetBool("IsOpen", true);
 
     }
     IEnumerator NoCombinationFound()
@@ -772,9 +770,26 @@ public class combinationManager : MonoBehaviour
 
     public void GiveWelcomeMessage()
     {
-        WelcomeMessage = characterMessages.ReturnWelcomingMessages();
+        WelcomeMessage = charMessages.ReturnWelcomingMessages();
         charManager.HandlingCharacterBehaviour(WelcomeMessage,4, 20);
 
+    }
+
+    public void GiveNewElementFoundMessage()
+    {
+        NewElementFoundMessage = charMessages.ReturnNewElementFoundMessages();
+        charManager.HandlingCharacterBehaviour(NewElementFoundMessage, 4, 25);
+    }
+
+    public void GiveNoCombinationFoundMessage()
+    {
+        NoCombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
+        charManager.HandlingCharacterBehaviour(NoCombinationExistsMessage, 4, 25);
+    }
+    public void GiveCombinationAlreadyExistsMessage()
+    {
+        CombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
+        charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 25);
     }
 
 }
