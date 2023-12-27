@@ -10305,7 +10305,7 @@ MonoBehaviour:
   Instance_Element: {fileID: 0}
   charManager: {fileID: 0}
   elementManager: {fileID: 0}
-  characterMessages: {fileID: 0}
+  charMessages: {fileID: 0}
   COM_Element1: 
   COM_Element2: 
   newCreatedElement: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3,
@@ -10378,6 +10378,9 @@ MonoBehaviour:
   - {fileID: 0}
   NewCreatedElementPanelAnimator: {fileID: 1431888838}
   WelcomeMessage: 
+  NewElementFoundMessage: 
+  CombinationExistsMessage: 
+  NoCombinationExistsMessage: 
   currentElementState: 0
   duplicatedObjs: []
   switchedOffGameObjects: []
@@ -11973,7 +11976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerActive: 1
   inactivityTimer: 0
-  inactivityThreshold: 10
+  inactivityThreshold: 30
   hasDisplayedMessage: 0
   RandomWelcomeMessages:
   - 'Your VIP ticket to fun: a simple tap! The Elements are throwing a party, and

@@ -13,10 +13,6 @@ public class PlayerActivityManager : MonoBehaviour
     [SerializeField]
     private bool hasDisplayedMessage = false;
 
-    [Header("Messages")]
-    public string[] RandomWelcomeMessages;
-    public string currentMessage;
-
 
     [Header("Instances")]
     public combinationManager comManager;
@@ -33,8 +29,6 @@ public class PlayerActivityManager : MonoBehaviour
         StartTimer();
         MakePlayerActive();
         MakePlayerInActive();
-        //UpdateInactivityTimer();
-        //CheckInactivityThreshold();
         
     }
 
@@ -57,9 +51,7 @@ public class PlayerActivityManager : MonoBehaviour
             comManager.currentElementState = combinationManager.ElementState.IdleState;
             if(!hasDisplayedMessage)
             {
-                currentMessage = GetRandomWelcomeMessage();
-                charManager.HandlingCharacterBehaviour(currentMessage,4,20);
-                charManager.messageBoxAnimator.SetBool("IsOpen", true);
+
                 hasDisplayedMessage = true;
             }
         }
@@ -94,10 +86,4 @@ public class PlayerActivityManager : MonoBehaviour
         inactivityTimer += Time.deltaTime;
     }
 
-    public string GetRandomWelcomeMessage()
-    {
-        int randomIndex = Random.Range(0, RandomWelcomeMessages.Length);
-
-        return RandomWelcomeMessages[randomIndex];
-    }
 }
