@@ -9272,7 +9272,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2ba69ea6424c744a3c7bd4c73fdb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inactivityMessages: []
+  inactivityMessages:
+  - 'Your VIP ticket to fun: a simple tap! The Elements are throwing a party, and
+    you''re the guest of honor.'
+  - Hey Little Scientist! Tap anywhere to start the adventure! The Elements are eager
+    for your magic touch.
+  - Spark a new adventure with a tap! The Elements are waiting for you.
+  - Psst! Quick tap needed! Earth, Air, Fire, and Water are ready to play.
+  - Give the screen some love! A tap unlocks a world of wonders with Earth, Air,
+    Fire, and Water.
+  - Wake up the Elements! Your energy is the key. Give your device a tap for some
+    magic.
+  - Little adventurer, a tap is all it takes to break the silence and start the fun
+    in the Elemental Kingdom.
+  - Be the conductor of the Elements' symphony! Break the silence with a tap and
+    start the magical music.
+  - Ready to be the hero? The Elements await your superpower touch. A quick tap is
+    all it takes!
+  - Turn the day around with a tap! The Elemental Kingdom is waiting for your giggles,
+    laughter, and fun.
   inactivityMessagesOnReturn:
   - Hello, master of creations !
   - Welcome back, apprentice of wonders !
@@ -9284,9 +9302,15 @@ MonoBehaviour:
   - 'Congratulations ! You''ve uncovered a new element in the magical mix of Little
     Scientist. '
   - 'Hooray! A new ingredient has been added to your collection in  Little Scientist. '
-  combinationExistsMessages: []
-  noCombinationExistsMessages: []
-  randomFunFactsMessages: []
+  combinationExistsMessages:
+  - Nice try! You've recreated a known combination.
+  - Well, well! You've stumbled upon a combination you've already conquered
+  noCombinationExistsMessages:
+  - 'Hmm, it seems these elements don''t form a new combination '
+  - Nice try! The elements you combined  didn't create anything new.
+  randomFunFactsMessages:
+  - Did you know that honey never spoils?
+  - Bananas are berries, but strawberries aren't
 --- !u!1 &1420043064
 GameObject:
   m_ObjectHideFlags: 0
