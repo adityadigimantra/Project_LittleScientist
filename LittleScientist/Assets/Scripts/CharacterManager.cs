@@ -100,20 +100,12 @@ public class CharacterManager : MonoBehaviour
     }
     public void ShowMessage(string message,int time,int fontSize)
     {
-        //if (messageCoroutine != null)
-        //{
-        //    StopCoroutine(messageCoroutine);
-        //}
-        //messageCoroutine = StartCoroutine(DisplayMessage(message,time, fontSize));
+        if (messageCoroutine != null)
+        {
+            StopCoroutine(messageCoroutine);
+        }
+        messageCoroutine = StartCoroutine(DisplayMessage(message,time, fontSize));
 
-        if(isCoroutineRunnning)
-        {
-            return;
-        }
-        else
-        {
-            StartCoroutine(DisplayMessage(message, time, fontSize));
-        }
     }
 
 
@@ -142,38 +134,5 @@ public class CharacterManager : MonoBehaviour
         isCoroutineRunnning = false;
     }
 
-    internal void HandlingCharacterBehaviour(Func<string> returnWelcomingMessages, int v1, int v2)
-    {
-        throw new NotImplementedException();
-    }
-
-    IEnumerator givingDelay()
-    {
-        yield return new WaitForSeconds(2);
-        messageBoxAnimator.SetBool("IsOpen", false);
-        //combManager.currentElementState = combinationManager.ElementState.InitialState;
-        //HandlingCharacterBehaviourdefault();
-    }
-
-    IEnumerator switchOnOffCharacterPanel()
-    {
-        CharacterPanel.SetActive(true);
-        yield return new WaitForSeconds(4f);
-        CharacterPanel.SetActive(false);
-        OpenPanelOnce = true;
-        shownOnce = true;
-    }
-    IEnumerator fadeCharacterImage(int startAlpha, int targetAlpha)
-    {
-        float currentTime = 0f;
-        Color charImage = CharacterImage.color;
-        while (currentTime < fadeDuration)
-        {
-            currentTime += Time.deltaTime;
-            charImage.a = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeDuration);
-            CharacterImage.color = charImage;
-            yield return null;
-        }
-    }
 
 }
