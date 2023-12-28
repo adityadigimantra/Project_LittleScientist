@@ -102,13 +102,16 @@ public class PlayerActivityMonitor : MonoBehaviour
         if(PlayerPrefs.GetInt("ThrowInactiveMessageOnReturn")==1)
         {
             messageOnReturn = charMessages.ReturnInactivityMessagesOnReturn();
-
-            charManager.HandlingCharacterBehaviour(messageOnReturn, 4, 20);
-            PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 2);
+            StartCoroutine(SendActiveMessageToCharacter());
         }
 
     }
-
+    IEnumerator SendActiveMessageToCharacter()
+    {
+        yield return new WaitUntil(() => charManager.isCoroutineRunnning == false);
+        charManager.HandlingCharacterBehaviour(messageOnReturn, 4, 20);
+        PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 2);
+    }
     public void StartTimer()
     {
         inactivityTimer += Time.deltaTime;

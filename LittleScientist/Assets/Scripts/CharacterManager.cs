@@ -69,34 +69,6 @@ public class CharacterManager : MonoBehaviour
                 break;
         }
 
-        //yield return fadeCharacterImage(0, 1);
-        //yield return fadeCharacterImage(1,0);
-    }
-    public void HandlingCharacterBehaviourdefault(int time,int fontSize)
-    {
-        switch (combManager.currentElementState)
-        {
-            case combinationManager.ElementState.InitialState:
-                ShowMessage("Let's Find New Elements",time,fontSize);
-                Debug.Log("State is-Initial");
-                break;
-                //ToDo-Remove other cases
-            case combinationManager.ElementState.NewElementFound:
-
-                ShowMessage("Wow! New Element is Found.",time,fontSize);
-                Debug.Log("State is-New Element Found");
-                break;
-            case combinationManager.ElementState.ElementExists:
-                ShowMessage("Hmm! This Element already exists.",time,fontSize);
-                Debug.Log("State is-Element Exists");
-                break;
-            case combinationManager.ElementState.NoCombinationFound:
-                ShowMessage("Oops! I cannot find any combination for these",time,fontSize);
-                Debug.Log("State is-No Combination Found");
-                break;
-        }
-        //yield return fadeCharacterImage(0, 1);
-        //yield return fadeCharacterImage(1,0);
     }
     public void ShowMessage(string message,int time,int fontSize)
     {
@@ -131,8 +103,7 @@ public class CharacterManager : MonoBehaviour
         MessageBoxText.fontSize = fontSize;
         yield return new WaitForSeconds(time);
         messageBoxAnimator.SetBool("IsOpen", false);
+        yield return new WaitForSeconds(1.5f);
         isCoroutineRunnning = false;
     }
-
-
 }
