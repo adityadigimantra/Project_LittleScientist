@@ -60,16 +60,21 @@ public class PlayerActivityMonitor : MonoBehaviour
                 inactiveMessage = charMessages.ReturnInactivityMessages();
                 charManager.HandlingCharacterBehaviour(inactiveMessage, 4, 20);
                 hasDisplayedMessage = true;
+                SetFalseMessageBool();
                 inactivityThreshold = inactivityThreshold * 2;
+
             }
         }
 
     }
 
 
-    public void IncreaseInactivityThreshold()
+    public void SetFalseMessageBool()
     {
-        //if(inac)
+        if(inactivityTimer>=inactivityThreshold)
+        {
+            hasDisplayedMessage = false;
+        }
     }
 
     public void UpdateInactivityTimer()
@@ -92,6 +97,7 @@ public class PlayerActivityMonitor : MonoBehaviour
         isPlayerActive = true;
         inactivityTimer = 0;
         hasDisplayedMessage = false;
+        inactivityThreshold = 30;
     }
 
     public void StartTimer()
