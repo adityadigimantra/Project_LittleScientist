@@ -25,6 +25,8 @@ public class CharacterManager : MonoBehaviour
 
     [Header("Instances")]
     public combinationManager combManager;
+
+    public bool isCoroutineRunnning = false;
     private void Start()
     {
         combManager = FindObjectOfType<combinationManager>();
@@ -98,11 +100,20 @@ public class CharacterManager : MonoBehaviour
     }
     public void ShowMessage(string message,int time,int fontSize)
     {
-        if (messageCoroutine != null)
+        //if (messageCoroutine != null)
+        //{
+        //    StopCoroutine(messageCoroutine);
+        //}
+        //messageCoroutine = StartCoroutine(DisplayMessage(message,time, fontSize));
+
+        if(isCoroutineRunnning)
         {
-            StopCoroutine(messageCoroutine);
+            return;
         }
-        messageCoroutine = StartCoroutine(DisplayMessage(message,time, fontSize));
+        else
+        {
+            StartCoroutine(DisplayMessage(message, time, fontSize));
+        }
     }
 
 
@@ -120,6 +131,7 @@ public class CharacterManager : MonoBehaviour
     }
     IEnumerator DisplayMessage(string message,int time,int fontSize)
     {
+        isCoroutineRunnning = true;
         CharacterPanel.SetActive(true);
         messageBoxAnimator.SetBool("IsOpen", true);
         MessageBoxImage.gameObject.SetActive(true);
@@ -127,8 +139,7 @@ public class CharacterManager : MonoBehaviour
         MessageBoxText.fontSize = fontSize;
         yield return new WaitForSeconds(time);
         messageBoxAnimator.SetBool("IsOpen", false);
-        //MessageBoxImage.gameObject.SetActive(false);
-        //CharacterPanel.SetActive(false);
+        isCoroutineRunnning = false;
     }
 
     internal void HandlingCharacterBehaviour(Func<string> returnWelcomingMessages, int v1, int v2)

@@ -62,6 +62,7 @@ public class PlayerActivityMonitor : MonoBehaviour
                 hasDisplayedMessage = true;
                 SetFalseMessageBool();
                 inactivityThreshold = inactivityThreshold * 2;
+                PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 1);
 
             }
         }
@@ -98,6 +99,14 @@ public class PlayerActivityMonitor : MonoBehaviour
         inactivityTimer = 0;
         hasDisplayedMessage = false;
         inactivityThreshold = 30;
+        if(PlayerPrefs.GetInt("ThrowInactiveMessageOnReturn")==1)
+        {
+            messageOnReturn = charMessages.ReturnInactivityMessagesOnReturn();
+
+            charManager.HandlingCharacterBehaviour(messageOnReturn, 4, 20);
+            PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 2);
+        }
+
     }
 
     public void StartTimer()
