@@ -128,6 +128,10 @@ public class ElementManager : MonoBehaviour
 
     IEnumerator waitAndPlayAnimation()
     {
+        foreach(GameObject g in ObjectsToSwitchOff)
+        {
+            g.transform.GetChild(0).gameObject.SetActive(false);
+        }
         yield return new WaitForSeconds(3f);
         foreach(GameObject g in ObjectsToSwitchOff)
         {
