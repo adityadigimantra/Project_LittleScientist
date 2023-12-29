@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a67449ab93990b544b172a81cd2a01d0
+guid: 4a12aa52dfb53d74685fb95fe601df66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1791783992758969951
-    second: grenade_0
+      213: -1847794414468635194
+    second: plow_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -23,7 +23,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grenade_0
+      name: plow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a9de5da3fd4227e0800000000000000
-      internalID: -1791783992758969951
+      spriteID: 6c565a325c05b56e0800000000000000
+      internalID: -1847794414468635194
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8f7efe29d6a62f8488cf33b688fbd6f5
+    spriteID: 737a080b7128ea441aebf3a2e5dcb623
     internalID: 0
     vertices: []
     indices: 

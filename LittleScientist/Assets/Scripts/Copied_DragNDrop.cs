@@ -105,8 +105,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             else if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
             {
                 gameObject.GetComponent<WiggleAnimation>().startShake();
-                PlayerPrefs.SetInt("NoCombinationFound", 0);
-                StartCoroutine(StartIfNoCombinationExists());
+                //PlayerPrefs.SetInt("NoCombinationFound", 0);
+                //StartCoroutine(StartIfNoCombinationExists());
             }
 
         }

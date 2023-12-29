@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a12aa52dfb53d74685fb95fe601df66
+guid: f67e9b2238ec9984b9b4e0d3552f5e30
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1847794414468635194
-    second: plow_0
+      213: -1470958176495015028
+    second: Carnival_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -105,9 +105,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: 10
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -131,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plow_0
+      name: Carnival_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c565a325c05b56e0800000000000000
-      internalID: -1847794414468635194
+      spriteID: c8bee8af45b169be0800000000000000
+      internalID: -1470958176495015028
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 737a080b7128ea441aebf3a2e5dcb623
+    spriteID: 86c4ce47f889cd342b44f4abb3978b81
     internalID: 0
     vertices: []
     indices: 

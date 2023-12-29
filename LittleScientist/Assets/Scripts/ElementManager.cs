@@ -54,16 +54,15 @@ public class ElementManager : MonoBehaviour
                 PlayerPrefs.SetInt("elementCreated", 2);
             }
         }
-
         if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
         {
             StartCoroutine(waitAndPlayAnimation());
             PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
         }
-        if(PlayerPrefs.GetInt("NoCombinationFound")==1)
+        if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
         {
             StartCoroutine(waitAndPlayAnimation());
-            PlayerPrefs.SetInt("NoCombinationFound", 2);
+            //PlayerPrefs.SetInt("NoCombinationFound", 2);
         }
     }
 
@@ -132,8 +131,11 @@ public class ElementManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         foreach(GameObject g in ObjectsToSwitchOff)
         {
-            g.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
+
+           g.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
+
         }
+        ObjectsToSwitchOff.Clear();
     }
 
 }

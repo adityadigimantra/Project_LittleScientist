@@ -9260,6 +9260,7 @@ MonoBehaviour:
   shownOnce: 0
   messageBoxAnimator: {fileID: 915317465}
   combManager: {fileID: 0}
+  isCoroutineRunnning: 0
 --- !u!114 &1410390153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11976,30 +11977,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerActive: 1
   inactivityTimer: 0
-  inactivityThreshold: 30
+  inactivityThreshold: 10
   hasDisplayedMessage: 0
-  RandomWelcomeMessages:
-  - 'Your VIP ticket to fun: a simple tap! The Elements are throwing a party, and
-    you''re the guest of honor.'
-  - Hey Little Scientist! Tap anywhere to start the adventure! The Elements are eager
-    for your magic touch.
-  - Spark a new adventure with a tap! The Elements are waiting for you.
-  - Psst! Quick tap needed! Earth, Air, Fire, and Water are ready to play.
-  - Give the screen some love! A tap unlocks a world of wonders with Earth, Air,
-    Fire, and Water.
-  - Wake up the Elements! Your energy is the key. Give your device a tap for some
-    magic.
-  - Little adventurer, a tap is all it takes to break the silence and start the fun
-    in the Elemental Kingdom.
-  - Be the conductor of the Elements' symphony! Break the silence with a tap and
-    start the magical music.
-  - Ready to be the hero? The Elements await your superpower touch. A quick tap is
-    all it takes!
-  - Turn the day around with a tap! The Elemental Kingdom is waiting for your giggles,
-    laughter, and fun.
-  currentMessage: 
   comManager: {fileID: 0}
   charManager: {fileID: 0}
+  charMessages: {fileID: 0}
+  inactiveMessage: 
+  messageOnReturn: 
 --- !u!1 &1835297479
 GameObject:
   m_ObjectHideFlags: 0

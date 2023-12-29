@@ -305,22 +305,22 @@
             "fact": "Asia is the largest continent in size."
         },
         {
-            "Name": "Plow",
+            "Name": "Plough",
             "element1": "earth",
             "element2": "metal",
-            "result": "plow",
+            "result": "plough",
             "fact": "Ground that has been plowed is a good place for a farmer to grow food."
         },
         {
-            "Name": "Plow",
+            "Name": "Plough",
             "element1": "metal",
             "element2": "earth",
-            "result": "plow",
+            "result": "plough",
             "fact": "Ground that has been plowed is a good place for a farmer to grow food."
         },
         {
             "Name": "Field",
-            "element1": "plow",
+            "element1": "plough",
             "element2": "earth",
             "result": "field",
             "fact": ""
@@ -328,7 +328,7 @@
         {
             "Name": "Field",
             "element1": "earth",
-            "element2": "plow",
+            "element2": "plough",
             "result": "field",
             "fact": ""
         },

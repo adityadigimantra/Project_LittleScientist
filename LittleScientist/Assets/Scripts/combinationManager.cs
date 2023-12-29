@@ -133,7 +133,7 @@ public class combinationManager : MonoBehaviour
         BottomScrollView = GameObject.Find("DownScroll_Content");
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
-        PlayerPrefs.SetInt("elementCreated", 0);
+        SettingPlayerPrefsValuetoZero();
 
         currentElementState = ElementState.InitialState;
 
@@ -158,20 +158,30 @@ public class combinationManager : MonoBehaviour
 
         //Fetching All Created List
         LoadCreatedElementList();
-        if (PlayerPrefs.GetInt("elementCreated")==1)
-        {
-            elementManager.DisablingObjects();
-        }
-        if(PlayerPrefs.GetInt("ElementAlreadyPresent") ==1)
-        {
-            elementManager.DisablingObjects();
-        }
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         
         tempCopiedCreatedObj = GameObject.FindGameObjectsWithTag("Copied");
         NewCreatedElementsPresent = GameObject.FindGameObjectsWithTag("NewCreatedElement");
-    }
 
+        if (PlayerPrefs.GetInt("elementCreated") == 1)
+        {
+            elementManager.DisablingObjects();
+        }
+        if (PlayerPrefs.GetInt("ElementAlreadyPresent") == 1)
+        {
+            elementManager.DisablingObjects();
+        }
+        if(PlayerPrefs.GetInt("NoCombinationFound")==1)
+        {
+            elementManager.DisablingObjects();
+        }
+    }
+    public void SettingPlayerPrefsValuetoZero()
+    {
+        PlayerPrefs.SetInt("elementCreated", 0);
+        PlayerPrefs.SetInt("NoCombinationFound", 0);
+        PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
+    }
     public void HandlingDuplicatedElements()
     {
         foreach (string name in disabledGameobjects)
@@ -211,7 +221,6 @@ public class combinationManager : MonoBehaviour
                  }
 
             }
-
             else
             {
                  HandlesNoCombinationFound();
@@ -255,6 +264,7 @@ public class combinationManager : MonoBehaviour
         PlayerPrefs.SetInt("NoCombinationFound", 1);
         currentElementState = ElementState.NoCombinationFound;
         GiveNoCombinationFoundMessage();
+        elementManager.DisablingObjects();
     }
     public void saveCreatedElementsToFile()
     {
