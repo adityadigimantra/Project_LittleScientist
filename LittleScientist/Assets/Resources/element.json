@@ -7,7 +7,8 @@
             "element2": "fire",
             "result": "steam",
             "fact": "Steam often forms when water is heated.",
-            "factimage": 1
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Steam",
@@ -15,7 +16,8 @@
             "element2": "water",
             "result": "steam",
             "fact": "Steam often forms when water is heated.",
-            "factimage": 1
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Mist",
@@ -23,7 +25,8 @@
             "element2": "air",
             "result": "mist",
             "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
-            "factimage": 2
+            "factimage": 2,
+            "fontsize": 25
 
         },
         {
@@ -32,7 +35,8 @@
             "element2": "water",
             "result": "mist",
             "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
-            "factimage": 2
+            "factimage": 2,
+            "fontsize": 25
 
         },
         {
@@ -40,210 +44,270 @@
             "element1": "air",
             "element2": "fire",
             "result": "smoke",
-            "fact": "Smoke spreads faster than fire."
+            "fact": "Smoke spreads faster than fire.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Smoke",
             "element1": "fire",
             "element2": "air",
             "result": "smoke",
-            "fact": "Smoke spreads faster than fire."
+            "fact": "Smoke spreads faster than fire.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Dust",
             "element1": "air",
             "element2": "earth",
             "result": "dust",
-            "fact": "Inside every raindrop/Snowflake is a piece of dust!"
+            "fact": "Inside every raindrop/Snowflake is a piece of dust!",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Dust",
             "element1": "earth",
             "element2": "air",
             "result": "dust",
-            "fact": "Inside every raindrop/Snowflake is a piece of dust!"
+            "fact": "Inside every raindrop/Snowflake is a piece of dust!",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Gunpowder",
             "element1": "fire",
             "element2": "dust",
             "result": "gunpowder",
-            "fact": "Gunpowder is the earliest known chemical explosive."
+            "fact": "Gunpowder is the earliest known chemical explosive.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Gunpowder",
             "element1": "dust",
             "element2": "fire",
             "result": "gunpowder",
-            "fact": "Gunpowder is the earliest known chemical explosive."
+            "fact": "Gunpowder is the earliest known chemical explosive.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Mud",
             "element1": "earth",
             "element2": "water",
             "result": "mud",
-            "fact": "Clay aka mud pottery dates back to 27,000 BC."
+            "fact": "Clay aka mud pottery dates back to 27,000 BC.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Mud",
             "element1": "water",
             "element2": "earth",
             "result": "mud",
-            "fact": "Clay aka mud pottery dates back to 27,000 BC."
+            "fact": "Clay aka mud pottery dates back to 27,000 BC.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Explosion",
             "element1": "fire",
             "element2": "gunpowder",
             "result": "explosion",
-            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki."
+            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Explosion",
             "element1": "gunpowder",
             "element2": "fire",
             "result": "explosion",
-            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki."
+            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
+            "factimage": 2,
+            "fontsize": 20
         },
         {
             "Name": "Brick",
             "element1": "fire",
             "element2": "mud",
             "result": "brick",
-            "fact": "The Great Wall of China was made from 3.8 billion bricks."
+            "fact": "The Great Wall of China was made from 3.8 billion bricks.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Brick",
             "element1": "mud",
             "element2": "fire",
             "result": "brick",
-            "fact": "The Great Wall of China was made from 3.8 billion bricks."
+            "fact": "The Great Wall of China was made from 3.8 billion bricks.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Chimney",
             "element1": "stone",
             "element2": "smoke",
             "result": "chimney",
-            "fact": "Chimneys have been around for over 1,000 years."
+            "fact": "Chimneys have been around for over 1,000 years.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Chimney",
             "element1": "smoke",
             "element2": "stone",
             "result": "chimney",
-            "fact": "Chimneys have been around for over 1,000 years."
+            "fact": "Chimneys have been around for over 1,000 years.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Wall",
             "element1": "brick",
             "element2": "brick",
             "result": "wall",
-            "fact": "We began building stone walls about 10,000 years ago when farming began."
+            "fact": "We began building stone walls about 10,000 years ago when farming began.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Firewall",
             "element1": "fire",
             "element2": "wall",
             "result": "firewall",
-            "fact": "A firewall can be used as an ultimate defense against the spread of fire."
+            "fact": "A firewall can be used as an ultimate defense against the spread of fire.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Firewall",
             "element1": "wall",
             "element2": "fire",
             "result": "firewall",
-            "fact": "A firewall can be used as an ultimate defense against the spread of fire."
+            "fact": "A firewall can be used as an ultimate defense against the spread of fire.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Dam",
             "element1": "water",
             "element2": "wall",
             "result": "dam",
-            "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism."
+            "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Dam",
             "element1": "wall",
             "element2": "water",
             "result": "dam",
-            "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism."
+            "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Lava",
             "element1": "earth",
             "element2": "fire",
             "result": "lava",
-            "fact": "Lava can reach temperatures as hot as 1,250C."
+            "fact": "Lava can reach temperatures as hot as 1,250C.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Lava",
             "element1": "fire",
             "element2": "earth",
             "result": "lava",
-            "fact": "Lava can reach temperatures as hot as 1,250C."
+            "fact": "Lava can reach temperatures as hot as 1,250C.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Stone",
             "element1": "air",
             "element2": "lava",
             "result": "stone",
-            "fact": "The oldest stone tools date to around 3.3 million years ago."
+            "fact": "The oldest stone tools date to around 3.3 million years ago.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Stone",
             "element1": "lava",
             "element2": "air",
             "result": "stone",
-            "fact": "The oldest stone tools date to around 3.3 million years ago."
+            "fact": "The oldest stone tools date to around 3.3 million years ago.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Glass",
             "element1": "fire",
             "element2": "sand",
             "result": "glass",
-            "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A."
+            "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Glass",
             "element1": "sand",
             "element2": "fire",
             "result": "glass",
-            "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A."
+            "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Metal",
             "element1": "fire",
             "element2": "stone",
             "result": "metal",
-            "fact": "It snows metal on Venus."
+            "fact": "It snows metal on Venus.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Metal",
             "element1": "stone",
             "element2": "fire",
             "result": "metal",
-            "fact": "It snows metal on Venus."
+            "fact": "It snows metal on Venus.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Obsidian",
             "element1": "water",
             "element2": "lava",
             "result": "obsidian",
-            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Obsidian",
             "element1": "lava",
             "element2": "water",
             "result": "obsidian",
-            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Aquarium",
             "element1": "water",
             "element2": "glass",
             "result": "aquarium",
-            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 2,
+            "fontsize": 25
 
         },
         {
@@ -251,77 +315,99 @@
             "element1": "glass",
             "element2": "water",
             "result": "aquarium",
-            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth."
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Beach",
             "element1": "water",
             "element2": "sand",
             "result": "beach",
-            "fact": "It can take thousands of years for a natural beach to be created."
+            "fact": "It can take thousands of years for a natural beach to be created.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Beach",
             "element1": "sand",
             "element2": "water",
             "result": "beach",
-            "fact": "It can take thousands of years for a natural beach to be created."
+            "fact": "It can take thousands of years for a natural beach to be created.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Rust",
             "element1": "air",
             "element2": "metal",
             "result": "rust",
-            "fact": "If the metal is covered in wax, oil, or paint, it cannot oxidize."
+            "fact": "If the metal is covered in wax, oil, or paint, it cannot oxidize.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Rust",
             "element1": "metal",
             "element2": "air",
             "result": "rust",
-            "fact": "If the metal is covered in wax, oil, or paint, it cannot oxidize."
+            "fact": "If the metal is covered in wax, oil, or paint, it cannot oxidize.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Geyser",
             "element1": "earth",
             "element2": "steam",
             "result": "geyser",
-            "fact": "A natural spring that sometimes sends hot water or steam up into the air."
+            "fact": "A natural spring that sometimes sends hot water or steam up into the air.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Geyser",
             "element1": "steam",
             "element2": "earth",
             "result": "geyser",
-            "fact": "A natural spring that sometimes sends hot water or steam up into the air."
+            "fact": "A natural spring that sometimes sends hot water or steam up into the air.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Continent",
             "element1": "earth",
             "element2": "land",
             "result": "continent",
-            "fact": "Asia is the largest continent in size."
+            "fact": "Asia is the largest continent in size.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Continent",
             "element1": "land",
             "element2": "earth",
             "result": "continent",
-            "fact": "Asia is the largest continent in size."
+            "fact": "Asia is the largest continent in size.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Plough",
             "element1": "earth",
             "element2": "metal",
             "result": "plough",
-            "fact": "Ground that has been plowed is a good place for a farmer to grow food."
+            "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Plough",
             "element1": "metal",
             "element2": "earth",
             "result": "plough",
-            "fact": "Ground that has been plowed is a good place for a farmer to grow food."
+            "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Field",
@@ -342,280 +428,360 @@
             "element1": "sand",
             "element2": "glass",
             "result": "hourglass",
-            "fact": "Hourglass is a glass instrument for measuring time."
+            "fact": "Hourglass is a glass instrument for measuring time.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Hourglass",
             "element1": "glass",
             "element2": "sand",
             "result": "hourglass",
-            "fact": "Hourglass is a glass instrument for measuring time."
+            "fact": "Hourglass is a glass instrument for measuring time.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Sunglasses",
             "element1": "glass",
             "element2": "metal",
             "result": "sunglasses",
-            "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple."
+            "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Sunglasses",
             "element1": "metal",
             "element2": "glass",
             "result": "sunglasses",
-            "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple."
+            "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Mirror",
             "element1": "glass",
             "element2": "metal",
             "result": "mirror",
-            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE."
+            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Mirror",
             "element1": "metal",
             "element2": "glass",
             "result": "mirror",
-            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE."
+            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Grenade",
             "element1": "metal",
             "element2": "explosion",
             "result": "grenade",
-            "fact": "You can't pull a grenade with your teeth."
+            "fact": "You can't pull a grenade with your teeth.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Grenade",
             "element1": "explosion",
             "element2": "metal",
             "result": "grenade",
-            "fact": "You can't pull a grenade with your teeth."
+            "fact": "You can't pull a grenade with your teeth.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Bullet",
             "element1": "gunpowder",
             "element2": "metal",
             "result": "bullet",
-            "fact": "Bullets are small metal objects fired from guns."
+            "fact": "Bullets are small metal objects fired from guns.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Bullet",
             "element1": "metal",
             "element2": "gunpowder",
             "result": "bullet",
-            "fact": "Bullets are small metal objects fired from guns."
+            "fact": "Bullets are small metal objects fired from guns.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Gun",
             "element1": "metal",
             "element2": "bullet",
             "result": "gun",
-            "fact": "The first gun was made up of Bamboo."
+            "fact": "The first gun was made up of Bamboo.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Gun",
             "element1": "bullet",
             "element2": "metal",
             "result": "gun",
-            "fact": "The first gun was made up of Bamboo."
+            "fact": "The first gun was made up of Bamboo.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Gold",
             "element1": "metal",
             "element2": "sand",
             "result": "gold",
-            "fact": "Gold is one of the best conductors of electricity of any meta."
+            "fact": "Gold is one of the best conductors of electricity of any meta.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Gold",
             "element1": "sand",
             "element2": "metal",
             "result": "gold",
-            "fact": "Gold is one of the best conductors of electricity of any meta."
+            "fact": "Gold is one of the best conductors of electricity of any meta.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Boiler",
             "element1": "metal",
             "element2": "steam",
             "result": "boiler",
-            "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point."
+            "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Boiler",
             "element1": "steam",
             "element2": "metal",
             "result": "boiler",
-            "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point."
+            "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Flamethrower",
             "element1": "fire",
             "element2": "gun",
             "result": "flamethrower",
-            "fact": "A flamethrower is a device used to shoot fire."
+            "fact": "A flamethrower is a device used to shoot fire.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Flamethrower",
             "element1": "gun",
             "element2": "fire",
             "result": "flamethrower",
-            "fact": "A flamethrower is a device used to shoot fire."
+            "fact": "A flamethrower is a device used to shoot fire.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Energy",
             "element1": "fire",
             "element2": "fire",
             "result": "energy",
-            "fact": "Energy cannot be destroyed."
+            "fact": "Energy cannot be destroyed.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Energy",
             "element1": "fire",
             "element2": "fire",
             "result": "energy",
-            "fact": "Energy cannot be destroyed."
+            "fact": "Energy cannot be destroyed.",
+            "factimage": 1,
+            "fontsize": 30
         },
         {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",
             "result": "land",
-            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land."
+            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",
             "result": "land",
-            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land."
+            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Puddle",
             "element1": "water",
             "element2": "water",
             "result": "puddle",
-            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface."
+            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Pressure",
             "element1": "air",
             "element2": "air",
             "result": "pressure",
-            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface."
+            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface.",
+            "factimage": 2,
+            "fontsize": 25
         },
         {
             "Name": "Wind",
             "element1": "pressure",
             "element2": "air",
             "result": "wind",
-            "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn."
+            "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn.",
+            "factimage": 3,
+            "fontsize": 30
         },
         {
             "Name": "Wind",
             "element1": "air",
             "element2": "pressure",
             "result": "wind",
-            "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn."
+            "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn.",
+            "factimage": 3,
+            "fontsize": 30
         },
         {
             "Name": "Pond",
             "element1": "puddle",
             "element2": "water",
             "result": "pond",
-            "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond."
+            "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond.",
+            "factimage": 3,
+            "fontsize": 30
         },
         {
             "Name": "Pond",
             "element1": "water",
             "element2": "puddle",
             "result": "pond",
-            "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond."
+            "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond.",
+            "factimage": 3,
+            "fontsize": 30
         },
         {
             "Name": "Lake",
             "element1": "water",
             "element2": "pond",
             "result": "lake",
-            "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them."
+            "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them.",
+            "factimage": 3,
+            "fontsize": 30
         },
         {
             "Name": "Lake",
             "element1": "pond",
             "element2": "water",
             "result": "lake",
-            "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them."
+            "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them.",
+            "factimage": 3,
+            "fontsize": 30
         },
         {
             "Name": "Sea",
             "element1": "water",
             "element2": "lake",
             "result": "sea",
-            "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake."
+            "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Sea",
             "element1": "lake",
             "element2": "water",
             "result": "sea",
-            "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake."
+            "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Ocean",
             "element1": "water",
             "element2": "sea",
             "result": "ocean",
-            "fact": "An ocean is a large area of salt water between continents."
+            "fact": "An ocean is a large area of salt water between continents.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Ocean",
             "element1": "sea",
             "element2": "water",
             "result": "ocean",
-            "fact": "An ocean is a large area of salt water between continents."
+            "fact": "An ocean is a large area of salt water between continents.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Heat",
             "element1": "air",
             "element2": "energy",
             "result": "heat",
-            "fact": "Heat means energy which is moved between two things when one of them is hotter than the other."
+            "fact": "Heat means energy which is moved between two things when one of them is hotter than the other.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Heat",
             "element1": "energy",
             "element2": "air",
             "result": "heat",
-            "fact": "Heat means energy which is moved between two things when one of them is hotter than the other."
+            "fact": "Heat means energy which is moved between two things when one of them is hotter than the other.",
+            "factimage": 2,
+            "fontsize": 30
         },
         {
             "Name": "Stungun",
             "element1": "energy",
             "element2": "gun",
             "result": "stungun",
-            "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle."
+            "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Stungun",
             "element1": "gun",
             "element2": "energy",
             "result": "stungun",
-            "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle."
+            "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Atomicbomb",
             "element1": "energy",
             "element2": "explosion",
             "result": "atomicbomb",
-            "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff."
+            "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff.",
+            "factimage": 3,
+            "fontsize": 20
         },
         {
             "Name": "Atomicbomb",
             "element1": "explosion",
             "element2": "energy",
             "result": "atomicbomb",
-            "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff."
+            "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff.",
+            "factimage": 3,
+            "fontsize": 20
         }
     ]
 }
