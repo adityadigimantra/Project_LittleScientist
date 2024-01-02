@@ -43,6 +43,7 @@ public class combinationManager : MonoBehaviour
     private string funfactstr;
     public Text newElementText;
     public Text FunfactText;
+    public GameObject[] FunFactsBar;
     public GameObject noCombinationFoundPanel;
     public GameObject combinationAlreadyMadePanel;
     public GameObject ContentPanel;
@@ -227,6 +228,7 @@ public class combinationManager : MonoBehaviour
             }
         }
     }
+
 
 
     public void createNewElement()
