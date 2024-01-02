@@ -3286,7 +3286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 65.31212, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -10149,7 +10149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1431888835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10763,6 +10763,8 @@ MonoBehaviour:
     element2: 
     result: 
     fact: 
+    factimage: 0
+    fontsize: 0
   elementLoaderObj: {fileID: 0}
   Instance_Element: {fileID: 0}
   charManager: {fileID: 0}
@@ -10785,12 +10787,15 @@ MonoBehaviour:
   newElementCreatedPanel: {fileID: 1431888834}
   NewelementImage: {fileID: 715885258}
   newElementText: {fileID: 12850275}
-  FunfactText: {fileID: 2124940585}
-  FunFactsBar: []
   noCombinationFoundPanel: {fileID: 1131231847}
   combinationAlreadyMadePanel: {fileID: 1452363242}
   ContentPanel: {fileID: 2102901238}
   discoveryTray_Panel: {fileID: 1878907883}
+  FunFactsBar:
+  - {fileID: 627596855}
+  - {fileID: 1843789072}
+  - {fileID: 441124428}
+  FunfactText: {fileID: 2124940585}
   elementsPanel: {fileID: 1212416853}
   topScrollView: {fileID: 1974582449}
   BottomScrollView: {fileID: 1342208335}
@@ -12560,7 +12565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1843789073
 RectTransform:
   m_ObjectHideFlags: 0

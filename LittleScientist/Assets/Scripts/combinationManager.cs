@@ -40,17 +40,17 @@ public class combinationManager : MonoBehaviour
     public GameObject newElementCreatedPanel;
     //public Text CollidingResult;
     public Image NewelementImage;
-    private string funfactstr;
     public Text newElementText;
-    public Text FunfactText;
-    public GameObject[] FunFactsBar;
     public GameObject noCombinationFoundPanel;
     public GameObject combinationAlreadyMadePanel;
     public GameObject ContentPanel;
     public GameObject discoveryTray_Panel;
 
 
-
+    [Header("FunFacts")]
+    public GameObject[] FunFactsBar;
+    public Text FunfactText;
+    private string funfactstr;
 
 
     [Header("Public Fields")]
@@ -207,9 +207,10 @@ public class combinationManager : MonoBehaviour
             {
                  Debug.Log("Result:" + resultCombination.result);
                  funfactstr = resultCombination.fact;
-                 if(string.IsNullOrEmpty(funfactstr))
+                 CreateFunFact(funfactstr, resultCombination.fontsize, resultCombination.factimage);
+                 if (string.IsNullOrEmpty(funfactstr))
                  {
-                     funfactstr = "I have to put a fun fact here.";
+                     funfactstr = "No Fun Fact Present.";
                  }
                  
                  if (!loadCreatedElements.Contains(resultCombination.result))
@@ -229,7 +230,30 @@ public class combinationManager : MonoBehaviour
         }
     }
 
+    public void CreateFunFact(string fact,int fontsize,int barImageIndex)
+    {
+        FunfactText.text = fact;
+        FunfactText.fontSize = fontsize;
+        switch (barImageIndex)
+        {
+            case 1:
+                FunFactsBar[0].SetActive(true);
+                break;
+            case 2:
+                FunFactsBar[1].SetActive(true);
+                break;
+            case 3:
+                FunFactsBar[2].SetActive(true);
+                break;
+            default:
+                for(int i=0;i<FunFactsBar.Length;i++)
+                {
+                    FunFactsBar[i].SetActive(false);
+                }
+                break;
+        }
 
+    }
 
     public void createNewElement()
     {
@@ -477,7 +501,7 @@ public class combinationManager : MonoBehaviour
                     NewelementImage.sprite = elementImage;
                     string finalStringtoShowOnPanel=charManager.ConvertToUpperCase(loadedString);
                     newElementText.text = finalStringtoShowOnPanel;
-                    FunfactText.text = funfactstr;
+                    //FunfactText.text = funfactstr;
                 }
                 //Instance_Element.isColliding = false;
                 int childinLeftScrollLocal = leftScrollView.transform.childCount;

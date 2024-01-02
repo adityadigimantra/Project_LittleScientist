@@ -10,4 +10,6 @@ public class Combination
     public string element2;
     public string result;
     public string fact;
+    public int factimage;
+    public int fontsize;
 }
