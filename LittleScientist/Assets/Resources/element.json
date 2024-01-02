@@ -337,280 +337,280 @@
             "element1": "sand",
             "element2": "glass",
             "result": "hourglass",
-            "fact": ""
+            "fact": "Hourglass is a glass instrument for measuring time."
         },
         {
             "Name": "Hourglass",
             "element1": "glass",
             "element2": "sand",
             "result": "hourglass",
-            "fact": ""
+            "fact": "Hourglass is a glass instrument for measuring time."
         },
         {
             "Name": "Sunglasses",
             "element1": "glass",
             "element2": "metal",
             "result": "sunglasses",
-            "fact": ""
+            "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple."
         },
         {
             "Name": "Sunglasses",
             "element1": "metal",
             "element2": "glass",
             "result": "sunglasses",
-            "fact": ""
+            "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple."
         },
         {
             "Name": "Mirror",
             "element1": "glass",
             "element2": "metal",
             "result": "mirror",
-            "fact": ""
+            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE."
         },
         {
             "Name": "Mirror",
             "element1": "metal",
             "element2": "glass",
             "result": "mirror",
-            "fact": ""
+            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE."
         },
         {
             "Name": "Grenade",
             "element1": "metal",
             "element2": "explosion",
             "result": "grenade",
-            "fact": ""
+            "fact": "You can't pull a grenade with your teeth."
         },
         {
             "Name": "Grenade",
             "element1": "explosion",
             "element2": "metal",
             "result": "grenade",
-            "fact": ""
+            "fact": "You can't pull a grenade with your teeth."
         },
         {
             "Name": "Bullet",
             "element1": "gunpowder",
             "element2": "metal",
             "result": "bullet",
-            "fact": ""
+            "fact": "Bullets are small metal objects fired from guns."
         },
         {
             "Name": "Bullet",
             "element1": "metal",
             "element2": "gunpowder",
             "result": "bullet",
-            "fact": ""
+            "fact": "Bullets are small metal objects fired from guns."
         },
         {
             "Name": "Gun",
             "element1": "metal",
             "element2": "bullet",
             "result": "gun",
-            "fact": ""
+            "fact": "The first gun was made up of Bamboo."
         },
         {
             "Name": "Gun",
             "element1": "bullet",
             "element2": "metal",
             "result": "gun",
-            "fact": ""
+            "fact": "The first gun was made up of Bamboo."
         },
         {
             "Name": "Gold",
             "element1": "metal",
             "element2": "sand",
             "result": "gold",
-            "fact": ""
+            "fact": "Gold is one of the best conductors of electricity of any meta."
         },
         {
             "Name": "Gold",
             "element1": "sand",
             "element2": "metal",
             "result": "gold",
-            "fact": ""
+            "fact": "Gold is one of the best conductors of electricity of any meta."
         },
         {
             "Name": "Boiler",
             "element1": "metal",
             "element2": "steam",
             "result": "boiler",
-            "fact": ""
+            "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point."
         },
         {
             "Name": "Boiler",
             "element1": "steam",
             "element2": "metal",
             "result": "boiler",
-            "fact": ""
+            "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point."
         },
         {
             "Name": "Flamethrower",
             "element1": "fire",
             "element2": "gun",
             "result": "flamethrower",
-            "fact": ""
+            "fact": "A flamethrower is a device used to shoot fire."
         },
         {
             "Name": "Flamethrower",
             "element1": "gun",
             "element2": "fire",
             "result": "flamethrower",
-            "fact": ""
+            "fact": "A flamethrower is a device used to shoot fire."
         },
         {
             "Name": "Energy",
             "element1": "fire",
             "element2": "fire",
             "result": "energy",
-            "fact": ""
+            "fact": "Energy cannot be destroyed."
         },
         {
             "Name": "Energy",
             "element1": "fire",
             "element2": "fire",
             "result": "energy",
-            "fact": ""
+            "fact": "Energy cannot be destroyed."
         },
         {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",
             "result": "land",
-            "fact": ""
+            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land."
         },
         {
             "Name": "Land",
             "element1": "earth",
             "element2": "earth",
             "result": "land",
-            "fact": ""
+            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land."
         },
         {
             "Name": "Puddle",
             "element1": "water",
             "element2": "water",
             "result": "puddle",
-            "fact": ""
+            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface."
         },
         {
             "Name": "Pressure",
             "element1": "air",
             "element2": "air",
             "result": "pressure",
-            "fact": ""
+            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface."
         },
         {
             "Name": "Wind",
             "element1": "pressure",
             "element2": "air",
             "result": "wind",
-            "fact": ""
+            "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn."
         },
         {
             "Name": "Wind",
             "element1": "air",
             "element2": "pressure",
             "result": "wind",
-            "fact": ""
+            "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn."
         },
         {
             "Name": "Pond",
             "element1": "puddle",
             "element2": "water",
             "result": "pond",
-            "fact": ""
+            "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond."
         },
         {
             "Name": "Pond",
             "element1": "water",
             "element2": "puddle",
             "result": "pond",
-            "fact": ""
+            "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond."
         },
         {
             "Name": "Lake",
             "element1": "water",
             "element2": "pond",
             "result": "lake",
-            "fact": ""
+            "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them."
         },
         {
             "Name": "Lake",
             "element1": "pond",
             "element2": "water",
             "result": "lake",
-            "fact": ""
+            "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them."
         },
         {
             "Name": "Sea",
             "element1": "water",
             "element2": "lake",
             "result": "sea",
-            "fact": ""
+            "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake."
         },
         {
             "Name": "Sea",
             "element1": "lake",
             "element2": "water",
             "result": "sea",
-            "fact": ""
+            "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake."
         },
         {
             "Name": "Ocean",
             "element1": "water",
             "element2": "sea",
             "result": "ocean",
-            "fact": ""
+            "fact": "An ocean is a large area of salt water between continents."
         },
         {
             "Name": "Ocean",
             "element1": "sea",
             "element2": "water",
             "result": "ocean",
-            "fact": ""
+            "fact": "An ocean is a large area of salt water between continents."
         },
         {
             "Name": "Heat",
             "element1": "air",
             "element2": "energy",
             "result": "heat",
-            "fact": ""
+            "fact": "Heat means energy which is moved between two things when one of them is hotter than the other."
         },
         {
             "Name": "Heat",
             "element1": "energy",
             "element2": "air",
             "result": "heat",
-            "fact": ""
+            "fact": "Heat means energy which is moved between two things when one of them is hotter than the other."
         },
         {
             "Name": "Stungun",
             "element1": "energy",
             "element2": "gun",
             "result": "stungun",
-            "fact": ""
+            "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle."
         },
         {
             "Name": "Stungun",
             "element1": "gun",
             "element2": "energy",
             "result": "stungun",
-            "fact": ""
+            "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle."
         },
         {
             "Name": "Atomicbomb",
             "element1": "energy",
             "element2": "explosion",
             "result": "atomicbomb",
-            "fact": ""
+            "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff."
         },
         {
             "Name": "Atomicbomb",
             "element1": "explosion",
             "element2": "energy",
             "result": "atomicbomb",
-            "fact": ""
+            "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff."
         }
     ]
 }
