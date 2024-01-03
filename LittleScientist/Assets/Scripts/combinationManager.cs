@@ -239,23 +239,12 @@ public class combinationManager : MonoBehaviour
         factImageBarIndex = barImageIndex;
         FunfactText.text = funfactstr;
         FunfactText.fontSize = funFactTextSize;
-        switch (factImageBarIndex)
+        if(factImageBarIndex>=1 && factImageBarIndex<=FunFactsBar.Length)
         {
-            case 1:
-                FunFactsBar[0].SetActive(true);
-                break;
-            case 2:
-                FunFactsBar[1].SetActive(true);
-                break;
-            case 3:
-                FunFactsBar[2].SetActive(true);
-                break;
-            default:
-                for(int i=0;i<FunFactsBar.Length;i++)
-                {
-                    FunFactsBar[i].SetActive(false);
-                }
-                break;
+            for(int i=0;i<FunFactsBar.Length;i++)
+            {
+                FunFactsBar[i].SetActive(i == (factImageBarIndex - 1));
+            }
         }
 
     }
@@ -369,7 +358,6 @@ public class combinationManager : MonoBehaviour
         elementManager.MakeGameObjectsNull();
         GiveNewElementFoundMessage();
         yield return new WaitForSeconds(2f);
-        CloseFunBarImages();
         currentElementState = ElementState.InitialState;
         
     }
@@ -838,14 +826,6 @@ public class combinationManager : MonoBehaviour
     {
         CombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
         charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 25);
-    }
-
-    public void CloseFunBarImages()
-    {
-        foreach(GameObject g in FunFactsBar)
-        {
-            g.SetActive(false);
-        }
     }
 
 }

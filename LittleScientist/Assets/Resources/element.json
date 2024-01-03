@@ -7,7 +7,7 @@
             "element2": "fire",
             "result": "steam",
             "fact": "Steam often forms when water is heated.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -16,7 +16,7 @@
             "element2": "water",
             "result": "steam",
             "fact": "Steam often forms when water is heated.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -25,7 +25,7 @@
             "element2": "air",
             "result": "mist",
             "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 25
 
         },
@@ -35,7 +35,7 @@
             "element2": "water",
             "result": "mist",
             "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 25
 
         },
@@ -63,7 +63,7 @@
             "element2": "earth",
             "result": "dust",
             "fact": "Inside every raindrop/Snowflake is a piece of dust!",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -72,7 +72,7 @@
             "element2": "air",
             "result": "dust",
             "fact": "Inside every raindrop/Snowflake is a piece of dust!",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -81,7 +81,7 @@
             "element2": "dust",
             "result": "gunpowder",
             "fact": "Gunpowder is the earliest known chemical explosive.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -90,7 +90,7 @@
             "element2": "fire",
             "result": "gunpowder",
             "fact": "Gunpowder is the earliest known chemical explosive.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -99,7 +99,7 @@
             "element2": "water",
             "result": "mud",
             "fact": "Clay aka mud pottery dates back to 27,000 BC.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -108,7 +108,7 @@
             "element2": "earth",
             "result": "mud",
             "fact": "Clay aka mud pottery dates back to 27,000 BC.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -117,7 +117,7 @@
             "element2": "gunpowder",
             "result": "explosion",
             "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
-            "factimage": 3,
+            "factimage": 5,
             "fontsize": 25
         },
         {
@@ -126,7 +126,7 @@
             "element2": "fire",
             "result": "explosion",
             "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
-            "factimage": 2,
+            "factimage": 5,
             "fontsize": 25
         },
         {
@@ -135,7 +135,7 @@
             "element2": "mud",
             "result": "brick",
             "fact": "The Great Wall of China was made from 3.8 billion bricks.",
-            "factimage": 1,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -144,7 +144,7 @@
             "element2": "fire",
             "result": "brick",
             "fact": "The Great Wall of China was made from 3.8 billion bricks.",
-            "factimage": 1,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -153,7 +153,7 @@
             "element2": "smoke",
             "result": "chimney",
             "fact": "Chimneys have been around for over 1,000 years.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -162,7 +162,7 @@
             "element2": "stone",
             "result": "chimney",
             "fact": "Chimneys have been around for over 1,000 years.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
