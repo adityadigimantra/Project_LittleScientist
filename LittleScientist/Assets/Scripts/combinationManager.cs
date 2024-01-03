@@ -51,6 +51,8 @@ public class combinationManager : MonoBehaviour
     public GameObject[] FunFactsBar;
     public Text FunfactText;
     private string funfactstr;
+    public int factImageBarIndex;
+    public int funFactTextSize;
 
 
     [Header("Public Fields")]
@@ -232,9 +234,12 @@ public class combinationManager : MonoBehaviour
 
     public void CreateFunFact(string fact,int fontsize,int barImageIndex)
     {
-        FunfactText.text = fact;
-        FunfactText.fontSize = fontsize;
-        switch (barImageIndex)
+        funfactstr = fact;
+        funFactTextSize = fontsize;
+        factImageBarIndex = barImageIndex;
+        FunfactText.text = funfactstr;
+        FunfactText.fontSize = funFactTextSize;
+        switch (factImageBarIndex)
         {
             case 1:
                 FunFactsBar[0].SetActive(true);
@@ -254,6 +259,8 @@ public class combinationManager : MonoBehaviour
         }
 
     }
+
+
 
     public void createNewElement()
     {
@@ -361,8 +368,10 @@ public class combinationManager : MonoBehaviour
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
         elementManager.MakeGameObjectsNull();
         GiveNewElementFoundMessage();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        CloseFunBarImages();
         currentElementState = ElementState.InitialState;
+        
     }
     IEnumerator NoCombinationFound()
     {
@@ -829,6 +838,14 @@ public class combinationManager : MonoBehaviour
     {
         CombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
         charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 25);
+    }
+
+    public void CloseFunBarImages()
+    {
+        foreach(GameObject g in FunFactsBar)
+        {
+            g.SetActive(false);
+        }
     }
 
 }

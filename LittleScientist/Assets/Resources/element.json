@@ -99,7 +99,7 @@
             "element2": "water",
             "result": "mud",
             "fact": "Clay aka mud pottery dates back to 27,000 BC.",
-            "factimage": 2,
+            "factimage": 1,
             "fontsize": 30
         },
         {
@@ -118,7 +118,7 @@
             "result": "explosion",
             "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Explosion",
@@ -127,7 +127,7 @@
             "result": "explosion",
             "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
             "factimage": 2,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Brick",
@@ -556,7 +556,7 @@
             "result": "boiler",
             "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Boiler",
@@ -565,7 +565,7 @@
             "result": "boiler",
             "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Flamethrower",
@@ -700,7 +700,7 @@
             "result": "sea",
             "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Sea",
@@ -709,7 +709,7 @@
             "result": "sea",
             "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Ocean",
@@ -754,7 +754,7 @@
             "result": "stungun",
             "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Stungun",
@@ -763,7 +763,7 @@
             "result": "stungun",
             "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Atomicbomb",
@@ -772,7 +772,7 @@
             "result": "atomicbomb",
             "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         },
         {
             "Name": "Atomicbomb",
@@ -781,7 +781,7 @@
             "result": "atomicbomb",
             "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff.",
             "factimage": 3,
-            "fontsize": 20
+            "fontsize": 25
         }
     ]
 }
