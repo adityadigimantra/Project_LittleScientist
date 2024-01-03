@@ -25,7 +25,7 @@
             "element2": "air",
             "result": "mist",
             "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
 
         },
@@ -35,7 +35,7 @@
             "element2": "water",
             "result": "mist",
             "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
 
         },
@@ -117,7 +117,7 @@
             "element2": "gunpowder",
             "result": "explosion",
             "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
-            "factimage": 5,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -126,7 +126,7 @@
             "element2": "fire",
             "result": "explosion",
             "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
-            "factimage": 5,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -216,7 +216,7 @@
             "element2": "fire",
             "result": "lava",
             "fact": "Lava can reach temperatures as hot as 1,250C.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -225,7 +225,7 @@
             "element2": "earth",
             "result": "lava",
             "fact": "Lava can reach temperatures as hot as 1,250C.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -234,7 +234,7 @@
             "element2": "lava",
             "result": "stone",
             "fact": "The oldest stone tools date to around 3.3 million years ago.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -243,7 +243,7 @@
             "element2": "air",
             "result": "stone",
             "fact": "The oldest stone tools date to around 3.3 million years ago.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -609,7 +609,7 @@
             "element2": "earth",
             "result": "land",
             "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -618,7 +618,7 @@
             "element2": "earth",
             "result": "land",
             "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -627,7 +627,7 @@
             "element2": "water",
             "result": "puddle",
             "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 25
         },
         {
@@ -636,7 +636,7 @@
             "element2": "air",
             "result": "pressure",
             "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
         },
         {
