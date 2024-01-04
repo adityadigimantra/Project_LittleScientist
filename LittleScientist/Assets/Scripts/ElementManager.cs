@@ -16,6 +16,10 @@ public class ElementManager : MonoBehaviour
     public List<GameObject>ObjectsToSwitchOff=new List<GameObject>();
     public combinationManager comManager;
 
+    public bool animationRunning = false;
+
+    public Coroutine animationCoroutineRef;
+
     [Header("Files")]
     private string saveDisabledGameObjects = "saveDisabledGameobjects.txt";
 
@@ -56,12 +60,23 @@ public class ElementManager : MonoBehaviour
         }
         if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
         {
-            StartCoroutine(waitAndPlayAnimation());
+            if(animationCoroutineRef==null)
+            {
+                animationCoroutineRef = StartCoroutine(waitAndPlayAnimation());
+            }
+           
             PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
         }
         if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
         {
-            StartCoroutine(waitAndPlayAnimation());
+            if(animationCoroutineRef==null)
+            {
+                animationCoroutineRef = StartCoroutine(waitAndPlayAnimation());
+            }
+            else
+            {
+                Debug.Log("Wait I am already running!");
+            }
             //PlayerPrefs.SetInt("NoCombinationFound", 2);
         }
     }
@@ -130,16 +145,31 @@ public class ElementManager : MonoBehaviour
     {
         foreach(GameObject g in ObjectsToSwitchOff)
         {
-            g.transform.GetChild(0).gameObject.SetActive(false);
+            Transform childTransform = g.transform.GetChild(0);
+            if(childTransform!=null)
+            {
+                childTransform.gameObject.SetActive(false);
+            }
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1);
+
         foreach(GameObject g in ObjectsToSwitchOff)
         {
-
-           g.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
-
+            CheckStatus checkStatus = g.GetComponent<CheckStatus>();
+            if(checkStatus!=null && checkStatus.thisObjectAnimator!=null)
+            {
+                checkStatus.thisObjectAnimator.SetBool("IsOpen", false);
+            }
         }
-        ObjectsToSwitchOff.Clear();
+        yield return new WaitForSeconds(2);
+
+        foreach(GameObject g in ObjectsToSwitchOff)
+        {
+            g.SetActive(false);
+        }
+
+        PlayerPrefs.SetInt("NoCombinationFound", 2);
+        animationCoroutineRef = null;
     }
 
 }
