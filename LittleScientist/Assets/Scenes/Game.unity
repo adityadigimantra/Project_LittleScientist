@@ -9916,9 +9916,25 @@ MonoBehaviour:
   - Greetings, young scientist! Prepare to dive into the enchanting universe of Little
     Scientist !
   newElementFoundMessages:
-  - 'Congratulations ! You''ve uncovered a new element in the magical mix of Little
-    Scientist. '
-  - 'Hooray! A new ingredient has been added to your collection in  Little Scientist. '
+  - A shimmering find! A new element emerges, ready to dance with the others. Let's
+    see what marvels unfold.!
+  - A new thread in the tapestry! Your journey just got more enchanting.
+  - Applause for your keen eye! Unearthed a secret with properties to serve you well.
+  - Breakthrough moment!  A new element has revealed itself. Let the enchantment
+    begin.
+  - Congratulations! Reach new heights and embrace power to conquer challenges.
+  - Exciting discovery! A new element has graced our lab. Let's weave its magic into
+    our alchemical symphony.
+  - Fantastic news! A new element has joined us. Time to explore its secrets and
+    unlock endless possibilities.
+  - Incredible! A new element in our journey. Let's incorporate its essence into
+    our experiments.
+  - Exciting developments! A new element has revealed itself. Let the enchantment
+    begin!
+  - Marvelous news! Our journey takes a magical turn with a new element. Time to
+    infuse our concoctions with its unique charm.
+  - A stroke of brilliance! A new element adds mystery to our alchemical endeavors.
+    Let the fusion continue!
   combinationExistsMessages: []
   noCombinationExistsMessages:
   - Interesting attempt! The elements resist each other this time. Keep experimenting!
@@ -9938,6 +9954,8 @@ MonoBehaviour:
     your alchemical journey.
   - A valiant effort, seeker of combinations! Alas, this one remains elusive. Try
     another blend!
+  - An interesting choice, but it appears the elements are not aligning for this
+    combination. Keep exploring!
   randomFunFactsMessages:
   - Did you know that honey never spoils?
   - Bananas are berries, but strawberries aren't
