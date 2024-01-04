@@ -9957,7 +9957,24 @@ MonoBehaviour:
     begin!
   - Marvelous news! Our journey takes a magical turn with a new element. Time to
     infuse our concoctions with its unique charm.
-  combinationExistsMessages: []
+  combinationExistsMessages:
+  - Nice try! This Element is already born from a similar combination. Explore new
+    alchemical paths for unique discoveries.
+  - Valiant effort, but this Element emerged from a similar union. Seek fresh combinations
+    for more mysteries!
+  - Close, but not quite! Element already exists. Keep experimenting with novel ideas!
+  - Interesting attempt! Alas, Element already formed. Venture into uncharted alchemical
+    territories!
+  - Creative thinking! Yet, Element is already a reality. Keep exploring for new
+    discoveries!
+  - Almost there! Element already emerged from a similar combination. Try different
+    elements for a unique concoction!
+  - Great effort! Element was revealed with a similar combination. Forge a new path
+    and discover fresh wonders!
+  - Ingenious attempt! Yet, element mirrors your combination. Explore uncharted blends
+    for new mysteries!
+  - Clever thinking! Alas, Element echoes your combination. Chart a different course
+    for unexplored magic!
   noCombinationExistsMessages:
   - Interesting attempt! The elements resist each other this time. Keep experimenting!
   - A valiant effort, but this combination eludes alchemy's laws. Try different elements
