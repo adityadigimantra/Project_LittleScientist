@@ -171,8 +171,8 @@
             "element2": "brick",
             "result": "wall",
             "fact": "We began building stone walls about 10,000 years ago when farming began.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Firewall",
@@ -180,8 +180,8 @@
             "element2": "wall",
             "result": "firewall",
             "fact": "A firewall can be used as an ultimate defense against the spread of fire.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Firewall",
@@ -189,8 +189,8 @@
             "element2": "fire",
             "result": "firewall",
             "fact": "A firewall can be used as an ultimate defense against the spread of fire.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Dam",
@@ -198,8 +198,8 @@
             "element2": "wall",
             "result": "dam",
             "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Dam",
@@ -207,8 +207,8 @@
             "element2": "water",
             "result": "dam",
             "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Lava",
@@ -288,7 +288,7 @@
             "element2": "lava",
             "result": "obsidian",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -297,7 +297,7 @@
             "element2": "water",
             "result": "obsidian",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -361,8 +361,8 @@
             "element2": "steam",
             "result": "geyser",
             "fact": "A natural spring that sometimes sends hot water or steam up into the air.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Geyser",
@@ -370,8 +370,8 @@
             "element2": "earth",
             "result": "geyser",
             "fact": "A natural spring that sometimes sends hot water or steam up into the air.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Continent",
@@ -397,8 +397,8 @@
             "element2": "metal",
             "result": "plough",
             "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Plough",
@@ -406,8 +406,8 @@
             "element2": "earth",
             "result": "plough",
             "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Field",
@@ -501,7 +501,7 @@
             "element2": "metal",
             "result": "bullet",
             "fact": "Bullets are small metal objects fired from guns.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -510,7 +510,7 @@
             "element2": "gunpowder",
             "result": "bullet",
             "fact": "Bullets are small metal objects fired from guns.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -555,7 +555,7 @@
             "element2": "steam",
             "result": "boiler",
             "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -564,7 +564,7 @@
             "element2": "metal",
             "result": "boiler",
             "fact": "A boiler is a device used to heat water or other fluids until it boils or before boiling point.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -573,7 +573,7 @@
             "element2": "gun",
             "result": "flamethrower",
             "fact": "A flamethrower is a device used to shoot fire.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -582,7 +582,7 @@
             "element2": "fire",
             "result": "flamethrower",
             "fact": "A flamethrower is a device used to shoot fire.",
-            "factimage": 1,
+            "factimage": 2,
             "fontsize": 30
         },
         {
@@ -663,8 +663,8 @@
             "element2": "water",
             "result": "pond",
             "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond.",
-            "factimage": 3,
-            "fontsize": 30
+            "factimage": 4,
+            "fontsize": 25
         },
         {
             "Name": "Pond",
@@ -672,8 +672,8 @@
             "element2": "puddle",
             "result": "pond",
             "fact": "Ponds support wide range of wildlife: ducks, turtles, swans, small fish, and frogs can live in a pond.",
-            "factimage": 3,
-            "fontsize": 30
+            "factimage": 4,
+            "fontsize": 25
         },
         {
             "Name": "Lake",
@@ -682,7 +682,7 @@
             "result": "lake",
             "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them.",
             "factimage": 3,
-            "fontsize": 30
+            "fontsize": 25
         },
         {
             "Name": "Lake",
@@ -691,7 +691,7 @@
             "result": "lake",
             "fact": "Lakes do not flow like rivers, but many have rivers flowing into and out of them.",
             "factimage": 3,
-            "fontsize": 30
+            "fontsize": 25
         },
         {
             "Name": "Sea",
@@ -699,7 +699,7 @@
             "element2": "lake",
             "result": "sea",
             "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -708,7 +708,7 @@
             "element2": "water",
             "result": "sea",
             "fact": "A sea is a large area of salt water which is part of an ocean, or a large, usually salt water, closed lake.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -717,7 +717,7 @@
             "element2": "sea",
             "result": "ocean",
             "fact": "An ocean is a large area of salt water between continents.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -726,7 +726,7 @@
             "element2": "water",
             "result": "ocean",
             "fact": "An ocean is a large area of salt water between continents.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -771,7 +771,7 @@
             "element2": "explosion",
             "result": "atomicbomb",
             "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -780,7 +780,7 @@
             "element2": "energy",
             "result": "atomicbomb",
             "fact": "The term Fat Man, used for one of the atomic bombs dropped on Japan in 1945, was named after Winston Churchill, who was referred to as the old man by his staff.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         }
     ]
