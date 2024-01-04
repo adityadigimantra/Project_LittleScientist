@@ -252,8 +252,8 @@
             "element2": "sand",
             "result": "glass",
             "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Glass",
@@ -261,8 +261,8 @@
             "element2": "fire",
             "result": "glass",
             "fact": "Beautiful stained-glass windows have been crafted all the way back since 400A.",
-            "factimage": 2,
-            "fontsize": 30
+            "factimage": 3,
+            "fontsize": 25
         },
         {
             "Name": "Metal",
@@ -306,7 +306,7 @@
             "element2": "glass",
             "result": "aquarium",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
 
         },
@@ -316,7 +316,7 @@
             "element2": "water",
             "result": "aquarium",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -325,16 +325,35 @@
             "element2": "sand",
             "result": "beach",
             "fact": "It can take thousands of years for a natural beach to be created.",
+            "factimage": 3,
+            "fontsize": 30
+        },
+        {
+            "Name": "Sand",
+            "element1": "stone",
+            "element2": "air",
+            "result": "sand",
+            "fact": "Sand comes in many colors.",
+            "factimage": 1,
+            "fontsize": 30
+        },
+        {
+            "Name": "Sand",
+            "element1": "air",
+            "element2": "stone",
+            "result": "sand",
+            "fact": "Sand comes in many colors.",
             "factimage": 2,
             "fontsize": 30
         },
+
         {
             "Name": "Beach",
             "element1": "sand",
             "element2": "water",
             "result": "beach",
             "fact": "It can take thousands of years for a natural beach to be created.",
-            "factimage": 2,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -414,14 +433,14 @@
             "element1": "plough",
             "element2": "earth",
             "result": "field",
-            "fact": ""
+            "fact": "Missing Funfact"
         },
         {
             "Name": "Field",
             "element1": "earth",
             "element2": "plough",
             "result": "field",
-            "fact": ""
+            "fact": "Missing Funfact"
         },
         {
             "Name": "Hourglass",
@@ -429,7 +448,7 @@
             "element2": "glass",
             "result": "hourglass",
             "fact": "Hourglass is a glass instrument for measuring time.",
-            "factimage": 1,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -438,7 +457,7 @@
             "element2": "sand",
             "result": "hourglass",
             "fact": "Hourglass is a glass instrument for measuring time.",
-            "factimage": 1,
+            "factimage": 3,
             "fontsize": 30
         },
         {
@@ -447,7 +466,7 @@
             "element2": "metal",
             "result": "sunglasses",
             "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -456,25 +475,7 @@
             "element2": "glass",
             "result": "sunglasses",
             "fact": "Sunglasses were originally designed in the 1930s for aviators but became a fashion staple.",
-            "factimage": 2,
-            "fontsize": 25
-        },
-        {
-            "Name": "Mirror",
-            "element1": "glass",
-            "element2": "metal",
-            "result": "mirror",
-            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE.",
-            "factimage": 2,
-            "fontsize": 25
-        },
-        {
-            "Name": "Mirror",
-            "element1": "metal",
-            "element2": "glass",
-            "result": "mirror",
-            "fact": "The first mirrors were made from polished obsidian in Turkey around 6000 BCE.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -735,7 +736,7 @@
             "element2": "energy",
             "result": "heat",
             "fact": "Heat means energy which is moved between two things when one of them is hotter than the other.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 30
         },
         {
@@ -744,7 +745,7 @@
             "element2": "air",
             "result": "heat",
             "fact": "Heat means energy which is moved between two things when one of them is hotter than the other.",
-            "factimage": 2,
+            "factimage": 4,
             "fontsize": 30
         },
         {
