@@ -8405,6 +8405,7 @@ MonoBehaviour:
   Parent2Object: {fileID: 0}
   ObjectsToSwitchOff: []
   comManager: {fileID: 0}
+  animationRunning: 0
 --- !u!4 &1210606006
 Transform:
   m_ObjectHideFlags: 0
@@ -9918,12 +9919,25 @@ MonoBehaviour:
   - 'Congratulations ! You''ve uncovered a new element in the magical mix of Little
     Scientist. '
   - 'Hooray! A new ingredient has been added to your collection in  Little Scientist. '
-  combinationExistsMessages:
-  - Nice try! You've recreated a known combination.
-  - Well, well! You've stumbled upon a combination you've already conquered
+  combinationExistsMessages: []
   noCombinationExistsMessages:
-  - 'Hmm, it seems these elements don''t form a new combination '
-  - Nice try! The elements you combined  didn't create anything new.
+  - Interesting attempt! The elements resist each other this time. Keep experimenting!
+  - A valiant effort, but this combination eludes alchemy's laws. Try different elements
+    for success!
+  - The elements play coy! Your combination doesn't spark the expected reaction.
+    Keep tinkering!
+  - Bold experiment! Unfortunately, these elements remain unyielding. Uncover fresh
+    combinations!
+  - A noble effort, but the elements in your mix aren't harmonising. Keep exploring
+    for the perfect combination.
+  - Fascinating attempt! However, these elements prefer to keep their distance. The
+    next combination may hold the key!
+  - Interesting choice, but the elements don't dance together this time. Keep experimenting
+    for the perfect fusion.
+  - An adventurous try! Yet, the elements resist your command this time. Continue
+    your alchemical journey.
+  - A valiant effort, seeker of combinations! Alas, this one remains elusive. Try
+    another blend!
   randomFunFactsMessages:
   - Did you know that honey never spoils?
   - Bananas are berries, but strawberries aren't
