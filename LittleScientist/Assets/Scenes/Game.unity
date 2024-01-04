@@ -9924,7 +9924,21 @@ MonoBehaviour:
     wonders.
   - Reignite the magic! Combine wisely, for the fate of this world rests in your
     hands.
-  welcomingMessages: []
+  welcomingMessages:
+  - Greetings, Scientist! Master the elemental wonders through combining, experimenting,
+    and conquering!
+  - Dive into the realms of fire, water, air, and earth. Let your adventure unfold
+    with captivating combinations!
+  - Welcome to the Elemental Fusion Challenge! Mix the universe's building blocks
+    for epic combinations and legendary skills!
+  - Hello, Sorcerer of Elements! Wisely combine elements, shaping the fate of this
+    mystical world. May your creations be legendary!
+  - Hello, Elemental Explorer! Enter the world of wonders. Unleash your imagination,
+    experiment, and let the magic unfold!
+  - Welcome, Element Enchanter! Brace for a world of endless possibilities. Let the
+    fusion adventure commence!
+  - Hello, Master of the Elements! Embark on your journey in the realm of alchemical
+    wonders. Mix, match, and uncover secrets within.
   newElementFoundMessages:
   - A shimmering find! A new element emerges, ready to dance with the others. Let's
     see what marvels unfold.!
