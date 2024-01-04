@@ -105,7 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 12
     textureCompression: 1
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2c7725a1cd80b1a43abb5481bbfe3e44
+    spriteID: a7e958bed3421444d9bd72071419c19d
     internalID: 0
     vertices: []
     indices: 

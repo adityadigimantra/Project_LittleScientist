@@ -9909,12 +9909,22 @@ MonoBehaviour:
   - Turn the day around with a tap! The Elemental Kingdom is waiting for your giggles,
     laughter, and fun.
   inactivityMessagesOnReturn:
-  - Hello, master of creations !
-  - Welcome back, apprentice of wonders !
-  welcomingMessages:
-  - Welcome to the world of magic mixing !
-  - Greetings, young scientist! Prepare to dive into the enchanting universe of Little
-    Scientist !
+  - Welcome back! The elements have missed you. Resume your alchemical journey and
+    create extraordinary combinations!
+  - Hello again! The realm awaits your return. Let the fusion forge roar back to
+    life as you master the elements.
+  - Back in action! We're thrilled to have you back. Your legendary skills are needed!
+  - Welcome back! Dive in and conjure up even more potent elemental concoctions.
+  - Reignite the magic! The Alchemy Arena calls your name.
+  - Back to the fusion forge! The Elemental Adept is back. Mix elements and reclaim
+    your mastery.
+  - Welcome back! Resume the quest, unleash your imagination and witness the magic
+    unfold.
+  - The Master of the Elements returns! Resume your journey in the realm of alchemical
+    wonders.
+  - Reignite the magic! Combine wisely, for the fate of this world rests in your
+    hands.
+  welcomingMessages: []
   newElementFoundMessages:
   - A shimmering find! A new element emerges, ready to dance with the others. Let's
     see what marvels unfold.!
@@ -9933,8 +9943,6 @@ MonoBehaviour:
     begin!
   - Marvelous news! Our journey takes a magical turn with a new element. Time to
     infuse our concoctions with its unique charm.
-  - A stroke of brilliance! A new element adds mystery to our alchemical endeavors.
-    Let the fusion continue!
   combinationExistsMessages: []
   noCombinationExistsMessages:
   - Interesting attempt! The elements resist each other this time. Keep experimenting!
