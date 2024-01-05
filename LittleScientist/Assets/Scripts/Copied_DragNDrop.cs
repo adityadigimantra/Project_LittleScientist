@@ -18,6 +18,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public Vector2 FinalPosition;
     public GameObject otherGameObject;
 
+    [Header("Instance")]
+    public ElementManager elementManager;
+
     private void Start()
     {
         currentElementName = gameObject.name;
@@ -26,6 +29,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         canvasGroup = thisObject.GetComponent<CanvasGroup>();
         LoadSetImageforthisElement();
         ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();
+
+        elementManager = FindObjectOfType<ElementManager>();
 
     }
     public void LoadSetImageforthisElement()
@@ -100,13 +105,13 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
                 //Need to play the Animation to the other gameobject not the one which is pointer.
                 gameObject.GetComponent<WiggleAnimation>().startShake();
                 StartCoroutine(MakeActiveExitsElement());
+                elementManager.DisablingObjects();
             }
 
             else if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
             {
                 gameObject.GetComponent<WiggleAnimation>().startShake();
-                //PlayerPrefs.SetInt("NoCombinationFound", 0);
-                //StartCoroutine(StartIfNoCombinationExists());
+                elementManager.DisablingObjects();
             }
 
         }
@@ -127,7 +132,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
         otherGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
         yield return new WaitForSeconds(1f);
-        PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
+        //PlayerPrefs.SetInt("ElementAlreadyPresent", 0);
         otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
         otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
     }

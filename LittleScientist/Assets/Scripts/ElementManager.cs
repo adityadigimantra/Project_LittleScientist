@@ -60,12 +60,13 @@ public class ElementManager : MonoBehaviour
         }
         if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
         {
-            if(animationCoroutineRef==null)
+            PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
+            if (animationCoroutineRef==null)
             {
                 animationCoroutineRef = StartCoroutine(waitAndPlayAnimation());
             }
            
-            PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
+           
         }
         if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
         {

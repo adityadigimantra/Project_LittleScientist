@@ -170,14 +170,6 @@ public class combinationManager : MonoBehaviour
         {
             elementManager.DisablingObjects();
         }
-        if (PlayerPrefs.GetInt("ElementAlreadyPresent") == 1)
-        {
-            elementManager.DisablingObjects();
-        }
-        if(PlayerPrefs.GetInt("NoCombinationFound")==1)
-        {
-            elementManager.DisablingObjects();
-        }
     }
     public void SettingPlayerPrefsValuetoZero()
     {
