@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -5564248608999137188
     second: energy_0
+  - first:
+      213: 3119334169586225959
+    second: energy_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -105,14 +108,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -151,10 +154,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: energy_1
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 701
+        width: 270
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723dce976e91a4b20800000000000000
+      internalID: 3119334169586225959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6174c53f6d1234c4e91ac7d96c74f770
+    spriteID: 9cde98471106f6943a1ab3fe1589a112
     internalID: 0
     vertices: []
     indices: 
