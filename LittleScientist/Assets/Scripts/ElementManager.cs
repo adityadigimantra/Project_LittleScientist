@@ -13,6 +13,8 @@ public class ElementManager : MonoBehaviour
     [Header("Parents and Last GameObjects")]
     public GameObject Parent1Object;
     public GameObject Parent2Object;
+    public GameObject gameObjectWithCopiedTag;
+    public GameObject gameObjectWithNewCreatedElementTag;
     public List<GameObject>ObjectsToSwitchOff=new List<GameObject>();
     public combinationManager comManager;
 
@@ -57,28 +59,6 @@ public class ElementManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("elementCreated", 2);
             }
-        }
-        if(PlayerPrefs.GetInt("ElementAlreadyPresent")==1)
-        {
-            PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
-            if (animationCoroutineRef==null)
-            {
-                animationCoroutineRef = StartCoroutine(waitAndPlayAnimation());
-            }
-           
-           
-        }
-        if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
-        {
-            if(animationCoroutineRef==null)
-            {
-                animationCoroutineRef = StartCoroutine(waitAndPlayAnimation());
-            }
-            else
-            {
-                Debug.Log("Wait I am already running!");
-            }
-            //PlayerPrefs.SetInt("NoCombinationFound", 2);
         }
     }
 
@@ -146,11 +126,7 @@ public class ElementManager : MonoBehaviour
     {
         foreach(GameObject g in ObjectsToSwitchOff)
         {
-            Transform childTransform = g.transform.GetChild(0);
-            if(childTransform!=null)
-            {
-                childTransform.gameObject.SetActive(false);
-            }
+            g.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
         }
         yield return new WaitForSeconds(1);
 
@@ -167,10 +143,39 @@ public class ElementManager : MonoBehaviour
         foreach(GameObject g in ObjectsToSwitchOff)
         {
             g.SetActive(false);
+            //Destroy(g);
         }
-
-        PlayerPrefs.SetInt("NoCombinationFound", 2);
         animationCoroutineRef = null;
     }
 
+    public void DisablingElementsCombinationAlreadyPresent()
+    {
+        StartCoroutine(SwitchingOffElementsCombAlreadyPresentAnimation());
+    }
+
+    public void DisablingElementsWhenNoCombinationFound()
+    {
+        StartCoroutine(SwitchingOffElementsAnimation());
+    }
+
+    IEnumerator SwitchingOffElementsCombAlreadyPresentAnimation()
+    {
+        Parent1Object.GetComponent<Animator>().SetBool("IsOpen", false);
+        Parent2Object.GetComponent<Animator>().SetBool("IsOpen", false);
+        yield return new WaitForSeconds(2f);
+        Parent1Object.SetActive(false);
+        Parent2Object.SetActive(false);
+        
+    }
+
+    IEnumerator SwitchingOffElementsAnimation()
+    {
+        Parent2Object.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+        yield return new WaitForSeconds(2f);
+        Parent1Object.GetComponent<Animator>().SetBool("IsOpen", false);
+        Parent2Object.GetComponent<Animator>().SetBool("IsOpen", false);
+        yield return new WaitForSeconds(2f);
+        Parent1Object.SetActive(false);
+        Parent2Object.SetActive(false);
+    }
 }
