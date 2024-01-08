@@ -71,13 +71,4 @@ public class ScrollRectElements : MonoBehaviour
         Destroy(obj.gameObject);
     }
 }
-    /*
-GameObject newObj = Instantiate(InsideRingElement);
-newObj.name = other.name;
-newObj.transform.GetChild(1).GetComponent<Image>().sprite = other.gameObject.transform.GetChild(2).gameObject.GetComponent<Image>().sprite;
-newObj.GetComponent<BoxCollider2D>().enabled = false;
-newObj.transform.localScale = new Vector2(1f, 1f);
-newObj.transform.position = ScrollRect_Content.transform.position;
-newObj.transform.parent = ScrollRect_Content.transform;
-*/
 

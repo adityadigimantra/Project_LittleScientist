@@ -18,7 +18,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     public Vector2 FinalPosition;
     public GameObject otherGameObject;
 
-    [Header("Instance")]
+    [Header("Instances")]
     public ElementManager elementManager;
 
     private void Start()

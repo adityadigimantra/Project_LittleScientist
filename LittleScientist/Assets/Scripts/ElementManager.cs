@@ -7,6 +7,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class ElementManager : MonoBehaviour
 {
+
+    [Header("Instances")]
+    public combinationManager comManager;
+
+    [Header("Arrays")]
     public GameObject[] CopiedElements;
     public GameObject[] NewCreatedElements;
 
@@ -16,11 +21,7 @@ public class ElementManager : MonoBehaviour
     public GameObject gameObjectWithCopiedTag;
     public GameObject gameObjectWithNewCreatedElementTag;
     public List<GameObject>ObjectsToSwitchOff=new List<GameObject>();
-    public combinationManager comManager;
-
-    public bool animationRunning = false;
-
-    public Coroutine animationCoroutineRef;
+   
 
     [Header("Files")]
     private string saveDisabledGameObjects = "saveDisabledGameobjects.txt";
@@ -122,31 +123,6 @@ public class ElementManager : MonoBehaviour
         }
     }
 
-    IEnumerator waitAndPlayAnimation()
-    {
-        foreach(GameObject g in ObjectsToSwitchOff)
-        {
-            g.transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
-        }
-        yield return new WaitForSeconds(1);
-
-        foreach(GameObject g in ObjectsToSwitchOff)
-        {
-            CheckStatus checkStatus = g.GetComponent<CheckStatus>();
-            if(checkStatus!=null && checkStatus.thisObjectAnimator!=null)
-            {
-                checkStatus.thisObjectAnimator.SetBool("IsOpen", false);
-            }
-        }
-        yield return new WaitForSeconds(2);
-
-        foreach(GameObject g in ObjectsToSwitchOff)
-        {
-            g.SetActive(false);
-            //Destroy(g);
-        }
-        animationCoroutineRef = null;
-    }
 
     public void DisablingElementsCombinationAlreadyPresent()
     {
