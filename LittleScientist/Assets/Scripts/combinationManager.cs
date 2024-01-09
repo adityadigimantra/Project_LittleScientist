@@ -600,11 +600,17 @@ public class combinationManager : MonoBehaviour
             newObj.transform.position = topScrollView.transform.position;
             newObj.transform.parent = topScrollView.transform;
         }
-        else if(BottomScrollView.transform.childCount<8)
+        else
         {
             newObj.transform.position = BottomScrollView.transform.position;
             newObj.transform.parent = BottomScrollView.transform;
         }
+        /*
+        else if(BottomScrollView.transform.childCount<8)
+        {
+            
+        }
+        */
     }
 
     public void placingDiscoveryElementInScrollRect()
