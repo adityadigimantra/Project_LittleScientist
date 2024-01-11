@@ -493,16 +493,16 @@ public class combinationManager : MonoBehaviour
                     //FunfactText.text = funfactstr;
                 }
                 //Instance_Element.isColliding = false;
-                int childinLeftScrollLocal = leftScrollView.transform.childCount;
-                if (childinLeftScrollLocal >= 5)
-                {
-                    break;
-                }
-                int childInTopScrolllocal = topScrollView.transform.childCount;
-                if (childInTopScrolllocal >= 8)
-                {
-                    break;
-                }
+                //int childinLeftScrollLocal = leftScrollView.transform.childCount;
+                //if (childinLeftScrollLocal >= 5)
+                //{
+                   // break;
+                //}
+                //int childInTopScrolllocal = topScrollView.transform.childCount;
+                //if (childInTopScrolllocal >= 8)
+                //{
+                    //break;
+                //}
             }
             //HandlingDuplicatedElements(disabledGameobjects, loadCreatedElements);
         }
