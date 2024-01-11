@@ -24,7 +24,7 @@ public class SearchManager : MonoBehaviour
         {
             MoveGameObjectToTop(foundObject);
         }
-        
+        searchPanel.GetComponent<Animator>().SetBool("IsOpen", false);
     }
 
     public GameObject searchGameObject(string objName)
@@ -50,6 +50,7 @@ public class SearchManager : MonoBehaviour
     {
         foundObject = null;
         searchPanel.SetActive(true);
+        searchPanel.GetComponent<Animator>().SetBool("IsOpen", true);
     }
 
 
