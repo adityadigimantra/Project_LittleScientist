@@ -1694,7 +1694,7 @@ GameObject:
   - component: {fileID: 150714531}
   - component: {fileID: 150714533}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: GoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,8 +1716,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -32.4, y: 0.36504602}
-  m_SizeDelta: {x: 24.571, y: 24.5711}
+  m_AnchoredPosition: {x: -31.5, y: -0.000051975}
+  m_SizeDelta: {x: 36.1784, y: 36.1786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &150714531
 MonoBehaviour:
@@ -1739,7 +1739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8542653549661865833, guid: 2e1d73d384d0e5140b514383d2f9cfe9,
+  m_Sprite: {fileID: 4313501347480536470, guid: 333d3b24f6194574fa3f070f0572687f,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3181,7 +3181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 65.31212, y: 0}
   m_SizeDelta: {x: -130.62415, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &452289875
@@ -14001,8 +14001,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchPanel: {fileID: 858708728}
+  goImage: {fileID: 4313501347480536470, guid: 333d3b24f6194574fa3f070f0572687f, type: 3}
+  closeImage: {fileID: -135919629108940474, guid: aebe60bf0e49f6f4895bac2d6afd1b1c,
+    type: 3}
   searchedString: 
   foundObject: {fileID: 0}
+  goButton: {fileID: 150714529}
   searchInputField: {fileID: 1583159316}
   bottomScrollRect: {fileID: 80486277}
   bottomScrollbar: {fileID: 1299211326}

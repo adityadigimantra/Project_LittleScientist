@@ -7,10 +7,13 @@ public class SearchManager : MonoBehaviour
 {
     [Header("Panels")]
     public GameObject searchPanel;
+    public Sprite goImage;
+    public Sprite closeImage;
 
     [Header("GameObject")]
     public string searchedString;
     public GameObject foundObject;
+    public GameObject goButton;
 
     [Header("Scroll Elements")]
     public InputField searchInputField;
@@ -51,7 +54,20 @@ public class SearchManager : MonoBehaviour
         foundObject = null;
         searchPanel.SetActive(true);
         searchPanel.GetComponent<Animator>().SetBool("IsOpen", true);
+        searchInputField.text = "";
     }
-
+    private void Update()
+    {
+        if(string.IsNullOrEmpty(searchInputField.text))
+        {
+            goButton.GetComponent<Image>().sprite = closeImage;
+            Debug.Log("Running");
+        }
+        else
+        {
+            goButton.GetComponent<Image>().sprite = goImage;
+            Debug.Log("Running2");
+        }
+    }
 
 }
