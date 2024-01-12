@@ -74,11 +74,11 @@ public class ScrollRectElements : MonoBehaviour
 
     public void MoveToRight()
     {
-        bottomScrollbar.GetComponent<Scrollbar>().value += 0.5f;
+        bottomScrollbar.GetComponent<Scrollbar>().value += 0.1f;
     }
     public void MoveToLeft()
     {
-        bottomScrollbar.GetComponent<Scrollbar>().value -= 0.5f;
+        bottomScrollbar.GetComponent<Scrollbar>().value -= 0.1f;
     }
 }
 
