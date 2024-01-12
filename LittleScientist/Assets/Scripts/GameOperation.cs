@@ -22,6 +22,7 @@ public class GameOperation : MonoBehaviour
 
     [Header("Panels")]
     public GameObject discoveryTrayPanel;
+    public GameObject discoveryTrayObject;
     public GameObject OpenDiscoveryTrayButton;
     public GameObject lowerSmallPanel;
 
@@ -70,10 +71,20 @@ public class GameOperation : MonoBehaviour
     public void OpenDiscoveryTray()
     {
         discoveryTrayPanel.SetActive(true);
+        discoveryTrayPanel.GetComponent<Animator>().SetBool("IsOpen", true);
+        discoveryTrayObject.GetComponent<Animator>().SetBool("IsOpen", true);
         OpenDiscoveryTrayButton.SetActive(false);
+
     }
     public void CloseDiscoveryPanel()
     {
+        discoveryTrayObject.GetComponent<Animator>().SetBool("IsOpen", false);
+        discoveryTrayPanel.GetComponent<Animator>().SetBool("IsOpen", false);
+        StartCoroutine(delaythenClose());
+    }
+    IEnumerator delaythenClose()
+    {
+        yield return new WaitForSeconds(0.2f);
         discoveryTrayPanel.SetActive(false);
         OpenDiscoveryTrayButton.SetActive(true);
     }
