@@ -757,6 +757,11 @@ public class combinationManager : MonoBehaviour
         {
             g.gameObject.SetActive(false);
             PlayerPrefs.SetInt("CleanedUpNewCreatedElement", 1);
+            if(!disabledGameobjects.Contains(g.name))
+            {
+                disabledGameobjects.Add(g.name);
+            }
+            elementManager.saveDisabledGameObjectsList();
         }
         foreach(GameObject g in tempCopiedCreatedObj) 
         {
