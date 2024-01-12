@@ -68,7 +68,7 @@ public class Element : MonoBehaviour
                 Debug.Log("OnTrigger Enter Called");
                 GameOperation._Instance.GameState = GameState.Playing;
                 PlayerPrefs.SetInt("IsRestart", 0);
-                SoundManager._instance.elementCollideSound();
+                //SoundManager._instance.elementCollideSound();
                 otherElementObj = other.gameObject;
                 OtherElementName = otherElementObj.name;
                 thisElementName = thisElementObj.name;
