@@ -1084,8 +1084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18, y: 0.21074073}
   m_AnchorMax: {x: 0.8385209, y: 0.35500002}
-  m_AnchoredPosition: {x: 19, y: 1.5}
-  m_SizeDelta: {x: 37.9977, y: -1}
+  m_AnchoredPosition: {x: 19, y: -2.2428894}
+  m_SizeDelta: {x: 37.9977, y: -8.4857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80486277
 MonoBehaviour:
@@ -1196,7 +1196,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1300, y: 150}
+  m_Size: {x: 1670, y: 148}
   m_EdgeRadius: 0
 --- !u!1 &82544346
 GameObject:
@@ -2430,7 +2430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.328, y: 0.16600001}
-  m_AnchoredPosition: {x: -30.088074, y: 37.773712}
+  m_AnchoredPosition: {x: -30.088135, y: 37.77368}
   m_SizeDelta: {x: 0, y: 75.5475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &298531876
@@ -2544,10 +2544,10 @@ RectTransform:
   m_Father: {fileID: 562979351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -526.3, y: 1.2372}
-  m_SizeDelta: {x: 9.9066, y: 444.2445}
+  m_AnchorMin: {x: 0.2015618, y: 0.26142183}
+  m_AnchorMax: {x: 0.20731464, y: 0.74122256}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353821370
 MonoBehaviour:
@@ -2562,17 +2562,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1146674650087936537, guid: f4e038c004b9b744c9f5bf10aac7c71c,
+  m_Sprite: {fileID: -3257771492881609952, guid: 125b8fc89e7927143a54fab2780909d1,
     type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3641,8 +3641,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.1242065}
-  m_SizeDelta: {x: 0, y: -8.2484}
+  m_AnchoredPosition: {x: 0, y: -0.00012207}
+  m_SizeDelta: {x: 0, y: -0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &562979352
 MonoBehaviour:
@@ -4092,8 +4092,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 494206772}
   m_HandleRect: {fileID: 494206771}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999996
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5867,10 +5867,10 @@ RectTransform:
   m_Father: {fileID: 562979351}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.053804558, y: 0.26025528}
-  m_AnchorMax: {x: 0.9442107, y: 0.7383724}
-  m_AnchoredPosition: {x: 1.0001221, y: 0.26789856}
-  m_SizeDelta: {x: 2.781601, y: -0.7504997}
+  m_AnchorMin: {x: 0.054366343, y: 0.2456354}
+  m_AnchorMax: {x: 0.9442107, y: 0.75519544}
+  m_AnchoredPosition: {x: 0.5, y: -0.008605957}
+  m_SizeDelta: {x: 3.7816, y: 0.8904991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &823137295
 BoxCollider2D:
@@ -5882,7 +5882,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5896,7 +5896,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1460, y: 395}
+  m_Size: {x: 1585, y: 458.1}
   m_EdgeRadius: 0
 --- !u!114 &823137297
 MonoBehaviour:
@@ -9573,10 +9573,10 @@ RectTransform:
   m_Father: {fileID: 562979351}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -658.6, y: 126.39}
-  m_SizeDelta: {x: 238.799, y: 172.09}
+  m_AnchorMin: {x: 0.06268536, y: 0.27475694}
+  m_AnchorMax: {x: 0.19937074, y: 0.46636465}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409009061
 MonoBehaviour:
@@ -9600,10 +9600,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d39a98db0352fa749bceac6177007c34, type: 3}
-    m_FontSize: 43
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 63
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -14520,7 +14520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -656.1, y: 50}
+  m_AnchoredPosition: {x: -656.1, y: 74}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2042131417
@@ -14589,7 +14589,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -16.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -14600,7 +14600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 119.52, y: 429}
+  m_Size: {x: 250, y: 515}
   m_EdgeRadius: 0
 --- !u!1 &2048689052
 GameObject:
@@ -15001,10 +15001,10 @@ RectTransform:
   m_Father: {fileID: 1590346038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.156, y: 0.74600005}
-  m_AnchorMax: {x: 0.8385209, y: 0.8912223}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -2, y: -2}
+  m_AnchorMin: {x: 0.156, y: 0.7637037}
+  m_AnchorMax: {x: 0.83752084, y: 0.9032591}
+  m_AnchoredPosition: {x: 1, y: -0.4729004}
+  m_SizeDelta: {x: 0, y: 0.4886999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066408256
 MonoBehaviour:
@@ -15098,7 +15098,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1670, y: 150}
+  m_Size: {x: 1670, y: 148}
   m_EdgeRadius: 0
 --- !u!114 &2066408260
 MonoBehaviour:
