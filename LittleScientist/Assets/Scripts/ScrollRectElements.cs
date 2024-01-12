@@ -7,6 +7,7 @@ public class ScrollRectElements : MonoBehaviour
 {
     public GameObject ScrollRect_Content;
     public GameObject InsideRingElement;
+    public Scrollbar bottomScrollbar;
 
     [Header("Instances")]
     public combinationManager comManager;
@@ -69,6 +70,15 @@ public class ScrollRectElements : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Destroy(obj.gameObject);
+    }
+
+    public void MoveToRight()
+    {
+        bottomScrollbar.GetComponent<Scrollbar>().value += 0.5f;
+    }
+    public void MoveToLeft()
+    {
+        bottomScrollbar.GetComponent<Scrollbar>().value -= 0.5f;
     }
 }
 
