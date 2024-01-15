@@ -10,6 +10,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     //This Script creates a new GameObject called Copied Gameobject and also helps to drag that copied
     //gameobject in the scene
 
+    public SoundManager soundManager;
+
     [Header("Element Data")]
     public string currentElementName;
     public GameObject thisObject;
@@ -28,6 +30,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
     private void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         ElementsPanel = GameObject.Find("AllElements");
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
@@ -50,7 +53,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             canvasGroup.alpha = 0.6f; // Adjust the transparency of the image when dragging
             canvasGroup.blocksRaycasts = false;
             copiedElementData();
-            
+            soundManager.PlayGeneralButtonTapSound();
         }
     }
 

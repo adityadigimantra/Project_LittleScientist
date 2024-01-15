@@ -18,6 +18,7 @@ public class PlayerActivityMonitor : MonoBehaviour
     public combinationManager comManager;
     public CharacterManager charManager;
     public CharacterMessages charMessages;
+    public SoundManager soundManager;
 
     [Header("Messages")]
     public string inactiveMessage;
@@ -27,6 +28,7 @@ public class PlayerActivityMonitor : MonoBehaviour
         comManager = FindObjectOfType<combinationManager>();
         charManager = FindObjectOfType<CharacterManager>();
         charMessages = FindObjectOfType<CharacterMessages>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class PlayerActivityMonitor : MonoBehaviour
                 charManager.HandlingCharacterBehaviour(inactiveMessage, 4, 20);
                 hasDisplayedMessage = true;
                 SetFalseMessageBool();
+                soundManager.PlayCharacterInactivitySound();
                 inactivityThreshold = inactivityThreshold * 2;
                 PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 1);
 
@@ -102,7 +105,9 @@ public class PlayerActivityMonitor : MonoBehaviour
         if(PlayerPrefs.GetInt("ThrowInactiveMessageOnReturn")==1)
         {
             messageOnReturn = charMessages.ReturnInactivityMessagesOnReturn();
+            soundManager.GetBackFromInactivitySound(); 
             StartCoroutine(SendActiveMessageToCharacter());
+           
         }
 
     }

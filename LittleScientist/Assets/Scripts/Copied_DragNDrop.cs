@@ -20,6 +20,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
     [Header("Instances")]
     public ElementManager elementManager;
+    public SoundManager soundManager;
 
     private void Start()
     {
@@ -31,7 +32,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();
 
         elementManager = FindObjectOfType<ElementManager>();
-
+        soundManager = FindObjectOfType<SoundManager>();
     }
     public void LoadSetImageforthisElement()
     {
@@ -52,6 +53,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         canvasGroup.blocksRaycasts = false;
         gameObject.transform.SetAsLastSibling();
         PlayerPrefs.SetString("UpperObject", gameObject.name);
+        soundManager.PlayGeneralButtonTapSound();
         //Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 

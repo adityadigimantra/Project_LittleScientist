@@ -16,6 +16,7 @@ public class combinationManager : MonoBehaviour
     public CharacterManager charManager;
     public ElementManager elementManager;
     public CharacterMessages charMessages;
+    public SoundManager soundManager;
 
 
     [Header("Colliding Elements Name")]
@@ -131,6 +132,7 @@ public class combinationManager : MonoBehaviour
         charManager = FindObjectOfType<CharacterManager>();
         elementManager = FindObjectOfType<ElementManager>();
         charMessages = FindObjectOfType<CharacterMessages>();
+        soundManager = FindObjectOfType<SoundManager>();
         elementsPanel = GameObject.Find("AllElements");
         topScrollView = GameObject.Find("TopScroll_Content");
         BottomScrollView = GameObject.Find("DownScroll_Content");
@@ -270,6 +272,7 @@ public class combinationManager : MonoBehaviour
         PlayerPrefs.SetString("AlreadyPresentElement", resultCombination.result);
         currentElementState = ElementState.ElementExists;
         GiveCombinationAlreadyExistsMessage();
+        soundManager.CombinationAlreadyExistsSound();
     }
 
     public void HandlesNoCombinationFound()
@@ -278,6 +281,7 @@ public class combinationManager : MonoBehaviour
         PlayerPrefs.SetInt("NoCombinationFound", 1);
         currentElementState = ElementState.NoCombinationFound;
         GiveNoCombinationFoundMessage();
+        soundManager.NoCombinationFoundSound();
         elementManager.DisablingObjects();
     }
     public void saveCreatedElementsToFile()
@@ -349,6 +353,7 @@ public class combinationManager : MonoBehaviour
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
         elementManager.MakeGameObjectsNull();
         GiveNewElementFoundMessage();
+        soundManager.playSound_Character_NewElementFound();
         yield return new WaitForSeconds(2f);
         currentElementState = ElementState.InitialState;
         
@@ -811,24 +816,24 @@ public class combinationManager : MonoBehaviour
     {
         WelcomeMessage = charMessages.ReturnWelcomingMessages();
         charManager.HandlingCharacterBehaviour(WelcomeMessage,4, 20);
-
+        soundManager.PlayCharacterWelcomingSound();
     }
 
     public void GiveNewElementFoundMessage()
     {
         NewElementFoundMessage = charMessages.ReturnNewElementFoundMessages();
-        charManager.HandlingCharacterBehaviour(NewElementFoundMessage, 4, 25);
+        charManager.HandlingCharacterBehaviour(NewElementFoundMessage, 4, 20);
     }
 
     public void GiveNoCombinationFoundMessage()
     {
         NoCombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
-        charManager.HandlingCharacterBehaviour(NoCombinationExistsMessage, 4, 25);
+        charManager.HandlingCharacterBehaviour(NoCombinationExistsMessage, 4, 20);
     }
     public void GiveCombinationAlreadyExistsMessage()
     {
         CombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
-        charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 25);
+        charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 20);
     }
 
 }

@@ -782,6 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -888,6 +889,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53108918}
   m_CullTransparentMesh: 1
+--- !u!1 &59164443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59164444}
+  - component: {fileID: 59164445}
+  m_Layer: 0
+  m_Name: Character_NoCombinationFound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59164444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59164443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &59164445
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59164443}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bb394c2f18508984a981052af737916b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &63012926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18, y: 0.21074073}
   m_AnchorMax: {x: 0.8385209, y: 0.35500002}
-  m_AnchoredPosition: {x: 19, y: -2.2428894}
+  m_AnchoredPosition: {x: 19, y: -2.2427979}
   m_SizeDelta: {x: 37.9977, y: -8.4857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80486277
@@ -1432,9 +1560,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1469223834}
-        m_TargetAssemblyTypeName: combinationManager, Assembly-CSharp
-        m_MethodName: CleanUpTable
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1607,6 +1735,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1977634417}
         m_TargetAssemblyTypeName: SearchManager, Assembly-CSharp
         m_MethodName: StartSearching
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2294,6 +2434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -3724,7 +3865,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03ed29e14a3ad6b4facf2d875755c472, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9ecc98c968283484d8cc1e7f49a4d1bc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4137,6 +4278,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607817422}
   m_CullTransparentMesh: 1
+--- !u!1 &607871852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607871853}
+  - component: {fileID: 607871854}
+  m_Layer: 0
+  m_Name: Character_ElementAlreadyExists
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &607871853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607871852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &607871854
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607871852}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3a65f7c35cb47c1458d3e2c6ae97b5a6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &613967996
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,6 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -4939,6 +5208,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1989509715}
         m_TargetAssemblyTypeName: GameOperation, Assembly-CSharp
         m_MethodName: OpenDiscoveryTray
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6183,6 +6464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -7101,6 +7383,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038396039}
   m_CullTransparentMesh: 1
+--- !u!1 &1056270859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056270860}
+  - component: {fileID: 1056270861}
+  m_Layer: 0
+  m_Name: Character_WelcomingSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056270860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056270859}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1056270861
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056270859}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3a65f7c35cb47c1458d3e2c6ae97b5a6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1063802878
 GameObject:
   m_ObjectHideFlags: 0
@@ -7336,9 +7745,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1469223834}
-        m_TargetAssemblyTypeName: combinationManager, Assembly-CSharp
-        m_MethodName: CleanUpTable
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8184,6 +8593,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1218285846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8453,6 +8874,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246576802}
   m_CullTransparentMesh: 1
+--- !u!1 &1276649790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1276649791}
+  - component: {fileID: 1276649792}
+  m_Layer: 0
+  m_Name: Button_ArrowTap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1276649791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276649790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1276649792
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276649790}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: abc4818f7766a1b41963a8438ea8a95b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1288655848
 GameObject:
   m_ObjectHideFlags: 0
@@ -8812,7 +9360,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 93cfd5d1cd0a8444faf4ca7161b6d088, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e61c52b11fc938041850614e82394f28, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -9121,6 +9669,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350483243}
   m_CullTransparentMesh: 1
+--- !u!1 &1357425066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357425067}
+  - component: {fileID: 1357425068}
+  m_Layer: 0
+  m_Name: Character_BackFromInactivity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357425067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357425066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1357425068
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357425066}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3a74cce40a6b25a49b0f9b39b2e5ef61, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1371999203
 GameObject:
   m_ObjectHideFlags: 0
@@ -9282,6 +9957,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1469223834}
         m_TargetAssemblyTypeName: combinationManager, Assembly-CSharp
         m_MethodName: CleanUpTable
@@ -9715,111 +10402,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inactivityMessages:
-  - 'Your VIP ticket to fun: a simple tap! The Elements are throwing a party, and
-    you''re the guest of honor.'
-  - Hey Little Scientist! Tap anywhere to start the adventure! The Elements are eager
-    for your magic touch.
+  - 'Your VIP ticket to fun: a simple tap! The Elements are throwing a party.'
+  - Hey Little Scientist! Tap anywhere to start the adventure!
   - Spark a new adventure with a tap! The Elements are waiting for you.
   - Psst! Quick tap needed! Earth, Air, Fire, and Water are ready to play.
-  - Give the screen some love! A tap unlocks a world of wonders with Earth, Air,
-    Fire, and Water.
-  - Wake up the Elements! Your energy is the key. Give your device a tap for some
-    magic.
-  - Little adventurer, a tap is all it takes to break the silence and start the fun
-    in the Elemental Kingdom.
-  - Be the conductor of the Elements' symphony! Break the silence with a tap and
-    start the magical music.
-  - Ready to be the hero? The Elements await your superpower touch. A quick tap is
-    all it takes!
-  - Turn the day around with a tap! The Elemental Kingdom is waiting for your giggles,
-    laughter, and fun.
+  - A tap unlocks a world of wonders with Earth, Air, Fire, and Water.
+  - 'Wake up the Elements! Your energy is the key. '
+  - Little adventurer, a tap is all it takes to break the silence and start the fun.
+  - Be the conductor of the Elements' symphony! Break the silence with a tap.
+  - Ready to be the hero? The Elements await your superpower touch.
+  - Turn the day around with a tap! The Elemental Kingdom is waiting for your giggles.
   inactivityMessagesOnReturn:
-  - Welcome back! The elements have missed you. Resume your alchemical journey and
-    create extraordinary combinations!
+  - Welcome back! The elements have missed you.
   - Hello again! The realm awaits your return. Let the fusion forge roar back to
-    life as you master the elements.
-  - Back in action! We're thrilled to have you back. Your legendary skills are needed!
+    life.
+  - Back in action! We're thrilled to have you back.
   - Welcome back! Dive in and conjure up even more potent elemental concoctions.
   - Reignite the magic! The Alchemy Arena calls your name.
-  - Back to the fusion forge! The Elemental Adept is back. Mix elements and reclaim
-    your mastery.
-  - Welcome back! Resume the quest, unleash your imagination and witness the magic
-    unfold.
-  - The Master of the Elements returns! Resume your journey in the realm of alchemical
-    wonders.
+  - Back to the fusion forge! The Elemental Adept is back.
+  - Welcome back! Resume the quest, unleash your imagination.
+  - The Master of the Elements returns!
   - Reignite the magic! Combine wisely, for the fate of this world rests in your
     hands.
   welcomingMessages:
-  - Greetings, Scientist! Master the elemental wonders through combining, experimenting,
-    and conquering!
-  - Dive into the realms of fire, water, air, and earth. Let your adventure unfold
-    with captivating combinations!
-  - Welcome to the Elemental Fusion Challenge! Mix the universe's building blocks
-    for epic combinations and legendary skills!
-  - Hello, Sorcerer of Elements! Wisely combine elements, shaping the fate of this
-    mystical world. May your creations be legendary!
-  - Hello, Elemental Explorer! Enter the world of wonders. Unleash your imagination,
-    experiment, and let the magic unfold!
-  - Welcome, Element Enchanter! Brace for a world of endless possibilities. Let the
-    fusion adventure commence!
+  - Greetings, Scientist! Master the elemental wonders through combining.
+  - Dive into the realms of fire, water, air, and earth.
+  - 'Welcome to the Elemental Fusion Challenge! '
+  - Hello, Sorcerer of Elements, May your creations be legendary!
+  - Hello, Elemental Explorer! Enter the world of wonders.
+  - Welcome, Element Enchanter! Brace for a world of endless possibilities.
   - Hello, Master of the Elements! Embark on your journey in the realm of alchemical
-    wonders. Mix, match, and uncover secrets within.
+    wonders.
   newElementFoundMessages:
-  - A shimmering find! A new element emerges, ready to dance with the others. Let's
-    see what marvels unfold.!
+  - A shimmering find, Let's see what marvels unfold.!
   - A new thread in the tapestry! Your journey just got more enchanting.
   - Applause for your keen eye! Unearthed a secret with properties to serve you well.
   - Breakthrough moment!  A new element has revealed itself. Let the enchantment
     begin.
   - Congratulations! Reach new heights and embrace power to conquer challenges.
-  - Exciting discovery! A new element has graced our lab. Let's weave its magic into
-    our alchemical symphony.
-  - Fantastic news! A new element has joined us. Time to explore its secrets and
-    unlock endless possibilities.
-  - Incredible! A new element in our journey. Let's incorporate its essence into
-    our experiments.
-  - Exciting developments! A new element has revealed itself. Let the enchantment
-    begin!
-  - Marvelous news! Our journey takes a magical turn with a new element. Time to
-    infuse our concoctions with its unique charm.
+  - 'Exciting discovery! A new element has graced our lab. '
+  - 'Fantastic news! A new element has joined us. '
+  - 'Incredible! A new element in our journey. '
+  - Exciting developments! A new element has revealed itself.
+  - 'Marvelous news! Our journey takes a magical turn with a new element. '
   combinationExistsMessages:
-  - Nice try! This Element is already born from a similar combination. Explore new
-    alchemical paths for unique discoveries.
-  - Valiant effort, but this Element emerged from a similar union. Seek fresh combinations
-    for more mysteries!
-  - Close, but not quite! Element already exists. Keep experimenting with novel ideas!
-  - Interesting attempt! Alas, Element already formed. Venture into uncharted alchemical
-    territories!
-  - Creative thinking! Yet, Element is already a reality. Keep exploring for new
-    discoveries!
-  - Almost there! Element already emerged from a similar combination. Try different
-    elements for a unique concoction!
-  - Great effort! Element was revealed with a similar combination. Forge a new path
-    and discover fresh wonders!
-  - Ingenious attempt! Yet, element mirrors your combination. Explore uncharted blends
-    for new mysteries!
-  - Clever thinking! Alas, Element echoes your combination. Chart a different course
-    for unexplored magic!
+  - Nice try! This Element is already born from a similar combination.
+  - Valiant effort, but this Element emerged from a similar union.
+  - Close, but not quite! Element already exists.
+  - Interesting attempt! Alas, Element already formed.
+  - Creative thinking! Yet, Element is already a reality.
+  - Almost there! Element already emerged from a similar combination.
+  - 'Great effort! Element was revealed with a similar combination. '
+  - Ingenious attempt! Yet, element mirrors your combination.
+  - Clever thinking! Alas, Element echoes your combination.
   noCombinationExistsMessages:
-  - Interesting attempt! The elements resist each other this time. Keep experimenting!
-  - A valiant effort, but this combination eludes alchemy's laws. Try different elements
-    for success!
+  - 'Interesting attempt! The elements resist each other this time. '
+  - 'A valiant effort, but this combination eludes alchemy''s laws. '
   - The elements play coy! Your combination doesn't spark the expected reaction.
-    Keep tinkering!
-  - Bold experiment! Unfortunately, these elements remain unyielding. Uncover fresh
-    combinations!
-  - A noble effort, but the elements in your mix aren't harmonising. Keep exploring
-    for the perfect combination.
-  - Fascinating attempt! However, these elements prefer to keep their distance. The
-    next combination may hold the key!
-  - Interesting choice, but the elements don't dance together this time. Keep experimenting
-    for the perfect fusion.
-  - An adventurous try! Yet, the elements resist your command this time. Continue
-    your alchemical journey.
-  - A valiant effort, seeker of combinations! Alas, this one remains elusive. Try
-    another blend!
+  - Bold experiment! Unfortunately, these elements remain unyielding.
+  - 'A noble effort, but the elements in your mix aren''t harmonising. '
+  - Fascinating attempt! However, these elements prefer to keep their distance.
+  - 'Interesting choice, but the elements don''t dance together this time. '
+  - 'An adventurous try! Yet, the elements resist your command this time. '
+  - 'A valiant effort, seeker of combinations! Alas, this one remains elusive. '
   - An interesting choice, but it appears the elements are not aligning for this
-    combination. Keep exploring!
+    combination.
   randomFunFactsMessages:
   - Did you know that honey never spoils?
   - Bananas are berries, but strawberries aren't
@@ -9918,6 +10565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -10403,6 +11051,18 @@ MonoBehaviour:
       - m_Target: {fileID: 80486280}
         m_TargetAssemblyTypeName: ScrollRectElements, Assembly-CSharp
         m_MethodName: MoveToLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10975,6 +11635,7 @@ MonoBehaviour:
   charManager: {fileID: 0}
   elementManager: {fileID: 0}
   charMessages: {fileID: 0}
+  soundManager: {fileID: 0}
   COM_Element1: 
   COM_Element2: 
   newCreatedElement: {fileID: 8205407628571246900, guid: a9313d8d8697e4347ac795599af913a3,
@@ -12319,6 +12980,133 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1708766036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708766037}
+  - component: {fileID: 1708766038}
+  m_Layer: 0
+  m_Name: Button_GeneralTap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1708766037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708766036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1708766038
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708766036}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bcdb0b65eb893394497445b7f3c2bed2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1731733756
 GameObject:
   m_ObjectHideFlags: 0
@@ -12480,6 +13268,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1977634417}
         m_TargetAssemblyTypeName: SearchManager, Assembly-CSharp
         m_MethodName: OpenSearchTray
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12734,6 +13534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -13039,6 +13840,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1826402356
 GameObject:
   m_ObjectHideFlags: 0
@@ -13165,6 +13978,7 @@ MonoBehaviour:
   comManager: {fileID: 0}
   charManager: {fileID: 0}
   charMessages: {fileID: 0}
+  soundManager: {fileID: 0}
   inactiveMessage: 
   messageOnReturn: 
 --- !u!1 &1835297479
@@ -13483,6 +14297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -14428,6 +15243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f57dfd8ae95f4bb3200dc7aeaff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -14606,7 +15422,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040026981}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2056331373}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayArrowButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2040026981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15107,6 +15935,13 @@ Transform:
   - {fileID: 563481454}
   - {fileID: 1518628625}
   - {fileID: 1319474571}
+  - {fileID: 1357425067}
+  - {fileID: 2061450590}
+  - {fileID: 607871853}
+  - {fileID: 59164444}
+  - {fileID: 1276649791}
+  - {fileID: 1708766037}
+  - {fileID: 1056270860}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15123,9 +15958,145 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgaudioSource: {fileID: 563481455}
-  TapButtonAudioSource: {fileID: 0}
   ElementsCollideSound: {fileID: 1518628626}
   newElementCreateSound: {fileID: 1319474572}
+  ArrowButtonSound: {fileID: 1276649792}
+  GeneralButtonSound: {fileID: 1708766038}
+  backFromInactivitySound_Character: {fileID: 1357425068}
+  newElementFound_Character: {fileID: 2061450589}
+  combinationExists_Character: {fileID: 607871854}
+  noCombinationFound_Character: {fileID: 59164445}
+  welcomingSound_Character: {fileID: 1056270861}
+  newElementFound_Character_clips:
+  - {fileID: 8300000, guid: f611cadba35d5034384240818b21cf4e, type: 3}
+  - {fileID: 8300000, guid: 0dcb913b4fccbbf428375fc4589ff47c, type: 3}
+--- !u!1 &2061450588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061450590}
+  - component: {fileID: 2061450589}
+  m_Layer: 0
+  m_Name: Character_NewElementCreated
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2061450589
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061450588}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2061450590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061450588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2056331372}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066408254
 GameObject:
   m_ObjectHideFlags: 0
