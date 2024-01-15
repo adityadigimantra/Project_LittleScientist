@@ -8,11 +8,13 @@ public class TrashManager : MonoBehaviour
     [Header("Instance")]
     public combinationManager comManager;
     public ElementManager elementManager;
+    public SoundManager soundManager;
 
     private void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
         elementManager = FindObjectOfType<ElementManager>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +27,7 @@ public class TrashManager : MonoBehaviour
                 comManager.disabledGameobjects.Add(other.name);
             }
             elementManager.saveDisabledGameObjectsList();
+            soundManager.PlayTrashSound();
             StartCoroutine(givingDelaythenDestroy(other));
         }
     }

@@ -65,6 +65,7 @@ SpriteAtlas:
   - {fileID: 6702254713210268437, guid: 8e2528b1bff20044da5c6d8115e187cf, type: 3}
   - {fileID: 2585447683911791942, guid: 8e2528b1bff20044da5c6d8115e187cf, type: 3}
   - {fileID: 21300000, guid: a7a1a606372e7c045bbe124bf6dae531, type: 3}
+  - {fileID: -8687029706193621143, guid: 6a47c226be6694c409446667b8b7b11e, type: 3}
   - {fileID: -6851967337670336945, guid: 6592a5d672544a74684a260cb946d424, type: 3}
   - {fileID: -5465761102512212202, guid: cb4f95cbcda4b234c8c8aefeb3218ea5, type: 3}
   - {fileID: -3599905093095227399, guid: 2bbfdfffd62ad7c439528ac689232681, type: 3}
@@ -110,6 +111,7 @@ SpriteAtlas:
   - Group 11508_12
   - Group 11508_6
   - Group 10226
+  - refresh_0
   - MicrosoftTeams-image (11)_0
   - Group 11513_0
   - Group 11509_9

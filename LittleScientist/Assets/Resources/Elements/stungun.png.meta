@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae4c1b6abc0bf594283e7db731107ea2
+guid: 3964f0ce3d14a8f4493e67ace4794d33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3640714791374528515
-    second: stungun_0
+      213: 1143814630380471830
+    second: stunggun_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -105,14 +105,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stungun_0
+      name: stunggun_0
       rect:
         serializedVersion: 2
         x: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 300a36c30da668230800000000000000
-      internalID: 3640714791374528515
+      spriteID: 61609bc9855afdf00800000000000000
+      internalID: 1143814630380471830
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6f746e0ba5ea2a6419a8c2208a9794d3
+    spriteID: 314f5e3c2418d584d924137dafc9684e
     internalID: 0
     vertices: []
     indices: 

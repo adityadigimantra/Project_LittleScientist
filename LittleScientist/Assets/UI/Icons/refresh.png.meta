@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ca84d75787bcea54a8f9acf92afff9a2
+guid: 6a47c226be6694c409446667b8b7b11e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4783801984881171517
-    second: sandstone_0
+      213: -8687029706193621143
+    second: refresh_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -131,13 +131,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sandstone_0
+      name: refresh_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c3695fb0758c9db0800000000000000
-      internalID: -4783801984881171517
+      spriteID: 96f20111288717780800000000000000
+      internalID: -8687029706193621143
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9f3f17abee7d40f499c85ce9c59dad02
+    spriteID: aa3c3c6d1e021ea4796b2dfd05cd6129
     internalID: 0
     vertices: []
     indices: 

@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource newElementCreateSound;
     public AudioSource ArrowButtonSound;
     public AudioSource GeneralButtonSound;
+    public AudioSource trashSound;
 
     [Header("Character Sounds")]
     public AudioSource backFromInactivitySound_Character;
@@ -85,5 +86,9 @@ public class SoundManager : MonoBehaviour
     public void PlayCharacterInactivitySound()
     {
         welcomingSound_Character.Play();
+    }
+    public void PlayTrashSound()
+    {
+        trashSound.Play();
     }
 }

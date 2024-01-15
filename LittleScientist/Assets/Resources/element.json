@@ -116,7 +116,7 @@
             "element1": "fire",
             "element2": "gunpowder",
             "result": "explosion",
-            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
+            "fact": "In space, explosions can occur without the presence of oxygen.",
             "factimage": 4,
             "fontsize": 25
         },
@@ -125,7 +125,7 @@
             "element1": "gunpowder",
             "element2": "fire",
             "result": "explosion",
-            "fact": "On 6 and 9 August 1945, the United States detonated two atomic bombs over the Japanese cities of Hiroshima and Nagasaki.",
+            "fact": "In space, explosions can occur without the presence of oxygen.",
             "factimage": 4,
             "fontsize": 25
         },
@@ -433,14 +433,16 @@
             "element1": "plough",
             "element2": "earth",
             "result": "field",
-            "fact": "Missing Funfact"
+            "fact": "The world's largest field is not covered with grass or crops but with solar panels."
         },
         {
             "Name": "Field",
             "element1": "earth",
             "element2": "plough",
             "result": "field",
-            "fact": "Missing Funfact"
+            "fact": "The world's largest field is not covered with grass or crops but with solar panels.",
+            "factimage": 4,
+            "fontsize": 25
         },
         {
             "Name": "Hourglass",
@@ -646,8 +648,8 @@
             "element2": "air",
             "result": "wind",
             "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn.",
-            "factimage": 3,
-            "fontsize": 30
+            "factimage": 4,
+            "fontsize": 25
         },
         {
             "Name": "Wind",
@@ -655,8 +657,8 @@
             "element2": "pressure",
             "result": "wind",
             "fact": "The strongest winds seen on a planet in our solar system are on Neptune and Saturn.",
-            "factimage": 3,
-            "fontsize": 30
+            "factimage": 4,
+            "fontsize": 25
         },
         {
             "Name": "Pond",

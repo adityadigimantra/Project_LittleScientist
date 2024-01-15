@@ -835,5 +835,8 @@ public class combinationManager : MonoBehaviour
         CombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
         charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 20);
     }
-
+    public void playSoundFromSoundManager()
+    {
+        soundManager.PlayArrowButtonSound();
+    }
 }
