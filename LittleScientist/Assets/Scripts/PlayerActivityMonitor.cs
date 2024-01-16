@@ -9,7 +9,7 @@ public class PlayerActivityMonitor : MonoBehaviour
     [SerializeField]
     private float inactivityTimer = 0f;
     [SerializeField]
-    private float inactivityThreshold = 10f;
+    private float inactivityThreshold = 30f;
     [SerializeField]
     private bool hasDisplayedMessage = false;
 
@@ -105,7 +105,7 @@ public class PlayerActivityMonitor : MonoBehaviour
         if(PlayerPrefs.GetInt("ThrowInactiveMessageOnReturn")==1)
         {
             messageOnReturn = charMessages.ReturnInactivityMessagesOnReturn();
-            soundManager.GetBackFromInactivitySound(); 
+            soundManager.GetBackFromInactivitySound();
             StartCoroutine(SendActiveMessageToCharacter());
            
         }
@@ -113,9 +113,10 @@ public class PlayerActivityMonitor : MonoBehaviour
     }
     IEnumerator SendActiveMessageToCharacter()
     {
+        PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 2);
         yield return new WaitUntil(() => charManager.isCoroutineRunnning == false);
         charManager.HandlingCharacterBehaviour(messageOnReturn, 4, 20);
-        PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 2);
+        
     }
     public void StartTimer()
     {

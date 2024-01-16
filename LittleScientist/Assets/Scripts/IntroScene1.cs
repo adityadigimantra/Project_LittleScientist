@@ -9,13 +9,13 @@ public class IntroScene1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(startSplashScreen());
+        StartCoroutine(goToScene1());
     }
 
-    IEnumerator startSplashScreen()
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneNumbertoLoad);
 
+    IEnumerator goToScene1()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneNumbertoLoad);
     }
 }

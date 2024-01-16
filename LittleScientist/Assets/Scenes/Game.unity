@@ -10882,14 +10882,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.07450981, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7298793674121635798, guid: 53ed2b416808c654d838e5bbbc1fe35b,
+  m_Sprite: {fileID: -1146674650087936537, guid: f4e038c004b9b744c9f5bf10aac7c71c,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -14101,7 +14101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerActive: 1
   inactivityTimer: 0
-  inactivityThreshold: 10
+  inactivityThreshold: 30
   hasDisplayedMessage: 0
   comManager: {fileID: 0}
   charManager: {fileID: 0}
@@ -16092,6 +16092,7 @@ MonoBehaviour:
   newElementCreateSound: {fileID: 1319474572}
   ArrowButtonSound: {fileID: 1276649792}
   GeneralButtonSound: {fileID: 1708766038}
+  trashSound: {fileID: 1574764661}
   backFromInactivitySound_Character: {fileID: 1357425068}
   newElementFound_Character: {fileID: 2061450589}
   combinationExists_Character: {fileID: 607871854}
