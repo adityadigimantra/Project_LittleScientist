@@ -21,6 +21,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public GameObject newGameObject;
     public GameObject ElementsPanel;
     public RectTransform ClampPanelRectTransform;
+    public Text ElementNameTextObj;
 
     [Header("Clamping Movement Data")]
     private Vector2 initialPosition;
@@ -40,7 +41,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         {
             thisObject = this.gameObject;
         }
-        
+        ElementNameTextObj.text = ConvertToUpperCase(this.gameObject.name);
+
+
     }
     private void Update()
     {
@@ -143,5 +146,18 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             return canvas.scaleFactor;
         else
             return 1f;
+    }
+
+    public string ConvertToUpperCase(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return input;
+
+        }
+        else
+        {
+            return char.ToUpper(input[0]) + input.Substring(1);
+        }
     }
 }

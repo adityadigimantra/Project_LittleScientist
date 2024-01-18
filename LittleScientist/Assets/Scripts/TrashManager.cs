@@ -30,6 +30,17 @@ public class TrashManager : MonoBehaviour
             soundManager.PlayTrashSound();
             StartCoroutine(givingDelaythenDestroy(other));
         }
+        else
+        {
+            other.gameObject.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
+            if (!comManager.disabledGameobjects.Contains(other.name))
+            {
+                comManager.disabledGameobjects.Add(other.name);
+            }
+            elementManager.saveDisabledGameObjectsList();
+            soundManager.PlayTrashSound();
+            StartCoroutine(givingDelaythenDestroy(other));
+        }
     }
     IEnumerator givingDelaythenDestroy(Collider2D obj)
     {
