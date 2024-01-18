@@ -60,7 +60,7 @@ public class PlayerActivityMonitor : MonoBehaviour
             if(!hasDisplayedMessage)
             {
                 inactiveMessage = charMessages.ReturnInactivityMessages();
-                charManager.HandlingCharacterBehaviour(inactiveMessage, 4, 20);
+                charManager.HandlingCharacterBehaviour(inactiveMessage,20);
                 hasDisplayedMessage = true;
                 SetFalseMessageBool();
                 soundManager.PlayCharacterInactivitySound();
@@ -115,7 +115,7 @@ public class PlayerActivityMonitor : MonoBehaviour
     {
         PlayerPrefs.SetInt("ThrowInactiveMessageOnReturn", 2);
         yield return new WaitUntil(() => charManager.isCoroutineRunnning == false);
-        charManager.HandlingCharacterBehaviour(messageOnReturn, 4, 20);
+        charManager.HandlingCharacterBehaviour(messageOnReturn,20);
         
     }
     public void StartTimer()

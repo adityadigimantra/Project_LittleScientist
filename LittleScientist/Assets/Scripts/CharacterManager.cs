@@ -18,8 +18,6 @@ public class CharacterManager : MonoBehaviour
     public bool OpenPanelOnce = false;
     public bool shownOnce = false;
 
-    private Coroutine messageCoroutine;
-
     [Header("MessageBox Data")]
     public Animator messageBoxAnimator;
 
@@ -39,45 +37,44 @@ public class CharacterManager : MonoBehaviour
         loadedString = combManager.loadedString;
     }
 
-    public void HandlingCharacterBehaviour(string message,int time,int fontsize)
+    public void HandlingCharacterBehaviour(string message,int fontsize)
     {
         switch (combManager.currentElementState)
         {
             case combinationManager.ElementState.InitialState:
-                ShowMessage(message,time, fontsize);
+                ShowMessage(message,fontsize);
                 Debug.Log("State is-Initial");
                 break;
 
             case combinationManager.ElementState.NewElementFound:
                 //string uppercaseWord = ConvertToUpperCase(message);
-                ShowMessage(message,time, fontsize);
+                ShowMessage(message,fontsize);
                 Debug.Log("State is-New Element Found");
                 break;
             case combinationManager.ElementState.ElementExists:
-                ShowMessage(message,time, fontsize);
+                ShowMessage(message,fontsize);
                 //StartCoroutine(givingDelay());
                 Debug.Log("State is-Element Exists");
                 break;
             case combinationManager.ElementState.NoCombinationFound:
-                ShowMessage(message,time, fontsize);
+                ShowMessage(message,fontsize);
                 //StartCoroutine(givingDelay());
                 Debug.Log("State is-No Combination Found");
                 break;
             case combinationManager.ElementState.IdleState:
-                ShowMessage(message,time, fontsize);
+                ShowMessage(message, fontsize);
                 Debug.Log("State is-Idle");
                 break;
         }
 
     }
-    public void ShowMessage(string message,int time,int fontSize)
+    public void ShowMessage(string message,int fontSize)
     {
-        if (messageCoroutine != null)
-        {
-            StopCoroutine(messageCoroutine);
-        }
-        messageCoroutine = StartCoroutine(DisplayMessage(message,time, fontSize));
-
+        CharacterPanel.SetActive(true);
+        messageBoxAnimator.SetBool("IsOpen", true);
+        MessageBoxImage.gameObject.SetActive(true);
+        MessageBoxText.text = message;
+        MessageBoxText.fontSize = fontSize;
     }
 
 
@@ -105,5 +102,11 @@ public class CharacterManager : MonoBehaviour
         messageBoxAnimator.SetBool("IsOpen", false);
         yield return new WaitForSeconds(1.5f);
         isCoroutineRunnning = false;
+    }
+
+
+    public void CloseCurrentMessage()
+    {
+        messageBoxAnimator.SetBool("IsOpen", false);
     }
 }

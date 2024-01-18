@@ -269,20 +269,29 @@ public class combinationManager : MonoBehaviour
     {
         Debug.Log("Combination already Present");
         PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
-        PlayerPrefs.SetString("AlreadyPresentElement", resultCombination.result);
-        currentElementState = ElementState.ElementExists;
-        GiveCombinationAlreadyExistsMessage();
         soundManager.CombinationAlreadyExistsSound();
+        StartCoroutine(givingDelayforMessageAnimation());
     }
-
+    IEnumerator givingDelayforMessageAnimation()
+    {
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(1);
+        GiveCombinationAlreadyExistsMessage();
+    }
     public void HandlesNoCombinationFound()
     {
         Debug.Log("No Combination Found");
         PlayerPrefs.SetInt("NoCombinationFound", 1);
-        currentElementState = ElementState.NoCombinationFound;
-        GiveNoCombinationFoundMessage();
+        StartCoroutine(givingDelayForMessageAnimation_HandlesNoCombination());
         soundManager.NoCombinationFoundSound();
-        elementManager.DisablingObjects();
+        //elementManager.DisablingObjects();
+    }
+    IEnumerator givingDelayForMessageAnimation_HandlesNoCombination()
+    {
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(1);
+        GiveNoCombinationFoundMessage();
+
     }
     public void saveCreatedElementsToFile()
     {
@@ -349,34 +358,14 @@ public class combinationManager : MonoBehaviour
         NewCreatedElementPanelAnimator.SetBool("IsOpen", true);
         newElementCreatedPanel.SetActive(true);
         SoundManager._instance.newElementCreatedSound();
+        //closing the Previous Message Box
+        charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(3f);
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
         elementManager.MakeGameObjectsNull();
         GiveNewElementFoundMessage();
         soundManager.playSound_Character_NewElementFound();
-        yield return new WaitForSeconds(2f);
         currentElementState = ElementState.InitialState;
-        
-    }
-    IEnumerator NoCombinationFound()
-    {
-        noCombinationFoundPanel.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
-        noCombinationFoundPanel.SetActive(false);
-
-
-    }
-    IEnumerator CombinationPresent()
-    {
-        combinationAlreadyMadePanel.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        combinationAlreadyMadePanel.SetActive(false);
-    }
-
-    IEnumerator playnewelementSound()
-    {
-        yield return new WaitForSeconds(SoundManager._instance.ElementsCollideSound.clip.length);
-        SoundManager._instance.newElementCreatedSound();
     }
 
     public void LoadCreatedElementList()
@@ -815,25 +804,25 @@ public class combinationManager : MonoBehaviour
     public void GiveWelcomeMessage()
     {
         WelcomeMessage = charMessages.ReturnWelcomingMessages();
-        charManager.HandlingCharacterBehaviour(WelcomeMessage,4, 20);
+        charManager.HandlingCharacterBehaviour(WelcomeMessage,20);
         soundManager.PlayCharacterWelcomingSound();
     }
 
     public void GiveNewElementFoundMessage()
     {
         NewElementFoundMessage = charMessages.ReturnNewElementFoundMessages();
-        charManager.HandlingCharacterBehaviour(NewElementFoundMessage, 4, 20);
+        charManager.HandlingCharacterBehaviour(NewElementFoundMessage,20);
     }
 
     public void GiveNoCombinationFoundMessage()
     {
         NoCombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
-        charManager.HandlingCharacterBehaviour(NoCombinationExistsMessage, 4, 20);
+        charManager.HandlingCharacterBehaviour(NoCombinationExistsMessage,20);
     }
     public void GiveCombinationAlreadyExistsMessage()
     {
         CombinationExistsMessage = charMessages.ReturnNoCombinationExistsMessages();
-        charManager.HandlingCharacterBehaviour(CombinationExistsMessage, 4, 20);
+        charManager.HandlingCharacterBehaviour(CombinationExistsMessage,20);
     }
     public void playSoundFromSoundManager()
     {
