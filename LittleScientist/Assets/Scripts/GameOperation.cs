@@ -28,6 +28,9 @@ public class GameOperation : MonoBehaviour
     public GameObject TopElementView;
     public int TopElementViewChildCount;
     public GameObject[] UIControls;
+    public GameObject discorveryTrayContent;
+    public int discorveryTrayContentChildCount;
+    public GameObject CreateSomeElementText;
 
 
     public GameState GameState
@@ -65,6 +68,16 @@ public class GameOperation : MonoBehaviour
         {
             SwitchOnControls();
         }
+        discorveryTrayContentChildCount = discorveryTrayContent.transform.childCount;
+        if(discorveryTrayContentChildCount>=1)
+        {
+            CreateSomeElementText.SetActive(false);
+        }
+        else
+        {
+            CreateSomeElementText.SetActive(true);
+        }
+
     }
     public void SwitchOnControls()
     {
