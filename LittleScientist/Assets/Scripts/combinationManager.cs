@@ -269,6 +269,7 @@ public class combinationManager : MonoBehaviour
     {
         Debug.Log("Combination already Present");
         PlayerPrefs.SetInt("ElementAlreadyPresent", 1);
+        PlayerPrefs.SetString("AlreadyPresentElement", resultCombination.result);
         soundManager.CombinationAlreadyExistsSound();
         StartCoroutine(givingDelayforMessageAnimation());
     }

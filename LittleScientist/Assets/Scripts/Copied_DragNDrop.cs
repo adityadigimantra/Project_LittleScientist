@@ -146,8 +146,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
         CloseExsitingElement();
 
-        elementManager.DisablingElementsCombinationAlreadyPresent();
-
+        //elementManager.DisablingElementsCombinationAlreadyPresent();
     }
 
     public void GetAnotherGameObject(GameObject other)

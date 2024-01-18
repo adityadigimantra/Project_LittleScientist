@@ -126,32 +126,23 @@ public class ElementManager : MonoBehaviour
 
     public void DisablingElementsCombinationAlreadyPresent()
     {
-        StartCoroutine(SwitchingOffElementsCombAlreadyPresentAnimation());
+        Parent1Object.GetComponent<Animator>().SetBool("IsOpen", false);
+        Parent2Object.GetComponent<Animator>().SetBool("IsOpen", false);
+        HandlesIfMoreThenTwoElementsAreOverlapped();
     }
 
     public void DisablingElementsWhenNoCombinationFound()
     {
-        StartCoroutine(SwitchingOffElementsAnimation());
-    }
-
-    IEnumerator SwitchingOffElementsCombAlreadyPresentAnimation()
-    {
-        Parent1Object.GetComponent<Animator>().SetBool("IsOpen", false);
-        Parent2Object.GetComponent<Animator>().SetBool("IsOpen", false);
-        yield return new WaitForSeconds(2f);
-        Parent1Object.SetActive(false);
-        Parent2Object.SetActive(false);
-        
-    }
-
-    IEnumerator SwitchingOffElementsAnimation()
-    {
         Parent2Object.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
-        yield return new WaitForSeconds(2f);
-        Parent1Object.GetComponent<Animator>().SetBool("IsOpen", false);
-        Parent2Object.GetComponent<Animator>().SetBool("IsOpen", false);
-        yield return new WaitForSeconds(2f);
-        Parent1Object.SetActive(false);
-        Parent2Object.SetActive(false);
+        Parent1Object.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+        HandlesIfMoreThenTwoElementsAreOverlapped();
+    }
+    public void HandlesIfMoreThenTwoElementsAreOverlapped()
+    {
+        foreach(GameObject g in ObjectsToSwitchOff)
+        {
+            g.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+            g.GetComponent<Element>().isCollided = false;
+        }
     }
 }
