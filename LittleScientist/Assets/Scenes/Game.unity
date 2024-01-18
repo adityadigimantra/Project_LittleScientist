@@ -11003,7 +11003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1433577085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12949,7 +12949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1651904264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13910,7 +13910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1809378766
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15261,6 +15261,12 @@ MonoBehaviour:
   discoveryTrayObject: {fileID: 954811979}
   OpenDiscoveryTrayButton: {fileID: 641798126}
   lowerSmallPanel: {fileID: 1337330825}
+  TopElementView: {fileID: 1342208335}
+  TopElementViewChildCount: 0
+  UIControls:
+  - {fileID: 1433577084}
+  - {fileID: 1809378765}
+  - {fileID: 1651904263}
 --- !u!4 &1989509716
 Transform:
   m_ObjectHideFlags: 0

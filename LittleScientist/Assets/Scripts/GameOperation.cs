@@ -25,6 +25,9 @@ public class GameOperation : MonoBehaviour
     public GameObject discoveryTrayObject;
     public GameObject OpenDiscoveryTrayButton;
     public GameObject lowerSmallPanel;
+    public GameObject TopElementView;
+    public int TopElementViewChildCount;
+    public GameObject[] UIControls;
 
 
     public GameState GameState
@@ -53,6 +56,22 @@ public class GameOperation : MonoBehaviour
     private void Start()
     {
         _Instance = new GameOperation();
+    }
+
+    private void Update()
+    {
+        TopElementViewChildCount = TopElementView.transform.childCount;
+        if(TopElementViewChildCount>=8)
+        {
+            SwitchOnControls();
+        }
+    }
+    public void SwitchOnControls()
+    {
+        foreach(GameObject g in UIControls)
+        {
+            g.SetActive(true);
+        }
     }
 
     public void ChangeScene(int index)
