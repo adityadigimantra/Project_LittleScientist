@@ -24,7 +24,8 @@ public class CharacterMessages : MonoBehaviour
 
     [Header("Random Fun Facts Messages")]
     public string[] randomFunFactsMessages;
-
+    [Header("Tutorial Messages")]
+    public string[] TutorialMessages;
 
     public string ReturnInactivityMessages()
     {
@@ -67,4 +68,28 @@ public class CharacterMessages : MonoBehaviour
         int randomIndex = Random.Range(0, randomFunFactsMessages.Length);
         return randomFunFactsMessages[randomIndex];
     }
+
+    //Tutorial Messages
+
+    public string ReturnTutorialIntroMessage()
+    {
+        return TutorialMessages[0];
+    }
+    public string ReturnTutorialMessageForEarthElement()
+    {
+        return TutorialMessages[1];
+    }
+    public string ReturnTutorialMessageForWaterElement()
+    {
+        return TutorialMessages[2];
+    }
+    public string ReturnTutorialMessageForAirElement()
+    {
+        return TutorialMessages[4];
+    }
+    public string ReturnTutorialMessageForFireElement()
+    {
+        return TutorialMessages[3];
+    }
+
 }

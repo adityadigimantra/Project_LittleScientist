@@ -9,10 +9,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 {
     //This Script creates a new GameObject called Copied Gameobject and also helps to drag that copied
     //gameobject in the scene
-
+    [Header("Instances")]
     public SoundManager soundManager;
+    public TutorialManager tutorialManager;
 
-    [Header("Element Data")]
+   [Header("Element Data")]
     public string currentElementName;
     public GameObject thisObject;
     public  CanvasGroup canvasGroup;
@@ -32,6 +33,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
+        tutorialManager = FindObjectOfType<TutorialManager>();
         ElementsPanel = GameObject.Find("AllElements");
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
@@ -40,6 +42,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         if(this.gameObject.tag=="InsideRingElement")
         {
             thisObject = this.gameObject;
+            
         }
         ElementNameTextObj.text = ConvertToUpperCase(this.gameObject.name);
 
@@ -57,6 +60,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             canvasGroup.blocksRaycasts = false;
             copiedElementData();
             soundManager.PlayGeneralButtonTapSound();
+            tutorialManager.FirstHand.GetComponent<Animator>().SetBool("CloseHand1", true);
+            //tutorialManager.FirstHand.SetActive(false);
         }
     }
 

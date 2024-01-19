@@ -23,11 +23,13 @@ public class CharacterManager : MonoBehaviour
 
     [Header("Instances")]
     public combinationManager combManager;
+    public TutorialManager tutorialManager;
 
     public bool isCoroutineRunnning = false;
     private void Start()
     {
         combManager = FindObjectOfType<combinationManager>();
+        tutorialManager = FindObjectOfType<TutorialManager>();
         messageBoxAnimator.SetBool("IsOpen", true);
     }
 
@@ -108,5 +110,13 @@ public class CharacterManager : MonoBehaviour
     public void CloseCurrentMessage()
     {
         messageBoxAnimator.SetBool("IsOpen", false);
+        foreach(GameObject g in tutorialManager.startingFourElements)
+        {
+            if (g.transform.GetChild(3).gameObject.activeSelf)
+            {
+                g.transform.GetChild(3).gameObject.SetActive(false);
+            }
+            
+        }
     }
 }

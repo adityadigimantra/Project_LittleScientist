@@ -21,6 +21,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     [Header("Instances")]
     public ElementManager elementManager;
     public SoundManager soundManager;
+   
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
         elementManager = FindObjectOfType<ElementManager>();
         soundManager = FindObjectOfType<SoundManager>();
+       
     }
     public void LoadSetImageforthisElement()
     {
@@ -54,6 +56,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         gameObject.transform.SetAsLastSibling();
         PlayerPrefs.SetString("UpperObject", gameObject.name);
         soundManager.PlayGeneralButtonTapSound();
+        //SwitchOff The Hand Animation of FirstHand
+      
         //Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 
@@ -66,9 +70,13 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         {
             gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
         }
+        //if (tutorialManager.FirstHand.activeSelf)
+        //{
+        //    tutorialManager.FirstHand.SetActive(false);
+        //}
         StartCombinationProcess();
-    }
 
+    }
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("Copied-On Drag Called");
@@ -82,6 +90,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             thisObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
         rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
+
+
+        
     }
     private float GetCanvasScale()
     {
