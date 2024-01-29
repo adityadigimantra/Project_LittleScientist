@@ -18,6 +18,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("4-Elements")]
     public GameObject[] startingFourElements;
+    public GameObject[] elementsBackgrounds;
 
 
     void Start()
