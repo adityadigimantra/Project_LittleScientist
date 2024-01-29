@@ -12390,6 +12390,9 @@ MonoBehaviour:
     keys to conquering the skies.
   - You can remove  element anytime.All you have to do is Drag N Drop!
   - Click on Settings to configure music,sound,language.
+  - Use Clean Up to clear all the elements from the table.
+  - Use Encyclopedia to know more about the elements.
+  - Use Hints if you feel you are stuck somewhere.
 --- !u!1 &1420043064
 GameObject:
   m_ObjectHideFlags: 0

@@ -107,6 +107,30 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(TimeCloseMessage);
 
         //Section-9
+        //Character Introduces CleanUp Element.
+        CharacterIntroducesCleanUpElement();
+        yield return new WaitForSeconds(TimeHoldMessage);
+        closeCleanUpElementAnimations();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(TimeCloseMessage);
+
+        //Section-10
+        //Character Introduces Encyclopedia Element.
+        CharacterIntroducesEncyclopediaElement();
+        yield return new WaitForSeconds(TimeHoldMessage);
+        CloseEncylopediaElementAnimations();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(TimeCloseMessage);
+
+        //Section-11
+        //Character Introduces Hints Element.
+        CharacterIntroducesHintsElement();
+        yield return new WaitForSeconds(TimeHoldMessage);
+        CloseHintsElementAnimations();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(TimeCloseMessage);
+
+
         playerActivityMonitor.enabled = true;
     }
    
@@ -252,7 +276,67 @@ public class TutorialManager : MonoBehaviour
     }
     #endregion
 
+    #region Cleanup and Background Data
+    public void CharacterIntroducesCleanUpElement()
+    {
+        string message = charMessages.ReturnTutorialMessageForCleanUpElement();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
 
+        elementsBackgrounds[5].SetActive(false);
+        elementsBackgrounds[6].SetActive(true);
+        elementsBackgrounds[6].GetComponent<Animator>().SetBool("IsOpen", true);
+        otherElements[2].transform.GetChild(0).gameObject.SetActive(true);
+        otherElements[2].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+    }
+    public void closeCleanUpElementAnimations()
+    {
+        elementsBackgrounds[6].GetComponent<Animator>().SetBool("IsOpen", false);
+        otherElements[2].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", false);
+    }
+    #endregion
+
+    #region Encylopedia and Background Data
+    public void CharacterIntroducesEncyclopediaElement()
+    {
+        string message = charMessages.ReturnTutorialMessageForEncylopedia();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+
+        elementsBackgrounds[6].SetActive(false);
+        elementsBackgrounds[7].SetActive(true);
+        elementsBackgrounds[7].GetComponent<Animator>().SetBool("IsOpen", true);
+        otherElements[3].transform.GetChild(0).gameObject.SetActive(true);
+        otherElements[3].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+    }
+
+    public void CloseEncylopediaElementAnimations()
+    {
+        elementsBackgrounds[7].GetComponent<Animator>().SetBool("IsOpen", false);
+        otherElements[3].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", false);
+    }
+    #endregion
+
+    #region Hints and Background Data
+    public void CharacterIntroducesHintsElement()
+    {
+        string message = charMessages.ReturnTutorialMessageForHints();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+
+        elementsBackgrounds[7].SetActive(false);
+        elementsBackgrounds[8].SetActive(true);
+        elementsBackgrounds[8].GetComponent<Animator>().SetBool("IsOpen", true);
+        otherElements[4].transform.GetChild(0).gameObject.SetActive(true);
+        otherElements[4].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+    }
+
+    public void CloseHintsElementAnimations()
+    {
+        elementsBackgrounds[8].GetComponent<Animator>().SetBool("IsOpen", false);
+        otherElements[4].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", false);
+    }
+    #endregion
 
     public void SendTutorialMessageForHandOne()
     {
