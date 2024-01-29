@@ -91,5 +91,9 @@ public class CharacterMessages : MonoBehaviour
     {
         return TutorialMessages[3];
     }
+    public string ReturnTutorialMessageForTrashElement()
+    {
+        return TutorialMessages[5];
+    }
 
 }

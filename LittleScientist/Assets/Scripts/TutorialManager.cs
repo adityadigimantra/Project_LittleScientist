@@ -21,6 +21,7 @@ public class TutorialManager : MonoBehaviour
     [Header("4-Elements")]
     public GameObject[] startingFourElements;
     public GameObject[] elementsBackgrounds;
+    public GameObject[] otherElements;
 
 
     void Start()
@@ -88,6 +89,14 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
 
+
+        //Section-7
+        //Character Introduces Trash Element.
+        CharacterIntroducesTrashElement();
+        yield return new WaitForSeconds(TimeHoldMessage);
+        CloseTrashElementAnimations();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(TimeCloseMessage);
 
         playerActivityMonitor.enabled = true;
     }
@@ -186,6 +195,30 @@ public class TutorialManager : MonoBehaviour
     {
         elementsBackgrounds[3].gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
         startingFourElements[3].transform.GetChild(3).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+    }
+    #endregion
+
+
+
+    #region OtherItems and Background Data
+    public void CharacterIntroducesTrashElement()
+    {
+        string message = charMessages.ReturnTutorialMessageForTrashElement();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+
+        elementsBackgrounds[3].SetActive(false);
+        elementsBackgrounds[4].SetActive(true);
+        elementsBackgrounds[4].gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+        otherElements[0].transform.GetChild(0).gameObject.SetActive(true);
+        otherElements[0].transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+
+    }
+
+    public void CloseTrashElementAnimations()
+    {
+        elementsBackgrounds[4].gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+        otherElements[0].transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
     }
     #endregion
 
