@@ -98,6 +98,15 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
 
+        //Section-8
+        //Character Introduces Bottom Elements.
+        CharacterIntroducesSettingElement();
+        yield return new WaitForSeconds(TimeHoldMessage);
+        CloseSettingElementAnimations();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(TimeCloseMessage);
+
+        //Section-9
         playerActivityMonitor.enabled = true;
     }
    
@@ -198,9 +207,7 @@ public class TutorialManager : MonoBehaviour
     }
     #endregion
 
-
-
-    #region OtherItems and Background Data
+    #region Trash and Background Data
     public void CharacterIntroducesTrashElement()
     {
         string message = charMessages.ReturnTutorialMessageForTrashElement();
@@ -219,6 +226,29 @@ public class TutorialManager : MonoBehaviour
     {
         elementsBackgrounds[4].gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
         otherElements[0].transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+    }
+
+
+    #endregion
+
+    #region Setting and Background Data
+    public void CharacterIntroducesSettingElement()
+    {
+        string message = charMessages.ReturnTutorialMessageForSettingElement();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+        elementsBackgrounds[4].SetActive(false);
+        elementsBackgrounds[5].SetActive(true);
+        elementsBackgrounds[5].gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+        otherElements[1].transform.GetChild(0).gameObject.SetActive(true);
+        otherElements[1].transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
+
+    }
+
+    public void CloseSettingElementAnimations()
+    {
+        elementsBackgrounds[5].gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
+        otherElements[1].transform.GetChild(0).gameObject.GetComponent<Animator>().SetBool("IsOpen", false);
     }
     #endregion
 

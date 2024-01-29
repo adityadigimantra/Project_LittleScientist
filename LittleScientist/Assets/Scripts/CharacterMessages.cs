@@ -95,5 +95,21 @@ public class CharacterMessages : MonoBehaviour
     {
         return TutorialMessages[5];
     }
+    public string ReturnTutorialMessageForSettingElement()
+    {
+        return TutorialMessages[6];
+    }
+    public string ReturnTutorialMessageForCleanUpElement()
+    {
+        return TutorialMessages[7];
+    }
+    public string ReturnTutorialMessageForEncylopedia()
+    {
+        return TutorialMessages[8];
+    }
+    public string ReturnTutorialMessageForHints()
+    {
+        return TutorialMessages[9];
+    }
 
 }
