@@ -110,13 +110,5 @@ public class CharacterManager : MonoBehaviour
     public void CloseCurrentMessage()
     {
         messageBoxAnimator.SetBool("IsOpen", false);
-        foreach(GameObject g in tutorialManager.startingFourElements)
-        {
-            if (g.transform.GetChild(3).gameObject.activeSelf)
-            {
-                g.transform.GetChild(3).gameObject.SetActive(false);
-            }
-            
-        }
     }
 }
