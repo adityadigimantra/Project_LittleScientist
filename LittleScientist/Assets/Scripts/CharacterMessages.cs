@@ -26,6 +26,8 @@ public class CharacterMessages : MonoBehaviour
     public string[] randomFunFactsMessages;
     [Header("Tutorial Messages")]
     public string[] TutorialMessages;
+    [Header("ElementDragging Messages")]
+    public string[] ElementDraggingMessage;
 
     public string ReturnInactivityMessages()
     {
@@ -115,4 +117,33 @@ public class CharacterMessages : MonoBehaviour
     {
         return TutorialMessages[10];
     }
+    public string ReturnTutorialMessageForDraggingFirstElement()
+    {
+        return ElementDraggingMessage[0];
+    }
+    public string ReturnTutorialMessageForDraggingSecondElement()
+    {
+        return ElementDraggingMessage[1];
+    }
+    public string ReturnTutorialMessageForDraggingElementIntoEachOther()
+    {
+        return ElementDraggingMessage[2];
+    }
+    public string ReturnTutorialMessageForNewElementCreated()
+    {
+        return ElementDraggingMessage[3];
+    }
+    public string ReturnTutorialMessageForMoveToTrash()
+    {
+        return ElementDraggingMessage[6];
+    }
+    public string ReturnTutorialMessageForConclusion()
+    {
+        return ElementDraggingMessage[4];
+    }
+    public string ReturnTutorialMessageForTutorialComplete()
+    {
+        return ElementDraggingMessage[5];
+    }
+
 }

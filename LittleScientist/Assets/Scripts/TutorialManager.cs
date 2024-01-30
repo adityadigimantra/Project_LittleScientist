@@ -23,7 +23,12 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] elementsBackgrounds;
     public GameObject[] otherElements;
 
-
+    [Header("TutorialElements")]
+    public GameObject GamePlaySection;
+    public GameObject[] tutorialElements;
+    public GameObject newElementCreatedPanel;
+    public GameObject tutorialCompletePanel;
+    public GameObject fadedImage;
     void Start()
     {
         comManager = FindObjectOfType<combinationManager>();
@@ -51,6 +56,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         //Section-1
+        fadedImage.SetActive(true);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
         comManager.GiveWelcomeMessage();
         yield return new WaitForSeconds(TimeHoldMessage);
         charManager.CloseCurrentMessage();
@@ -61,12 +68,14 @@ public class TutorialManager : MonoBehaviour
         CharacterGivesSmallIntro();
         yield return new WaitForSeconds(TimeHoldMessage);
         charManager.CloseCurrentMessage();
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", false);
         yield return new WaitForSeconds(TimeCloseMessage);
 
         //Section-3
         //Character Introduces Earth Element.
         CharacterIntroducesEarthElement();
         yield return new WaitForSeconds(TimeHoldMessage);
+        fadedImage.SetActive(false);
         CloseEarthElementsAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
@@ -143,10 +152,52 @@ public class TutorialManager : MonoBehaviour
         CloseDiscoveryTrayAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
-        PlayerPrefs.SetInt("ShownTutorial", 1);
-        TutorialPanel.SetActive(false);
-        playerActivityMonitor.enabled = true;
 
+
+        //Section-13
+        //Character shows How to make elements.
+        GamePlaySection.SetActive(true);
+        CharacterGivesMessageToStartDraggingFirstElements();
+        yield return new WaitForSeconds(3f);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", false);
+        charManager.CloseCurrentMessage();
+        CharacterDragsFirstElement();
+        yield return new WaitForSeconds(2f);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
+        CharacterGivesMessageToStartDraggingSecondElements();
+        yield return new WaitForSeconds(3f);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", false);
+        charManager.CloseCurrentMessage();
+        CharacterDragsSecondElement();
+        yield return new WaitForSeconds(2);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
+        CharacterGivesMessageToStartDraggingElementsIntoEachOther();
+        yield return new WaitForSeconds(3f);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", false);
+        CharacterDragsSecondElementIntoFirst();
+        yield return new WaitForSeconds(0.5f);//TODO-Fix
+        OpenNewElementCreatedPanel();
+        yield return new WaitForSeconds(4f);
+        CloseNewElementCreatedPanel();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(1f);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
+        CharacterGivesMessageForNewElementCreated();
+        yield return new WaitForSeconds(3f);
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(2f);
+        CharacterGivesMessageForMovingToTrash();
+        yield return new WaitForSeconds(3);
+        CharacterDragsThirdElementToTrash();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(1.5f);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", false);
+        CharacterGivesMessageForConclusion();
+        yield return new WaitForSeconds(3f);
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(2);
+        OpenTutorialPanelComplete();
+        CharacterGivesMessageForTutorialComplete();      
     }
    
     // Update is called once per frame
@@ -372,6 +423,100 @@ public class TutorialManager : MonoBehaviour
     }
     #endregion
 
+    #region GamePlay Collision for Tutorial
+    public void CharacterGivesMessageToStartDraggingFirstElements()
+    {
+        fadedImage.SetActive(true);
+        fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
+        string message = charMessages.ReturnTutorialMessageForDraggingFirstElement();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+    public void CharacterDragsFirstElement()
+    {
+        tutorialElements[0].SetActive(true);
+        tutorialElements[0].GetComponent<Animator>().SetBool("SlideDown", true);
+    }
+    public void CharacterGivesMessageToStartDraggingSecondElements()
+    {
+        string message = charMessages.ReturnTutorialMessageForDraggingSecondElement();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+    public void CharacterDragsSecondElement()
+    {
+        tutorialElements[1].SetActive(true);
+        tutorialElements[1].GetComponent<Animator>().SetBool("SlideDown", true);
+    }
+    public void CharacterGivesMessageToStartDraggingElementsIntoEachOther()
+    {
+        string message = charMessages.ReturnTutorialMessageForDraggingElementIntoEachOther();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+    public void CharacterDragsSecondElementIntoFirst()
+    {
+        tutorialElements[1].GetComponent<Animator>().SetBool("SlideToEarth", true);
+    }
+    public void OpenNewElementCreatedPanel()
+    {
+        newElementCreatedPanel.SetActive(true);
+        newElementCreatedPanel.GetComponent<Animator>().SetBool("IsOpen", true);
+        tutorialElements[0].SetActive(false);
+        tutorialElements[1].SetActive(false);
+
+    }
+    public void CloseNewElementCreatedPanel()
+    {
+        newElementCreatedPanel.GetComponent<Animator>().SetBool("IsOpen", false);
+        tutorialElements[2].SetActive(true);
+    }
+
+
+    public void CharacterGivesMessageForNewElementCreated()
+    {
+        string message = charMessages.ReturnTutorialMessageForNewElementCreated();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+
+    public void CharacterGivesMessageForMovingToTrash()
+    {
+        string message = charMessages.ReturnTutorialMessageForMoveToTrash();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+    public void CharacterDragsThirdElementToTrash()
+    {
+        tutorialElements[2].GetComponent<Animator>().SetBool("SlideToTrash", true);
+    }
+    public void CharacterGivesMessageForConclusion()
+    {
+        string message = charMessages.ReturnTutorialMessageForConclusion();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+    public void OpenTutorialPanelComplete()
+    {
+        tutorialCompletePanel.SetActive(true);
+        tutorialCompletePanel.GetComponent<Animator>().SetBool("IsOpen", true);
+    }
+    public void CloseTutorialPanelComplete()
+    {
+        //tutorialCompletePanel.SetActive(true);
+        tutorialCompletePanel.GetComponent<Animator>().SetBool("IsOpen", false);
+        charManager.CloseCurrentMessage();
+        PlayerPrefs.SetInt("ShownTutorial", 1);
+        TutorialPanel.SetActive(false);
+        playerActivityMonitor.enabled = true;
+    }
+    public void CharacterGivesMessageForTutorialComplete()
+    {
+        string message = charMessages.ReturnTutorialMessageForTutorialComplete();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+    }
+    #endregion
     public void SendTutorialMessageForHandOne()
     {
         //string messageForHandOne = charMessages.ReturnTutorialMessageForHandOne();

@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource noCombinationFound_Character;
     public AudioSource welcomingSound_Character;
     public AudioClip[] newElementFound_Character_clips;
+    public AudioClip[] characterSoundUsedForTutorial;
 
 
     private void Awake()
