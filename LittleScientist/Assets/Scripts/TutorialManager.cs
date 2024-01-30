@@ -31,13 +31,15 @@ public class TutorialManager : MonoBehaviour
     public GameObject fadedImage;
     void Start()
     {
+        #region Getting Instances
         comManager = FindObjectOfType<combinationManager>();
         charManager = FindObjectOfType<CharacterManager>();
         charMessages = FindObjectOfType<CharacterMessages>();
         soundManager = FindObjectOfType<SoundManager>();
         playerActivityMonitor = FindObjectOfType<PlayerActivityMonitor>();
+        #endregion
 
-
+        #region Switch For Tutorial using PlayerPrefs
         if (PlayerPrefs.GetInt("ShownTutorial") == 0) //If Tutorial not shown to the user.
         {
             TutorialPanel.SetActive(true);
@@ -48,21 +50,25 @@ public class TutorialManager : MonoBehaviour
         {
             TutorialPanel.SetActive(false);
         }
+        #endregion
     }
 
     IEnumerator IntroduceElements()
     {
-        
-        yield return new WaitForSeconds(0.2f);
 
+
+        #region Section1 (Character Gives Welcome Message)
         //Section-1
+        yield return new WaitForSeconds(0.2f);
         fadedImage.SetActive(true);
         fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
         comManager.GiveWelcomeMessage();
         yield return new WaitForSeconds(TimeHoldMessage);
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(2f);
+        #endregion
 
+        #region Section-2 (Character Gives Small Introduction)
         //Section-2
         //Character gives small Introduction.
         CharacterGivesSmallIntro();
@@ -70,7 +76,9 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         fadedImage.GetComponent<Animator>().SetBool("IsOpen", false);
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
+        #region Section-3 (Character Introduces Earth)
         //Section-3
         //Character Introduces Earth Element.
         CharacterIntroducesEarthElement();
@@ -79,7 +87,9 @@ public class TutorialManager : MonoBehaviour
         CloseEarthElementsAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
+        #region Section-4 (Character Introduces Water)
         //Section-4
         //Character Introduces Water Element.
         CharacterIntroducesWaterElement();
@@ -87,7 +97,9 @@ public class TutorialManager : MonoBehaviour
         closeWaterElementAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
+        #region Section-5 (Character Introduces Fire)
         //Section-5
         //Character Introduces Fire Element.
         CharacterIntroducesFireElement();
@@ -95,7 +107,9 @@ public class TutorialManager : MonoBehaviour
         CloseFireElementAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
+        #region Section-6 (Character Introduces Air)
         //Section-6
         //Character Introduces Air Element.
         CharacterIntroducesAirElement();
@@ -103,8 +117,9 @@ public class TutorialManager : MonoBehaviour
         CloseAirElementAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
-
+        #region Section-7 (Character Introduces Trash)
         //Section-7
         //Character Introduces Trash Element.
         CharacterIntroducesTrashElement();
@@ -112,7 +127,9 @@ public class TutorialManager : MonoBehaviour
         CloseTrashElementAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
+        #region Section-8 (Character Introduces Bottom Icons in Tray)
         //Section-8
         //Character Introduces Bottom Elements.
         CharacterIntroducesSettingElement();
@@ -120,6 +137,7 @@ public class TutorialManager : MonoBehaviour
         CloseSettingElementAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        
 
         //Section-9
         //Character Introduces CleanUp Element.
@@ -144,7 +162,9 @@ public class TutorialManager : MonoBehaviour
         CloseHintsElementAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
+        #region Section-9 (Character Introduces Discovery Tray)
         //Section-12
         //Character Introduces Discovery Tray Element.
         CharacterIntroducesDiscorveryTray();
@@ -152,8 +172,9 @@ public class TutorialManager : MonoBehaviour
         CloseDiscoveryTrayAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
+        #endregion
 
-
+        #region Section-10 (Character Introduces How To Make Elements)
         //Section-13
         //Character shows How to make elements.
         GamePlaySection.SetActive(true);
@@ -197,9 +218,10 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(2);
         OpenTutorialPanelComplete();
-        CharacterGivesMessageForTutorialComplete();      
+        CharacterGivesMessageForTutorialComplete();
+        #endregion
     }
-   
+
     // Update is called once per frame
     void Update()
     {
@@ -517,23 +539,4 @@ public class TutorialManager : MonoBehaviour
         soundManager.PlayCharacterWelcomingSound();
     }
     #endregion
-    public void SendTutorialMessageForHandOne()
-    {
-        //string messageForHandOne = charMessages.ReturnTutorialMessageForHandOne();
-        //charManager.HandlingCharacterBehaviour(messageForHandOne, 20);
-        FirstHand.SetActive(true);
-        TutorialPanel.SetActive(false);
-        soundManager.PlayCharacterWelcomingSound();
-
-    }
-    public void CloseHandOneTutorialAfterFewSec()
-    {
-        FirstHand.GetComponent<Animator>().SetBool("CloseHand1", true);
-    }
-    public void SendTutorialMessageForHandTwo()
-    {
-        //string messageForHandOne = charMessages.ReturnTutorialMessageForHandTwo();
-        //charManager.HandlingCharacterBehaviour(messageForHandOne, 20);
-        soundManager.PlayCharacterWelcomingSound();
-    }
 }
