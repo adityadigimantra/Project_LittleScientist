@@ -32,16 +32,22 @@ public class TutorialManager : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
         playerActivityMonitor = FindObjectOfType<PlayerActivityMonitor>();
 
+
         if (PlayerPrefs.GetInt("ShownTutorial") == 0) //If Tutorial not shown to the user.
         {
+            TutorialPanel.SetActive(true);
             playerActivityMonitor.enabled = false;
             StartCoroutine(IntroduceElements());
+        }
+        else
+        {
+            TutorialPanel.SetActive(false);
         }
     }
 
     IEnumerator IntroduceElements()
     {
-        TutorialPanel.SetActive(true);
+        
         yield return new WaitForSeconds(0.2f);
 
         //Section-1
@@ -130,8 +136,17 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
 
-
+        //Section-12
+        //Character Introduces Discovery Tray Element.
+        CharacterIntroducesDiscorveryTray();
+        yield return new WaitForSeconds(TimeHoldMessage);
+        CloseDiscoveryTrayAnimations();
+        charManager.CloseCurrentMessage();
+        yield return new WaitForSeconds(TimeCloseMessage);
+        PlayerPrefs.SetInt("ShownTutorial", 1);
+        TutorialPanel.SetActive(false);
         playerActivityMonitor.enabled = true;
+
     }
    
     // Update is called once per frame
@@ -335,6 +350,25 @@ public class TutorialManager : MonoBehaviour
     {
         elementsBackgrounds[8].GetComponent<Animator>().SetBool("IsOpen", false);
         otherElements[4].transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", false);
+    }
+    #endregion
+
+    #region Discovery Tray and Background Data
+    public void CharacterIntroducesDiscorveryTray()
+    {
+        string message = charMessages.ReturnTutorialMessageForDiscoveryTray();
+        charManager.HandlingCharacterBehaviour(message, 20);
+        soundManager.PlayCharacterWelcomingSound();
+
+        elementsBackgrounds[8].SetActive(false);
+        otherElements[5].SetActive(true);
+        otherElements[5].GetComponent<Animator>().SetBool("IsOpen", true);
+
+    }
+    public void CloseDiscoveryTrayAnimations()
+    {
+        otherElements[5].GetComponent<Animator>().SetBool("IsOpen", false);
+        
     }
     #endregion
 

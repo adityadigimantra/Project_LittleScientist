@@ -111,5 +111,8 @@ public class CharacterMessages : MonoBehaviour
     {
         return TutorialMessages[9];
     }
-
+    public string ReturnTutorialMessageForDiscoveryTray()
+    {
+        return TutorialMessages[10];
+    }
 }
