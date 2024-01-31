@@ -147,9 +147,10 @@ public class combinationManager : MonoBehaviour
         loadCreatedElementsFromFile();
 
         //Character Behaviour when the game Starts.
-        GiveWelcomeMessage();
-
-
+        if(PlayerPrefs.GetInt("ShownTutorial") ==1)
+        {
+            GiveWelcomeMessage();
+        }
         //Disabled Elements List clearing and loading from File.
         //First Clearing the list of Disabled Gameobjects.
         disabledGameobjects.Clear();

@@ -8,7 +8,8 @@ public class CharacterManager : MonoBehaviour
 {
     [Header("Character Fields")]
     public GameObject CharacterPanel;
-    public Image CharacterImage;
+    public Image boyCharacterImage;
+    public Image girlCharacterImage;
     public Image CharacterBgImage;
     public Image MessageBoxImage;
     public Text MessageBoxText;
@@ -31,6 +32,8 @@ public class CharacterManager : MonoBehaviour
         combManager = FindObjectOfType<combinationManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
         messageBoxAnimator.SetBool("IsOpen", true);
+
+        CheckCharacterChoosenByPlayer();
     }
 
     // Update is called once per frame
@@ -38,7 +41,23 @@ public class CharacterManager : MonoBehaviour
     {
         loadedString = combManager.loadedString;
     }
+    public void CheckCharacterChoosenByPlayer()
+    {
+        string boycharacter = "boy";
+        string girlcharacter = "girl";
+        if(PlayerPrefs.GetString("CharacterChoosen") ==boycharacter)
+        {
+            boyCharacterImage.gameObject.SetActive(true);
+            girlCharacterImage.gameObject.SetActive(false);
 
+        }
+        if(PlayerPrefs.GetString("CharacterChoosen") ==girlcharacter)
+        {
+            girlCharacterImage.gameObject.SetActive(true);
+            boyCharacterImage.gameObject.SetActive(false);
+        }
+        
+    }
     public void HandlingCharacterBehaviour(string message,int fontsize)
     {
         switch (combManager.currentElementState)

@@ -9,21 +9,26 @@ public class IntroScene2 : MonoBehaviour
     public GameObject onboardingScreen;
     private void Start()
     {
-        StartCoroutine(ChangeScene());
+        if(PlayerPrefs.GetInt("OnboardingDone")==0)
+        {
+            StartCoroutine(StartOnboardingPlayer());
+        }
+        else
+        {
+            StartCoroutine(ChangeScene());
+        }
+
+
+    }
+    IEnumerator StartOnboardingPlayer()
+    {
+        yield return new WaitForSeconds(3f);
+        onboardingScreen.SetActive(true);
+        onboardingScreen.GetComponent<Animator>().SetBool("IsOpen", true);
     }
     IEnumerator ChangeScene()
     {
-       if(PlayerPrefs.GetInt("OnboardingDone")==0)
-        {
-            yield return new WaitForSeconds(2f);
-            onboardingScreen.SetActive(true);
-            //onboardingScreen.GetComponent<Animator>().SetBool("IsOpen", true);
-        }
-       else
-        {
-            yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene(2);
-        }
-        
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene(2);
     }
 }

@@ -88,8 +88,7 @@ public class OnboardingManager : MonoBehaviour
         }
         if(!fieldIsEmpty && !nameIsTooShort && !characterNotChoosen)
         {
-            OnboardingScreen.SetActive(false);
-            //OnboardingScreen.GetComponent<Animator>().SetBool("IsOpen", false);
+            OnboardingScreen.GetComponent<Animator>().SetBool("IsOpen", false);
             PlayerPrefs.SetInt("OnboardingDone", 1);
             StartCoroutine(changeScene());
         }
