@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager _instance;
     [Header("General Sounds")]
     public AudioSource bgaudioSource;
-    public AudioSource ElementsCollideSound;
+    public AudioSource elementsCollideSound;
     public AudioSource newElementCreateSound;
     public AudioSource ArrowButtonSound;
     public AudioSource GeneralButtonSound;
@@ -23,32 +23,39 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] characterSoundUsedForTutorial;
 
 
-    private void Awake()
+    public AudioSource[] allSoundAudioSourcesInGame;
+    public AudioSource[] allMusicAudioSourcesInGame;
+    private void Start()
     {
-        if(_instance==null)
-        {
-            _instance = this;
-        
-        }
-        else if(_instance!=this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-        playBgMusic();
-    }
 
-    public void playBgMusic()
+    }
+    public void PlayBgMusic()
     {
         bgaudioSource.Play();
     }
-    public void stopBgMusic()
+    public void StopBgMusic()
     {
         bgaudioSource.Stop();
     }
+
+    public void GameSoundsTurnedON()
+    {
+        foreach (AudioSource audioSource in allSoundAudioSourcesInGame)
+        {
+            audioSource.mute = false;
+        }
+    }
+
+    public void GameSoundsTurnedOFF()
+    {
+        foreach(AudioSource audioSource in allSoundAudioSourcesInGame)
+        {
+            audioSource.mute = true;
+        }
+    }
     public void elementCollideSound()
     {
-        ElementsCollideSound.Play();
+        elementsCollideSound.Play();
     }
     public void newElementCreatedSound()
     {

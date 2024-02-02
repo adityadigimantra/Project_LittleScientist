@@ -359,7 +359,7 @@ public class combinationManager : MonoBehaviour
     {
         NewCreatedElementPanelAnimator.SetBool("IsOpen", true);
         newElementCreatedPanel.SetActive(true);
-        SoundManager._instance.newElementCreatedSound();
+        soundManager.newElementCreatedSound();
         //closing the Previous Message Box
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(3f);

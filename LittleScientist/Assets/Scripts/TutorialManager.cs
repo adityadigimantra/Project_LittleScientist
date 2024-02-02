@@ -9,6 +9,7 @@ public class TutorialManager : MonoBehaviour
     public CharacterManager charManager;
     public CharacterMessages charMessages;
     public SoundManager soundManager;
+    public SettingsManager settingsManager;
     public PlayerActivityMonitor playerActivityMonitor;
 
     [Header("General Items")]
@@ -37,6 +38,7 @@ public class TutorialManager : MonoBehaviour
         charMessages = FindObjectOfType<CharacterMessages>();
         soundManager = FindObjectOfType<SoundManager>();
         playerActivityMonitor = FindObjectOfType<PlayerActivityMonitor>();
+        settingsManager = FindObjectOfType<SettingsManager>();
         #endregion
 
         #region Switch For Tutorial using PlayerPrefs
@@ -44,6 +46,8 @@ public class TutorialManager : MonoBehaviour
         {
             TutorialPanel.SetActive(true);
             playerActivityMonitor.enabled = false;
+            settingsManager.TurnOnMusic();
+            settingsManager.TurnOnSound();
             StartCoroutine(IntroduceElements());
         }
         else
