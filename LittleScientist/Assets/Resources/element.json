@@ -94,6 +94,24 @@
             "fontsize": 30
         },
         {
+            "Name": "Gunpowder",
+            "element1": "energy",
+            "element2": "dust",
+            "result": "gunpowder",
+            "fact": "Gunpowder is the earliest known chemical explosive.",
+            "factimage": 2,
+            "fontsize": 30
+        },
+        {
+            "Name": "Gunpowder",
+            "element1": "dust",
+            "element2": "energy",
+            "result": "gunpowder",
+            "fact": "Gunpowder is the earliest known chemical explosive.",
+            "factimage": 2,
+            "fontsize": 30
+        },
+        {
             "Name": "Mud",
             "element1": "earth",
             "element2": "water",
@@ -301,6 +319,24 @@
             "fontsize": 30
         },
         {
+            "Name": "Metal",
+            "element1": "heat",
+            "element2": "stone",
+            "result": "metal",
+            "fact": "It snows metal on Venus.",
+            "factimage": 1,
+            "fontsize": 30
+        },
+        {
+            "Name": "Metal",
+            "element1": "stone",
+            "element2": "heat",
+            "result": "metal",
+            "fact": "It snows metal on Venus.",
+            "factimage": 1,
+            "fontsize": 30
+        },
+        {
             "Name": "Obsidian",
             "element1": "water",
             "element2": "lava",
@@ -313,6 +349,24 @@
             "Name": "Obsidian",
             "element1": "lava",
             "element2": "water",
+            "result": "obsidian",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Obsidian",
+            "element1": "lava",
+            "element2": "glass",
+            "result": "obsidian",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Obsidian",
+            "element1": "glass",
+            "element2": "lava",
             "result": "obsidian",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
             "factimage": 4,
@@ -332,6 +386,24 @@
             "Name": "Aquarium",
             "element1": "glass",
             "element2": "water",
+            "result": "aquarium",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Aquarium",
+            "element1": "pond",
+            "element2": "glass",
+            "result": "aquarium",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Aquarium",
+            "element1": "glass",
+            "element2": "pond",
             "result": "aquarium",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
             "factimage": 4,
@@ -441,6 +513,24 @@
             "Name": "Plough",
             "element1": "metal",
             "element2": "earth",
+            "result": "plough",
+            "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
+            "factimage": 3,
+            "fontsize": 25
+        },
+        {
+            "Name": "Plough",
+            "element1": "metal",
+            "element2": "field",
+            "result": "plough",
+            "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
+            "factimage": 3,
+            "fontsize": 25
+        },
+        {
+            "Name": "Plough",
+            "element1": "field",
+            "element2": "metal",
             "result": "plough",
             "fact": "Ground that has been plowed is a good place for a farmer to grow food.",
             "factimage": 3,
@@ -636,6 +726,24 @@
         {
             "Name": "Land",
             "element1": "earth",
+            "element2": "earth",
+            "result": "land",
+            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Land",
+            "element1": "earth",
+            "element2": "stone",
+            "result": "land",
+            "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Land",
+            "element1": "stone",
             "element2": "earth",
             "result": "land",
             "fact": "Most of the Earth's surface is covered with water. The roughly 22 percent that is not, is called land.",
