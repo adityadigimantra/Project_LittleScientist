@@ -166,6 +166,24 @@
             "fontsize": 30
         },
         {
+            "Name": "Chimney",
+            "element1": "brick",
+            "element2": "stone",
+            "result": "chimney",
+            "fact": "Chimneys have been around for over 1,000 years.",
+            "factimage": 2,
+            "fontsize": 30
+        },
+        {
+            "Name": "Chimney",
+            "element1": "stone",
+            "element2": "brick",
+            "result": "chimney",
+            "fact": "Chimneys have been around for over 1,000 years.",
+            "factimage": 2,
+            "fontsize": 30
+        },
+        {
             "Name": "Wall",
             "element1": "brick",
             "element2": "brick",
@@ -283,24 +301,6 @@
             "fontsize": 30
         },
         {
-            "Name": "Metal",
-            "element1": "heat",
-            "element2": "stone",
-            "result": "metal",
-            "fact": "It snows metal on Venus.",
-            "factimage": 1,
-            "fontsize": 30
-        },
-        {
-            "Name": "Metal",
-            "element1": "stone",
-            "element2": "metal",
-            "result": "metal",
-            "fact": "It snows metal on Venus.",
-            "factimage": 1,
-            "fontsize": 30
-        },
-        {
             "Name": "Obsidian",
             "element1": "water",
             "element2": "lava",
@@ -332,24 +332,6 @@
             "Name": "Aquarium",
             "element1": "glass",
             "element2": "water",
-            "result": "aquarium",
-            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
-            "factimage": 4,
-            "fontsize": 25
-        },
-        {
-            "Name": "Aquarium",
-            "element1": "glass",
-            "element2": "pond",
-            "result": "aquarium",
-            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
-            "factimage": 4,
-            "fontsize": 25
-        },
-        {
-            "Name": "Aquarium",
-            "element1": "pond",
-            "element2": "glass",
             "result": "aquarium",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
             "factimage": 4,
