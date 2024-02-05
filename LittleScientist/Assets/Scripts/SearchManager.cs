@@ -19,6 +19,11 @@ public class SearchManager : MonoBehaviour
     public InputField searchInputField;
     public ScrollRect bottomScrollRect;
     public Scrollbar bottomScrollbar;
+
+    private void Start()
+    {
+        searchInputField.onEndEdit.AddListener(OnEndEdit);
+    }
     public void StartSearching()
     {
         searchedString = searchInputField.text;
@@ -30,11 +35,19 @@ public class SearchManager : MonoBehaviour
         searchPanel.GetComponent<Animator>().SetBool("IsOpen", false);
     }
 
+    void OnEndEdit(string objName)
+    {
+        if(Input.GetKey(KeyCode.Return))
+        {
+            StartSearching();
+        }
+    }
+
     public GameObject searchGameObject(string objName)
     {
         foreach (Transform child in bottomScrollRect.content.transform)
         {
-            if (child.name.ToLower().Contains(searchedString.ToLower()))
+            if (child.name.ToLower().Contains(objName.ToLower()))
             {
                 return child.gameObject;
             }
@@ -46,7 +59,6 @@ public class SearchManager : MonoBehaviour
     {
         obj.transform.SetAsFirstSibling();
         bottomScrollbar.GetComponent<Scrollbar>().value = 0;
-        
     }
 
     public void OpenSearchTray()
