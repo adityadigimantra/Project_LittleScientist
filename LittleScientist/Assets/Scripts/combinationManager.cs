@@ -385,13 +385,11 @@ public class combinationManager : MonoBehaviour
                 newObj = Instantiate(InsideRingElement);
                 newObj.name = loadedString;
                 newObj.GetComponent<BoxCollider2D>().enabled = false;
-                newObj.transform.localScale = new Vector2(1f, 1f);
+                //newObj.transform.localScale = new Vector2(1f,1f);
                 if(!InsideRinglElementsList.Contains(newObj.name))
                 {
                     placingElementsInScrollRect();
                 }
-                
-
                 
                 //Creating Element of Discovery Tray
                 discovery_element = Instantiate(discoveryElementPrefab);
@@ -593,20 +591,16 @@ public class combinationManager : MonoBehaviour
     {
         if (topScrollView.transform.childCount < 8)
         {
-            newObj.transform.position = topScrollView.transform.position;
             newObj.transform.parent = topScrollView.transform;
+            newObj.transform.position = topScrollView.transform.position;
+            newObj.transform.localScale = new Vector2(1, 1);
         }
         else
         {
-            newObj.transform.position = BottomScrollView.transform.position;
             newObj.transform.parent = BottomScrollView.transform;
+            newObj.transform.position = BottomScrollView.transform.position;
+            newObj.transform.localScale = new Vector2(1, 1);
         }
-        /*
-        else if(BottomScrollView.transform.childCount<8)
-        {
-            
-        }
-        */
     }
 
     public void placingDiscoveryElementInScrollRect()
