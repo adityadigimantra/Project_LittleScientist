@@ -407,6 +407,8 @@ public class combinationManager : MonoBehaviour
                     InsideBox_newObj = Instantiate(newCreatedElement);
                     InsideBox_newObj.name = loadedString;
                     InsideBox_newObj.transform.parent = elementsPanel.transform;
+                    InsideBox_newObj.transform.position = elementsPanel.transform.position;
+
                     GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                     Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
