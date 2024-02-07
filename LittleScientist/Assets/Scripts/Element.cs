@@ -137,10 +137,10 @@ public class Element : MonoBehaviour
 
     public void getPositionOfElements()
     {
-        thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.position;
+        thisElementPosition = thisElementObj.GetComponent<RectTransform>().transform.localPosition;
         if (otherElementObj != null)
         {
-            otherElementPosition = otherElementObj.GetComponent<RectTransform>().transform.position;
+            otherElementPosition = otherElementObj.GetComponent<RectTransform>().transform.localPosition;
             averagePos = (thisElementPosition + otherElementPosition) / 2;
         }
         string vectorString = convertVectorToString(averagePos);

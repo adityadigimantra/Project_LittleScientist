@@ -407,7 +407,7 @@ public class combinationManager : MonoBehaviour
                     InsideBox_newObj = Instantiate(newCreatedElement);
                     InsideBox_newObj.name = loadedString;
                     InsideBox_newObj.transform.parent = elementsPanel.transform;
-                    InsideBox_newObj.transform.position = elementsPanel.transform.position;
+                    //InsideBox_newObj.transform.position = elementsPanel.transform.position;
 
                     GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
@@ -441,7 +441,7 @@ public class combinationManager : MonoBehaviour
                             if (FindObjectOfType<ElementPosition>().newFinalPos == Vector2.zero)
                             {
                                 LoadNewElementPositionFunction(loadedString);
-                                InsideBox_newObj.transform.position = loadedPosition;
+                                InsideBox_newObj.GetComponent< RectTransform>().transform.localPosition = loadedPosition;
                                 Debug.Log("Loaded Position for =" + loadedString + " Is= " + loadedPosition);
                             }
                             else
@@ -452,7 +452,7 @@ public class combinationManager : MonoBehaviour
                         }
                         else
                         {
-                            InsideBox_newObj.transform.position = newCreatedElementPos;
+                            InsideBox_newObj.GetComponent<RectTransform>().transform.localPosition = newCreatedElementPos;
                             Debug.Log("New Element Created Pos3=" + newCreatedElementPos);
                             newElementPositionFunction();
                             InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
@@ -465,7 +465,7 @@ public class combinationManager : MonoBehaviour
                     Debug.Log("after Restart");
 
                     LoadNewElementPositionFunction(loadedString);
-                    InsideBox_newObj.transform.position = loadedPosition;
+                    InsideBox_newObj.GetComponent<RectTransform>().transform.localPosition = loadedPosition;
                     InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
                     InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                     switchingOffElements();
@@ -581,7 +581,11 @@ public class combinationManager : MonoBehaviour
                 {
                     if (g.name == elementFound)
                     {
-                         g.SetActive(false);
+                        if (g.GetComponent<Element>().isCollided)
+                        {
+                            g.SetActive(false);
+                        }
+                       
                     }
                 }
                 

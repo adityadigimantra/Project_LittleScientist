@@ -49,7 +49,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
  
         if (gameObject.tag=="NewCreatedElement")
         {
-            gameObject.GetComponent<ElementPosition>().GetInitialPos(gameObject.transform.position);
+            //Changed
+            gameObject.GetComponent<ElementPosition>().GetInitialPos(gameObject.GetComponent<RectTransform>().transform.localPosition);
         }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
@@ -68,7 +69,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         canvasGroup.blocksRaycasts = true;
         if (gameObject.tag == "NewCreatedElement")
         {
-            gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.transform.position);
+            //Changed
+            gameObject.GetComponent<ElementPosition>().GetFinalPos(gameObject.GetComponent<RectTransform>().transform.localPosition);
         }
         //if (tutorialManager.FirstHand.activeSelf)
         //{

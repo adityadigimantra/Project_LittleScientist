@@ -112,7 +112,7 @@ public class ElementPosition : MonoBehaviour
                 if (parts.Length >= 2 && parts[0] == gameObject.name)
                 {
                     newFinalPos = FindObjectOfType<combinationManager>().convertStringToVector(parts[1]);
-                    gameObject.transform.position = newFinalPos;
+                    gameObject.GetComponent<RectTransform>().transform.localPosition = newFinalPos;
 
                 }
             }
