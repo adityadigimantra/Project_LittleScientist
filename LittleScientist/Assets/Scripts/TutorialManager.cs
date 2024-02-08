@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class TutorialManager : MonoBehaviour
     public GameObject newElementCreatedPanel;
     public GameObject tutorialCompletePanel;
     public GameObject fadedImage;
+
+    [Header("Buttons")]
+    public Button skipButton;
+    public Button nextButton;
     void Start()
     {
         #region Getting Instances
@@ -63,6 +68,7 @@ public class TutorialManager : MonoBehaviour
 
         #region Section1 (Character Gives Welcome Message)
         //Section-1
+        
         yield return new WaitForSeconds(0.2f);
         fadedImage.SetActive(true);
         fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
@@ -541,6 +547,23 @@ public class TutorialManager : MonoBehaviour
         string message = charMessages.ReturnTutorialMessageForTutorialComplete();
         charManager.HandlingCharacterBehaviour(message, 20);
         soundManager.PlayCharacterWelcomingSound();
+    }
+    #endregion
+
+
+    #region Buttons Functions
+    public void SkipTutorial()
+    {
+        StopAllCoroutines();
+        charManager.CloseCurrentMessage();
+        TutorialPanel.SetActive(false);
+        PlayerPrefs.SetInt("ShownTutorial", 1);
+        playerActivityMonitor.enabled = true;
+    }
+
+    public void NextTutorialMessage(Coroutine runningCoroutine)
+    {
+
     }
     #endregion
 }
