@@ -22,7 +22,7 @@ public class TrashManager : MonoBehaviour
         if(other.GetComponent<CheckStatus>().isInsidePlayArea)
         {
             other.gameObject.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
-            if(!comManager.disabledGameobjects.Contains(other.name))
+            if(!comManager.elementsDraggedToTrash.Contains(other.name))
             {
                 comManager.disabledGameobjects.Add(other.name);
             }

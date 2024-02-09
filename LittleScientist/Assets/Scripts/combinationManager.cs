@@ -87,6 +87,8 @@ public class combinationManager : MonoBehaviour
     public List<string> CreatedElements = new List<string>();
     public List<string> loadCreatedElements = new List<string>();
     public List<string> disabledGameobjects = new List<string>();
+    public List<string> elementsDraggedToTrash = new List<string>();
+    public List<string> elementsDraggedToRects = new List<string>();
     public List<string> NoCombinationFoundElements = new List<string>();
     public List<string> SavedPositions = new List<string>();
     public List<string> SavedPositionsForNewCreatedElements = new List<string>();
@@ -155,7 +157,7 @@ public class combinationManager : MonoBehaviour
         //First Clearing the list of Disabled Gameobjects.
         disabledGameobjects.Clear();
         elementManager.getDisabledGameobjectsToList();
-        //switchingOffElements();
+        switchingOffElements();
 
     }
 
@@ -560,20 +562,21 @@ public class combinationManager : MonoBehaviour
     {
         foreach (string sameElement in loadCreatedElements)
         {
+            #region Elements in DisabledGameObject list
             if (disabledGameobjects.Contains(sameElement))
             {
                 Debug.Log("Found Element" + sameElement);
                 elementFound = sameElement;
                 GameObject[] CopiedTypeObj = GameObject.FindGameObjectsWithTag("Copied");
-                foreach(GameObject g in CopiedTypeObj)
+                foreach (GameObject g in CopiedTypeObj)
                 {
-                    if(g.name==elementFound)
+                    if (g.name == elementFound)
                     {
-                        if(g.GetComponent<Element>().isCollided)
+                        if (g.GetComponent<Element>().isCollided)
                         {
                             g.SetActive(false);
                         }
-                        
+
                     }
                 }
                 GameObject[] NewTypeObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
@@ -582,17 +585,67 @@ public class combinationManager : MonoBehaviour
                     if (g.name == elementFound)
                     {
                         if (g.GetComponent<Element>().isCollided)
-                          {
+                        {
                             g.SetActive(false);
-                          }
-                       
+                        }
+
                     }
                 }
-                
+
             }
+            #endregion
+
+            #region Elements in Trash list
+            if(elementsDraggedToTrash.Contains(sameElement))
+            {
+                Debug.Log("Found Element Dragged To Trash" + sameElement);
+                elementFound = sameElement;
+                GameObject[] CopiedTypeObj = GameObject.FindGameObjectsWithTag("Copied");
+                foreach (GameObject g in CopiedTypeObj)
+                {
+                    if (g.name == elementFound)
+                    { 
+                      g.SetActive(false);
+                    }
+                }
+                GameObject[] NewTypeObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+                foreach (GameObject g in NewTypeObj)
+                {
+                    if (g.name == elementFound)
+                    {
+                      g.SetActive(false);
+                    }
+                }
+            }
+            #endregion
+
+            #region Elements Dragged To Rects
+            if (elementsDraggedToRects.Contains(sameElement))
+            {
+                Debug.Log("Found Element Dragged To Scroll Rects" + sameElement);
+                elementFound = sameElement;
+                GameObject[] CopiedTypeObj = GameObject.FindGameObjectsWithTag("Copied");
+                foreach (GameObject g in CopiedTypeObj)
+                {
+                    if (g.name == elementFound)
+                    {
+                        g.SetActive(false);
+                    }
+                }
+                GameObject[] NewTypeObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
+                foreach (GameObject g in NewTypeObj)
+                {
+                    if (g.name == elementFound)
+                    {
+                        g.SetActive(false);
+                    }
+                }
+            }
+
+            #endregion
         }
     }
-    
+
     public void placingElementsInScrollRect()
     {
         if (topScrollView.transform.childCount < 8)

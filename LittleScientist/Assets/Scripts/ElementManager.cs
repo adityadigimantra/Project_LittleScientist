@@ -142,6 +142,7 @@ public class ElementManager : MonoBehaviour
         foreach(GameObject g in ObjectsToSwitchOff)
         {
             g.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+            //g.transform.GetChild(0).gameObject.SetActive(false);
             g.GetComponent<Element>().isCollided = false;
         }
     }
