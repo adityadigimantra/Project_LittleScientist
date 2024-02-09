@@ -157,9 +157,10 @@ public class combinationManager : MonoBehaviour
         //First Clearing the list of Disabled Gameobjects.
         disabledGameobjects.Clear();
         elementsDraggedToTrash.Clear();
-        elementManager.getDisabledGameobjectsToList();
-        elementManager.getTrashGameObjectsFileToList();
-        switchingOffElements();
+        elementManager.GetDisabledGameObjectsList();
+        elementManager.GetTrashGameObjectsList();
+        elementManager.GetScrollRectGameObjectsList();
+        //switchingOffElements();
 
     }
 
@@ -566,6 +567,7 @@ public class combinationManager : MonoBehaviour
         foreach (string sameElement in loadCreatedElements)
         {
             #region Elements in DisabledGameObject list
+
             if (disabledGameobjects.Contains(sameElement))
             {
                 Debug.Log("Found Element" + sameElement);
@@ -587,11 +589,7 @@ public class combinationManager : MonoBehaviour
                 {
                     if (g.name == elementFound)
                     {
-                        if (g.GetComponent<Element>().isCollided)
-                        {
-                            g.SetActive(false);
-                        }
-
+                      g.SetActive(false);
                     }
                 }
 
@@ -599,6 +597,7 @@ public class combinationManager : MonoBehaviour
             #endregion
 
             #region Elements in Trash list
+
             if(elementsDraggedToTrash.Contains(sameElement))
             {
                 Debug.Log("Found Element Dragged To Trash" + sameElement);
@@ -623,9 +622,10 @@ public class combinationManager : MonoBehaviour
             #endregion
 
             #region Elements Dragged To Rects
+
             if (elementsDraggedToRects.Contains(sameElement))
             {
-                Debug.Log("Found Element Dragged To Scroll Rects" + sameElement);
+                Debug.Log("Found Element Dragged To Trash" + sameElement);
                 elementFound = sameElement;
                 GameObject[] CopiedTypeObj = GameObject.FindGameObjectsWithTag("Copied");
                 foreach (GameObject g in CopiedTypeObj)
@@ -644,7 +644,6 @@ public class combinationManager : MonoBehaviour
                     }
                 }
             }
-
             #endregion
         }
     }

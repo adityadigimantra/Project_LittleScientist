@@ -86,12 +86,13 @@ public class ElementManager : MonoBehaviour
     #region Saving and Creating Disabled GameObject List
     public void saveDisabledGameObjectsList()
     {
-        string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
-        //PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
         saveDisabledGameobjectListToFile();
-        //PlayerPrefs.Save();
     }
-    public void saveDisabledGameobjectListToFile()
+    public void GetDisabledGameObjectsList()
+    {
+        getDisabledGameobjectsToList();
+    }
+    private void saveDisabledGameobjectListToFile()
     {
         string filePath = Path.Combine(Application.persistentDataPath, saveDisabledGameObjects);
         try
@@ -108,7 +109,7 @@ public class ElementManager : MonoBehaviour
         }
     }
 
-    public void getDisabledGameobjectsToList()
+    private void getDisabledGameobjectsToList()
     {
         string filePath = Path.Combine(Application.persistentDataPath, saveDisabledGameObjects);
         try
@@ -130,12 +131,16 @@ public class ElementManager : MonoBehaviour
     #region Saving and Creating Trash GameObjects List
     public void SaveTrashGameObjectsList()
     {
-        //string savThisList = string.Join(";", FindObjectOfType<combinationManager>().elementsDraggedToTrash.ToArray());
+        
         SaveTrashGameObjectsListToFile();
 
     }
+    public void GetTrashGameObjectsList()
+    {
+        getTrashGameObjectsFileToList();
+    }
 
-    public void SaveTrashGameObjectsListToFile()
+    private void SaveTrashGameObjectsListToFile()
     {
         string filepath = Path.Combine(Application.persistentDataPath, saveTrashGameObjects);
         try
@@ -154,7 +159,7 @@ public class ElementManager : MonoBehaviour
         }
     }
 
-    public void getTrashGameObjectsFileToList()
+    private void getTrashGameObjectsFileToList()
     {
         string filepath = Path.Combine(Application.persistentDataPath, saveTrashGameObjects);
         try
@@ -175,7 +180,43 @@ public class ElementManager : MonoBehaviour
     #region Saving and Creating Scroll Rects GameObjects File
     public void SaveScrollRectGameObjectsList()
     {
-        //string
+        SaveScrollRectGameObjectsListToFile();
+    }
+    public void GetScrollRectGameObjectsList()
+    {
+        getScrollRectGameObjectsListToFile();
+    }
+    private void SaveScrollRectGameObjectsListToFile()
+    {
+        string filepath = Path.Combine(Application.persistentDataPath, saveScrollRectGameObjects);
+        try
+        {
+            using(FileStream fileStream=File.Open(filepath,FileMode.Create))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                binaryFormatter.Serialize(fileStream, comManager.elementsDraggedToRects);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+    private void getScrollRectGameObjectsListToFile()
+    {
+        string filepath = Path.Combine(Application.persistentDataPath, saveScrollRectGameObjects);
+        try
+        {
+            using(FileStream fileStream=File.Open(filepath,FileMode.Open))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                comManager.elementsDraggedToRects = (List<string>)binaryFormatter.Deserialize(fileStream);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
     #endregion
 

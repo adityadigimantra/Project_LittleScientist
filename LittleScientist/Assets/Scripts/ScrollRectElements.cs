@@ -22,8 +22,8 @@ public class ScrollRectElements : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         //Check if the count of Scroll Rect is less then 8
-        if (ScrollRect_Content.transform.childCount < 8)
-        {
+        //if (ScrollRect_Content.transform.childCount < 8)
+        
             if (!other.GetComponent<CheckStatus>().isInsidePlayArea)
             {
                 //Play sink Animation
@@ -36,13 +36,14 @@ public class ScrollRectElements : MonoBehaviour
                 }
 
                 //Saving the list to file.
-                elementManager.saveDisabledGameObjectsList();
+                elementManager.SaveScrollRectGameObjectsList();
 
                 //Then destroying the element after playing animations.
                 StartCoroutine(givingDelaythenDestroy(other));
             }
 
-        }
+        
+        /*
         else
         {
 
@@ -50,17 +51,18 @@ public class ScrollRectElements : MonoBehaviour
             {
                 other.gameObject.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
 
-                if (!comManager.disabledGameobjects.Contains(other.name))
+                if (!comManager.elementsDraggedToRects.Contains(other.name))
                 {
-                    comManager.disabledGameobjects.Add(other.name);
+                    comManager.elementsDraggedToRects.Add(other.name);
                 }
 
-                elementManager.saveDisabledGameObjectsList();
+                elementManager.SaveScrollRectGameObjectsList();
 
                 StartCoroutine(givingDelaythenDestroy(other));
                 
             }
         }
+        */
     }
 
     IEnumerator givingDelaythenDestroy(Collider2D obj)
