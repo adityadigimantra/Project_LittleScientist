@@ -30,9 +30,9 @@ public class ScrollRectElements : MonoBehaviour
                 other.gameObject.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
 
                 //Check if the element is already present in DisabledGameobject list
-                if (!comManager.disabledGameobjects.Contains(other.name))
+                if (!comManager.elementsDraggedToRects.Contains(other.name))
                 {
-                    comManager.disabledGameobjects.Add(other.name);
+                    comManager.elementsDraggedToRects.Add(other.name);
                 }
 
                 //Saving the list to file.

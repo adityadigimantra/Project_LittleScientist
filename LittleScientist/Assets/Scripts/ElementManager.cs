@@ -130,7 +130,7 @@ public class ElementManager : MonoBehaviour
     #region Saving and Creating Trash GameObjects List
     public void SaveTrashGameObjectsList()
     {
-        string savThisList = string.Join(";", FindObjectOfType<combinationManager>().elementsDraggedToTrash.ToArray());
+        //string savThisList = string.Join(";", FindObjectOfType<combinationManager>().elementsDraggedToTrash.ToArray());
         SaveTrashGameObjectsListToFile();
 
     }
@@ -172,8 +172,15 @@ public class ElementManager : MonoBehaviour
     }
     #endregion
 
+    #region Saving and Creating Scroll Rects GameObjects File
+    public void SaveScrollRectGameObjectsList()
+    {
+        //string
+    }
+    #endregion
 
 
+    #region Combination Related Functions
 
     public void DisablingElementsCombinationAlreadyPresent()
     {
@@ -197,4 +204,5 @@ public class ElementManager : MonoBehaviour
             g.GetComponent<Element>().isCollided = false;
         }
     }
+    #endregion
 }

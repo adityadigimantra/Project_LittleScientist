@@ -156,11 +156,14 @@ public class combinationManager : MonoBehaviour
         //Disabled Elements List clearing and loading from File.
         //First Clearing the list of Disabled Gameobjects.
         disabledGameobjects.Clear();
+        elementsDraggedToTrash.Clear();
         elementManager.getDisabledGameobjectsToList();
+        elementManager.getTrashGameObjectsFileToList();
         switchingOffElements();
 
     }
 
+   
     private void Update()
     {
 
