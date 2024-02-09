@@ -35,6 +35,7 @@ public class TutorialManager : MonoBehaviour
     [Header("Buttons")]
     public Button skipButton;
     public Button nextButton;
+    public GameObject restartButton;
     void Start()
     {
         #region Getting Instances
@@ -58,6 +59,7 @@ public class TutorialManager : MonoBehaviour
         else
         {
             TutorialPanel.SetActive(false);
+            restartButton.SetActive(true);
         }
         #endregion
     }
@@ -557,6 +559,7 @@ public class TutorialManager : MonoBehaviour
         StopAllCoroutines();
         charManager.CloseCurrentMessage();
         TutorialPanel.SetActive(false);
+        restartButton.SetActive(true);
         PlayerPrefs.SetInt("ShownTutorial", 1);
         playerActivityMonitor.enabled = true;
         foreach(GameObject g in startingFourElements)
