@@ -559,11 +559,18 @@ public class TutorialManager : MonoBehaviour
         TutorialPanel.SetActive(false);
         PlayerPrefs.SetInt("ShownTutorial", 1);
         playerActivityMonitor.enabled = true;
-    }
-
-    public void NextTutorialMessage(Coroutine runningCoroutine)
-    {
-
+        foreach(GameObject g in startingFourElements)
+        {
+            g.transform.GetChild(3).gameObject.SetActive(false);
+        }
+        foreach(GameObject g in elementsBackgrounds)
+        {
+            g.SetActive(false);
+        }
+        foreach(GameObject g in otherElements)
+        {
+            g.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
     #endregion
 }

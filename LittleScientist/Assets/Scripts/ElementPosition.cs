@@ -10,8 +10,9 @@ public class ElementPosition : MonoBehaviour
     public Vector2 InitialPos;
     public Vector3 FinalPos;
     public Vector2 newFinalPos;
-    
-    
+
+
+    public bool isInSafeArea = false;
 
     [Header("Files")]
     private string saveFinalElementPositions = "saveElementFinalPosition.txt";
@@ -26,7 +27,6 @@ public class ElementPosition : MonoBehaviour
     {
       
     }
-
     public void GetInitialPos(Vector2 initialPos)
     {
         InitialPos = initialPos;
@@ -34,7 +34,12 @@ public class ElementPosition : MonoBehaviour
     public void GetFinalPos(Vector2 finalPos)
     {
         FinalPos = finalPos;
-        SetPositionToList();
+        //If this element is in safe position then only save the position
+        if(gameObject.GetComponent<CheckStatus>().isInsidePlayArea)
+        {
+            SetPositionToList();
+        }
+        
     }
     public void SetPositionToList()
     {

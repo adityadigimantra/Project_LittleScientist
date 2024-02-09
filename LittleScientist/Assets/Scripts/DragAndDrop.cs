@@ -29,12 +29,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private RectTransform outerPanelTransform;
 
 
-
+    [Header("Top and Bottom Scroll Rects")]
+    public GameObject topScrollRect;
+    public GameObject bottomScrollRect;
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
         ElementsPanel = GameObject.Find("AllElements");
+        topScrollRect = GameObject.Find("Top_ScrollView");
+        bottomScrollRect = GameObject.Find("Down_ScrollView");
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
         ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();
@@ -51,6 +55,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private void Update()
     {
     }
+    public void OnClick_SwitchOff_TopAndBottomScrollRects()
+    {
+        topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+        bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+    }
+    public void OnClick_SwitchOn_TopAndBottomScrollRects()
+    {
+        topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+        bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
 
@@ -61,6 +75,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             copiedElementData();
             soundManager.PlayGeneralButtonTapSound();
             tutorialManager.FirstHand.GetComponent<Animator>().SetBool("CloseHand1", true);
+            OnClick_SwitchOff_TopAndBottomScrollRects();
             //tutorialManager.FirstHand.SetActive(false);
         }
     }
@@ -122,7 +137,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        if(copiedGameObject!=null)
+        if (copiedGameObject != null)
         {
             //For This Object
             canvasGroup.alpha = 1f;
@@ -141,7 +156,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         {
             canvasGroup.alpha = 1f;
             canvasGroup.blocksRaycasts = true;
-        } 
+        }
+        OnClick_SwitchOn_TopAndBottomScrollRects();
     }
 
     private float GetCanvasScale()

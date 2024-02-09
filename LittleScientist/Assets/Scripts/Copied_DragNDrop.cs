@@ -21,7 +21,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     [Header("Instances")]
     public ElementManager elementManager;
     public SoundManager soundManager;
-   
+
+
 
     private void Start()
     {
@@ -44,6 +45,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         gameObject.transform.GetChild(2).GetComponent<Image>().preserveAspect = true;
     }
 
+
     public void OnPointerDown(PointerEventData eventData)
     {
  
@@ -58,7 +60,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         PlayerPrefs.SetString("UpperObject", gameObject.name);
         soundManager.PlayGeneralButtonTapSound();
         //SwitchOff The Hand Animation of FirstHand
-      
+
         //Debug.Log("Upper GameObject Name" + PlayerPrefs.GetString("UpperObject"));
     }
 

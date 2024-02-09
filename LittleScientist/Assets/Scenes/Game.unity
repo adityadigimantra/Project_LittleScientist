@@ -1306,6 +1306,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 0}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!61 &53108922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1645,8 +1647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 900, y: 445}
+  m_AnchoredPosition: {x: 0, y: -2}
+  m_SizeDelta: {x: 825, y: 410}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70804329
 MonoBehaviour:
@@ -4589,6 +4591,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 924376738}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!225 &289917946
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4696,7 +4700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &291780347
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7366,7 +7370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &526849077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8463,7 +8467,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1027966005}
   m_HandleRect: {fileID: 1027966004}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9072,6 +9076,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 0}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!114 &619023746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11765,7 +11771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &813787494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12196,6 +12202,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 0}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!114 &831896452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13201,7 +13209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &920923774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13339,8 +13347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000014305, y: -52.79999}
-  m_SizeDelta: {x: 209.4417, y: 64.7318}
+  m_AnchoredPosition: {x: 0, y: -64}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924376738
 MonoBehaviour:
@@ -13364,7 +13372,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d39a98db0352fa749bceac6177007c34, type: 3}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -15729,8 +15737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000014305, y: -52.79999}
-  m_SizeDelta: {x: 209.4417, y: 64.7318}
+  m_AnchoredPosition: {x: 0, y: -64}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153543449
 MonoBehaviour:
@@ -15748,16 +15756,16 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d39a98db0352fa749bceac6177007c34, type: 3}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -16023,7 +16031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1183620190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16608,8 +16616,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000014305, y: -52.79999}
-  m_SizeDelta: {x: 209.4417, y: 64.7318}
+  m_AnchoredPosition: {x: 0, y: -64}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213484894
 MonoBehaviour:
@@ -16633,7 +16641,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d39a98db0352fa749bceac6177007c34, type: 3}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -20229,6 +20237,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 1213484894}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!225 &1420043069
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -20962,8 +20972,8 @@ MonoBehaviour:
   FirstHand: {fileID: 1497293769}
   SecondHand: {fileID: 1687295188}
   TutorialPanel: {fileID: 813787493}
-  TimeHoldMessage: 5
-  TimeCloseMessage: 2.5
+  TimeHoldMessage: 3
+  TimeCloseMessage: 2
   startingFourElements:
   - {fileID: 2033142677}
   - {fileID: 289917941}
@@ -20994,6 +21004,8 @@ MonoBehaviour:
   newElementCreatedPanel: {fileID: 1506567307}
   tutorialCompletePanel: {fileID: 1284887945}
   fadedImage: {fileID: 291780346}
+  skipButton: {fileID: 0}
+  nextButton: {fileID: 0}
 --- !u!4 &1436297703
 Transform:
   m_ObjectHideFlags: 0
@@ -25441,6 +25453,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 2096071611}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!225 &1792392663
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -25832,7 +25846,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1812110299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1436297702}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: SkipTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1812110299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26465,6 +26491,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 0}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!114 &1850506451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28891,6 +28919,8 @@ MonoBehaviour:
   ElementsPanel: {fileID: 0}
   ClampPanelRectTransform: {fileID: 0}
   ElementNameTextObj: {fileID: 1153543449}
+  topScrollRect: {fileID: 0}
+  bottomScrollRect: {fileID: 0}
 --- !u!61 &2033142682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30110,8 +30140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000014305, y: -52.79999}
-  m_SizeDelta: {x: 209.4417, y: 64.7318}
+  m_AnchoredPosition: {x: 0, y: -64}
+  m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096071611
 MonoBehaviour:
@@ -30135,7 +30165,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d39a98db0352fa749bceac6177007c34, type: 3}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1

@@ -34,7 +34,7 @@ public class OnboardingManager : MonoBehaviour
             nameIsTooShort = true;
             generalMessageText.text = "Your name should contains atleast 6 characters.";
         }
-        if(inputField.text.Length>=7 && inputField.text!="")
+        if(inputField.text.Length>=6 && inputField.text!="")
         {
             nameIsTooShort = false;
             fieldIsEmpty = false;

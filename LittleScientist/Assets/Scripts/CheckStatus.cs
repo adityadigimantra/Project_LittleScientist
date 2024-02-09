@@ -17,10 +17,12 @@ public class CheckStatus : MonoBehaviour
         if (other.gameObject.tag == "PlayArea")
         {
             isInsidePlayArea = true;
+            //isInsideScrollRect = false;
         }
         if(other.gameObject.tag=="ScrollRect")
         {
-            //isInsidePlayArea = false;
+            isInsidePlayArea = false;
+            //isInsideScrollRect = true;
         }
     }
    

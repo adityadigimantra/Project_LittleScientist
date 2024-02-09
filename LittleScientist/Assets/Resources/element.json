@@ -40,6 +40,26 @@
 
         },
         {
+            "Name": "Mist",
+            "element1": "air",
+            "element2": "steam",
+            "result": "mist",
+            "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
+            "factimage": 4,
+            "fontsize": 25
+
+        },
+        {
+            "Name": "Mist",
+            "element1": "steam",
+            "element2": "air",
+            "result": "mist",
+            "fact": "Mist often forms when warmer air over water suddenly encounters the cooler surface of land.",
+            "factimage": 4,
+            "fontsize": 25
+
+        },
+        {
             "Name": "Smoke",
             "element1": "air",
             "element2": "fire",
@@ -70,6 +90,24 @@
             "Name": "Dust",
             "element1": "earth",
             "element2": "air",
+            "result": "dust",
+            "fact": "Inside every raindrop/Snowflake is a piece of dust!",
+            "factimage": 2,
+            "fontsize": 30
+        },
+        {
+            "Name": "Dust",
+            "element1": "land",
+            "element2": "air",
+            "result": "dust",
+            "fact": "Inside every raindrop/Snowflake is a piece of dust!",
+            "factimage": 2,
+            "fontsize": 30
+        },
+        {
+            "Name": "Dust",
+            "element1": "air",
+            "element2": "land",
             "result": "dust",
             "fact": "Inside every raindrop/Snowflake is a piece of dust!",
             "factimage": 2,
@@ -186,7 +224,7 @@
         {
             "Name": "Chimney",
             "element1": "brick",
-            "element2": "stone",
+            "element2": "smoke",
             "result": "chimney",
             "fact": "Chimneys have been around for over 1,000 years.",
             "factimage": 2,
@@ -194,7 +232,7 @@
         },
         {
             "Name": "Chimney",
-            "element1": "stone",
+            "element1": "smoke",
             "element2": "brick",
             "result": "chimney",
             "fact": "Chimneys have been around for over 1,000 years.",
@@ -404,6 +442,24 @@
             "Name": "Aquarium",
             "element1": "glass",
             "element2": "pond",
+            "result": "aquarium",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Aquarium",
+            "element1": "glass",
+            "element2": "puddle",
+            "result": "aquarium",
+            "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
+            "factimage": 4,
+            "fontsize": 25
+        },
+        {
+            "Name": "Aquarium",
+            "element1": "puddle",
+            "element2": "glass",
             "result": "aquarium",
             "fact": "Obsidian is an igneous rock that is formed when volcanic lava cools without crystal growth.",
             "factimage": 4,

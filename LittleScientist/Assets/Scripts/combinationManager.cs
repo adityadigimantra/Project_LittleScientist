@@ -582,9 +582,9 @@ public class combinationManager : MonoBehaviour
                     if (g.name == elementFound)
                     {
                         if (g.GetComponent<Element>().isCollided)
-                        {
+                          {
                             g.SetActive(false);
-                        }
+                          }
                        
                     }
                 }
