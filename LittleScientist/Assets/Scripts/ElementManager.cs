@@ -25,6 +25,8 @@ public class ElementManager : MonoBehaviour
 
     [Header("Files")]
     private string saveDisabledGameObjects = "saveDisabledGameobjects.txt";
+    private string saveTrashGameObjects = "saveTrashGameObjects.txt";
+    private string saveScrollRectGameObjects = "saveScrollRectGameObjects.txt";
 
     private void Start()
     {
@@ -81,12 +83,13 @@ public class ElementManager : MonoBehaviour
         ObjectsToSwitchOff.AddRange(gameObjects);
     }
 
+    #region Saving and Creating Disabled GameObject List
     public void saveDisabledGameObjectsList()
     {
         string saveDisObj = string.Join(";", FindObjectOfType<combinationManager>().disabledGameobjects.ToArray());
-        PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
+        //PlayerPrefs.SetString("DisabledCollidedGameObject", saveDisObj);
         saveDisabledGameobjectListToFile();
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
     }
     public void saveDisabledGameobjectListToFile()
     {
@@ -122,6 +125,54 @@ public class ElementManager : MonoBehaviour
             Debug.Log(e.Message);
         }
     }
+    #endregion
+
+    #region Saving and Creating Trash GameObjects List
+    public void SaveTrashGameObjectsList()
+    {
+        string savThisList = string.Join(";", FindObjectOfType<combinationManager>().elementsDraggedToTrash.ToArray());
+        SaveTrashGameObjectsListToFile();
+
+    }
+
+    public void SaveTrashGameObjectsListToFile()
+    {
+        string filepath = Path.Combine(Application.persistentDataPath, saveTrashGameObjects);
+        try
+        {
+            using(FileStream fileStream=File.Open(filepath,FileMode.Create))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                {
+                    binaryFormatter.Serialize(fileStream, comManager.elementsDraggedToTrash);
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
+    public void getTrashGameObjectsFileToList()
+    {
+        string filepath = Path.Combine(Application.persistentDataPath, saveTrashGameObjects);
+        try
+        {
+            using(FileStream fileStream=File.Open(filepath,FileMode.Open))
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                comManager.elementsDraggedToTrash = (List<string>)binaryFormatter.Deserialize(fileStream);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+    #endregion
+
+
 
 
     public void DisablingElementsCombinationAlreadyPresent()

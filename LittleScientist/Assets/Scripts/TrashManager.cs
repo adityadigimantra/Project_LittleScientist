@@ -19,25 +19,28 @@ public class TrashManager : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        //If it is Inside Play area and user then drags elements to Trash.
+
         if(other.GetComponent<CheckStatus>().isInsidePlayArea)
         {
             other.gameObject.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
             if(!comManager.elementsDraggedToTrash.Contains(other.name))
             {
-                comManager.disabledGameobjects.Add(other.name);
+                comManager.elementsDraggedToTrash.Add(other.name);
             }
-            elementManager.saveDisabledGameObjectsList();
+            elementManager.SaveTrashGameObjectsList();
             soundManager.PlayTrashSound();
             StartCoroutine(givingDelaythenDestroy(other));
         }
+        //If user directly drags element to Trash.
         else
         {
             other.gameObject.GetComponent<CheckStatus>().thisObjectAnimator.SetBool("IsOpen", false);
-            if (!comManager.disabledGameobjects.Contains(other.name))
+            if (!comManager.elementsDraggedToTrash.Contains(other.name))
             {
-                comManager.disabledGameobjects.Add(other.name);
+                comManager.elementsDraggedToTrash.Add(other.name);
             }
-            elementManager.saveDisabledGameObjectsList();
+            elementManager.SaveTrashGameObjectsList();
             soundManager.PlayTrashSound();
             StartCoroutine(givingDelaythenDestroy(other));
         }
@@ -45,6 +48,6 @@ public class TrashManager : MonoBehaviour
     IEnumerator givingDelaythenDestroy(Collider2D obj)
     {
         yield return new WaitForSeconds(1);
-        //Destroy(obj.gameObject);
+        Destroy(obj.gameObject);
     }
 }
