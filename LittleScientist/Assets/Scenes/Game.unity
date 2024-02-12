@@ -3989,8 +3989,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.6881}
-  m_SizeDelta: {x: 1920, y: 1164.2961}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1169.763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &229136161
 Animator:
@@ -13155,8 +13155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.4605, y: 34.84613}
-  m_SizeDelta: {x: 1282.8247, y: 70.7964}
+  m_AnchoredPosition: {x: -0.4605, y: 53.5354}
+  m_SizeDelta: {x: 1282.8247, y: 108.1751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897281287
 MonoBehaviour:
@@ -13279,7 +13279,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1683236043}
   m_HandleRect: {fileID: 1683236042}
   m_Direction: 3
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 5
   m_OnValueChanged:
@@ -20013,7 +20013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 245, y: -90}
+  m_AnchoredPosition: {x: 250, y: -60}
   m_SizeDelta: {x: 244, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409009061
@@ -20211,21 +20211,21 @@ MonoBehaviour:
     intensity shape the landscape.
   - Step into the breezy expanse of the Air Element! Lightness and agility are the
     keys to conquering the skies.
-  - You can remove  element anytime.All you have to do is Drag N Drop!
-  - Click on Settings to configure music,sound,language.
-  - Use Clean Up to clear all the elements from the table.
-  - Use Encyclopedia to know more about the elements.
-  - Use Hints if you feel you are stuck somewhere.
-  - This is the Discovery Tray,here all the elements will be visible throughout our
+  - Remove elements effortlessly by simply Dragging and Dropping them at any time.
+  - Access Settings to personalize music, sound, and language preferences.
+  - Employ Clean Up to swiftly clear all elements from the table.
+  - Refer to the Encyclopedia for deeper insights into the elements.
+  - Utilize Hints whenever you encounter a roadblock.
+  - Welcome to the Discovery Tray, where all elements remain visible throughout our
     journey.
   ElementDraggingMessage:
-  - Let's me drag Earth element to play area for you!
-  - Great! I choose Fire, let me drag into play area.
-  - Now Let's Collide them and see what happens.
-  - Wow! new element Lava is created.
-  - Now I think you are familier with the process of combining.
-  - With this your tutorial is complete, hit on start playing to continue.
-  - Clearing the table is easy, just drag the element to trash.Let me show you.
+  - Allow me to drag the Earth element into the play area for you!
+  - Fantastic choice! I'll drag Fire into the play area.
+  - Let's now collide them and observe the outcome.
+  - Incredible! A new element, Lava, has been formed.
+  - I believe you are now familiar with the combination process.
+  - Your tutorial is now finished; click on "Start Playing" to proceed.
+  - Clearing the table is simple; just drag the element to the trash. Let me demonstrate.
 --- !u!1 &1417221978
 GameObject:
   m_ObjectHideFlags: 0
