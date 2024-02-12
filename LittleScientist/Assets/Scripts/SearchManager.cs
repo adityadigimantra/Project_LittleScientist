@@ -73,12 +73,12 @@ public class SearchManager : MonoBehaviour
         if(string.IsNullOrEmpty(searchInputField.text))
         {
             goButton.GetComponent<Image>().sprite = closeImage;
-            Debug.Log("Running");
+           
         }
         else
         {
             goButton.GetComponent<Image>().sprite = goImage;
-            Debug.Log("Running2");
+            
         }
     }
 

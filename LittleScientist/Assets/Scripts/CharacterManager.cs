@@ -64,27 +64,27 @@ public class CharacterManager : MonoBehaviour
         {
             case combinationManager.ElementState.InitialState:
                 ShowMessage(message,fontsize);
-                Debug.Log("State is-Initial");
+               
                 break;
 
             case combinationManager.ElementState.NewElementFound:
                 //string uppercaseWord = ConvertToUpperCase(message);
                 ShowMessage(message,fontsize);
-                Debug.Log("State is-New Element Found");
+               
                 break;
             case combinationManager.ElementState.ElementExists:
                 ShowMessage(message,fontsize);
                 //StartCoroutine(givingDelay());
-                Debug.Log("State is-Element Exists");
+               
                 break;
             case combinationManager.ElementState.NoCombinationFound:
                 ShowMessage(message,fontsize);
                 //StartCoroutine(givingDelay());
-                Debug.Log("State is-No Combination Found");
+                
                 break;
             case combinationManager.ElementState.IdleState:
                 ShowMessage(message, fontsize);
-                Debug.Log("State is-Idle");
+               
                 break;
         }
 

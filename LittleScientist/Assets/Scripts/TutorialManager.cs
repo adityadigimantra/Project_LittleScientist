@@ -99,7 +99,7 @@ public class TutorialManager : MonoBehaviour
         CloseEarthElementsAnimations();
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(TimeCloseMessage);
-        #endregion
+        #endregion//Sound Changed
 
         #region Section-4 (Character Introduces Water)
         //Section-4
@@ -243,15 +243,17 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialIntroMessage();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntro();
     }
+
+
 
     #region EarthElement and Background data
     public void CharacterIntroducesEarthElement()
     {
         string message = charMessages.ReturnTutorialMessageForEarthElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         //Earth Element Circle and Background index=0
         elementsBackgrounds[0].gameObject.SetActive(true);
@@ -272,7 +274,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForWaterElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         //Water Element Circle and Background index=1
         elementsBackgrounds[0].SetActive(false);
@@ -294,7 +296,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForFireElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[1].SetActive(false);
         elementsBackgrounds[2].gameObject.SetActive(true);
@@ -316,7 +318,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForAirElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[2].SetActive(false);
         elementsBackgrounds[3].gameObject.SetActive(true);
@@ -336,7 +338,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForTrashElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[3].SetActive(false);
         elementsBackgrounds[4].SetActive(true);
@@ -360,7 +362,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForSettingElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
         elementsBackgrounds[4].SetActive(false);
         elementsBackgrounds[5].SetActive(true);
         elementsBackgrounds[5].gameObject.GetComponent<Animator>().SetBool("IsOpen", true);
@@ -381,7 +383,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForCleanUpElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[5].SetActive(false);
         elementsBackgrounds[6].SetActive(true);
@@ -401,7 +403,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForEncylopedia();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[6].SetActive(false);
         elementsBackgrounds[7].SetActive(true);
@@ -422,7 +424,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForHints();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[7].SetActive(false);
         elementsBackgrounds[8].SetActive(true);
@@ -443,7 +445,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForDiscoveryTray();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
 
         elementsBackgrounds[8].SetActive(false);
         otherElements[5].SetActive(true);
@@ -456,6 +458,8 @@ public class TutorialManager : MonoBehaviour
         
     }
     #endregion
+
+
 
     #region GamePlay Collision for Tutorial
     public void CharacterGivesMessageToStartDraggingFirstElements()
@@ -542,6 +546,7 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         PlayerPrefs.SetInt("ShownTutorial", 1);
         TutorialPanel.SetActive(false);
+        restartButton.SetActive(true);
         playerActivityMonitor.enabled = true;
     }
     public void CharacterGivesMessageForTutorialComplete()

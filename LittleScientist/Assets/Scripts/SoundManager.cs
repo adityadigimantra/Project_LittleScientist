@@ -19,12 +19,25 @@ public class SoundManager : MonoBehaviour
     public AudioSource combinationExists_Character;
     public AudioSource noCombinationFound_Character;
     public AudioSource welcomingSound_Character;
+
     public AudioClip[] newElementFound_Character_clips;
     public AudioClip[] characterSoundUsedForTutorial;
 
 
+
+    [Header("New Sounds(Tutorial)")]
+    public AudioSource characterSoundForIntro;
+    public AudioSource characterSoundForIntroducingElements;
+    public AudioClip[] charactersSoundsforIntroMessages;
+    public AudioClip[] charactersSoundsforIntroducingElements;
+    public AudioClip tutorialCompleteSound;
+
+
+
     public AudioSource[] allSoundAudioSourcesInGame;
     public AudioSource[] allMusicAudioSourcesInGame;
+
+
     private void Start()
     {
 
@@ -98,5 +111,16 @@ public class SoundManager : MonoBehaviour
     public void PlayTrashSound()
     {
         trashSound.Play();
+    }
+
+    public void PlayCharacterSoundForIntro()
+    {
+        AudioClip clip = charactersSoundsforIntroMessages[Random.Range(0, charactersSoundsforIntroMessages.Length)];
+        characterSoundForIntro.PlayOneShot(clip);
+    }
+    public void PlayCharacterSoundForIntroducingElements()
+    {
+        AudioClip clip = charactersSoundsforIntroducingElements[Random.Range(0, charactersSoundsforIntroducingElements.Length)];
+        characterSoundForIntroducingElements.PlayOneShot(clip);
     }
 }

@@ -862,7 +862,7 @@ public class combinationManager : MonoBehaviour
     {
         WelcomeMessage = charMessages.ReturnWelcomingMessages();
         charManager.HandlingCharacterBehaviour(WelcomeMessage,20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntro();
     }
 
     public void GiveNewElementFoundMessage()
