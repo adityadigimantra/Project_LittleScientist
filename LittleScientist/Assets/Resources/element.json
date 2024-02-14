@@ -820,7 +820,7 @@
             "element1": "air",
             "element2": "air",
             "result": "pressure",
-            "fact": "A puddle is a small mass of liquid, usually water, uncontained on a surface.",
+            "fact": "A pressure is a small mass of liquid, usually water, uncontained on a surface.",
             "factimage": 4,
             "fontsize": 25
         },

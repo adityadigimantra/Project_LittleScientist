@@ -24,6 +24,7 @@ public class OnboardingManager : MonoBehaviour
 
     private void Update()
     {
+        inputField.text = inputField.text.Replace(" ", "");
         if(string.IsNullOrEmpty(inputField.text))
         {
             fieldIsEmpty = true;
