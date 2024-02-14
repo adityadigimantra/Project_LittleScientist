@@ -26,7 +26,7 @@ public class SearchManager : MonoBehaviour
     }
     public void StartSearching()
     {
-        searchedString = searchInputField.text;
+        searchedString = ConvertToLowerCase(searchInputField.text);
         foundObject = searchGameObject(searchedString);
         if(foundObject!=null)
         {
@@ -40,6 +40,18 @@ public class SearchManager : MonoBehaviour
         if(Input.GetKey(KeyCode.Return))
         {
             StartSearching();
+        }
+    }
+    public string ConvertToLowerCase(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+        {
+            return input;
+
+        }
+        else
+        {
+            return char.ToLower(input[0]) + input.Substring(1);
         }
     }
 

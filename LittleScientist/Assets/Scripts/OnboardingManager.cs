@@ -17,35 +17,68 @@ public class OnboardingManager : MonoBehaviour
     public bool nameIsTooShort = false;
     public bool characterNotChoosen = false;
 
+    [Header("Onboarding Items")]
+    public GameObject twoGreyImage;
+    public GameObject twoPinkImage;
+    public GameObject pinkLine;
+    public GameObject whiteLine;
+    public GameObject line2Pink;
+    public Button nextButton;
+    public Button startButton;
+    public GameObject NamePanel;
+    public GameObject characterPanel;
+    
+
     private void Start()
     {
         PlayerPrefs.SetInt("ChoosedChararcterValue",0);
+       
+
     }
 
     private void Update()
     {
+        string filteredText = "";
         inputField.text = inputField.text.Replace(" ", "");
-        if(string.IsNullOrEmpty(inputField.text))
+        //foreach(char c in inputField.text)
+        //{
+        //    if(c!='@' && c!='#' && c != '$' && c != '!' && c != '%' && c != '^' && c != '&' && c != '*' && c != '(' && c != ')' && c != '-' && c != '_' && c != '+' && c != '=')
+        //    {
+        //        filteredText += c;
+        //    }
+        //}
+        //inputField.text = filteredText;
+
+    }
+
+    public void InputfieldCallbacks()
+    {
+        if (string.IsNullOrEmpty(inputField.text))
         {
             fieldIsEmpty = true;
             generalMessageText.text = "To begin your scientist journey enter your name.";
+            //nextButton.interactable = false;
         }
-        if((inputField.text.Length>0) &&(inputField.text.Length<=6))
+        if ((inputField.text.Length > 0) && (inputField.text.Length <= 6))
         {
             nameIsTooShort = true;
             generalMessageText.text = "Your name should contains atleast 6 characters.";
+            //nextButton.interactable = false;
         }
-        if(inputField.text.Length>=6 && inputField.text!="")
+        if (inputField.text.Length >= 6 && inputField.text != "")
         {
             nameIsTooShort = false;
             fieldIsEmpty = false;
+            //nextButton.interactable = true;
         }
-        if(PlayerPrefs.GetInt("ChoosedChararcterValue") ==0)
-        {
-            characterNotChoosen = true;
+    }
+
+    public void CharacterCallbacks()
+    {
+        if (PlayerPrefs.GetInt("ChoosedChararcterValue") == 0)
+        { 
             generalMessageText.text = "Please choose any character.";
         }
-
     }
     public void ChooseBoyCharacter()
     {
@@ -58,6 +91,7 @@ public class OnboardingManager : MonoBehaviour
         //Girl to turn off selected.
         girlObj[0].GetComponent<Image>().enabled = true;
         girlObj[1].SetActive(false);
+        //startButton.interactable = true;
     }
 
     public void ChooseGirlCharacter()
@@ -72,28 +106,49 @@ public class OnboardingManager : MonoBehaviour
         boyObj[0].GetComponent<Image>().enabled = true;
         boyObj[1].SetActive(false);
         characterNotChoosen = false;
+        //startButton.interactable = true;
     }
     public void StartPlaying()
     {
-        if(fieldIsEmpty)
+        CharacterCallbacks();
+
+        if(PlayerPrefs.GetInt("ChoosedChararcterValue")==0)
         {
             StartCoroutine(SendGeneralMessage());
         }
-        if(nameIsTooShort)
-        {
-            StartCoroutine(SendGeneralMessage());
-        }
-        if(characterNotChoosen)
-        {
-            StartCoroutine(SendGeneralMessage());
-        }
-        if(!fieldIsEmpty && !nameIsTooShort && !characterNotChoosen)
+
+        if(PlayerPrefs.GetInt("ChoosedChararcterValue")==1)
         {
             OnboardingScreen.GetComponent<Animator>().SetBool("IsOpen", false);
             PlayerPrefs.SetInt("OnboardingDone", 1);
             StartCoroutine(changeScene());
         }
         
+    }
+
+    public void NextButtonFun()
+    {
+        InputfieldCallbacks();
+        if (fieldIsEmpty)
+        {
+            StartCoroutine(SendGeneralMessage());
+        }
+        if (nameIsTooShort)
+        {
+            StartCoroutine(SendGeneralMessage());
+        }
+        if(!fieldIsEmpty && !nameIsTooShort)
+        {
+            //Need to save name if required.
+            NamePanel.SetActive(false);
+            characterPanel.SetActive(true);
+
+
+            twoGreyImage.SetActive(false);
+            twoPinkImage.SetActive(true);
+            whiteLine.SetActive(false);
+            line2Pink.SetActive(true);
+        }
     }
     IEnumerator changeScene()
     {
