@@ -18,11 +18,6 @@ public class OnboardingManager : MonoBehaviour
     public bool characterNotChoosen = false;
 
     [Header("Onboarding Items")]
-    public GameObject twoGreyImage;
-    public GameObject twoPinkImage;
-    public GameObject pinkLine;
-    public GameObject whiteLine;
-    public GameObject line2Pink;
     public Button nextButton;
     public Button startButton;
     public GameObject NamePanel;
@@ -142,12 +137,6 @@ public class OnboardingManager : MonoBehaviour
             //Need to save name if required.
             NamePanel.SetActive(false);
             characterPanel.SetActive(true);
-
-
-            twoGreyImage.SetActive(false);
-            twoPinkImage.SetActive(true);
-            whiteLine.SetActive(false);
-            line2Pink.SetActive(true);
         }
     }
     IEnumerator changeScene()
