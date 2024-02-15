@@ -20,8 +20,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource noCombinationFound_Character;
     public AudioSource welcomingSound_Character;
 
+    [Header("AudioClips")]
+    public AudioClip[] noCombOrAlreadyPresent_clips;
     public AudioClip[] newElementFound_Character_clips;
     public AudioClip[] characterSoundUsedForTutorial;
+    public AudioClip[] playerComingBack_clips;
 
 
 
@@ -86,11 +89,13 @@ public class SoundManager : MonoBehaviour
 
     public void CombinationAlreadyExistsSound()
     {
-        combinationExists_Character.Play();
+        AudioClip clip = noCombOrAlreadyPresent_clips[Random.Range(0, noCombOrAlreadyPresent_clips.Length)];
+        combinationExists_Character.PlayOneShot(clip);
     }    
     public void NoCombinationFoundSound()
     {
-        noCombinationFound_Character.Play();
+        AudioClip clip = noCombOrAlreadyPresent_clips[Random.Range(0, noCombOrAlreadyPresent_clips.Length)];
+        noCombinationFound_Character.PlayOneShot(clip);
     }
     public void PlayArrowButtonSound()
     {
@@ -106,7 +111,8 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayCharacterInactivitySound()
     {
-        welcomingSound_Character.Play();
+        AudioClip clip = playerComingBack_clips[Random.Range(0, playerComingBack_clips.Length)];
+        welcomingSound_Character.PlayOneShot(clip);
     }
     public void PlayTrashSound()
     {

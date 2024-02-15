@@ -468,7 +468,7 @@ public class TutorialManager : MonoBehaviour
         fadedImage.GetComponent<Animator>().SetBool("IsOpen", true);
         string message = charMessages.ReturnTutorialMessageForDraggingFirstElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntro();
     }
     public void CharacterDragsFirstElement()
     {
@@ -479,7 +479,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForDraggingSecondElement();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntro();
     }
     public void CharacterDragsSecondElement()
     {
@@ -490,7 +490,7 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForDraggingElementIntoEachOther();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntro();
     }
     public void CharacterDragsSecondElementIntoFirst()
     {
@@ -515,14 +515,14 @@ public class TutorialManager : MonoBehaviour
     {
         string message = charMessages.ReturnTutorialMessageForNewElementCreated();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.playSound_Character_NewElementFound();
     }
 
     public void CharacterGivesMessageForMovingToTrash()
     {
         string message = charMessages.ReturnTutorialMessageForMoveToTrash();
         charManager.HandlingCharacterBehaviour(message, 20);
-        soundManager.PlayCharacterWelcomingSound();
+        soundManager.PlayCharacterSoundForIntroducingElements();
     }
     public void CharacterDragsThirdElementToTrash()
     {
