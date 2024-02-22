@@ -36,6 +36,7 @@ public class TutorialManager : MonoBehaviour
     public Button skipButton;
     public Button nextButton;
     public GameObject restartButton;
+    public GameObject ComingSoonText;
     void Start()
     {
         #region Getting Instances
@@ -547,6 +548,7 @@ public class TutorialManager : MonoBehaviour
         PlayerPrefs.SetInt("ShownTutorial", 1);
         TutorialPanel.SetActive(false);
         restartButton.SetActive(true);
+        ComingSoonText.SetActive(true);
         playerActivityMonitor.enabled = true;
     }
     public void CharacterGivesMessageForTutorialComplete()
@@ -565,6 +567,7 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         TutorialPanel.SetActive(false);
         restartButton.SetActive(true);
+        ComingSoonText.SetActive(true);
         PlayerPrefs.SetInt("ShownTutorial", 1);
         playerActivityMonitor.enabled = true;
         foreach(GameObject g in startingFourElements)

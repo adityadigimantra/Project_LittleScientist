@@ -222,28 +222,16 @@ public class ElementManager : MonoBehaviour
 
 
     #region Combination Related Functions
-
-    public void DisablingElementsCombinationAlreadyPresent()
-    {
-        Parent1Object.GetComponent<Animator>().SetBool("IsOpen", false);
-        Parent2Object.GetComponent<Animator>().SetBool("IsOpen", false);
-        HandlesIfMoreThenTwoElementsAreOverlapped();
-    }
-
-    public void DisablingElementsWhenNoCombinationFound()
-    {
-        Parent2Object.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
-        Parent1Object.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
-        HandlesIfMoreThenTwoElementsAreOverlapped();
-    }
     public void HandlesIfMoreThenTwoElementsAreOverlapped()
     {
-        foreach(GameObject g in ObjectsToSwitchOff)
-        {
-            g.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
-            //g.transform.GetChild(0).gameObject.SetActive(false);
-            g.GetComponent<Element>().isCollided = false;
-        }
+            foreach (GameObject g in ObjectsToSwitchOff)
+            {
+            //Switching off animation of circle
+            g.transform.GetChild(0).gameObject.SetActive(false);
+                //g.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
+                g.GetComponent<Element>().isCollided = false;
+            }
     }
+
     #endregion
 }

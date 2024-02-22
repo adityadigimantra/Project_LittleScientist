@@ -126,7 +126,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             {
                 //Need to play the Animation to the other gameobject not the one which is pointer.
                 gameObject.GetComponent<WiggleAnimation>().startShake();
-                StartCoroutine(PlayExitsElementAnimation());
+                ShowExistingElement();
+                elementManager.HandlesIfMoreThenTwoElementsAreOverlapped();
+                //StartCoroutine(PlayExitsElementAnimation());
                 PlayerPrefs.SetInt("ElementAlreadyPresent", 2);
                 
             }
@@ -136,7 +138,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             if(PlayerPrefs.GetInt("NoCombinationFound") ==1)
             {
                 gameObject.GetComponent<WiggleAnimation>().startShake();
-                elementManager.DisablingElementsWhenNoCombinationFound();
+                elementManager.HandlesIfMoreThenTwoElementsAreOverlapped();
                 PlayerPrefs.SetInt("NoCombinationFound", 2);
             }
 
@@ -151,19 +153,6 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         yield return new WaitForSeconds(0.5f);
         otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
-
-
-    IEnumerator PlayExitsElementAnimation()
-    {
-        ShowExistingElement();
-
-        yield return new WaitForSeconds(2f);
-
-        CloseExsitingElement();
-
-        //elementManager.DisablingElementsCombinationAlreadyPresent();
-    }
-
     public void GetAnotherGameObject(GameObject other)
     {
         otherGameObject = other;
@@ -175,13 +164,6 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         Sprite image = Resources.Load<Sprite>(imagePath);
         otherGameObject.transform.GetChild(1).gameObject.SetActive(true);
         otherGameObject.transform.GetChild(1).GetComponent<Image>().sprite = image;
-        otherGameObject.transform.GetChild(0).GetComponent<Animator>().SetBool("IsOpen", true);
-    }
-
-    public void CloseExsitingElement()
-    {
-        otherGameObject.transform.GetChild(1).gameObject.SetActive(false);
-        otherGameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
 

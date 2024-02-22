@@ -48,6 +48,6 @@ public class TrashManager : MonoBehaviour
     IEnumerator givingDelaythenDestroy(Collider2D obj)
     {
         yield return new WaitForSeconds(1);
-        Destroy(obj.gameObject);
+        obj.gameObject.SetActive(false);
     }
 }

@@ -68,7 +68,7 @@ public class ScrollRectElements : MonoBehaviour
     IEnumerator givingDelaythenDestroy(Collider2D obj)
     {
         yield return new WaitForSeconds(0.5f);
-        Destroy(obj.gameObject);
+        obj.gameObject.SetActive(false);
     }
 
     public void MoveToRight()

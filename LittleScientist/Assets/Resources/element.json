@@ -272,7 +272,7 @@
             "element2": "wall",
             "result": "dam",
             "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -281,7 +281,7 @@
             "element2": "water",
             "result": "dam",
             "fact": "Dams have been built for a smaller amount of water supply, flood protection, navigation, and tourism.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -938,7 +938,7 @@
             "element2": "gun",
             "result": "stungun",
             "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
@@ -947,7 +947,7 @@
             "element2": "energy",
             "result": "stungun",
             "fact": "The inventor of the stun gun, Jack Cover, named it the TASER after his favorite childhood book,Tom Swift and His Electric Rifle.",
-            "factimage": 3,
+            "factimage": 4,
             "fontsize": 25
         },
         {
