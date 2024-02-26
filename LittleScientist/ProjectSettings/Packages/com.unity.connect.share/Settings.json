@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"E:/Game Builds/LittleScientist/Build_22_02_1.23;E:/Game Builds/LittleScientist/Build_16_02_1.22;E:/Game Builds/LittleScientist/Build_15_02_1.21;E:/Game Builds/LittleScientist/Build_14_02_1.20;E:/Game Builds/LittleScientist/Build_13_02_1.19;E:/Game Builds/LittleScientist/Build_12_02_1.18;E:/Game Builds/LittleScientist/Build_02_09_1.17;E:/Game Builds/LittleScientist/Build_02_08_1.16;E:/Game Builds/LittleScientist/Build_02_07_1.15;E:/Game Builds/LittleScientist/Build_2_2_2024_1.10\"}"
+                "value": "{\"m_Value\":\"E:/Game Builds/LittleScientist/Build_26_02_1.25;E:/Game Builds/LittleScientist/Build_22_02_1.23;E:/Game Builds/LittleScientist/Build_16_02_1.22;E:/Game Builds/LittleScientist/Build_15_02_1.21;E:/Game Builds/LittleScientist/Build_14_02_1.20;E:/Game Builds/LittleScientist/Build_13_02_1.19;E:/Game Builds/LittleScientist/Build_12_02_1.18;E:/Game Builds/LittleScientist/Build_02_09_1.17;E:/Game Builds/LittleScientist/Build_02_08_1.16;E:/Game Builds/LittleScientist/Build_02_07_1.15\"}"
             }
         ]
     }

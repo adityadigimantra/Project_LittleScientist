@@ -31,7 +31,7 @@ public class GameOperation : MonoBehaviour
     public GameObject discorveryTrayContent;
     public int discorveryTrayContentChildCount;
     public GameObject CreateSomeElementText;
-
+    public GameObject SettingsPanel;
 
     public GameState GameState
     {
@@ -96,6 +96,7 @@ public class GameOperation : MonoBehaviour
 
         PlayerPrefs.DeleteKey(key1);
         PlayerPrefs.DeleteKey(key2);
+        SettingsPanel.SetActive(false);
         PlayerPrefs.SetInt("IsRestart", 1);
         EmptyStringInComManager();
     }

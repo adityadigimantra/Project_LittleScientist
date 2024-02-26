@@ -69,7 +69,7 @@ public class combinationManager : MonoBehaviour
     public Vector2 newCreatedElementPos;
     public Vector2 savednewCreatedElementPos;
     public string elementFound;
-
+    
     public Vector2 loadedPosition;
     public Vector2 finalPosition;
     public string savedPositionValue;
@@ -117,6 +117,12 @@ public class combinationManager : MonoBehaviour
     public string CombinationExistsMessage;
     public string NoCombinationExistsMessage;
 
+    [Header("Scores Data")]
+    public int score;
+    public int FinalScore;
+    public int previousScore;
+    public int elementDiscoveredCount=0;
+    public int TotalElements = 45;
     public enum ElementState
     {
         InitialState,NewElementFound,ElementExists,NoCombinationFound,IdleState
@@ -145,11 +151,11 @@ public class combinationManager : MonoBehaviour
         currentElementState = ElementState.InitialState;
 
         //Calling Methods.
+
         loadingElementPositonFromFile();
         loadCreatedElementsFromFile();
-
         //Character Behaviour when the game Starts.
-        if(PlayerPrefs.GetInt("ShownTutorial") ==1)
+        if (PlayerPrefs.GetInt("ShownTutorial") ==1)
         {
             GiveWelcomeMessage();
         }
@@ -160,6 +166,7 @@ public class combinationManager : MonoBehaviour
         elementManager.GetDisabledGameObjectsList();
         elementManager.GetTrashGameObjectsList();
         elementManager.GetScrollRectGameObjectsList();
+        LoadScore();
         //switchingOffElements();
 
     }
@@ -265,13 +272,38 @@ public class combinationManager : MonoBehaviour
             }
             PlayerPrefs.SetInt("StringCount", CreatedElements.Count);
             PlayerPrefs.SetInt("elementCreated", 1);
+            CalculateScore();
             saveCreatedElementsToFile();
             PlayerPrefs.Save();
             currentElementState = ElementState.NewElementFound;
             StartCoroutine(OpenNewElementPanel());
         }
     }
+    public void CalculateScore()
+    {
+        FinalScore += 5;
+        elementDiscoveredCount = PlayerPrefs.GetInt("StringCount");//Needs To Change
+        SaveScore();
+    }
 
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("SavedScore", FinalScore);
+        PlayerPrefs.SetInt("SavedElementDiscoveredCount", elementDiscoveredCount);
+        PlayerPrefs.Save();//Needs To Change
+    }
+    private void LoadScore()//Needs To Change
+    {
+        if(PlayerPrefs.HasKey("SavedScore"))
+        {
+            FinalScore = PlayerPrefs.GetInt("SavedScore");//Needs To Change
+        }
+        if(PlayerPrefs.HasKey("SavedElementDiscoveredCount"))
+        {
+            elementDiscoveredCount = PlayerPrefs.GetInt("SavedElementDiscoveredCount");
+
+        }
+    }
     public void HandlesCombinationExists()
     {
         Debug.Log("Combination already Present");

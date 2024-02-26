@@ -62,7 +62,7 @@ public class Element : MonoBehaviour
     public  void OnTriggerEnter2D(Collider2D other)
     {
 
-            string[] excludedObjects = new string[] { "ScrollRect", "PlayArea" };
+            string[] excludedObjects = new string[] { "ScrollRect", "PlayArea", "TrashArea" };
             if (Array.IndexOf(excludedObjects, other.gameObject.tag) == -1)
             {
                 Debug.Log("OnTrigger Enter Called");
@@ -113,7 +113,7 @@ public class Element : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D other)
     {
-        string[] excludedObjects = new string[] { "ScrollRect", "PlayArea" };
+        string[] excludedObjects = new string[] { "ScrollRect", "PlayArea","TrashArea"};
         if (Array.IndexOf(excludedObjects, other.gameObject.tag) == -1)
         {
             Debug.Log("OnTriggerExit Called ");

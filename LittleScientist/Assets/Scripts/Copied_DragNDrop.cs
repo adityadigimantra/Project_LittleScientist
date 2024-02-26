@@ -56,6 +56,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.transform.SetAsLastSibling();
         PlayerPrefs.SetString("UpperObject", gameObject.name);
         soundManager.PlayGeneralButtonTapSound();
@@ -69,6 +70,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         //Debug.Log("Copied-On Pointer Up Called");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
         if (gameObject.tag == "NewCreatedElement")
         {
             //Changed

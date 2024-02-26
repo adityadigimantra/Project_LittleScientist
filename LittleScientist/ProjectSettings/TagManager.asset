@@ -13,6 +13,7 @@ TagManager:
   - discoveryElement
   - PlayArea
   - ScrollRect
+  - TrashArea
   layers:
   - Default
   - TransparentFX

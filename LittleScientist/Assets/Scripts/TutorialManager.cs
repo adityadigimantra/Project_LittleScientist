@@ -37,6 +37,7 @@ public class TutorialManager : MonoBehaviour
     public Button nextButton;
     public GameObject restartButton;
     public GameObject ComingSoonText;
+    public GameObject ScorePanel;
     void Start()
     {
         #region Getting Instances
@@ -52,6 +53,8 @@ public class TutorialManager : MonoBehaviour
         if (PlayerPrefs.GetInt("ShownTutorial") == 0) //If Tutorial not shown to the user.
         {
             skipButton.gameObject.SetActive(true);
+            ScorePanel.SetActive(false);
+            //restartButton.SetActive(false);
             TutorialPanel.SetActive(true);
             playerActivityMonitor.enabled = false;
             settingsManager.TurnOnMusic();
@@ -62,7 +65,8 @@ public class TutorialManager : MonoBehaviour
         {
             skipButton.gameObject.SetActive(false);
             TutorialPanel.SetActive(false);
-            restartButton.SetActive(true);
+            ScorePanel.SetActive(true);
+            //restartButton.SetActive(true);
         }
         #endregion
     }
@@ -549,7 +553,8 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         PlayerPrefs.SetInt("ShownTutorial", 1);
         TutorialPanel.SetActive(false);
-        restartButton.SetActive(true);
+        ScorePanel.SetActive(true);
+        //restartButton.SetActive(true);
         ComingSoonText.SetActive(true);
         playerActivityMonitor.enabled = true;
     }
@@ -569,7 +574,8 @@ public class TutorialManager : MonoBehaviour
         StopAllCoroutines();
         charManager.CloseCurrentMessage();
         TutorialPanel.SetActive(false);
-        restartButton.SetActive(true);
+        ScorePanel.SetActive(true);
+        //restartButton.SetActive(true);
         ComingSoonText.SetActive(true);
         PlayerPrefs.SetInt("ShownTutorial", 1);
         playerActivityMonitor.enabled = true;
