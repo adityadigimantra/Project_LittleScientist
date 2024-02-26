@@ -51,6 +51,7 @@ public class TutorialManager : MonoBehaviour
         #region Switch For Tutorial using PlayerPrefs
         if (PlayerPrefs.GetInt("ShownTutorial") == 0) //If Tutorial not shown to the user.
         {
+            skipButton.gameObject.SetActive(true);
             TutorialPanel.SetActive(true);
             playerActivityMonitor.enabled = false;
             settingsManager.TurnOnMusic();
@@ -59,6 +60,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
+            skipButton.gameObject.SetActive(false);
             TutorialPanel.SetActive(false);
             restartButton.SetActive(true);
         }
@@ -563,6 +565,7 @@ public class TutorialManager : MonoBehaviour
     #region Buttons Functions
     public void SkipTutorial()
     {
+        skipButton.gameObject.SetActive(false);
         StopAllCoroutines();
         charManager.CloseCurrentMessage();
         TutorialPanel.SetActive(false);
