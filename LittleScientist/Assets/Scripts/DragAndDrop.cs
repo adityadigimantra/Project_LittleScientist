@@ -12,6 +12,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     [Header("Instances")]
     public SoundManager soundManager;
     public TutorialManager tutorialManager;
+    public GameOperation gameOperation;
 
    [Header("Element Data")]
     public string currentElementName;
@@ -30,15 +31,44 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
 
 
     [Header("Top and Bottom Scroll Rects")]
-    public GameObject topScrollRect;
-    public GameObject bottomScrollRect;
+    public GameObject def_topScrollRect;
+    public GameObject def_bottomScrollRect;
+    public GameObject for_topScrollRect;
+    public GameObject for_bottomScrollRect;
+
+
+    public GameObject DefaultMainObj;
+    public GameObject ForestMainObj;
+    public GameObject AquaMainObj;
+
+    public string selectedTheme;
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
         ElementsPanel = GameObject.Find("AllElements");
-        topScrollRect = GameObject.Find("Top_ScrollView");
-        bottomScrollRect = GameObject.Find("Down_ScrollView");
+        gameOperation = FindObjectOfType<GameOperation>();
+        selectedTheme = PlayerPrefs.GetString("Theme");
+
+        switch(selectedTheme)
+        {
+            case "Default":
+                if(gameOperation.DefaultMainObj.activeSelf)
+                {
+                    def_topScrollRect = GameObject.Find("Def_Top_ScrollView");
+                    def_bottomScrollRect = GameObject.Find("Def_Down_ScrollView");
+                }
+                break;
+
+            case "Forest":
+                if(gameOperation.ForestMainObj.activeSelf)
+                {
+                    for_topScrollRect = GameObject.Find("for_Top_ScrollView");
+                    for_bottomScrollRect = GameObject.Find("for_Down_ScrollView");
+                }              
+                break;
+        }
+
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
         ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();
@@ -57,13 +87,36 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     }
     public void OnClick_SwitchOff_TopAndBottomScrollRects()
     {
-        topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
-        bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+        switch (selectedTheme)
+        {
+            case "Default":
+                def_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                def_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                break;
+
+            case "Forest":
+                for_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                for_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                break;
+        }
+        
+       
     }
     public void OnClick_SwitchOn_TopAndBottomScrollRects()
     {
-        topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
-        bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+        switch(selectedTheme)
+        {
+            case "Default":
+                def_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                def_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                break;
+
+            case "Forest":
+                for_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                for_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                break;
+        }
+        
     }
     public void OnPointerDown(PointerEventData eventData)
     {

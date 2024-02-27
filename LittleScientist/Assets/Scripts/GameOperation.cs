@@ -21,9 +21,6 @@ public class GameOperation : MonoBehaviour
     public static event System.Action<GameState,GameState> GameStateChanged;
 
     [Header("Panels")]
-    public GameObject discoveryTrayPanel;
-    public GameObject discoveryTrayObject;
-    public GameObject OpenDiscoveryTrayButton;
     public GameObject lowerSmallPanel;
     public GameObject TopElementView;
     public int TopElementViewChildCount;
@@ -32,6 +29,29 @@ public class GameOperation : MonoBehaviour
     public int discorveryTrayContentChildCount;
     public GameObject CreateSomeElementText;
     public GameObject SettingsPanel;
+
+    [Header("Discovery Trays")]
+    public GameObject[] defaultDiscoveryTrayItems;
+    public GameObject[] forestDiscoveryTrayItems;
+    public GameObject[] aquaDiscoveryTrayItems;
+
+    [Header("GameBoard and UI Items")]
+    public GameObject[] defaultThemeGameItems;
+    public GameObject[] forestThemeGameItems;
+    public GameObject[] AquaThemeGameItems;
+
+    public GameObject DefaultMainObj;
+    public GameObject ForestMainObj;
+    public GameObject AquaMainObj;
+    /// <summary>
+    /// index 0=panel index 1=object index 2=opening button
+    /// </summary>
+
+
+
+
+    public string selectedTheme;
+
 
     public GameState GameState
     {
@@ -59,10 +79,66 @@ public class GameOperation : MonoBehaviour
     private void Start()
     {
         _Instance = new GameOperation();
+
+
+
+    }
+
+    public void ThemeApplyer()
+    {
+        selectedTheme = PlayerPrefs.GetString("Theme");
+        switch (selectedTheme)
+        {
+            case "Default":
+                foreach (GameObject g in defaultThemeGameItems)
+                {
+                    g.SetActive(true);
+                }
+                foreach(GameObject g in forestThemeGameItems)
+                {
+                    g.SetActive(false);
+                }
+                foreach(GameObject g in AquaThemeGameItems)
+                {
+                    g.SetActive(false);
+                }
+                break;
+
+            case "Forest":
+                foreach (GameObject g in defaultThemeGameItems)
+                {
+                    g.SetActive(false);
+                }
+                foreach (GameObject g in forestThemeGameItems)
+                {
+                    g.SetActive(true);
+                }
+                foreach (GameObject g in AquaThemeGameItems)
+                {
+                    g.SetActive(false);
+                }
+                break;
+
+            case "Aqua":
+                foreach (GameObject g in defaultThemeGameItems)
+                {
+                    g.SetActive(false);
+                }
+                foreach (GameObject g in forestThemeGameItems)
+                {
+                    g.SetActive(false);
+                }
+                foreach (GameObject g in AquaThemeGameItems)
+                {
+                    g.SetActive(true);
+                }
+                break;
+        }
     }
 
     private void Update()
     {
+        ThemeApplyer();
         TopElementViewChildCount = TopElementView.transform.childCount;
         if(TopElementViewChildCount>=8)
         {
@@ -101,26 +177,88 @@ public class GameOperation : MonoBehaviour
         EmptyStringInComManager();
     }
 
+    #region Discovery Trays
     public void OpenDiscoveryTray()
     {
-        discoveryTrayPanel.SetActive(true);
-        discoveryTrayPanel.GetComponent<Animator>().SetBool("IsOpen", true);
-        discoveryTrayObject.GetComponent<Animator>().SetBool("IsOpen", true);
-        OpenDiscoveryTrayButton.SetActive(false);
+        string selectedTheme = PlayerPrefs.GetString("Theme");
+        switch(selectedTheme)
+        {
+            case "Default":
+                defaultDiscoveryTrayItems[0].SetActive(true);//panel
+                defaultDiscoveryTrayItems[0].GetComponent<Animator>().SetBool("IsOpen", true);//Panel
+                defaultDiscoveryTrayItems[1].GetComponent<Animator>().SetBool("IsOpen", true);//Object
+                defaultDiscoveryTrayItems[2].SetActive(false);//Discovery Tray Button
+                break;
+
+            case "Forest":
+                forestDiscoveryTrayItems[0].SetActive(true);
+                forestDiscoveryTrayItems[0].GetComponent<Animator>().SetBool("IsOpen", true);
+                forestDiscoveryTrayItems[1].GetComponent<Animator>().SetBool("IsOpen", true);
+                forestDiscoveryTrayItems[2].SetActive(false);//Discovery Tray Button
+                break;
+
+            case "Aqua":
+                aquaDiscoveryTrayItems[0].SetActive(true);
+                aquaDiscoveryTrayItems[0].GetComponent<Animator>().SetBool("IsOpen", true);
+                aquaDiscoveryTrayItems[1].GetComponent<Animator>().SetBool("IsOpen", true);
+                aquaDiscoveryTrayItems[2].SetActive(false);//Discovery Tray Button
+                break;
+
+        }
+        
 
     }
     public void CloseDiscoveryPanel()
     {
-        discoveryTrayObject.GetComponent<Animator>().SetBool("IsOpen", false);
-        discoveryTrayPanel.GetComponent<Animator>().SetBool("IsOpen", false);
-        StartCoroutine(delaythenClose());
+        string selectedTheme = PlayerPrefs.GetString("Theme");
+        switch (selectedTheme)
+        {
+            case "Default":
+                defaultDiscoveryTrayItems[0].GetComponent<Animator>().SetBool("IsOpen", false);//Panel
+                defaultDiscoveryTrayItems[1].GetComponent<Animator>().SetBool("IsOpen", false);
+                StartCoroutine(def_delaythenClose());
+                break;
+
+            case "Forest":
+                forestDiscoveryTrayItems[0].GetComponent<Animator>().SetBool("IsOpen", false);//Panel
+                forestDiscoveryTrayItems[1].GetComponent<Animator>().SetBool("IsOpen", false);
+                StartCoroutine(forest_delaythenClose());
+                break;
+
+            case "Aqua":
+                aquaDiscoveryTrayItems[0].GetComponent<Animator>().SetBool("IsOpen", false);//Panel
+                aquaDiscoveryTrayItems[1].GetComponent<Animator>().SetBool("IsOpen", false);
+                StartCoroutine(aqua_delaythenClose());
+                break;
+
+        }
+
+       
+        
+       
     }
-    IEnumerator delaythenClose()
+    IEnumerator def_delaythenClose()
     {
         yield return new WaitForSeconds(0.2f);
-        discoveryTrayPanel.SetActive(false);
-        OpenDiscoveryTrayButton.SetActive(true);
+        defaultDiscoveryTrayItems[0].SetActive(false);
+        defaultDiscoveryTrayItems[2].SetActive(true);//Opening Button index=2
     }
+
+    IEnumerator forest_delaythenClose()
+    {
+        yield return new WaitForSeconds(0.2f);
+        forestDiscoveryTrayItems[0].SetActive(false);
+        forestDiscoveryTrayItems[2].SetActive(true);//Opening Button index=2
+    }
+    IEnumerator aqua_delaythenClose()
+    {
+        yield return new WaitForSeconds(0.2f);
+        aquaDiscoveryTrayItems[0].SetActive(false);
+        aquaDiscoveryTrayItems[2].SetActive(true);//Opening Button index=2
+    }
+
+    #endregion
+
 
     public void EmptyStringInComManager()
     {

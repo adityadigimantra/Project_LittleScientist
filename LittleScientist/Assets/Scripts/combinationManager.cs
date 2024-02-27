@@ -58,8 +58,17 @@ public class combinationManager : MonoBehaviour
 
     [Header("Public Fields")]
     public GameObject elementsPanel;
-    public GameObject topScrollView;
-    public GameObject BottomScrollView;
+    public GameObject def_topScrollView;
+    public GameObject def_BottomScrollView;
+
+    [Header("Forest Scrolls Views")]
+    public GameObject for_topScrollView;
+    public GameObject for_BottomScrollView;
+
+    [Header("Aqua Scrolls Views")]
+    public GameObject aqua_topScrollView;
+    public GameObject aqua_BottomScrollView;
+
     public GameObject leftScrollView;
     public GameObject RightScrollView;
     public bool elementCreated = false;
@@ -142,8 +151,15 @@ public class combinationManager : MonoBehaviour
         charMessages = FindObjectOfType<CharacterMessages>();
         soundManager = FindObjectOfType<SoundManager>();
         elementsPanel = GameObject.Find("AllElements");
-        topScrollView = GameObject.Find("TopScroll_Content");
-        BottomScrollView = GameObject.Find("DownScroll_Content");
+        def_topScrollView = GameObject.Find("Def_TopScroll_Content");
+        def_BottomScrollView = GameObject.Find("Def_DownScroll_Content");
+
+        //for_topScrollView = GameObject.Find("for_TopScroll_Content");
+        //sfor_BottomScrollView = GameObject.Find("for_DownScroll_Content");
+
+        aqua_topScrollView = GameObject.Find("aquq_TopScroll_Content");
+        aqua_BottomScrollView = GameObject.Find("aqua_DownScroll_Content");
+
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");
         SettingPlayerPrefsValuetoZero();
@@ -682,18 +698,54 @@ public class combinationManager : MonoBehaviour
 
     public void placingElementsInScrollRect()
     {
-        if (topScrollView.transform.childCount < 8)
+        string selectedTheme = PlayerPrefs.GetString("Theme");
+        switch (selectedTheme)
         {
-            newObj.transform.parent = topScrollView.transform;
-            newObj.transform.position = topScrollView.transform.position;
-            newObj.transform.localScale = new Vector2(1, 1);
+            case "Default":
+                if (def_topScrollView.transform.childCount < 8)
+                {
+                    newObj.transform.parent = def_topScrollView.transform;
+                    newObj.transform.position = def_topScrollView.transform.position;
+                    newObj.transform.localScale = new Vector2(1, 1);
+                }
+                else
+                {
+                    newObj.transform.parent = def_BottomScrollView.transform;
+                    newObj.transform.position = def_BottomScrollView.transform.position;
+                    newObj.transform.localScale = new Vector2(1, 1);
+                }
+                break;
+            case "Forest":
+                if (for_topScrollView.transform.childCount < 8)
+                {
+                    newObj.transform.parent = for_topScrollView.transform;
+                    newObj.transform.position = for_topScrollView.transform.position;
+                    newObj.transform.localScale = new Vector2(1, 1);
+                }
+                else
+                {
+                    newObj.transform.parent = for_BottomScrollView.transform;
+                    newObj.transform.position = for_BottomScrollView.transform.position;
+                    newObj.transform.localScale = new Vector2(1, 1);
+                }
+                break;
+            case "Aqua":
+                if (aqua_topScrollView.transform.childCount < 8)
+                {
+                    newObj.transform.parent = aqua_topScrollView.transform;
+                    newObj.transform.position = aqua_topScrollView.transform.position;
+                    newObj.transform.localScale = new Vector2(1, 1);
+                }
+                else
+                {
+                    newObj.transform.parent = aqua_BottomScrollView.transform;
+                    newObj.transform.position = aqua_BottomScrollView.transform.position;
+                    newObj.transform.localScale = new Vector2(1, 1);
+                }
+                break;
         }
-        else
-        {
-            newObj.transform.parent = BottomScrollView.transform;
-            newObj.transform.position = BottomScrollView.transform.position;
-            newObj.transform.localScale = new Vector2(1, 1);
-        }
+
+
     }
 
     public void placingDiscoveryElementInScrollRect()
