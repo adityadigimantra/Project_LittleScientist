@@ -13,6 +13,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public SoundManager soundManager;
     public TutorialManager tutorialManager;
     public GameOperation gameOperation;
+    public ThemeManager themeManager;
 
    [Header("Element Data")]
     public string currentElementName;
@@ -41,42 +42,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public string selectedTheme;
     private void Start()
     {
+        Debug.Log("Hello From DragNDrop");
         soundManager = FindObjectOfType<SoundManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
-        ElementsPanel = GameObject.Find("AllElements");
+        themeManager = FindObjectOfType<ThemeManager>();
         gameOperation = FindObjectOfType<GameOperation>();
+        themeManager.SettingIfNoThemeSelected();
+
+        ElementsPanel = GameObject.Find("AllElements");
         selectedTheme = PlayerPrefs.GetString("Theme");
-
-        switch(selectedTheme)
-        {
-            case "Default":
-                if(gameOperation.DefaultMainObj.activeSelf)
-                {
-                    def_topScrollRect = GameObject.Find("Def_Top_ScrollView");
-                    def_bottomScrollRect = GameObject.Find("Def_Down_ScrollView");
-                }
-                break;
-
-            case "Forest":
-                if(gameOperation.ForestMainObj.activeSelf)
-                {
-                    for_topScrollRect = GameObject.Find("for_Top_ScrollView");
-                    for_bottomScrollRect = GameObject.Find("for_Down_ScrollView");
-                }              
-                break;
-            case "Aqua":
-                if(gameOperation.AquaMainObj.activeSelf)
-                {
-                    aqua_topScrollRect= GameObject.Find("aqua_Top_ScrollView");
-                    aqua_bottomScrollRect = GameObject.Find("aqua_Down_ScrollView");
-                }
-                break;
-        }
-
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
         ClampPanelRectTransform = GameObject.Find("Boundary").GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+
         if(this.gameObject.tag=="InsideRingElement")
         {
             thisObject = this.gameObject;
@@ -88,6 +67,35 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     }
     private void Update()
     {
+        if(!string.IsNullOrEmpty(selectedTheme))
+        {
+            switch (selectedTheme)
+            {
+                case "Default":
+                    if (gameOperation.DefaultMainObj.activeSelf)
+                    {
+                        def_topScrollRect = GameObject.Find("Def_Top_ScrollView");
+                        def_bottomScrollRect = GameObject.Find("Def_Down_ScrollView");
+                    }
+                    break;
+
+                case "Forest":
+                    if (gameOperation.ForestMainObj.activeSelf)
+                    {
+                        for_topScrollRect = GameObject.Find("for_Top_ScrollView");
+                        for_bottomScrollRect = GameObject.Find("for_Down_ScrollView");
+                    }
+                    break;
+                case "Aqua":
+                    if (gameOperation.AquaMainObj.activeSelf)
+                    {
+                        aqua_topScrollRect = GameObject.Find("aqua_Top_ScrollView");
+                        aqua_bottomScrollRect = GameObject.Find("aqua_Down_ScrollView");
+                    }
+                    break;
+            }
+        }
+        
     }
     public void OnClick_SwitchOff_TopAndBottomScrollRects()
     {

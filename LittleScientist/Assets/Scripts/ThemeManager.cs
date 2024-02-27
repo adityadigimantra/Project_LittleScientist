@@ -24,56 +24,67 @@ public class ThemeManager : MonoBehaviour
 
     public string selectedTheme;
     public GameObject SettingMenu;
+
+    public GameObject themeChangingLoadingPanel;
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        Debug.Log("Hello From Theme Manager");
+
+       switch (selectedTheme)
+       {
+           case "Default":
+               LoadDefaultTheme();
+               break;
+
+           case "Forest":
+               LoadForestTheme();
+               break;
+
+           case "Aqua":
+               LoadAquaTheme();
+               break;
+
+       }
     }
 
     // Update is called once per frame
     void Update()
     {
-        selectedTheme = PlayerPrefs.GetString("Theme");
-        if (string.IsNullOrEmpty(selectedTheme))
-        {
-            SelectDefaultTheme();
-        }
-        else
-        {
-            switch (selectedTheme)
-            {
-                case "Default":
-                    SelectDefaultTheme();
-                    break;
 
-                case "Forest":
-                    SelectForestTheme();
-                    break;
-
-                case "Aqua":
-                    SelectAquaTheme();
-                    break;
-
-            }
-
-        }
     }
 
+    public void SettingIfNoThemeSelected()
+    {
+        if(string.IsNullOrEmpty(PlayerPrefs.GetString("Theme")))
+        {
+            PlayerPrefs.SetString("Theme", "Default");
+        }
+    }
     public void SelectDefaultTheme()
     {
         
         PlayerPrefs.SetString("Theme", "Default");
         themeContentObjs[0].GetComponent<Image>().sprite = SelectedThemeImages[0];
-        defaultBoardObj.SetActive(true);
-        themeCloseButtons[0].SetActive(true);
+        themeChangingLoadingPanel.SetActive(true);
+        //defaultBoardObj.SetActive(true);
+        //themeCloseButtons[0].SetActive(true);
         UnSelectForestTheme();
         UnSelectAquaTheme();
-        if(selectedTheme!="Default")
+        PlayerPrefs.SetInt("IsRestart", 1);
+        if (selectedTheme!="Default")
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(ChangeScene());
         }
 
+    }
+
+    public void LoadDefaultTheme()
+    {
+        themeChangingLoadingPanel.SetActive(false);
+        themeContentObjs[0].GetComponent<Image>().sprite = SelectedThemeImages[0];
+        defaultBoardObj.SetActive(true);
+        themeCloseButtons[0].SetActive(true);
     }
 
     public void UnselectDefaultTheme()
@@ -87,44 +98,62 @@ public class ThemeManager : MonoBehaviour
     {
         PlayerPrefs.SetString("Theme", "Forest");
         themeContentObjs[1].GetComponent<Image>().sprite = SelectedThemeImages[1];
-        forestBoardObj.SetActive(true);
-        themeCloseButtons[1].SetActive(true);
+        themeChangingLoadingPanel.SetActive(true);
+        //forestBoardObj.SetActive(true);
+        //themeCloseButtons[1].SetActive(true);
         UnselectDefaultTheme();
         UnSelectAquaTheme();
-
-        if(selectedTheme!="Forest")
+        PlayerPrefs.SetInt("IsRestart", 1);
+        if (selectedTheme!="Forest")
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(ChangeScene());
         }
 
+    }
+
+    public void LoadForestTheme()
+    {
+        themeChangingLoadingPanel.SetActive(false);
+        themeContentObjs[1].GetComponent<Image>().sprite = SelectedThemeImages[1];
+        forestBoardObj.SetActive(true);
+        themeCloseButtons[1].SetActive(true);
     }
 
     public void UnSelectForestTheme()
     {
         themeContentObjs[1].GetComponent<Image>().sprite = UnSelectedThemeImages[1];
-        forestBoardObj.SetActive(false);
-        themeCloseButtons[1].SetActive(false);
+        //forestBoardObj.SetActive(false);
+        //themeCloseButtons[1].SetActive(false);
     }
 
     public void SelectAquaTheme()
     {
         PlayerPrefs.SetString("Theme", "Aqua");
         themeContentObjs[2].GetComponent<Image>().sprite = SelectedThemeImages[2];
-        aquaBoardObj.SetActive(true);
-        themeCloseButtons[2].SetActive(true);
+        themeChangingLoadingPanel.SetActive(true);
+        //aquaBoardObj.SetActive(true);
+        //themeCloseButtons[2].SetActive(true);
         UnselectDefaultTheme();
         UnSelectForestTheme();
-
+        PlayerPrefs.SetInt("IsRestart", 1);
         if (selectedTheme != "Aqua")
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(ChangeScene());
         }
+    }
+
+    public void LoadAquaTheme()
+    {
+        themeChangingLoadingPanel.SetActive(false);
+        themeContentObjs[2].GetComponent<Image>().sprite = SelectedThemeImages[2];
+        aquaBoardObj.SetActive(true);
+        themeCloseButtons[2].SetActive(true);
     }
     public void UnSelectAquaTheme()
     {
         themeContentObjs[2].GetComponent<Image>().sprite = UnSelectedThemeImages[2];
-        aquaBoardObj.SetActive(false);
-        themeCloseButtons[2].SetActive(false);
+        //aquaBoardObj.SetActive(false);
+        //themeCloseButtons[2].SetActive(false);
     }
 
     public void OpenThemePanel()
@@ -135,5 +164,11 @@ public class ThemeManager : MonoBehaviour
     public void CloseThemePanel()
     {
         ThemePanel.SetActive(false);
+    }
+
+    IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(1);
     }
 }

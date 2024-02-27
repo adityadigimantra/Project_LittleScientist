@@ -79,66 +79,75 @@ public class GameOperation : MonoBehaviour
     private void Start()
     {
         _Instance = new GameOperation();
-
-
-
+        Debug.Log("Hello From GameOperation");
+        ThemeApplyer();
     }
 
     public void ThemeApplyer()
     {
         selectedTheme = PlayerPrefs.GetString("Theme");
-        switch (selectedTheme)
+        if (string.IsNullOrEmpty(selectedTheme))
         {
-            case "Default":
-                foreach (GameObject g in defaultThemeGameItems)
-                {
-                    g.SetActive(true);
-                }
-                foreach(GameObject g in forestThemeGameItems)
-                {
-                    g.SetActive(false);
-                }
-                foreach(GameObject g in AquaThemeGameItems)
-                {
-                    g.SetActive(false);
-                }
-                break;
+            PlayerPrefs.SetString("Theme", "Default");
+            selectedTheme = PlayerPrefs.GetString("Theme");
+        }
+        if (!string.IsNullOrEmpty(selectedTheme))
+        {
+            switch (selectedTheme)
+            {
+                case "Default":
+                    foreach (GameObject g in defaultThemeGameItems)
+                    {
+                        g.SetActive(true);
+                    }
+                    foreach (GameObject g in forestThemeGameItems)
+                    {
+                        g.SetActive(false);
+                    }
+                    foreach (GameObject g in AquaThemeGameItems)
+                    {
+                        g.SetActive(false);
+                    }
+                    break;
 
-            case "Forest":
-                foreach (GameObject g in defaultThemeGameItems)
-                {
-                    g.SetActive(false);
-                }
-                foreach (GameObject g in forestThemeGameItems)
-                {
-                    g.SetActive(true);
-                }
-                foreach (GameObject g in AquaThemeGameItems)
-                {
-                    g.SetActive(false);
-                }
-                break;
+                case "Forest":
+                    foreach (GameObject g in defaultThemeGameItems)
+                    {
+                        g.SetActive(false);
+                    }
+                    foreach (GameObject g in forestThemeGameItems)
+                    {
+                        g.SetActive(true);
+                    }
+                    foreach (GameObject g in AquaThemeGameItems)
+                    {
+                        g.SetActive(false);
+                    }
+                    break;
 
-            case "Aqua":
-                foreach (GameObject g in defaultThemeGameItems)
-                {
-                    g.SetActive(false);
-                }
-                foreach (GameObject g in forestThemeGameItems)
-                {
-                    g.SetActive(false);
-                }
-                foreach (GameObject g in AquaThemeGameItems)
-                {
-                    g.SetActive(true);
-                }
-                break;
+                case "Aqua":
+                    foreach (GameObject g in defaultThemeGameItems)
+                    {
+                        g.SetActive(false);
+                    }
+                    foreach (GameObject g in forestThemeGameItems)
+                    {
+                        g.SetActive(false);
+                    }
+                    foreach (GameObject g in AquaThemeGameItems)
+                    {
+                        g.SetActive(true);
+                    }
+                    break;
+            }
         }
     }
 
     private void Update()
     {
-        ThemeApplyer();
+
+       
+
         TopElementViewChildCount = TopElementView.transform.childCount;
         if(TopElementViewChildCount>=8)
         {
