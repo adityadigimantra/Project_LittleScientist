@@ -35,11 +35,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public GameObject def_bottomScrollRect;
     public GameObject for_topScrollRect;
     public GameObject for_bottomScrollRect;
-
-
-    public GameObject DefaultMainObj;
-    public GameObject ForestMainObj;
-    public GameObject AquaMainObj;
+    public GameObject aqua_topScrollRect;
+    public GameObject aqua_bottomScrollRect;
 
     public string selectedTheme;
     private void Start()
@@ -66,6 +63,13 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                     for_topScrollRect = GameObject.Find("for_Top_ScrollView");
                     for_bottomScrollRect = GameObject.Find("for_Down_ScrollView");
                 }              
+                break;
+            case "Aqua":
+                if(gameOperation.AquaMainObj.activeSelf)
+                {
+                    aqua_topScrollRect= GameObject.Find("aqua_Top_ScrollView");
+                    aqua_bottomScrollRect = GameObject.Find("aqua_Down_ScrollView");
+                }
                 break;
         }
 
@@ -98,6 +102,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                 for_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
                 for_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
                 break;
+            case "Aqua":
+                aqua_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                aqua_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                break;
         }
         
        
@@ -114,6 +122,10 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             case "Forest":
                 for_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
                 for_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                break;
+            case "Aqua":
+                aqua_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                aqua_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
                 break;
         }
         
