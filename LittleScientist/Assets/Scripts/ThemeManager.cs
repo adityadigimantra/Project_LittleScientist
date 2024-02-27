@@ -58,11 +58,30 @@ public class ThemeManager : MonoBehaviour
         {
             SelectDefaultTheme();
         }
+        else
+        {
+            switch (selectedTheme)
+            {
+                case "Default":
+                    SelectDefaultTheme();
+                    break;
+
+                case "Forest":
+                    SelectForestTheme();
+                    break;
+
+                case "Aqua":
+                    SelectAquaTheme();
+                    break;
+
+            }
+
+        }
     }
 
     public void SelectDefaultTheme()
     {
-        PlayerPrefs.SetString("Theme", "default");
+        PlayerPrefs.SetString("Theme", "Default");
         themeContentObjs[0].GetComponent<Image>().sprite = SelectedThemeImages[0];
         defaultBoardObj.SetActive(true);
         themeCloseButtons[0].SetActive(true);
