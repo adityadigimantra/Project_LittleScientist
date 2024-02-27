@@ -151,14 +151,14 @@ public class combinationManager : MonoBehaviour
         charMessages = FindObjectOfType<CharacterMessages>();
         soundManager = FindObjectOfType<SoundManager>();
         elementsPanel = GameObject.Find("AllElements");
-        def_topScrollView = GameObject.Find("Def_TopScroll_Content");
-        def_BottomScrollView = GameObject.Find("Def_DownScroll_Content");
+        //def_topScrollView = GameObject.Find("Def_TopScroll_Content");
+        //def_BottomScrollView = GameObject.Find("Def_DownScroll_Content");
 
         //for_topScrollView = GameObject.Find("for_TopScroll_Content");
         //sfor_BottomScrollView = GameObject.Find("for_DownScroll_Content");
 
-        aqua_topScrollView = GameObject.Find("aquq_TopScroll_Content");
-        aqua_BottomScrollView = GameObject.Find("aqua_DownScroll_Content");
+        //aqua_topScrollView = GameObject.Find("aqua_TopScroll_Content");
+        //aqua_BottomScrollView = GameObject.Find("aqua_DownScroll_Content");
 
         leftScrollView = GameObject.Find("LeftScroll_Content");
         RightScrollView = GameObject.Find("RightScroll_Content");

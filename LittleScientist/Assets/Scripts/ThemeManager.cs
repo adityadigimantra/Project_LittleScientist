@@ -2,24 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ThemeManager : MonoBehaviour
 {
-    [Header("Default Theme Data")]
-    public Image[] Def_mainBoardImages;
-    public Image[] Def_LowerIconsImages;
-    public Image[] Def_DiscoveryTrayImages;
-
-    [Header("Forest Theme Data")]
-    public Image[] for_mainBoardImages;
-    public Image[] for_LowerIconsImages;
-    public Image[] for_DiscoveryTrayImages;
-
-    [Header("Aqua Theme Data")]
-    public Image[] Aqu_mainBoardImages;
-    public Image[] Aqu_LowerIconsImages;
-    public Image[] Aqu_DiscoveryTrayImages;
-
+  
     [Header("Theme Interface")]
 
     public Sprite[] SelectedThemeImages;
@@ -34,12 +21,6 @@ public class ThemeManager : MonoBehaviour
     public GameObject Def_themeBoard_obj;
     public GameObject[] themeContentObjs;
     public GameObject[] themeCloseButtons;
-
-    [Header("Default Theme Objects")]
-    public Image def_mainBoard_obj;
-    public Image def_innerBoard_obj;
-    public Image def_trash_obj;
-    public Image def_trashLine_obj;
 
     public string selectedTheme;
     public GameObject SettingMenu;
@@ -81,12 +62,17 @@ public class ThemeManager : MonoBehaviour
 
     public void SelectDefaultTheme()
     {
+        
         PlayerPrefs.SetString("Theme", "Default");
         themeContentObjs[0].GetComponent<Image>().sprite = SelectedThemeImages[0];
         defaultBoardObj.SetActive(true);
         themeCloseButtons[0].SetActive(true);
         UnSelectForestTheme();
         UnSelectAquaTheme();
+        if(selectedTheme!="Default")
+        {
+            SceneManager.LoadScene(1);
+        }
 
     }
 
@@ -106,6 +92,11 @@ public class ThemeManager : MonoBehaviour
         UnselectDefaultTheme();
         UnSelectAquaTheme();
 
+        if(selectedTheme!="Forest")
+        {
+            SceneManager.LoadScene(1);
+        }
+
     }
 
     public void UnSelectForestTheme()
@@ -123,6 +114,11 @@ public class ThemeManager : MonoBehaviour
         themeCloseButtons[2].SetActive(true);
         UnselectDefaultTheme();
         UnSelectForestTheme();
+
+        if (selectedTheme != "Aqua")
+        {
+            SceneManager.LoadScene(1);
+        }
     }
     public void UnSelectAquaTheme()
     {
@@ -130,12 +126,6 @@ public class ThemeManager : MonoBehaviour
         aquaBoardObj.SetActive(false);
         themeCloseButtons[2].SetActive(false);
     }
-
-
-
-
-
-
 
     public void OpenThemePanel()
     {
