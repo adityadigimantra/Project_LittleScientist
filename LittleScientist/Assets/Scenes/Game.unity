@@ -1971,6 +1971,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -7178,6 +7179,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: water
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -7672,6 +7674,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: water
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -13994,6 +13997,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -14950,7 +14954,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1463734420}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -18577,6 +18581,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: water
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -19460,6 +19465,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -20710,6 +20716,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: air
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -20914,6 +20921,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: fire
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -22066,6 +22074,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: fire
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -23372,7 +23381,7 @@ GameObject:
   - component: {fileID: 1007105395}
   - component: {fileID: 1007105394}
   m_Layer: 5
-  m_Name: Tray_Contents
+  m_Name: aqua_Tray_Contents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24063,6 +24072,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: air
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -25546,7 +25556,7 @@ RectTransform:
   m_Children:
   - {fileID: 1680825489}
   m_Father: {fileID: 1463734420}
-  m_RootOrder: 14
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -33274,6 +33284,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: air
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -35259,12 +35270,12 @@ RectTransform:
   - {fileID: 1452363243}
   - {fileID: 51366201}
   - {fileID: 1435075583}
-  - {fileID: 2055735322}
+  - {fileID: 1105249177}
+  - {fileID: 2059728758}
   - {fileID: 641798127}
   - {fileID: 1483505352}
   - {fileID: 1916680889}
-  - {fileID: 1105249177}
-  - {fileID: 2059728758}
+  - {fileID: 2055735322}
   - {fileID: 973266481}
   - {fileID: 1651904264}
   - {fileID: 813787494}
@@ -35520,7 +35531,9 @@ MonoBehaviour:
   noCombinationFoundPanel: {fileID: 1131231847}
   combinationAlreadyMadePanel: {fileID: 1452363242}
   ContentPanel: {fileID: 2102901238}
-  discoveryTray_Panel: {fileID: 1878907883}
+  def_discoveryTray_Panel: {fileID: 1878907883}
+  for_discoveryTray_Panel: {fileID: 1535113886}
+  aqua_discoveryTray_Panel: {fileID: 1007105392}
   FunFactsBar:
   - {fileID: 755513879}
   - {fileID: 627596855}
@@ -35968,7 +35981,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1463734420}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -37271,7 +37284,7 @@ GameObject:
   - component: {fileID: 1535113889}
   - component: {fileID: 1535113888}
   m_Layer: 5
-  m_Name: Tray_Contents
+  m_Name: for_Tray_Contents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39201,6 +39214,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: earth
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -40258,6 +40272,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: earth
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -41587,6 +41602,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: fire
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -42975,6 +42991,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: 
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -43475,7 +43492,7 @@ GameObject:
   - component: {fileID: 1878907886}
   - component: {fileID: 1878907885}
   m_Layer: 5
-  m_Name: Tray_Contents
+  m_Name: def_Tray_Contents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44435,7 +44452,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1463734420}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -46942,6 +46959,7 @@ MonoBehaviour:
   soundManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   gameOperation: {fileID: 0}
+  themeManager: {fileID: 0}
   currentElementName: earth
   thisObject: {fileID: 0}
   canvasGroup: {fileID: 0}
@@ -47670,7 +47688,7 @@ RectTransform:
   - {fileID: 195022341}
   - {fileID: 524068232}
   m_Father: {fileID: 1463734420}
-  m_RootOrder: 10
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -47875,7 +47893,7 @@ RectTransform:
   m_Children:
   - {fileID: 1862643937}
   m_Father: {fileID: 1463734420}
-  m_RootOrder: 15
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

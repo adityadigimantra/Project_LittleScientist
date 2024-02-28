@@ -45,7 +45,11 @@ public class combinationManager : MonoBehaviour
     public GameObject noCombinationFoundPanel;
     public GameObject combinationAlreadyMadePanel;
     public GameObject ContentPanel;
-    public GameObject discoveryTray_Panel;
+
+    [Header("Discovery Trays")]
+    public GameObject def_discoveryTray_Panel;
+    public GameObject for_discoveryTray_Panel;
+    public GameObject aqua_discoveryTray_Panel;
 
 
     [Header("FunFacts")]
@@ -766,8 +770,23 @@ public class combinationManager : MonoBehaviour
 
     public void placingElementsInDiscoveryTray()
     {
-        discovery_element.transform.position = discoveryTray_Panel.transform.position;
-        discovery_element.transform.parent = discoveryTray_Panel.transform;
+        string selectedTheme = PlayerPrefs.GetString("Theme");
+        switch(selectedTheme)
+        {
+            case "Default":
+                discovery_element.transform.position = def_discoveryTray_Panel.transform.position;
+                discovery_element.transform.parent = def_discoveryTray_Panel.transform;
+                break;
+            case "Forest":
+                discovery_element.transform.position = for_discoveryTray_Panel.transform.position;
+                discovery_element.transform.parent = for_discoveryTray_Panel.transform;
+                break;
+            case "Aqua":
+                discovery_element.transform.position = aqua_discoveryTray_Panel.transform.position;
+                discovery_element.transform.parent = aqua_discoveryTray_Panel.transform;
+                break;
+        }
+        
     }
 
     public void newElementPositionFunction()
