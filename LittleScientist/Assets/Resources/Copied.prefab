@@ -221,6 +221,7 @@ MonoBehaviour:
   otherGameObject: {fileID: 0}
   elementManager: {fileID: 0}
   soundManager: {fileID: 0}
+  dragAnddrop: {fileID: 0}
 --- !u!114 &1018282689255727616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInsidePlayArea: 0
-  isInsideScrollRect: 1
   thisObjectAnimator: {fileID: 0}
 --- !u!114 &4658811406150908849
 MonoBehaviour:
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.22352943, g: 0.015686275, b: 0.28627452, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

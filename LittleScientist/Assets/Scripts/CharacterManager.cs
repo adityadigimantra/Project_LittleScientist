@@ -11,16 +11,26 @@ public class CharacterManager : MonoBehaviour
     public Image boyCharacterImage;
     public Image girlCharacterImage;
     public Image CharacterBgImage;
-    public Image MessageBoxImage;
-    public Text MessageBoxText;
     public Text NewElementText;
     public int fadeDuration=4;
     public string loadedString;
     public bool OpenPanelOnce = false;
     public bool shownOnce = false;
 
-    [Header("MessageBox Data")]
-    public Animator messageBoxAnimator;
+
+
+    [Header("Theme Message Boxes")]
+    public Image def_MessageBoxImage;
+    public Text def_MessageBoxText;
+    public Animator def_messageBoxAnimator;
+    public Image for_MessageBoxImage;
+    public Text for_MessageBoxText;
+    public Animator for_messageBoxAnimator;
+    public Image aqua_MessageBoxImage;
+    public Text aqua_MessageBoxText;
+    public Animator aqua_messageBoxAnimator;
+
+    public string selectedTheme;
 
     [Header("Instances")]
     public combinationManager combManager;
@@ -29,9 +39,26 @@ public class CharacterManager : MonoBehaviour
     public bool isCoroutineRunnning = false;
     private void Start()
     {
+        selectedTheme = PlayerPrefs.GetString("Theme");
         combManager = FindObjectOfType<combinationManager>();
         tutorialManager = FindObjectOfType<TutorialManager>();
-        messageBoxAnimator.SetBool("IsOpen", true);
+
+        switch (selectedTheme)
+        {
+            case "Default":
+                def_messageBoxAnimator.SetBool("IsOpen", true);
+                break;
+
+            case "Forest":
+                for_messageBoxAnimator.SetBool("IsOpen", true);
+                break;
+
+            case "Aqua":
+                aqua_messageBoxAnimator.SetBool("IsOpen", true);
+                break;
+        }
+        
+       
 
         CheckCharacterChoosenByPlayer();
     }
@@ -91,11 +118,41 @@ public class CharacterManager : MonoBehaviour
     }
     public void ShowMessage(string message,int fontSize)
     {
-        CharacterPanel.SetActive(true);
-        messageBoxAnimator.SetBool("IsOpen", true);
-        MessageBoxImage.gameObject.SetActive(true);
-        MessageBoxText.text = message;
-        MessageBoxText.fontSize = fontSize;
+        switch(selectedTheme)
+        {
+            case "Default":
+                CharacterPanel.SetActive(true);
+                def_messageBoxAnimator.SetBool("IsOpen", true);
+                def_MessageBoxImage.gameObject.SetActive(true);
+                def_MessageBoxText.text = message;
+                def_MessageBoxText.fontSize = fontSize;
+                for_MessageBoxImage.gameObject.SetActive(false);
+                aqua_MessageBoxImage.gameObject.SetActive(false);
+                break;
+
+            case "Forest":
+                CharacterPanel.SetActive(true);
+                for_messageBoxAnimator.SetBool("IsOpen", true);
+                for_MessageBoxImage.gameObject.SetActive(true);
+                for_MessageBoxText.text = message;
+                for_MessageBoxText.fontSize = fontSize;
+
+                def_MessageBoxImage.gameObject.SetActive(false);
+                aqua_MessageBoxImage.gameObject.SetActive(false);
+                break;
+
+            case "Aqua":
+                CharacterPanel.SetActive(true);
+                aqua_messageBoxAnimator.SetBool("IsOpen", true);
+                aqua_MessageBoxImage.gameObject.SetActive(true);
+                aqua_MessageBoxText.text = message;
+                aqua_MessageBoxText.fontSize = fontSize;
+
+                for_MessageBoxImage.gameObject.SetActive(false);
+                def_MessageBoxImage.gameObject.SetActive(false);
+                break;
+        }
+
     }
 
 
@@ -113,21 +170,68 @@ public class CharacterManager : MonoBehaviour
     }
     IEnumerator DisplayMessage(string message,int time,int fontSize)
     {
-        isCoroutineRunnning = true;
-        CharacterPanel.SetActive(true);
-        messageBoxAnimator.SetBool("IsOpen", true);
-        MessageBoxImage.gameObject.SetActive(true);
-        MessageBoxText.text = message;
-        MessageBoxText.fontSize = fontSize;
-        yield return new WaitForSeconds(time);
-        messageBoxAnimator.SetBool("IsOpen", false);
-        yield return new WaitForSeconds(1.5f);
-        isCoroutineRunnning = false;
+        switch(selectedTheme)
+        {
+            case "Default":
+                isCoroutineRunnning = true;
+                CharacterPanel.SetActive(true);
+                def_messageBoxAnimator.SetBool("IsOpen", true);
+                def_MessageBoxImage.gameObject.SetActive(true);
+                def_MessageBoxText.text = message;
+                def_MessageBoxText.fontSize = fontSize;
+                yield return new WaitForSeconds(time);
+                def_messageBoxAnimator.SetBool("IsOpen", false);
+                yield return new WaitForSeconds(1.5f);
+                isCoroutineRunnning = false;
+                break;
+
+            case "Forest":
+                isCoroutineRunnning = true;
+                CharacterPanel.SetActive(true);
+                for_messageBoxAnimator.SetBool("IsOpen", true);
+                for_MessageBoxImage.gameObject.SetActive(true);
+                for_MessageBoxText.text = message;
+                for_MessageBoxText.fontSize = fontSize;
+                yield return new WaitForSeconds(time);
+                for_messageBoxAnimator.SetBool("IsOpen", false);
+                yield return new WaitForSeconds(1.5f);
+                isCoroutineRunnning = false;
+                break;
+
+            case "Aqua":
+                isCoroutineRunnning = true;
+                CharacterPanel.SetActive(true);
+                aqua_messageBoxAnimator.SetBool("IsOpen", true);
+                aqua_MessageBoxImage.gameObject.SetActive(true);
+                aqua_MessageBoxText.text = message;
+                aqua_MessageBoxText.fontSize = fontSize;
+                yield return new WaitForSeconds(time);
+                aqua_messageBoxAnimator.SetBool("IsOpen", false);
+                yield return new WaitForSeconds(1.5f);
+                isCoroutineRunnning = false;
+                break;
+        }
+        
     }
 
 
     public void CloseCurrentMessage()
     {
-        messageBoxAnimator.SetBool("IsOpen", false);
+        switch (selectedTheme)
+        {
+            case "Default":
+                def_messageBoxAnimator.SetBool("IsOpen", false);
+                break;
+
+            case "Forest":
+                for_messageBoxAnimator.SetBool("IsOpen", false);
+                break;
+
+            case "Aqua":
+                aqua_messageBoxAnimator.SetBool("IsOpen", false);
+                break;
+        }
+        
+       
     }
 }

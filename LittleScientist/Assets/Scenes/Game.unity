@@ -4513,7 +4513,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -500, y: -420}
-  m_SizeDelta: {x: 750, y: 200}
+  m_SizeDelta: {x: 700, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &146194484
 Animator:
@@ -4555,7 +4555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8950770299743383184, guid: cf54f677489eb2a4ea1547cbfd6d9f76,
+  m_Sprite: {fileID: -9092160120631897519, guid: 1bb069e314f5abb4688841b7ab309684,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -5810,7 +5810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 843, y: -186.5}
+  m_AnchoredPosition: {x: 843, y: -170.8757}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &202872859
@@ -11172,7 +11172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 738, y: -186.5}
+  m_AnchoredPosition: {x: 738, y: -170.8757}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463779664
@@ -16930,7 +16930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 948, y: -186.5}
+  m_AnchoredPosition: {x: 948, y: -170.8757}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709146731
@@ -17206,7 +17206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &719404902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17819,7 +17819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1053, y: -186.5}
+  m_AnchoredPosition: {x: 1053, y: -170.8757}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744805847
@@ -18874,7 +18874,7 @@ GameObject:
   - component: {fileID: 789763694}
   - component: {fileID: 789763693}
   m_Layer: 5
-  m_Name: MessageText
+  m_Name: for_MessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18894,10 +18894,10 @@ RectTransform:
   m_Father: {fileID: 1897890324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.117000006, y: 0.30230254}
-  m_AnchorMax: {x: 0.86734074, y: 0.7086513}
-  m_AnchoredPosition: {x: -0.7202759, y: -1.7467957}
-  m_SizeDelta: {x: -1.2501221, y: 3.283699}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -30, y: 0}
+  m_SizeDelta: {x: 550, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &789763693
 MonoBehaviour:
@@ -22503,7 +22503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &915317462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24247,8 +24247,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -515, y: -360}
-  m_SizeDelta: {x: 1791, y: 250}
+  m_AnchoredPosition: {x: -515, y: -371.12427}
+  m_SizeDelta: {x: 1791, y: 227.7514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990058045
 MonoBehaviour:
@@ -24265,7 +24265,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 123
+    m_Top: 114
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: -185
@@ -34127,14 +34127,21 @@ MonoBehaviour:
   boyCharacterImage: {fileID: 233516241}
   girlCharacterImage: {fileID: 1885922896}
   CharacterBgImage: {fileID: 1835297481}
-  MessageBoxImage: {fileID: 915317463}
-  MessageBoxText: {fileID: 1675614244}
   NewElementText: {fileID: 12850275}
   fadeDuration: 2
   loadedString: 
   OpenPanelOnce: 0
   shownOnce: 0
-  messageBoxAnimator: {fileID: 915317465}
+  def_MessageBoxImage: {fileID: 915317463}
+  def_MessageBoxText: {fileID: 1675614244}
+  def_messageBoxAnimator: {fileID: 915317465}
+  for_MessageBoxImage: {fileID: 1897890326}
+  for_MessageBoxText: {fileID: 789763693}
+  for_messageBoxAnimator: {fileID: 1897890325}
+  aqua_MessageBoxImage: {fileID: 146194485}
+  aqua_MessageBoxText: {fileID: 1574219725}
+  aqua_messageBoxAnimator: {fileID: 146194484}
+  selectedTheme: 
   combManager: {fileID: 0}
   tutorialManager: {fileID: 0}
   isCoroutineRunnning: 0
@@ -38871,7 +38878,7 @@ GameObject:
   - component: {fileID: 1574219726}
   - component: {fileID: 1574219725}
   m_Layer: 5
-  m_Name: MessageText
+  m_Name: aqua_MessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38891,10 +38898,10 @@ RectTransform:
   m_Father: {fileID: 146194483}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.117000006, y: 0.30230254}
-  m_AnchorMax: {x: 0.86734074, y: 0.7086513}
-  m_AnchoredPosition: {x: -0.7202759, y: -1.7467957}
-  m_SizeDelta: {x: -1.2501221, y: 3.283699}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -30, y: 0}
+  m_SizeDelta: {x: 550, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1574219725
 MonoBehaviour:
@@ -40753,7 +40760,7 @@ GameObject:
   - component: {fileID: 1675614245}
   - component: {fileID: 1675614244}
   m_Layer: 5
-  m_Name: MessageText
+  m_Name: def_MessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40773,10 +40780,10 @@ RectTransform:
   m_Father: {fileID: 915317462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.117000006, y: 0.30230254}
-  m_AnchorMax: {x: 0.86734074, y: 0.7086513}
-  m_AnchoredPosition: {x: -0.7202759, y: -1.7467957}
-  m_SizeDelta: {x: -1.2501221, y: 3.283699}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 550, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1675614244
 MonoBehaviour:
@@ -45549,7 +45556,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -500, y: -420}
-  m_SizeDelta: {x: 750, y: 200}
+  m_SizeDelta: {x: 700, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1897890325
 Animator:
@@ -45591,7 +45598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1763014460331064234, guid: 90ed8b9824065f84f881ff282a8aa5ba,
+  m_Sprite: {fileID: -5712004131084478232, guid: 94a1c0bc63e5517478e7d1669b63f3c4,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
