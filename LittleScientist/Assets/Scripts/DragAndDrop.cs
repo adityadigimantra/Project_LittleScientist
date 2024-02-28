@@ -22,9 +22,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public  RectTransform rectTransform;
     public GameObject copiedGameObject;
     public GameObject newGameObject;
-    public GameObject ElementsPanel;
+   
     public RectTransform ClampPanelRectTransform;
     public Text ElementNameTextObj;
+
+    [Header("Theme Elements Panels")]
+    public GameObject def_ElementsPanel;
+    public GameObject for_ElementsPanel;
+    public GameObject aqua_ElementsPanel;
 
     [Header("Clamping Movement Data")]
     private Vector2 initialPosition;
@@ -49,7 +54,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         gameOperation = FindObjectOfType<GameOperation>();
         themeManager.SettingIfNoThemeSelected();
 
-        ElementsPanel = GameObject.Find("AllElements");
         selectedTheme = PlayerPrefs.GetString("Theme");
         //ClampPanelRectTransform = GameObject.Find("ClampPanel").GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
@@ -76,6 +80,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                     {
                         def_topScrollRect = GameObject.Find("Def_Top_ScrollView");
                         def_bottomScrollRect = GameObject.Find("Def_Down_ScrollView");
+                        def_ElementsPanel = GameObject.Find("def_AllElements");
                     }
                     break;
 
@@ -84,6 +89,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                     {
                         for_topScrollRect = GameObject.Find("for_Top_ScrollView");
                         for_bottomScrollRect = GameObject.Find("for_Down_ScrollView");
+                        for_ElementsPanel = GameObject.Find("for_AllElements");
                     }
                     break;
                 case "Aqua":
@@ -91,6 +97,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                     {
                         aqua_topScrollRect = GameObject.Find("aqua_Top_ScrollView");
                         aqua_bottomScrollRect = GameObject.Find("aqua_Down_ScrollView");
+                        aqua_ElementsPanel = GameObject.Find("aqua_AllElements");
                     }
                     break;
             }
@@ -159,8 +166,23 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         GameObject prefab = FindObjectOfType<combinationManager>().Copied;
         copiedGameObject = Instantiate(prefab,thisObject.transform.position,Quaternion.identity);
         copiedGameObject.transform.localScale = new Vector3(1f,1f,1f);
-        copiedGameObject.transform.parent = ElementsPanel.transform;
-        copiedGameObject.transform.SetAsLastSibling();
+        switch(selectedTheme)
+        {
+            case "Default":
+                copiedGameObject.transform.parent = def_ElementsPanel.transform;
+                copiedGameObject.transform.SetAsLastSibling();
+                break;
+            case "Forest":
+                copiedGameObject.transform.parent = for_ElementsPanel.transform;
+                copiedGameObject.transform.SetAsLastSibling();
+                break;
+            case "Aqua":
+                copiedGameObject.transform.parent = aqua_ElementsPanel.transform;
+                copiedGameObject.transform.SetAsLastSibling();
+                break;
+        }
+       
+        
         copiedGameObject.GetComponent<CanvasGroup>().alpha = 0.6f;
         copiedGameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
         copiedGameObject.GetComponent<BoxCollider2D>().enabled =false;

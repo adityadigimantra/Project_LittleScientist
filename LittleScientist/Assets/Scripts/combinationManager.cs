@@ -61,9 +61,13 @@ public class combinationManager : MonoBehaviour
 
 
     [Header("Public Fields")]
-    public GameObject elementsPanel;
     public GameObject def_topScrollView;
     public GameObject def_BottomScrollView;
+
+    [Header("Theme Elements Panel")]
+    public GameObject def_elementsPanel;
+    public GameObject for_elementsPanel;
+    public GameObject aqua_elementsPanel;
 
     [Header("Forest Scrolls Views")]
     public GameObject for_topScrollView;
@@ -154,7 +158,7 @@ public class combinationManager : MonoBehaviour
         elementManager = FindObjectOfType<ElementManager>();
         charMessages = FindObjectOfType<CharacterMessages>();
         soundManager = FindObjectOfType<SoundManager>();
-        elementsPanel = GameObject.Find("AllElements");
+        //elementsPanel = GameObject.Find("AllElements");
         //def_topScrollView = GameObject.Find("Def_TopScroll_Content");
         //def_BottomScrollView = GameObject.Find("Def_DownScroll_Content");
 
@@ -464,7 +468,20 @@ public class combinationManager : MonoBehaviour
                    
                     InsideBox_newObj = Instantiate(newCreatedElement);
                     InsideBox_newObj.name = loadedString;
-                    InsideBox_newObj.transform.parent = elementsPanel.transform;
+                string selectedTheme = PlayerPrefs.GetString("Theme");
+                switch(selectedTheme)
+                {
+                    case "Default":
+                        InsideBox_newObj.transform.parent = def_elementsPanel.transform;
+                        break;
+                    case "Forest":
+                        InsideBox_newObj.transform.parent = for_elementsPanel.transform;
+                        break;
+                    case "Aqua":
+                        InsideBox_newObj.transform.parent = aqua_elementsPanel.transform;
+                        break;
+                }
+                   
                     //InsideBox_newObj.transform.position = elementsPanel.transform.position;
 
                     GameObject[] var = GameObject.FindGameObjectsWithTag("Copied");
