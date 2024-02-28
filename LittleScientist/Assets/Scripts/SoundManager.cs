@@ -43,7 +43,6 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-
     }
     public void PlayBgMusic()
     {

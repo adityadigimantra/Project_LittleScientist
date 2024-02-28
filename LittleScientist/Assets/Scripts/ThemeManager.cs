@@ -11,7 +11,7 @@ public class ThemeManager : MonoBehaviour
 
     public Sprite[] SelectedThemeImages;
     public Sprite[] UnSelectedThemeImages;
-    public GameObject ThemePanel;
+    public GameObject ParentThemePanel;
     public GameObject defaultBoardObj;
     public GameObject forestBoardObj;
     public GameObject aquaBoardObj;
@@ -22,6 +22,16 @@ public class ThemeManager : MonoBehaviour
     public GameObject[] themeContentObjs;
     public GameObject[] themeCloseButtons;
 
+
+    [Header("SettinsMenus")]
+    public GameObject parentSettingMenu;
+    public GameObject def_settingsMenu;
+    public GameObject def_closeButton;
+    public GameObject for_settingsMenu;
+    public GameObject for_closeButton;
+    public GameObject aqua_settingsMenu;
+    public GameObject aqua_closeButton;
+
     public string selectedTheme;
     public GameObject SettingMenu;
 
@@ -30,7 +40,7 @@ public class ThemeManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello From Theme Manager");
-
+       
        switch (selectedTheme)
        {
            case "Default":
@@ -51,7 +61,22 @@ public class ThemeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        selectedTheme = PlayerPrefs.GetString("Theme");
+        switch (selectedTheme)
+        {
+            case "Default":
+                themeContentObjs[0].GetComponent<Image>().sprite = SelectedThemeImages[0];
+                break;
 
+            case "Forest":
+                themeContentObjs[1].GetComponent<Image>().sprite = SelectedThemeImages[1];
+                break;
+
+            case "Aqua":
+                themeContentObjs[2].GetComponent<Image>().sprite = SelectedThemeImages[2];
+                break;
+
+        }
     }
 
     public void SettingIfNoThemeSelected()
@@ -66,14 +91,13 @@ public class ThemeManager : MonoBehaviour
         
         PlayerPrefs.SetString("Theme", "Default");
         themeContentObjs[0].GetComponent<Image>().sprite = SelectedThemeImages[0];
-        themeChangingLoadingPanel.SetActive(true);
-        //defaultBoardObj.SetActive(true);
-        //themeCloseButtons[0].SetActive(true);
         UnSelectForestTheme();
         UnSelectAquaTheme();
-        PlayerPrefs.SetInt("IsRestart", 1);
+       
         if (selectedTheme!="Default")
         {
+            themeChangingLoadingPanel.SetActive(true);
+            PlayerPrefs.SetInt("IsRestart", 1);
             StartCoroutine(ChangeScene());
         }
 
@@ -98,14 +122,15 @@ public class ThemeManager : MonoBehaviour
     {
         PlayerPrefs.SetString("Theme", "Forest");
         themeContentObjs[1].GetComponent<Image>().sprite = SelectedThemeImages[1];
-        themeChangingLoadingPanel.SetActive(true);
         //forestBoardObj.SetActive(true);
         //themeCloseButtons[1].SetActive(true);
         UnselectDefaultTheme();
         UnSelectAquaTheme();
-        PlayerPrefs.SetInt("IsRestart", 1);
+
         if (selectedTheme!="Forest")
         {
+            themeChangingLoadingPanel.SetActive(true);
+            PlayerPrefs.SetInt("IsRestart", 1);
             StartCoroutine(ChangeScene());
         }
 
@@ -130,14 +155,13 @@ public class ThemeManager : MonoBehaviour
     {
         PlayerPrefs.SetString("Theme", "Aqua");
         themeContentObjs[2].GetComponent<Image>().sprite = SelectedThemeImages[2];
-        themeChangingLoadingPanel.SetActive(true);
-        //aquaBoardObj.SetActive(true);
-        //themeCloseButtons[2].SetActive(true);
         UnselectDefaultTheme();
         UnSelectForestTheme();
-        PlayerPrefs.SetInt("IsRestart", 1);
+       
         if (selectedTheme != "Aqua")
         {
+            themeChangingLoadingPanel.SetActive(true);
+            PlayerPrefs.SetInt("IsRestart", 1);
             StartCoroutine(ChangeScene());
         }
     }
@@ -158,12 +182,53 @@ public class ThemeManager : MonoBehaviour
 
     public void OpenThemePanel()
     {
-        ThemePanel.SetActive(true);
-        SettingMenu.SetActive(false);
+
+        ParentThemePanel.SetActive(true);
+        switch (selectedTheme)
+        {
+            case "Default":
+                defaultBoardObj.SetActive(true);
+                def_closeButton.SetActive(true);
+                def_settingsMenu.SetActive(false);
+                break;
+
+            case "Forest":
+                forestBoardObj.SetActive(true);
+                for_closeButton.SetActive(true);
+                for_settingsMenu.SetActive(false);
+                break;
+
+            case "Aqua":
+                aquaBoardObj.SetActive(true);
+                aqua_closeButton.SetActive(true);
+                aqua_settingsMenu.SetActive(false);
+                break;
+        }
+
+       
     }
     public void CloseThemePanel()
     {
-        ThemePanel.SetActive(false);
+        ParentThemePanel.SetActive(false);
+        parentSettingMenu.SetActive(false);
+        switch (selectedTheme)
+        {
+            case "Default":
+                defaultBoardObj.SetActive(false);
+                def_closeButton.SetActive(false);
+               
+                break;
+
+            case "Forest":
+                forestBoardObj.SetActive(false);
+                for_closeButton.SetActive(false);
+                break;
+
+            case "Aqua":
+                aquaBoardObj.SetActive(false);
+                aqua_closeButton.SetActive(false);
+                break;
+        }
     }
 
     IEnumerator ChangeScene()

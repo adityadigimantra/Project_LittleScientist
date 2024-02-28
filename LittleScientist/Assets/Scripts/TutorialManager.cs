@@ -462,7 +462,6 @@ public class TutorialManager : MonoBehaviour
     public void CloseDiscoveryTrayAnimations()
     {
         otherElements[5].GetComponent<Animator>().SetBool("IsOpen", false);
-        
     }
     #endregion
 
@@ -544,6 +543,7 @@ public class TutorialManager : MonoBehaviour
     public void OpenTutorialPanelComplete()
     {
         tutorialCompletePanel.SetActive(true);
+        skipButton.gameObject.SetActive(false);
         tutorialCompletePanel.GetComponent<Animator>().SetBool("IsOpen", true);
     }
     public void CloseTutorialPanelComplete()
@@ -553,6 +553,7 @@ public class TutorialManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         PlayerPrefs.SetInt("ShownTutorial", 1);
         TutorialPanel.SetActive(false);
+        skipButton.gameObject.SetActive(false);
         ScorePanel.SetActive(true);
         //restartButton.SetActive(true);
         ComingSoonText.SetActive(true);
