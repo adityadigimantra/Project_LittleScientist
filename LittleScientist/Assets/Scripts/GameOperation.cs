@@ -23,6 +23,7 @@ public class GameOperation : MonoBehaviour
     [Header("Panels")]
     public GameObject lowerSmallPanel;
     public GameObject SettingsPanel;
+    public GameObject ParentSeachPanel;
 
 
     [Header("Discovery Trays")]
@@ -219,6 +220,7 @@ public class GameOperation : MonoBehaviour
     }
     public void SwitchOnControls()
     {
+        ParentSeachPanel.SetActive(true);
         switch (selectedTheme)
         {
             case "Default":
