@@ -21,6 +21,9 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
     [Header("Instances")]
     public ElementManager elementManager;
     public SoundManager soundManager;
+    public DragAndDrop dragAnddrop;
+
+    
 
 
 
@@ -35,6 +38,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
 
         elementManager = FindObjectOfType<ElementManager>();
         soundManager = FindObjectOfType<SoundManager>();
+        dragAnddrop = FindObjectOfType<DragAndDrop>();
        
     }
     public void LoadSetImageforthisElement()
@@ -56,7 +60,8 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        dragAnddrop.OnClick_SwitchOff_TopAndBottomScrollRectsAndTrash();
+        //gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.transform.SetAsLastSibling();
         PlayerPrefs.SetString("UpperObject", gameObject.name);
         soundManager.PlayGeneralButtonTapSound();
@@ -71,7 +76,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
+        dragAnddrop.OnClick_SwitchOn_TopAndBottomScrollRectsAndTrash();
         if (gameObject.tag == "NewCreatedElement")
         {
             //Changed
@@ -96,6 +101,7 @@ public class Copied_DragNDrop : MonoBehaviour,IPointerDownHandler,IDragHandler,I
             localPosition.y = Mathf.Clamp(localPosition.y, ClampPanelRectTransform.rect.min.y + thisObject.GetComponent<RectTransform>().rect.height, ClampPanelRectTransform.rect.max.y - thisObject.GetComponent<RectTransform>().rect.height);
             thisObject.GetComponent<RectTransform>().anchoredPosition = localPosition;
         }
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
         rectTransform.anchoredPosition += eventData.delta / GetCanvasScale();
 
 

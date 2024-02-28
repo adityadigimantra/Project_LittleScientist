@@ -22,18 +22,29 @@ public class GameOperation : MonoBehaviour
 
     [Header("Panels")]
     public GameObject lowerSmallPanel;
-    public GameObject TopElementView;
-    public int TopElementViewChildCount;
-    public GameObject[] UIControls;
-    public GameObject discorveryTrayContent;
-    public int discorveryTrayContentChildCount;
-    public GameObject CreateSomeElementText;
     public GameObject SettingsPanel;
+
 
     [Header("Discovery Trays")]
     public GameObject[] defaultDiscoveryTrayItems;
+    public int def_discorveryTrayContentChildCount;
     public GameObject[] forestDiscoveryTrayItems;
+    public int for_discorveryTrayContentChildCount;
     public GameObject[] aquaDiscoveryTrayItems;
+    public int aqua_discorveryTrayContentChildCount;
+
+    [Header("Theme Scroll Rects")]
+    public GameObject def_BottomScrollRect;
+    public int def_BottomElementsChildCount;
+    public GameObject for_BottomScrollRect;
+    public int for_BottomElementsChildCount;
+    public GameObject aqua_BottomScrollRect;
+    public int aqua_BottomElementsChildCount;
+
+    [Header("Theme UI Controls")]
+    public GameObject[] def_UIControls;
+    public GameObject[] for_UIControls;
+    public GameObject[] aqua_UIControls;
 
     [Header("GameBoard and UI Items")]
     public GameObject[] defaultThemeGameItems;
@@ -146,30 +157,93 @@ public class GameOperation : MonoBehaviour
     private void Update()
     {
 
-       
+        switch (selectedTheme)
+        {
+            case "Default":
+                def_BottomElementsChildCount = def_BottomScrollRect.transform.childCount;
+                if (def_BottomElementsChildCount >= 8)
+                {
+                    SwitchOnControls();
+                }
+                def_discorveryTrayContentChildCount = defaultDiscoveryTrayItems[3].transform.childCount;
+                if (def_discorveryTrayContentChildCount >= 1)
+                {
+                    defaultDiscoveryTrayItems[4].SetActive(false);
+                }
+                else
+                {
+                    defaultDiscoveryTrayItems[4].SetActive(true);
+                }
+                break;
 
-        TopElementViewChildCount = TopElementView.transform.childCount;
-        if(TopElementViewChildCount>=8)
-        {
-            SwitchOnControls();
+
+            case "Forest":
+                for_BottomElementsChildCount = for_BottomScrollRect.transform.childCount;
+                if (for_BottomElementsChildCount >= 8)
+                {
+                    SwitchOnControls();
+                }
+                for_discorveryTrayContentChildCount = forestDiscoveryTrayItems[3].transform.childCount;
+                if (for_discorveryTrayContentChildCount >= 1)
+                {
+                    forestDiscoveryTrayItems[4].SetActive(false);
+                }
+                else
+                {
+                    forestDiscoveryTrayItems[4].SetActive(true);
+                }
+                break;
+
+            case "Aqua":
+                aqua_BottomElementsChildCount = aqua_BottomScrollRect.transform.childCount;
+                if (aqua_BottomElementsChildCount >= 8)
+                {
+                    SwitchOnControls();
+                }
+                aqua_discorveryTrayContentChildCount = aquaDiscoveryTrayItems[3].transform.childCount;
+                if (aqua_discorveryTrayContentChildCount >= 1)
+                {
+                    aquaDiscoveryTrayItems[4].SetActive(false);
+                }
+                else
+                {
+                    aquaDiscoveryTrayItems[4].SetActive(true);
+                }
+                break;
         }
-        discorveryTrayContentChildCount = discorveryTrayContent.transform.childCount;
-        if(discorveryTrayContentChildCount>=1)
-        {
-            CreateSomeElementText.SetActive(false);
-        }
-        else
-        {
-            CreateSomeElementText.SetActive(true);
-        }
+
+
+
+        
 
     }
     public void SwitchOnControls()
     {
-        foreach(GameObject g in UIControls)
+        switch (selectedTheme)
         {
-            g.SetActive(true);
+            case "Default":
+                foreach (GameObject g in def_UIControls)
+                {
+                    g.SetActive(true);
+                }
+                break;
+
+            case "Forest":
+                foreach (GameObject g in for_UIControls)
+                {
+                    g.SetActive(true);
+                }
+                break;
+
+            case "Aqua":
+                foreach (GameObject g in aqua_UIControls)
+                {
+                    g.SetActive(true);
+                }
+                break;
         }
+
+       
     }
 
     public void ChangeScene(int index)

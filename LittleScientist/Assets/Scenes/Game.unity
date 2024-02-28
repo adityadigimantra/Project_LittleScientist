@@ -1985,10 +1985,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!61 &53108922
 BoxCollider2D:
@@ -7195,10 +7198,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!222 &279463408
 CanvasRenderer:
@@ -7692,10 +7698,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!225 &289917946
 CanvasGroup:
@@ -14024,10 +14033,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!114 &619023746
 MonoBehaviour:
@@ -14727,12 +14739,12 @@ GameObject:
   - component: {fileID: 634836024}
   - component: {fileID: 634836023}
   m_Layer: 5
-  m_Name: RightArrow
+  m_Name: aqua_RightArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &634836022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16578,12 +16590,12 @@ GameObject:
   - component: {fileID: 732585043}
   - component: {fileID: 732585042}
   m_Layer: 5
-  m_Name: LeftArrow
+  m_Name: aqua_LeftArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &732585041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18610,10 +18622,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!222 &802961477
 CanvasRenderer:
@@ -19496,10 +19511,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!114 &831896452
 MonoBehaviour:
@@ -20749,10 +20767,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!114 &885493159
 MonoBehaviour:
@@ -20956,10 +20977,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!222 &886914647
 CanvasRenderer:
@@ -22111,10 +22135,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!222 &925191538
 CanvasRenderer:
@@ -23058,7 +23085,7 @@ GameObject:
   - component: {fileID: 986999806}
   - component: {fileID: 986999805}
   m_Layer: 5
-  m_Name: RightArrow
+  m_Name: for_RightArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23080,7 +23107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 740, y: 80}
+  m_AnchoredPosition: {x: 715, y: 72}
   m_SizeDelta: {x: 77.70923, y: 77.7092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986999805
@@ -23171,7 +23198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7427679146334946323, guid: 26c5418f7796ba94498dc3d356d9f2f8,
+  m_Sprite: {fileID: 1911694002877359157, guid: 90c3c36c0d3e75c4f8a4165d69f64dfe,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -24111,10 +24138,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!114 &1035492949
 MonoBehaviour:
@@ -31734,7 +31764,7 @@ GameObject:
   - component: {fileID: 1357572718}
   - component: {fileID: 1357572717}
   m_Layer: 5
-  m_Name: LeftArrow
+  m_Name: for_LeftArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31756,7 +31786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -740, y: 80}
+  m_AnchoredPosition: {x: -700, y: 72}
   m_SizeDelta: {x: 77.70923, y: 77.7092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357572717
@@ -31847,7 +31877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2402965904070803544, guid: 3c01719616f801d40980609250543f96,
+  m_Sprite: {fileID: -4487932585236045557, guid: 17e0e94baf1ed124d8801bee2105f44d,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -33325,10 +33355,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!225 &1420043069
 CanvasGroup:
@@ -33872,7 +33905,7 @@ GameObject:
   - component: {fileID: 1433577086}
   - component: {fileID: 1433577088}
   m_Layer: 5
-  m_Name: LeftArrow
+  m_Name: def_LeftArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39259,10 +39292,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!61 &1672223402
 BoxCollider2D:
@@ -40319,10 +40355,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!61 &1710141226
 BoxCollider2D:
@@ -41651,10 +41690,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!225 &1792392663
 CanvasGroup:
@@ -41909,7 +41951,7 @@ GameObject:
   - component: {fileID: 1809378767}
   - component: {fileID: 1809378769}
   m_Layer: 5
-  m_Name: RightArrow
+  m_Name: def_RightArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43042,10 +43084,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!114 &1850506451
 MonoBehaviour:
@@ -44765,7 +44810,7 @@ GameObject:
   - component: {fileID: 1955615402}
   - component: {fileID: 1955615401}
   m_Layer: 5
-  m_Name: Trash
+  m_Name: for_Trash
   m_TagString: TrashArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46040,28 +46085,43 @@ MonoBehaviour:
   gamePaused: 0
   startPreparing: 0
   lowerSmallPanel: {fileID: 1337330825}
-  TopElementView: {fileID: 1342208335}
-  TopElementViewChildCount: 0
-  UIControls:
-  - {fileID: 1433577084}
-  - {fileID: 1809378765}
-  - {fileID: 1651904263}
-  discorveryTrayContent: {fileID: 1878907883}
-  discorveryTrayContentChildCount: 0
-  CreateSomeElementText: {fileID: 84724115}
   SettingsPanel: {fileID: 301802534}
   defaultDiscoveryTrayItems:
   - {fileID: 1435075582}
   - {fileID: 954811979}
   - {fileID: 641798126}
+  - {fileID: 1878907883}
+  - {fileID: 84724115}
+  def_discorveryTrayContentChildCount: 0
   forestDiscoveryTrayItems:
   - {fileID: 1105249176}
   - {fileID: 1680825488}
   - {fileID: 1483505351}
+  - {fileID: 1535113886}
+  - {fileID: 1229576515}
+  for_discorveryTrayContentChildCount: 0
   aquaDiscoveryTrayItems:
   - {fileID: 2059728757}
   - {fileID: 1862643936}
   - {fileID: 1916680888}
+  - {fileID: 1007105392}
+  - {fileID: 1545225082}
+  aqua_discorveryTrayContentChildCount: 0
+  def_BottomScrollRect: {fileID: 1342208335}
+  def_BottomElementsChildCount: 0
+  for_BottomScrollRect: {fileID: 793489818}
+  for_BottomElementsChildCount: 0
+  aqua_BottomScrollRect: {fileID: 1791551133}
+  aqua_BottomElementsChildCount: 0
+  def_UIControls:
+  - {fileID: 1433577084}
+  - {fileID: 1809378765}
+  for_UIControls:
+  - {fileID: 1357572715}
+  - {fileID: 986999803}
+  aqua_UIControls:
+  - {fileID: 732585040}
+  - {fileID: 634836021}
   defaultThemeGameItems:
   - {fileID: 1161039450}
   - {fileID: 298531874}
@@ -47012,10 +47072,13 @@ MonoBehaviour:
   aqua_ElementsPanel: {fileID: 0}
   def_topScrollRect: {fileID: 0}
   def_bottomScrollRect: {fileID: 0}
+  def_Trash: {fileID: 0}
   for_topScrollRect: {fileID: 0}
   for_bottomScrollRect: {fileID: 0}
+  for_Trash: {fileID: 0}
   aqua_topScrollRect: {fileID: 0}
   aqua_bottomScrollRect: {fileID: 0}
+  aqua_Trash: {fileID: 0}
   selectedTheme: 
 --- !u!61 &2033142682
 BoxCollider2D:
@@ -47356,7 +47419,7 @@ GameObject:
   - component: {fileID: 2042131421}
   - component: {fileID: 2042131417}
   m_Layer: 5
-  m_Name: Trash
+  m_Name: def_Trash
   m_TagString: TrashArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48527,7 +48590,7 @@ GameObject:
   - component: {fileID: 2072527488}
   - component: {fileID: 2072527487}
   m_Layer: 5
-  m_Name: Trash
+  m_Name: aqua_Trash
   m_TagString: TrashArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -36,13 +36,16 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     private RectTransform outerPanelTransform;
 
 
-    [Header("Top and Bottom Scroll Rects")]
+    [Header("Top and Bottom Scroll Rects And Trash")]
     public GameObject def_topScrollRect;
     public GameObject def_bottomScrollRect;
+    public GameObject def_Trash;
     public GameObject for_topScrollRect;
     public GameObject for_bottomScrollRect;
+    public GameObject for_Trash;
     public GameObject aqua_topScrollRect;
     public GameObject aqua_bottomScrollRect;
+    public GameObject aqua_Trash;
 
     public string selectedTheme;
     private void Start()
@@ -81,6 +84,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                         def_topScrollRect = GameObject.Find("Def_Top_ScrollView");
                         def_bottomScrollRect = GameObject.Find("Def_Down_ScrollView");
                         def_ElementsPanel = GameObject.Find("def_AllElements");
+                        def_Trash = GameObject.Find("def_Trash");
                     }
                     break;
 
@@ -90,6 +94,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                         for_topScrollRect = GameObject.Find("for_Top_ScrollView");
                         for_bottomScrollRect = GameObject.Find("for_Down_ScrollView");
                         for_ElementsPanel = GameObject.Find("for_AllElements");
+                        for_Trash = GameObject.Find("for_Trash");
                     }
                     break;
                 case "Aqua":
@@ -98,49 +103,56 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
                         aqua_topScrollRect = GameObject.Find("aqua_Top_ScrollView");
                         aqua_bottomScrollRect = GameObject.Find("aqua_Down_ScrollView");
                         aqua_ElementsPanel = GameObject.Find("aqua_AllElements");
+                        aqua_Trash = GameObject.Find("aqua_Trash");
                     }
                     break;
             }
         }
         
     }
-    public void OnClick_SwitchOff_TopAndBottomScrollRects()
+    public void OnClick_SwitchOff_TopAndBottomScrollRectsAndTrash()
     {
         switch (selectedTheme)
         {
             case "Default":
                 def_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
                 def_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                def_Trash.GetComponent<BoxCollider2D>().enabled = false;
                 break;
 
             case "Forest":
                 for_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
                 for_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                for_Trash.GetComponent<BoxCollider2D>().enabled = false;
                 break;
             case "Aqua":
                 aqua_topScrollRect.GetComponent<BoxCollider2D>().enabled = false;
                 aqua_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = false;
+                aqua_Trash.GetComponent<BoxCollider2D>().enabled = false;
                 break;
         }
         
        
     }
-    public void OnClick_SwitchOn_TopAndBottomScrollRects()
+    public void OnClick_SwitchOn_TopAndBottomScrollRectsAndTrash()
     {
         switch(selectedTheme)
         {
             case "Default":
                 def_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
                 def_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                def_Trash.GetComponent<BoxCollider2D>().enabled = true;
                 break;
 
             case "Forest":
                 for_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
                 for_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                for_Trash.GetComponent<BoxCollider2D>().enabled = true;
                 break;
             case "Aqua":
                 aqua_topScrollRect.GetComponent<BoxCollider2D>().enabled = true;
                 aqua_bottomScrollRect.GetComponent<BoxCollider2D>().enabled = true;
+                aqua_Trash.GetComponent<BoxCollider2D>().enabled = true;
                 break;
         }
         
@@ -155,7 +167,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             copiedElementData();
             soundManager.PlayGeneralButtonTapSound();
             tutorialManager.FirstHand.GetComponent<Animator>().SetBool("CloseHand1", true);
-            OnClick_SwitchOff_TopAndBottomScrollRects();
+            OnClick_SwitchOff_TopAndBottomScrollRectsAndTrash();
             //tutorialManager.FirstHand.SetActive(false);
         }
     }
@@ -252,7 +264,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
             canvasGroup.alpha = 1f;
             canvasGroup.blocksRaycasts = true;
         }
-        OnClick_SwitchOn_TopAndBottomScrollRects();
+        OnClick_SwitchOn_TopAndBottomScrollRectsAndTrash();
     }
 
     private float GetCanvasScale()
