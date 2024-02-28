@@ -11616,8 +11616,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 235219209}
-  ElementDiscoveredText: {fileID: 427534799}
-  TotalElementsText: {fileID: 1442078626}
+  def_discoveryTray: {fileID: 1435075582}
+  def_ElementDiscoveredText: {fileID: 427534799}
+  def_TotalElementsText: {fileID: 1442078626}
+  for_discoveryTray: {fileID: 1105249176}
+  for_ElementDiscoveredText: {fileID: 1642585859}
+  for_TotalElementsText: {fileID: 21308492}
+  aqua_discoveryTray: {fileID: 2059728757}
+  aqua_ElementDiscoveredText: {fileID: 1078761055}
+  aqua_TotalElementsText: {fileID: 1102995469}
   combinationManager: {fileID: 0}
 --- !u!1 &521338407
 GameObject:
