@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
+using UnityEngine.UI.Extensions;
 using System.Linq;
 
 public class combinationManager : MonoBehaviour
@@ -150,6 +151,13 @@ public class combinationManager : MonoBehaviour
     [Header("Duplicated Gameobjects")]
     public GameObject[] duplicatedObjs;
     public GameObject[] switchedOffGameObjects;
+
+    [Header("Partciles System")]
+    public GameObject def_DaimondParticles;
+    public GameObject for_DaimondParticles;
+    public GameObject aqua_DaimondParticles;
+
+    public string selectedTheme;
     private void Start()
     {
         //Start-Preload.
@@ -158,6 +166,7 @@ public class combinationManager : MonoBehaviour
         elementManager = FindObjectOfType<ElementManager>();
         charMessages = FindObjectOfType<CharacterMessages>();
         soundManager = FindObjectOfType<SoundManager>();
+
         //elementsPanel = GameObject.Find("AllElements");
         //def_topScrollView = GameObject.Find("Def_TopScroll_Content");
         //def_BottomScrollView = GameObject.Find("Def_DownScroll_Content");
@@ -198,7 +207,7 @@ public class combinationManager : MonoBehaviour
    
     private void Update()
     {
-
+        selectedTheme = PlayerPrefs.GetString("Theme");
         //Fetching All Created List
         LoadCreatedElementList();
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
@@ -306,10 +315,37 @@ public class combinationManager : MonoBehaviour
     public void CalculateScore()
     {
         FinalScore += 5;
+        StartCoroutine(playDaimondParticles());
         elementDiscoveredCount = PlayerPrefs.GetInt("StringCount");//Needs To Change
         SaveScore();
     }
 
+    IEnumerator playDaimondParticles()
+    {
+        switch (selectedTheme)
+        {
+            case "Default":
+                def_DaimondParticles.SetActive(true);
+                yield return new WaitForSeconds(6f);
+                def_DaimondParticles.SetActive(false);
+
+                break;
+
+            case "Forest":
+                for_DaimondParticles.SetActive(true);
+                yield return new WaitForSeconds(6f);
+                for_DaimondParticles.SetActive(false);
+                break;
+
+            case "Aqua":
+                aqua_DaimondParticles.SetActive(true);
+                yield return new WaitForSeconds(6f);
+                aqua_DaimondParticles.SetActive(false);
+                break;
+        }
+
+        
+    }
     public void SaveScore()
     {
         PlayerPrefs.SetInt("SavedScore", FinalScore);
@@ -426,6 +462,7 @@ public class combinationManager : MonoBehaviour
         charManager.CloseCurrentMessage();
         yield return new WaitForSeconds(3f);
         NewCreatedElementPanelAnimator.SetBool("IsOpen", false);
+       
         elementManager.MakeGameObjectsNull();
         GiveNewElementFoundMessage();
         soundManager.playSound_Character_NewElementFound();

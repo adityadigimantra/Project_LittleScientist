@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text ScoreText;
+    [Header("Themes Scores Text")]
+    public GameObject def_ScorePanel;
+    public Text def_ScoreText;
+    public GameObject for_ScorePanel;
+    public Text for_ScoreText;
+    public GameObject aqua_ScorePanel;
+    public Text aqua_ScoreText;
 
     [Header("Def_Discovery Tray Data")]
     public GameObject def_discoveryTray;
@@ -23,6 +29,8 @@ public class ScoreManager : MonoBehaviour
     public Text aqua_TotalElementsText;
 
     public combinationManager combinationManager;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +42,22 @@ public class ScoreManager : MonoBehaviour
     {
         if (combinationManager != null)
         {
-            ScoreText.text = combinationManager.FinalScore.ToString();
-            if(def_discoveryTray.activeSelf)
+            if(def_ScorePanel.activeSelf)
+            {
+                def_ScoreText.text = combinationManager.FinalScore.ToString();
+            }
+            if (for_ScorePanel.activeSelf)
+            {
+                for_ScoreText.text = combinationManager.FinalScore.ToString();
+            }
+            if (aqua_ScorePanel.activeSelf)
+            {
+                aqua_ScoreText.text = combinationManager.FinalScore.ToString();
+            }
+
+
+
+            if (def_discoveryTray.activeSelf)
             {
                 def_ElementDiscoveredText.text = combinationManager.elementDiscoveredCount.ToString();
                 def_TotalElementsText.text = "/" + combinationManager.TotalElements.ToString();
