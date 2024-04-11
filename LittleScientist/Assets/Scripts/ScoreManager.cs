@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
             if(aqua_discoveryTray.activeSelf)
             {
                 aqua_ElementDiscoveredText.text = combinationManager.elementDiscoveredCount.ToString();
-                def_TotalElementsText.text = "/" + combinationManager.TotalElements.ToString();
+                aqua_TotalElementsText.text = "/" + combinationManager.TotalElements.ToString();
             }
             
         }

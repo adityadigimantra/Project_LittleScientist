@@ -157,9 +157,12 @@ public class combinationManager : MonoBehaviour
     public GameObject for_DaimondParticles;
     public GameObject aqua_DaimondParticles;
 
+    public string operatingSystem;
+    public string osName;
     public string selectedTheme;
     private void Start()
     {
+       
         //Start-Preload.
         elementLoaderObj = FindObjectOfType<ElementLoader>();
         charManager = FindObjectOfType<CharacterManager>();
@@ -209,6 +212,7 @@ public class combinationManager : MonoBehaviour
     {
         selectedTheme = PlayerPrefs.GetString("Theme");
         //Fetching All Created List
+        getOsName();
         LoadCreatedElementList();
         tempNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
         
@@ -219,6 +223,24 @@ public class combinationManager : MonoBehaviour
         {
             elementManager.DisablingObjects();
         }
+    }
+
+    public void getOsName()
+    {
+        operatingSystem = SystemInfo.operatingSystem;
+        if (operatingSystem.Contains("Windows"))
+        {
+            osName = "Windows";
+        }
+        else if (operatingSystem.Contains("Mac"))
+        {
+            osName = "MacOS";
+        }
+        else
+        {
+            osName = "Other";
+        }
+        Debug.Log("Operating System: " + osName);
     }
     public void SettingPlayerPrefsValuetoZero()
     {
@@ -469,6 +491,24 @@ public class combinationManager : MonoBehaviour
         currentElementState = ElementState.InitialState;
     }
 
+    public void setScaleOfDiscoveryElements()
+    {
+        switch (osName)
+        {
+            case "Windows":
+                discovery_element.transform.localScale = new Vector2(1f,1f);
+                break;
+
+            case "MacOs":
+                discovery_element.transform.localScale = new Vector2(1f, 1f);
+                break;
+
+            case "Other":
+                discovery_element.transform.localScale = new Vector2(1f, 1f);
+                break;
+        }
+
+    }
     public void LoadCreatedElementList()
     {
         int count = PlayerPrefs.GetInt("StringCount");
@@ -496,14 +536,14 @@ public class combinationManager : MonoBehaviour
  
                 discovery_element.transform.GetChild(2).GetComponent<Text>().text = charManager.ConvertToUpperCase(loadedString);
                 discovery_element.GetComponent<BoxCollider2D>().enabled = false;
-                discovery_element.transform.localScale = new Vector2(1f, 1f);
                 placingElementsInDiscoveryTray();
+
 
                 // if(PlayerPrefs.GetInt("CleanedUpNewCreatedElement")==0)
 
                 //Creating New Elements for Play Area
-                   
-                    InsideBox_newObj = Instantiate(newCreatedElement);
+
+                InsideBox_newObj = Instantiate(newCreatedElement);
                     InsideBox_newObj.name = loadedString;
                 string selectedTheme = PlayerPrefs.GetString("Theme");
                 switch(selectedTheme)
@@ -828,16 +868,19 @@ public class combinationManager : MonoBehaviour
         switch(selectedTheme)
         {
             case "Default":
-                discovery_element.transform.position = def_discoveryTray_Panel.transform.position;
+                //discovery_element.transform.position = def_discoveryTray_Panel.transform.position;
                 discovery_element.transform.parent = def_discoveryTray_Panel.transform;
+                setScaleOfDiscoveryElements();
                 break;
             case "Forest":
-                discovery_element.transform.position = for_discoveryTray_Panel.transform.position;
+                //discovery_element.transform.position = for_discoveryTray_Panel.transform.position;
                 discovery_element.transform.parent = for_discoveryTray_Panel.transform;
+                setScaleOfDiscoveryElements();
                 break;
             case "Aqua":
-                discovery_element.transform.position = aqua_discoveryTray_Panel.transform.position;
+                //discovery_element.transform.position = aqua_discoveryTray_Panel.transform.position;
                 discovery_element.transform.parent = aqua_discoveryTray_Panel.transform;
+                setScaleOfDiscoveryElements();
                 break;
         }
         
