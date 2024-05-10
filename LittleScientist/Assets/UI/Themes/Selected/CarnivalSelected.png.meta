@@ -1,0 +1,925 @@
+fileFormatVersion: 2
+guid: 5671bef2f56a0f64bbcff69cfd3742fe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7012440375542714460
+    second: CarnivalSelected_0
+  - first:
+      213: -7237192570807248113
+    second: CarnivalSelected_1
+  - first:
+      213: -7810385656123053469
+    second: CarnivalSelected_2
+  - first:
+      213: 694226781941230951
+    second: CarnivalSelected_3
+  - first:
+      213: 6759974449343805113
+    second: CarnivalSelected_4
+  - first:
+      213: -318167475142726440
+    second: CarnivalSelected_5
+  - first:
+      213: -7141841534131222748
+    second: CarnivalSelected_6
+  - first:
+      213: -1938348029088361485
+    second: CarnivalSelected_7
+  - first:
+      213: -8080191984341985080
+    second: CarnivalSelected_8
+  - first:
+      213: -3458446621575739963
+    second: CarnivalSelected_9
+  - first:
+      213: -2974972272093309550
+    second: CarnivalSelected_10
+  - first:
+      213: -4726881988800828372
+    second: CarnivalSelected_11
+  - first:
+      213: -584300238013688958
+    second: CarnivalSelected_12
+  - first:
+      213: 1875945053686205498
+    second: CarnivalSelected_13
+  - first:
+      213: 7792059937088083602
+    second: CarnivalSelected_14
+  - first:
+      213: 9062850752755968062
+    second: CarnivalSelected_15
+  - first:
+      213: -6924728348812572986
+    second: CarnivalSelected_16
+  - first:
+      213: 9138414366961938189
+    second: CarnivalSelected_17
+  - first:
+      213: -369941804899765972
+    second: CarnivalSelected_18
+  - first:
+      213: -2690147496320465780
+    second: CarnivalSelected_19
+  - first:
+      213: 258922219846751010
+    second: CarnivalSelected_20
+  - first:
+      213: 1525134193005979413
+    second: CarnivalSelected_21
+  - first:
+      213: -8085266974593221144
+    second: CarnivalSelected_22
+  - first:
+      213: -2126792410776030852
+    second: CarnivalSelected_23
+  - first:
+      213: -959733483929254350
+    second: CarnivalSelected_24
+  - first:
+      213: -6384818632558979170
+    second: CarnivalSelected_25
+  - first:
+      213: 7825747079845114661
+    second: CarnivalSelected_26
+  - first:
+      213: 4909808397350870550
+    second: CarnivalSelected_27
+  - first:
+      213: -3276599928421060034
+    second: CarnivalSelected_28
+  - first:
+      213: -4415159749735021095
+    second: CarnivalSelected_29
+  - first:
+      213: 8988737106333203716
+    second: CarnivalSelected_30
+  - first:
+      213: 2650692591951732381
+    second: CarnivalSelected_31
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CarnivalSelected_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 50
+        width: 1450
+        height: 1450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af6b27c1aeceae90800000000000000
+      internalID: -7012440375542714460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1239
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b10fd73b3509b90800000000000000
+      internalID: -7237192570807248113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1234
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36aaaff70afeb9390800000000000000
+      internalID: -7810385656123053469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_3
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1196
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d6b2b749362a900800000000000000
+      internalID: 694226781941230951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1180
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6badf12f040dd50800000000000000
+      internalID: 6759974449343805113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_5
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1160
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dce809fd54a59bf0800000000000000
+      internalID: -318167475142726440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_6
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1099
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4274afbb6f413ec90800000000000000
+      internalID: -7141841534131222748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_7
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1094
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f31c13ccba9915e0800000000000000
+      internalID: -1938348029088361485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 983
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8565073346ddf80800000000000000
+      internalID: -8080191984341985080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 978
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5045e0f112100d0800000000000000
+      internalID: -3458446621575739963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 940
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295dd390b76c6b6d0800000000000000
+      internalID: -2974972272093309550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_11
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 924
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ca55210edb66eb0800000000000000
+      internalID: -4726881988800828372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 904
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283940f770624e7f0800000000000000
+      internalID: -584300238013688958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_13
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 843
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c0e1f4612b80a10800000000000000
+      internalID: 1875945053686205498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 838
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29610ba8a35f22c60800000000000000
+      internalID: 7792059937088083602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_15
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 727
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38a66a1eb6b5cd70800000000000000
+      internalID: 9062850752755968062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_16
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 722
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c603fa614c66ef90800000000000000
+      internalID: -6924728348812572986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 684
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0fa719037b22de70800000000000000
+      internalID: 9138414366961938189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_18
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 668
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21f16373e3bddaf0800000000000000
+      internalID: -369941804899765972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_19
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 648
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c848968ea1daaaad0800000000000000
+      internalID: -2690147496320465780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_20
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 587
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223db6a1360e79300800000000000000
+      internalID: 258922219846751010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_21
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 582
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5176ce0d77d5a2510800000000000000
+      internalID: 1525134193005979413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_22
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 471
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed7c21368c5bcf80800000000000000
+      internalID: -8085266974593221144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_23
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 466
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71b2b4129d1c72e0800000000000000
+      internalID: -2126792410776030852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 428
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23649533b775ea2f0800000000000000
+      internalID: -959733483929254350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_25
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 412
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97d60b28419467a0800000000000000
+      internalID: -6384818632558979170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 392
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523f73ca183aa9c60800000000000000
+      internalID: 7825747079845114661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_27
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 25
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e145f59b4232440800000000000000
+      internalID: 4909808397350870550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_28
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 25
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e32746ba9bd2782d0800000000000000
+      internalID: -3276599928421060034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_29
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 25
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d50172a9933ab2c0800000000000000
+      internalID: -4415159749735021095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_30
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 25
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40dfc5a16c86ebc70800000000000000
+      internalID: 8988737106333203716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarnivalSelected_31
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 25
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9eda005ed629c420800000000000000
+      internalID: 2650692591951732381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bad183dafed2dec47a35561dcc48e2a3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

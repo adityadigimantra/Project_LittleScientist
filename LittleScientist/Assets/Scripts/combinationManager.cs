@@ -565,11 +565,6 @@ public class combinationManager : MonoBehaviour
                     GameObject[] varNewCreatedObj = GameObject.FindGameObjectsWithTag("NewCreatedElement");
                     Debug.Log("New Element Created Pos1=" + newCreatedElementPos);
                     
-                   
-               
-
-                if (PlayerPrefs.GetInt("IsRestart") == 0)
-                { 
 
                         foreach (GameObject g in var)
                         {
@@ -611,18 +606,11 @@ public class combinationManager : MonoBehaviour
                             InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                         }
 
-                }
-                else
-                {
-                    Debug.Log("after Restart");
-
                     LoadNewElementPositionFunction(loadedString);
                     InsideBox_newObj.GetComponent<RectTransform>().transform.localPosition = loadedPosition;
                     InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().sprite = newObj.transform.GetChild(1).GetComponent<Image>().sprite;
                     InsideBox_newObj.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
                     switchingOffElements();
-                }
-
 
                 //Element Inside Play area
                 Sprite elementImage = LoadElementImage(loadedString);
@@ -638,21 +626,8 @@ public class combinationManager : MonoBehaviour
                     NewelementImage.sprite = elementImage;
                     string finalStringtoShowOnPanel=charManager.ConvertToUpperCase(loadedString);
                     newElementText.text = finalStringtoShowOnPanel;
-                    //FunfactText.text = funfactstr;
                 }
-                //Instance_Element.isColliding = false;
-                //int childinLeftScrollLocal = leftScrollView.transform.childCount;
-                //if (childinLeftScrollLocal >= 5)
-                //{
-                   // break;
-                //}
-                //int childInTopScrolllocal = topScrollView.transform.childCount;
-                //if (childInTopScrolllocal >= 8)
-                //{
-                    //break;
-                //}
             }
-            //HandlingDuplicatedElements(disabledGameobjects, loadCreatedElements);
         }
         
     }
